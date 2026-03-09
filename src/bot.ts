@@ -517,7 +517,6 @@ export function createBot(): Bot {
       '/respin — Reload recent context\n' +
       '/voice — Toggle voice mode on/off\n' +
       '/model — Switch model (opus/sonnet/haiku)\n' +
-      '/statusline — View Claude Code statusline\n' +
       '/memory — View recent memories\n' +
       '/forget — Clear session\n' +
       '/wa — WhatsApp messages\n' +
@@ -635,58 +634,6 @@ export function createBot(): Bot {
     await ctx.reply(`Model changed: ${arg} (${modelId})`);
   });
 
-  // /statusline — show Claude Code statusline (from statusLine command)
-  bot.command('statusline', async (ctx) => {
-    if (!isAuthorised(ctx.chat!.id)) return;
-    try {
-      const { execSync } = await import('child_process');
-      const settingsPath = `${process.env.HOME || process.env.USERPROFILE}/.claude/settings.json`;
-      if (!fs.existsSync(settingsPath)) {
-        await ctx.reply('No statusline configured.');
-        return;
-      }
-      const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf-8'));
-      if (!settings.statusLine || settings.statusLine.type !== 'command') {
-        await ctx.reply('No statusline command configured.');
-        return;
-      }
-
-      const chatId = ctx.chat!.id.toString();
-      const usage = lastUsage.get(chatId);
-
-      // Build context data for statusline script
-      const contextData = {
-        model: {
-          display_name: chatModelOverride.get(chatId) || agentDefaultModel,
-        },
-        context_window: {
-          context_window_size: CONTEXT_LIMIT,
-          current_usage: usage ? {
-            input_tokens: usage.inputTokens,
-            cache_creation_input_tokens: usage.lastCallCacheRead,
-            cache_read_input_tokens: usage.cacheReadInputTokens,
-          } : undefined,
-        },
-        cost: {
-          total_duration_ms: 0,
-        },
-        workspace: {
-          current_dir: process.cwd(),
-        },
-      };
-
-      const output = execSync(settings.statusLine.command, {
-        encoding: 'utf-8',
-        input: JSON.stringify(contextData),
-      }).trim();
-      await ctx.reply(`<b>Claude Code Statusline</b>\n\n<code>${escapeHtml(output)}</code>`, {
-        parse_mode: 'HTML',
-      });
-    } catch (err) {
-      logger.error({ error: err }, 'Failed to read Claude Code statusline');
-      await ctx.reply('Failed to read statusline.');
-    }
-  });
 
   // /memory — show recent memories for this chat
   bot.command('memory', async (ctx) => {
@@ -803,7 +750,7 @@ export function createBot(): Bot {
   });
 
   // Text messages — and any slash commands not owned by this bot (skills, e.g. /todo /gmail)
-  const OWN_COMMANDS = new Set(['/start', '/help', '/newchat', '/respin', '/voice', '/model', '/statusline', '/memory', '/forget', '/chatid', '/wa', '/slack', '/dashboard', '/stop']);
+  const OWN_COMMANDS = new Set(['/start', '/help', '/newchat', '/respin', '/voice', '/model', '/memory', '/forget', '/chatid', '/wa', '/slack', '/dashboard', '/stop']);
   bot.on('message:text', async (ctx) => {
     const text = ctx.message.text;
     const chatIdStr = ctx.chat!.id.toString();

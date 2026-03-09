@@ -121,6 +121,10 @@ export async function runAgent(
   if (secrets.ANTHROPIC_API_KEY) {
     sdkEnv.ANTHROPIC_API_KEY = secrets.ANTHROPIC_API_KEY;
   }
+  // Unset CLAUDECODE: ClaudeClaw (Node process) is not a Claude Code session,
+  // so subprocesses should not inherit this. Only actual CLI sessions set it.
+  // This allows the SDK to safely spawn `claude` subprocesses.
+  delete sdkEnv.CLAUDECODE;
 
   let newSessionId: string | undefined;
   let resultText: string | null = null;

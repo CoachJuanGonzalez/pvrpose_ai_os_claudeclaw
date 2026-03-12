@@ -59,7 +59,7 @@ PVRPOSE AI OS EA Superpowers is not a new product. It is a specific **configurat
 The technology is identical to the standard PVRPOSE AI OS build documented in the master SOP. The difference is:
 
 - **Who uses it:** Two people — the founder AND their EA — not just the founder
-- **How it is positioned:** "Make your EA superhuman" not "replace your EA"
+- **How it is positioned:** "Give your EA AI superpowers" not "replace your EA"
 - **How CLAUDE.md is configured:** The system knows both the founder's voice AND the EA's workflow patterns
 - **What use cases are documented:** EA-specific trigger phrases, briefing formats, and delegation patterns
 - **How it is sold:** Door 2 — for founders who already have support staff
@@ -98,20 +98,20 @@ Every other AI tool on the market says "replace your assistant." PVRPOSE AI OS E
 This positioning wins for three reasons:
 
 **1. Removes the threat response.**
-When you tell a founder "replace your EA," you trigger a loyalty response — especially for founders who have a long-standing relationship with their assistant. When you say "make your EA superhuman," you activate a different emotion: pride. Their EA becomes the hero of the story.
+When you tell a founder "replace your EA," you trigger a loyalty response — especially for founders who have a long-standing relationship with their assistant. When you say "give your EA AI superpowers," you activate a different emotion: pride. Their EA becomes the hero of the story.
 
 **2. Creates two internal buyers instead of one.**
 The founder wants more output. The EA wants job security and to stop doing tedious work. Both get what they want. The EA becomes an advocate for the sale, not a silent objection.
 
 **3. The ROI math is immediate.**
-The founder is already paying $67K–$94K CAD/year for the EA. A $20K build that makes that person 3–10x more productive is obvious math. Payback period is under 4 months. No sophisticated financial modeling required.
+The founder is already paying $63K–$98K CAD/year for the EA (Robert Half 2026). A $20K build that makes that person 3× more productive is obvious math. Payback period is 3–6 months. No sophisticated financial modeling required.
 
 ### Two Doors, One System
 
 | | Door 1 — Solo Founder | Door 2 — EA Superpowers |
 |---|---|---|
 | **Who** | Founder manages everything themselves | Founder + EA or Chief of Staff |
-| **First sentence** | "I build you a personal AI assistant" | "I make your EA superhuman" |
+| **First sentence** | "I build you a personal AI assistant" | "I give your EA AI superpowers" |
 | **Primary pain** | Admin overload, no support | EA is bottlenecked, not leveraged |
 | **ROI framing** | Hours reclaimed for the founder | EA handles 3x volume, no new hire |
 | **Objection** | "Is AI really ready for this?" | "Will this replace my EA?" |
@@ -356,14 +356,14 @@ The EA is responsible for keeping the markdown prospect files in sync with Airta
 
 **Why the EA does this:** EA already updates Airtable as part of their daily workflow. Adding the markdown file update takes 30 seconds per record and ensures the PVRPOSE AI OS briefings reflect current CRM state.
 
-### Phase 2: n8n Auto-Sync (EA-Supervised)
+### Phase 2: Direct API Skill (EA-Supervised)
 
-When n8n sync is active (Week 2–3 of client build), prospect files update automatically when Airtable records change.
+When the Airtable direct API skill is active (Week 2–3 of client build), Claude reads and writes Airtable records on demand via REST API. No middleware, no sync delays.
 
 **EA oversight role:**
-- EA monitors that syncs are running correctly via the web dashboard
-- EA handles any sync failures flagged by the system
-- EA is the human point of contact for Airtable field mapping issues
+- EA monitors that API calls are returning correct data via the web dashboard
+- EA handles any API errors or field mapping issues flagged by the system
+- EA is the human point of contact for Airtable schema changes
 
 ### Phase 3: Direct Airtable API Skill (EA as Query Operator)
 
@@ -1072,7 +1072,7 @@ Add to the standard QA checklist from master SOP Section 12:
 **Week 3–4 post-delivery:**
 - Identify which use cases from Categories A–N have not been triggered yet
 - Run a 30-minute "advanced features" session with EA to unlock unused capabilities
-- If applicable: begin scoping Airtable n8n sync for Phase 2
+- If applicable: begin scoping Airtable direct API skill for Phase 2
 
 ---
 
@@ -1111,7 +1111,7 @@ When replicating the build for a new EA-configuration client, complete all items
 |---|---|---|---|
 | Microsoft Copilot | Office suite AI integration | Generic summarization | Not built around the founder's voice or workflow |
 | Notion AI | Document-level AI in Notion | Page drafting | Not connected to calendar, email, WhatsApp, CRM |
-| Superhuman | AI-enhanced email | Inbox triage only | No calendar, no CRM, no multi-channel, no voice |
+| Superhuman (Grammarly) | AI-enhanced email + writing (40M+ users since Oct 2025 rebrand) | Inbox triage + writing | No calendar, no CRM, no multi-channel, no voice, no founder-specific config |
 | Harvey AI | Legal document AI | Replaces junior staff | Not a personal OS, not mobile-first |
 | Generic VA agencies | Human EAs + ChatGPT | DIY prompt use | Not custom-configured to a specific founder's voice |
 | PVRPOSE AI OS | Custom founder+EA OS | Full stack, voice-aware, mobile-first | **This is the gap** |
@@ -1142,7 +1142,7 @@ PVRPOSE AI OS EA Superpowers does none of these. It:
 ### The EA ROI Equation
 
 **Input (what the client is already spending):**
-- EA salary: $67K–$94K CAD/year ($5,600–$7,800/month)
+- EA salary: $63K–$98K CAD/year ($5,250–$8,170/month, Robert Half 2026)
 - EA time on automatable tasks: 60–80% of their hours
 - Automatable hours per week: 24–32 hours (of a 40-hour week)
 - Cost of automatable EA time: $3,360–$6,240/month
@@ -1192,7 +1192,7 @@ PVRPOSE AI OS EA Superpowers does none of these. It:
 **Agency (Owner with EA or Operations Manager):**
 - EA/Ops currently spends: Client communication, project briefing, weekly reporting
 - With PVRPOSE AI OS: Automated briefing prep, voice-drafted client updates, LinkedIn content pipeline
-- Owner reclaims: 15–20 hours/week
+- Owner reclaims: 10–15 hours/week
 - Build cost payback: 4–6 months
 
 ---

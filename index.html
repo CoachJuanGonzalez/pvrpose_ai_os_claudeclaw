@@ -71,7 +71,7 @@
 
         // Custom event tracking helper — no-op until GA4 is configured
         window.trackEvent = function(eventName, eventParams) {
-            console.log('GA4 Event (not tracked — GA4 not configured):', eventName, eventParams);
+            // GA4 not yet configured — events queued silently
         };
     </script>
 
@@ -84,7 +84,7 @@
             theme: {
                 extend: {
                     colors: {
-                        'deep-blue': '#1E3A8A',
+                        'deep-blue': '#7c3aed',
                         'brand-pink': '#ec4899',
                         'brand-purple': '#8b5cf6',
                     },
@@ -117,7 +117,7 @@
         }
 
         .gradient-accent {
-            background: linear-gradient(135deg, #ec4899 0%, #1E3A8A 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #7c3aed 100%);
         }
 
         /* Glassmorphism effects */
@@ -130,11 +130,11 @@
         }
 
         .glass-dark {
-            background: rgba(30, 58, 138, 0.1);
+            background: rgba(124, 58, 237, 0.1);
             -webkit-backdrop-filter: blur(10px);
             -moz-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(30, 58, 138, 0.18);
+            border: 1px solid rgba(124, 58, 237, 0.18);
         }
 
         /* Micro-interactions — only on devices with real hover (not touch-only) */
@@ -204,13 +204,13 @@
 
         /* Enhanced button styles */
         .btn-primary {
-            background: linear-gradient(135deg, #1E3A8A 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
             transition: all 0.3s ease;
-            box-shadow: 0 4px 14px rgba(30, 58, 138, 0.4);
+            box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
         }
 
         .btn-primary:hover {
-            box-shadow: 0 6px 20px rgba(30, 58, 138, 0.6);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.6);
             transform: translateY(-2px);
         }
 
@@ -218,7 +218,7 @@
         .stat-number {
             font-weight: 800;
             color: #ec4899; /* fallback for browsers that don't support gradient text */
-            background: linear-gradient(135deg, #ec4899 0%, #1E3A8A 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #7c3aed 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             -moz-background-clip: text;
@@ -272,7 +272,7 @@
             left: 0;
             right: 0;
             z-index: 999;
-            background: linear-gradient(135deg, #ec4899 0%, #1E3A8A 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #7c3aed 100%);
             padding: 12px 16px;
             /* iOS safe-area support for notch/home bar */
             padding-bottom: calc(12px + env(safe-area-inset-bottom));
@@ -382,7 +382,7 @@
 
         /* Pioneer urgency top bar */
         .pioneer-bar {
-            background: linear-gradient(135deg, #1E3A8A 0%, #ec4899 100%);
+            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
             color: white;
             text-align: center;
             padding: 10px 16px;
@@ -399,7 +399,7 @@
             justify-content: center;
         }
         .pioneer-bar a {
-            color: #fde68a;
+            color: #fbcfe8;
             text-decoration: underline;
             font-weight: 700;
         }
@@ -409,8 +409,8 @@
 
         /* Pioneer section boxes */
         .pioneer-free-box {
-            border: 3px solid #1E3A8A;
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 3px solid #7c3aed;
+            background: linear-gradient(135deg, #faf5ff 0%, #ede9fe 100%);
             position: relative;
         }
         .pioneer-paid-box {
@@ -485,8 +485,8 @@
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <a href="/" class="flex flex-col items-center leading-none">
-                    <img src="/logotypes-ai-rez-01.png" alt="PVRPOSE AI" class="nav-logo" />
-                    <span class="text-gray-400 text-xs sm:text-sm text-center mt-1">Own Your Voice. Vision. Vibe.</span>
+                    <img src="/logotypes-ai-rez-01.png" alt="PVRPOSE AI" class="nav-logo" loading="eager" />
+                    <span class="text-gray-500 text-xs sm:text-sm text-center mt-1">Own Your Voice. Vision. Vibe.</span>
                 </a>
 
                 <!-- Desktop Navigation Links -->
@@ -520,7 +520,7 @@
     </nav>
 
     <!-- BILL 96 FRENCH LANGUAGE NOTICE (Quebec CFL Compliance) -->
-    <div style="background:#1E3A8A;color:#fff;text-align:center;padding:8px 16px;font-size:13px;line-height:1.5;">
+    <div style="background:#7c3aed;color:#fff;text-align:center;padding:8px 16px;font-size:13px;line-height:1.5;">
         <!-- Mobile: compact single line -->
         <span class="inline md:hidden">🇫🇷 Version française en préparation — <a href="mailto:juan@pvrpose.ai" style="color:#fbcfe8;text-decoration:underline;">juan@pvrpose.ai</a></span>
         <!-- Desktop: full notice -->
@@ -540,34 +540,34 @@
             <!-- EA / Solo Founder Toggle -->
             <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6" id="hero-toggle">
                 <button id="tab-solo" onclick="setHeroTab('solo')"
-                    class="hero-tab-btn px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600">
+                    class="hero-tab-btn w-full sm:w-auto cursor-pointer px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600">
                     Solo Founder
                 </button>
                 <button id="tab-ea" onclick="setHeroTab('ea')"
-                    class="hero-tab-btn px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-blue-900 text-white shadow-lg">
+                    class="hero-tab-btn w-full sm:w-auto cursor-pointer px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-purple-900 text-white shadow-lg">
                     I Have an EA / Chief of Staff
                 </button>
             </div>
 
             <!-- Headline (Value-First) -->
             <!-- Solo H1 -->
-            <h1 id="hero-h1-solo" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight hero-headline">
+            <h1 id="hero-h1-solo" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight hero-headline">
                 Run Your Entire Business From Your Phone.<br />
-                <span class="gradient-accent bg-clip-text text-transparent">Live in 6 Weeks. Reclaim 20 Hours/Week.</span>
+                <span class="gradient-accent bg-clip-text text-transparent">Live in 6 Weeks. Reclaim 10–15 Hours/Week.</span>
             </h1>
             <!-- EA H1 (hidden by default) -->
-            <h1 id="hero-h1-ea" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight hero-headline hidden">
+            <h1 id="hero-h1-ea" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight hero-headline hidden">
                 Give Your EA AI Superpowers.<br />
-                <span class="gradient-accent bg-clip-text text-transparent">3 Hours → 20 Minutes. Keep the Human You Trust.</span>
+                <span class="gradient-accent bg-clip-text text-transparent">Drafts, Prep & Triage: 3 Hours → 20 Minutes. Keep the Human You Trust.</span>
             </h1>
 
             <!-- Supporting Tagline -->
             <!-- Solo Tagline -->
-            <p id="hero-tagline-solo" class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium">
+            <p id="hero-tagline-solo" class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium leading-relaxed">
                 A done-for-you AI Operating System built around your voice and strategy. Live in 6 weeks. Your data stays on infrastructure you control. CASL/PIPEDA compliant. You own everything.
             </p>
             <!-- EA Tagline (hidden by default) -->
-            <p id="hero-tagline-ea" class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium hidden">
+            <p id="hero-tagline-ea" class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium leading-relaxed hidden">
                 Your EA stays in control. The AI handles the repetitive work — in your exact voice — so they become 3× more effective.
             </p>
 
@@ -579,7 +579,7 @@
             <!-- Solo CTAs -->
             <div id="hero-cta-solo" class="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a href="#pioneer"
-                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white px-12 py-6 rounded-xl text-xl md:text-2xl font-semibold hover:shadow-xl transition"
+                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold hover:shadow-xl transition text-center"
                    aria-label="Apply for Pioneer Spot"
                    onclick="trackEvent('cta_click', {
                        'cta_type': 'pioneer',
@@ -590,7 +590,7 @@
                 </a>
                 or
                 <a href="/assessment.html"
-                   class="inline-block btn-primary text-white px-12 py-6 rounded-xl text-xl md:text-2xl font-semibold"
+                   class="inline-block btn-primary text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold text-center"
                    style="opacity: 0.75; font-size: 0.9em;"
                    aria-label="Take AI Readiness Assessment"
                    onclick="trackEvent('cta_click', {
@@ -604,13 +604,13 @@
             <!-- EA CTAs (hidden by default) -->
             <div id="hero-cta-ea" class="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center hidden">
                 <a href="#ea-superpowers"
-                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white px-12 py-6 rounded-xl text-xl md:text-2xl font-semibold hover:shadow-xl transition"
+                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold hover:shadow-xl transition text-center"
                    aria-label="Get Your EA Superpowers Demo">
                     Get Your EA Superpowers Demo →
                 </a>
                 or
                 <a href="/assessment.html"
-                   class="inline-block btn-primary text-white px-12 py-6 rounded-xl text-xl md:text-2xl font-semibold"
+                   class="inline-block btn-primary text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold text-center"
                    style="opacity: 0.75; font-size: 0.9em;"
                    aria-label="Take Free Assessment">
                     Take Free Assessment →
@@ -618,7 +618,7 @@
             </div>
             <p class="text-sm text-gray-500 mb-16">Already know you're ready? Apply for a pioneer spot. Not sure yet? Take the 2-minute assessment.</p>
 
-            <div class="max-w-3xl mx-auto mb-10 px-6 py-5 rounded-2xl bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-100 text-center">
+            <div class="max-w-3xl mx-auto mb-10 px-6 py-5 rounded-2xl bg-gradient-to-r from-purple-50 to-purple-50 border border-purple-100 text-center">
                 <p class="text-base md:text-lg font-semibold text-gray-800 italic mb-2">
                     "There aren't individual contributing workers anymore — we all deploy with a set of AIs."
                 </p>
@@ -661,8 +661,8 @@
                     <p class="text-xs text-gray-500">For $100K+ revenue firms with 10+ hrs/week admin load</p>
                 </div>
             </div>
-            <p class="text-center text-xs text-gray-400 mt-6">ROI projections based on documented client outcomes and comparable business analysis, 2023–2025. Results depend on your revenue, admin volume, implementation completeness, and business model. Individual results will vary.</p>
-            <p class="text-center text-xs text-gray-400 mt-2">All ROI figures shown on this page are illustrative projections. Past performance in comparable engagements does not guarantee your results.</p>
+            <p class="text-center text-xs text-gray-500 mt-6">ROI projections based on documented client outcomes and comparable business analysis, 2023–2025. Results depend on your revenue, admin volume, implementation completeness, and business model. Individual results will vary.</p>
+            <p class="text-center text-xs text-gray-500 mt-2">All ROI figures shown on this page are illustrative projections. Past performance in comparable engagements does not guarantee your results.</p>
         </div>
     </section>
 
@@ -673,7 +673,7 @@
             <!-- SOLO FOUNDER VERSION (hidden when EA tab active) -->
             <div id="monday-solo">
                 <div class="text-center mb-12">
-                    <p class="text-pink-600 font-semibold text-sm tracking-widest uppercase mb-3">Your Voice. Your Vision. Your Vibe.</p>
+                    <p class="text-pink-600 font-bold text-xs tracking-widest uppercase mb-3">Your Voice. Your Vision. Your Vibe.</p>
                     <h2 class="text-3xl md:text-5xl font-bold hero-headline mb-4">
                         What Monday Morning Looks Like<br class="hidden md:block"> With Your PVRPOSE AI OS
                     </h2>
@@ -717,20 +717,20 @@
 
                     <div class="flex gap-6 items-start">
                         <div class="flex-shrink-0 w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">EOD</div>
-                        <div class="flex-1 bg-gradient-to-br from-blue-950 via-deep-blue to-blue-900 text-white rounded-2xl p-6 hover-lift">
+                        <div class="flex-1 bg-gradient-to-br from-purple-950 via-deep-blue to-purple-900 text-white rounded-2xl p-6 hover-lift">
                             <p class="text-pink-300 font-bold text-sm uppercase tracking-wide mb-2">The Scorecard</p>
-                            <div class="grid grid-cols-3 gap-4 text-center">
-                                <div><p class="text-3xl font-bold text-white">3 hrs</p><p class="text-blue-300 text-xs mt-1">Reclaimed before lunch</p></div>
-                                <div><p class="text-3xl font-bold text-white">0</p><p class="text-blue-300 text-xs mt-1">Missed follow-ups</p></div>
-                                <div><p class="text-3xl font-bold text-white">100%</p><p class="text-blue-300 text-xs mt-1">Your voice, your brand</p></div>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                                <div><p class="text-3xl font-bold text-white">3 hrs</p><p class="text-purple-300 text-xs mt-1">Reclaimed before lunch</p></div>
+                                <div><p class="text-3xl font-bold text-white">0</p><p class="text-purple-300 text-xs mt-1">Missed follow-ups</p></div>
+                                <div><p class="text-3xl font-bold text-white">100%</p><p class="text-purple-300 text-xs mt-1">Your voice, your brand</p></div>
                             </div>
-                            <p class="text-blue-200 text-sm text-center mt-4 italic">This is not a productivity hack. This is your business operating at a different level.</p>
+                            <p class="text-purple-200 text-sm text-center mt-4 italic">This is not a productivity hack. This is your business operating at a different level.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="text-center mt-12">
-                    <a href="#pioneer" class="inline-block bg-pink-600 hover:bg-pink-700 text-white px-10 py-5 rounded-xl text-lg font-semibold hover-glow transition">
+                    <a href="#pioneer" class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-10 py-5 rounded-xl text-lg font-semibold hover-glow transition">
                         I Want This for My Business →
                     </a>
                     <p class="text-sm text-gray-500 mt-3">3 pioneer spots. Filling now.</p>
@@ -740,7 +740,7 @@
             <!-- EA VERSION (shown when EA tab active, hidden by default) -->
             <div id="monday-ea" class="hidden">
                 <div class="text-center mb-12">
-                    <p class="text-pink-600 font-semibold text-sm tracking-widest uppercase mb-3">Your EA's Voice. Your Vision. Your Vibe.</p>
+                    <p class="text-pink-600 font-bold text-xs tracking-widest uppercase mb-3">Your EA's Voice. Your Vision. Your Vibe.</p>
                     <h2 class="text-3xl md:text-5xl font-bold hero-headline mb-4">
                         What Your EA's Monday Looks Like<br class="hidden md:block"> With PVRPOSE EA Superpowers
                     </h2>
@@ -784,20 +784,20 @@
 
                     <div class="flex gap-6 items-start">
                         <div class="flex-shrink-0 w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">EOD</div>
-                        <div class="flex-1 bg-gradient-to-br from-blue-950 via-deep-blue to-blue-900 text-white rounded-2xl p-6 hover-lift">
+                        <div class="flex-1 bg-gradient-to-br from-purple-950 via-deep-blue to-purple-900 text-white rounded-2xl p-6 hover-lift">
                             <p class="text-pink-300 font-bold text-sm uppercase tracking-wide mb-2">The EA Scorecard</p>
-                            <div class="grid grid-cols-3 gap-4 text-center">
-                                <div><p class="text-3xl font-bold text-white">3×</p><p class="text-blue-300 text-xs mt-1">More output, same EA</p></div>
-                                <div><p class="text-3xl font-bold text-white">0</p><p class="text-blue-300 text-xs mt-1">Interruptions to you</p></div>
-                                <div><p class="text-3xl font-bold text-white">100%</p><p class="text-blue-300 text-xs mt-1">Still your voice</p></div>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                                <div><p class="text-3xl font-bold text-white">3×</p><p class="text-purple-300 text-xs mt-1">More output, same EA</p></div>
+                                <div><p class="text-3xl font-bold text-white">0</p><p class="text-purple-300 text-xs mt-1">Interruptions to you</p></div>
+                                <div><p class="text-3xl font-bold text-white">100%</p><p class="text-purple-300 text-xs mt-1">Still your voice</p></div>
                             </div>
-                            <p class="text-blue-200 text-sm text-center mt-4 italic">Your EA didn't get replaced. They got superpowers.</p>
+                            <p class="text-purple-200 text-sm text-center mt-4 italic">Your EA didn't get replaced. They got superpowers.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="text-center mt-12">
-                    <a href="#ea-superpowers" class="inline-block bg-pink-600 hover:bg-pink-700 text-white px-10 py-5 rounded-xl text-lg font-semibold hover-glow transition">
+                    <a href="#ea-superpowers" class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-10 py-5 rounded-xl text-lg font-semibold hover-glow transition">
                         Give My EA Superpowers →
                     </a>
                     <p class="text-sm text-gray-500 mt-3">3 pioneer spots. Filling now.</p>
@@ -808,7 +808,7 @@
     </section>
 
     <!-- PVRPOSE EA SUPERPOWERS SECTION -->
-    <section class="py-20 px-6 bg-gradient-to-br from-blue-950 via-purple-900 to-pink-900 text-white" id="ea-superpowers">
+    <section class="py-20 px-6 bg-gradient-to-br from-purple-950 via-purple-900 to-pink-900 text-white" id="ea-superpowers">
         <div class="max-w-5xl mx-auto">
             <!-- Eyebrow -->
             <div class="text-center mb-10">
@@ -819,69 +819,97 @@
                     Don't replace your EA.<br>
                     <span class="gradient-accent bg-clip-text text-transparent">Give them superpowers.</span>
                 </h2>
-                <p class="text-lg text-blue-100 max-w-2xl mx-auto">
-                    Your EA stays in control. The AI handles the repetitive work — in your exact voice.
+                <p class="text-lg text-purple-100 max-w-2xl mx-auto">
+                    Your EA stays in control. The AI handles the repetitive work — in your exact voice — so they become 3× more effective.
                 </p>
             </div>
 
-            <!-- Before / After Table — 4 rows -->
-            <div class="mb-12 overflow-x-auto">
+            <!-- Before / After Table — desktop (md+) -->
+            <div class="mb-16 hidden md:block overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead>
                         <tr>
-                            <th class="py-3 px-6 text-pink-300 font-bold text-sm border-b border-white/20 w-1/2">Before — 3 hours</th>
+                            <th class="py-3 px-6 text-red-300 font-bold text-sm border-b border-white/20 w-1/2">Before — 3 hours</th>
                             <th class="py-3 px-6 text-green-300 font-bold text-sm border-b border-white/20 w-1/2">After — 20 minutes</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-white/10">
                         <tr class="hover:bg-white/5 transition">
-                            <td class="py-3 px-6 text-blue-100 text-sm">Drafting replies in the founder's exact voice</td>
+                            <td class="py-3 px-6 text-purple-100 text-sm">Drafting replies in the founder's exact voice</td>
                             <td class="py-3 px-6 text-white text-sm">"Draft CEO's response in her voice" → ready for final polish</td>
                         </tr>
                         <tr class="hover:bg-white/5 transition">
-                            <td class="py-3 px-6 text-blue-100 text-sm">Prepping a brief before every meeting</td>
+                            <td class="py-3 px-6 text-purple-100 text-sm">Prepping a brief before every meeting</td>
                             <td class="py-3 px-6 text-white text-sm">"Brief me for the 3pm call" → CRM + notes + context, instant</td>
                         </tr>
                         <tr class="hover:bg-white/5 transition">
-                            <td class="py-3 px-6 text-blue-100 text-sm">Inbox triage and priority routing</td>
+                            <td class="py-3 px-6 text-purple-100 text-sm">Inbox triage and priority routing</td>
                             <td class="py-3 px-6 text-white text-sm">"Triage last 48 hours" → tagged summaries + suggested replies</td>
                         </tr>
                         <tr class="hover:bg-white/5 transition">
-                            <td class="py-3 px-6 text-blue-100 text-sm">Calendar chaos and deep-work conflicts</td>
+                            <td class="py-3 px-6 text-purple-100 text-sm">Calendar chaos and deep-work conflicts</td>
                             <td class="py-3 px-6 text-white text-sm">"Optimize this week's schedule" → conflict-free proposal, done</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
+            <!-- Before / After Cards — mobile only (hidden md+) -->
+            <div class="mb-16 md:hidden space-y-4">
+                <div class="bg-white/10 rounded-2xl p-5">
+                    <p class="text-xs font-bold text-red-300 uppercase tracking-widest mb-1">Before — 3 hours</p>
+                    <p class="text-purple-100 text-sm leading-relaxed mb-3">Drafting replies in the founder's exact voice</p>
+                    <p class="text-xs font-bold text-green-300 uppercase tracking-widest mb-1">After — 20 minutes</p>
+                    <p class="text-white text-sm leading-relaxed">"Draft CEO's response in her voice" → ready for final polish</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-5">
+                    <p class="text-xs font-bold text-red-300 uppercase tracking-widest mb-1">Before — 3 hours</p>
+                    <p class="text-purple-100 text-sm leading-relaxed mb-3">Prepping a brief before every meeting</p>
+                    <p class="text-xs font-bold text-green-300 uppercase tracking-widest mb-1">After — 20 minutes</p>
+                    <p class="text-white text-sm leading-relaxed">"Brief me for the 3pm call" → CRM + notes + context, instant</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-5">
+                    <p class="text-xs font-bold text-red-300 uppercase tracking-widest mb-1">Before — 3 hours</p>
+                    <p class="text-purple-100 text-sm leading-relaxed mb-3">Inbox triage and priority routing</p>
+                    <p class="text-xs font-bold text-green-300 uppercase tracking-widest mb-1">After — 20 minutes</p>
+                    <p class="text-white text-sm leading-relaxed">"Triage last 48 hours" → tagged summaries + suggested replies</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-5">
+                    <p class="text-xs font-bold text-red-300 uppercase tracking-widest mb-1">Before — 3 hours</p>
+                    <p class="text-purple-100 text-sm leading-relaxed mb-3">Calendar chaos and deep-work conflicts</p>
+                    <p class="text-xs font-bold text-green-300 uppercase tracking-widest mb-1">After — 20 minutes</p>
+                    <p class="text-white text-sm leading-relaxed">"Optimize this week's schedule" → conflict-free proposal, done</p>
+                </div>
+            </div>
+
             <!-- 3 Ultra-Short Benefits -->
-            <div class="grid md:grid-cols-3 gap-6 mb-10 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-center">
                 <div class="bg-white/10 rounded-2xl p-5">
                     <div class="text-3xl mb-2">🏆</div>
-                    <p class="text-white font-medium text-sm">Your EA becomes the hero. Their output triples.</p>
+                    <p class="text-white font-medium text-sm leading-relaxed">Your EA becomes the hero. Their output triples.</p>
                 </div>
                 <div class="bg-white/10 rounded-2xl p-5">
                     <div class="text-3xl mb-2">⏱️</div>
-                    <p class="text-white font-medium text-sm">You reclaim 15–20 strategic hours/week.</p>
+                    <p class="text-white font-medium text-sm leading-relaxed">You reclaim 10–15 strategic hours/week.</p>
                 </div>
-                <div class="bg-white/10 rounded-2xl p-5">
+                <div class="bg-white/10 rounded-2xl p-5 border-l-4 border-pink-400">
                     <div class="text-3xl mb-2">💰</div>
-                    <p class="text-white font-medium text-sm">$20K build. $80K EA salary. Pays back in 4 months.</p>
+                    <p class="text-white font-medium text-sm leading-relaxed">$20K build. $80K EA salary. Pays back in 4 months.</p>
                 </div>
             </div>
 
             <!-- Trust Bar -->
-            <div class="flex flex-wrap justify-center gap-3 mb-10 text-center">
-                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-blue-100">✓ 28-feature AI OS</span>
-                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-blue-100">✓ CASL/PIPEDA compliant</span>
-                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-blue-100">✓ 6-week build</span>
-                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-blue-100">✓ No vendor lock-in</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-10 text-center">
+                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-purple-100">✓ 28-feature AI OS</span>
+                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-purple-100">✓ CASL/PIPEDA compliant</span>
+                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-purple-100">✓ 6-week build</span>
+                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-purple-100">✓ No vendor lock-in</span>
             </div>
 
             <!-- Single CTA -->
             <div class="text-center">
                 <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer"
-                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white px-12 py-5 rounded-xl text-lg font-semibold hover-glow transition">
+                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-12 py-5 rounded-xl text-lg font-semibold hover-glow transition hover:scale-105 transition-transform">
                     See the EA Superpowers Demo →
                 </a>
             </div>
@@ -914,7 +942,7 @@
                         </li>
                         <li class="flex items-start">
                             <span class="text-pink-500 mr-3 font-bold text-xl">✓</span>
-                            <span><strong>$50K–$100K+ annually</strong> and ready to scale</span>
+                            <span><strong>$100K+ annually</strong> and ready to scale</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-pink-500 mr-3 font-bold text-xl">✓</span>
@@ -976,10 +1004,10 @@
                         Take the 2-minute assessment and get your personalized AI Implementation Roadmap.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a href="/assessment.html" class="inline-block btn-primary text-white px-10 py-4 rounded-xl text-lg font-semibold hover-glow">
+                        <a href="/assessment.html" class="inline-block btn-primary text-white w-full sm:w-auto px-6 sm:px-10 py-4 rounded-xl text-lg font-semibold hover-glow text-center">
                             Take Free Assessment →
                         </a>
-                        <a href="#calculator" class="inline-block bg-white text-gray-800 border-2 border-gray-300 px-10 py-4 rounded-xl text-lg font-semibold hover:border-pink-500 hover:bg-gray-50 transition">
+                        <a href="#calculator" class="inline-block bg-white text-gray-800 border-2 border-gray-300 w-full sm:w-auto px-6 sm:px-10 py-4 rounded-xl text-lg font-semibold hover:border-pink-500 hover:bg-gray-50 transition text-center">
                             Calculate ROI
                         </a>
                     </div>
@@ -1001,7 +1029,7 @@
     </section>
 
     <!-- PIONEER SECTION -->
-    <section id="pioneer" class="py-20 px-6 bg-gradient-to-br from-blue-950 via-purple-900 to-pink-900 text-white">
+    <section id="pioneer" class="py-20 px-6 bg-gradient-to-br from-purple-950 via-purple-900 to-pink-900 text-white">
         <div class="max-w-6xl mx-auto">
             <!-- Headline -->
             <div class="text-center mb-4">
@@ -1029,7 +1057,7 @@
             </div>
 
             <!-- Two Boxes -->
-            <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 
                 <!-- Box 1 — Free Spot -->
                 <div class="pioneer-free-box rounded-2xl p-8 relative">
@@ -1114,7 +1142,7 @@
     <!-- James Green Testimonial — Social Proof at Decision Point -->
     <section class="py-16 px-6 bg-white border-b border-gray-100">
         <div class="max-w-2xl mx-auto">
-            <p class="text-pink-600 text-sm uppercase tracking-widest font-semibold mb-8 text-center">What Clients Say After Working With PVRPOSE AI</p>
+            <p class="text-pink-600 text-xs font-bold uppercase tracking-widest mb-8 text-center">What Clients Say After Working With PVRPOSE AI</p>
 
             <!-- Card -->
             <div class="flex flex-col md:flex-row items-center gap-8 bg-gray-50 border border-gray-100 rounded-2xl p-8 shadow-sm hover-lift">
@@ -1123,7 +1151,8 @@
                 <div class="flex-shrink-0">
                     <img src="/James_Green_pic.png"
                          alt="James Green — Managing Partner, Dominion Equity Holdings"
-                         class="w-24 h-24 rounded-full object-cover object-top border-4 border-white shadow-lg">
+                         class="w-24 h-24 rounded-full object-cover object-top border-4 border-white shadow-lg"
+                         loading="lazy">
                 </div>
 
                 <!-- Quote + identity + CTA -->
@@ -1134,7 +1163,7 @@
                         We're creating revenue for almost free.
                     </blockquote>
                     <p class="text-gray-600 font-semibold text-sm mb-1">James Green</p>
-                    <p class="text-gray-400 text-xs mb-4">Managing Partner · Dominion Equity Holdings</p>
+                    <p class="text-gray-500 text-xs mb-4">Managing Partner · Dominion Equity Holdings</p>
                     <a href="#james-green-video"
                        class="inline-flex items-center gap-2 text-pink-600 font-semibold text-sm hover:text-pink-700 transition group">
                         <span class="w-7 h-7 bg-pink-100 rounded-full flex items-center justify-center group-hover:bg-pink-200 transition">
@@ -1230,11 +1259,11 @@
                             <p class="text-lg opacity-90">ROI in Year 1</p>
                         </div>
                     </div>
-                    <div class="text-center">
-                        <a href="/assessment.html" class="inline-block bg-white text-purple-700 px-8 py-4 rounded-xl text-lg font-semibold hover-glow mr-4">
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                        <a href="/assessment.html" class="inline-block bg-white text-purple-700 w-full sm:w-auto px-6 sm:px-8 py-4 rounded-xl text-lg font-semibold hover-glow text-center">
                             Take Free Assessment →
                         </a>
-                        <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-purple-700 px-8 py-4 rounded-xl text-lg font-semibold hover-glow">
+                        <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-purple-700 w-full sm:w-auto px-6 sm:px-8 py-4 rounded-xl text-lg font-semibold hover-glow text-center">
                             Book Discovery Call →
                         </a>
                     </div>
@@ -1313,7 +1342,8 @@
                                 <img src="/dominion-equity-logo.png"
                                      alt="Dominion Equity Holdings"
                                      class="h-16 w-auto object-contain"
-                                     loading="lazy">
+                                     loading="lazy"
+                                     width="160" height="64">
                             </div>
                         </div>
 
@@ -1682,7 +1712,7 @@
                         <p class="text-sm font-semibold text-gray-600 mb-2">TOTAL INVESTMENT:</p>
                         <p class="text-2xl font-bold text-gray-900 mb-2">$15,000 - $25,000 CAD</p>
                         <p class="text-sm text-gray-700 mb-3">One-time for 1–3 working automations</p>
-                        <p class="text-xs text-pink-700 font-semibold">Typical for $100K+ revenue firms with 10+ hrs/week admin: save 10–20 hrs/week or unlock $10K–$50K+ per year</p>
+                        <p class="text-xs text-pink-700 font-semibold">Typical for $100K+ revenue firms with 10+ hrs/week admin: save 10–15 hrs/week or unlock $10K–$50K+ per year</p>
                     </div>
                 </div>
             </div>
@@ -1721,7 +1751,7 @@
 
             <!-- CTA -->
             <div class="text-center mt-12">
-                <a href="/assessment.html" class="inline-block btn-primary text-white px-12 py-5 rounded-xl text-xl font-semibold hover-glow">
+                <a href="/assessment.html" class="inline-block btn-primary text-white w-full sm:w-auto px-6 sm:px-12 py-5 rounded-xl text-xl font-semibold hover-glow">
                     Take Free Assessment – See Your ROI →
                 </a>
                 <p class="text-sm text-gray-500 mt-4">2-minute assessment • Get your personalized AI Implementation Roadmap</p>
@@ -1754,7 +1784,7 @@
             </p>
 
             <!-- Why 6 Weeks Callout -->
-            <div class="max-w-4xl mx-auto mb-16 bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-deep-blue p-8 rounded-r-2xl">
+            <div class="max-w-4xl mx-auto mb-16 bg-gradient-to-r from-purple-50 to-purple-50 border-l-4 border-deep-blue p-8 rounded-r-2xl">
                 <h3 class="text-2xl font-bold mb-4 text-gray-900">Why 6 Weeks Is Better Than "30 Days"</h3>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
@@ -1783,44 +1813,44 @@
 
             <div class="space-y-6">
                 <!-- Week 1–2 -->
-                <div class="flex gap-6 items-start">
-                    <div class="flex-shrink-0 w-24 h-24 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
+                    <div class="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-lg">
                         Week 1–2
                     </div>
                     <div class="flex-1 glass p-6 rounded-2xl">
                         <h3 class="text-2xl font-bold mb-3">AI OS Readiness Audit</h3>
-                        <p class="text-gray-700 mb-3">We map your workflows and identify your highest-ROI automation opportunities. You receive a custom PVRPOSE AI OS blueprint — including your Telegram mobile access plan and private infrastructure setup.</p>
+                        <p class="text-gray-700 mb-3 leading-relaxed">We map your workflows and identify your highest-ROI automation opportunities. You receive a custom PVRPOSE AI OS blueprint — including your Telegram mobile access plan and private infrastructure setup.</p>
                         <p class="text-sm text-gray-600">✓ 2-hour discovery session • ✓ Custom AI OS blueprint • ✓ Telegram mobile access plan • ✓ Private infrastructure plan</p>
                     </div>
                 </div>
 
                 <!-- Week 3–4 -->
-                <div class="flex gap-6 items-start">
-                    <div class="flex-shrink-0 w-24 h-24 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
+                    <div class="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-lg">
                         Week 3–4
                     </div>
                     <div class="flex-1 glass p-6 rounded-2xl">
                         <h3 class="text-2xl font-bold mb-3">Build — Core Automations Live</h3>
-                        <p class="text-gray-700 mb-3">Build and deploy your highest-impact automations on your private infrastructure. Claude Code is configured around your business context — your data, your workflows, your language.</p>
+                        <p class="text-gray-700 mb-3 leading-relaxed">Build and deploy your highest-impact automations on your private infrastructure. Claude Code is configured around your business context — your data, your workflows, your language.</p>
                         <p class="text-sm text-gray-600">✓ Live build sessions • ✓ Weekly demos • ✓ Real-time feedback • ✓ Private server configured</p>
                     </div>
                 </div>
 
                 <!-- Week 5–6 -->
-                <div class="flex gap-6 items-start">
-                    <div class="flex-shrink-0 w-24 h-24 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
+                    <div class="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-lg">
                         Week 5–6
                     </div>
                     <div class="flex-1 glass p-6 rounded-2xl">
                         <h3 class="text-2xl font-bold mb-3">Go-Live — Phone-Controlled from Day 1</h3>
-                        <p class="text-gray-700 mb-3">Full testing, team training, and handoff. Your Telegram mobile interface goes live — tested, working, and accessible from your phone from the moment we hand over the keys.</p>
+                        <p class="text-gray-700 mb-3 leading-relaxed">Full testing, team training, and handoff. Your Telegram mobile interface goes live — tested, working, and accessible from your phone from the moment we hand over the keys.</p>
                         <p class="text-sm text-gray-600">✓ Telegram mobile interface live & tested • ✓ Full QA • ✓ Video training library • ✓ 2-week post-delivery support</p>
                     </div>
                 </div>
             </div>
 
             <!-- Guarantee -->
-            <div class="mt-12 p-8 bg-gradient-to-br from-deep-blue to-blue-700 rounded-2xl text-white text-center">
+            <div class="mt-12 p-8 bg-gradient-to-br from-deep-blue to-purple-700 rounded-2xl text-white text-center">
                 <p class="text-2xl font-bold mb-2">⚡ Delivery Guarantee</p>
                 <p class="text-lg opacity-90">We commit to delivering your agreed PVRPOSE AI OS scope within 6 weeks — or we continue at no additional charge for up to 4 additional weeks.</p>
                 <p class="text-xs opacity-75 mt-3">Subject to client providing timely access, feedback, and cooperation as outlined in the Service Agreement.</p>
@@ -1965,13 +1995,13 @@
                     </ul>
 
                     <p class="text-lg font-semibold">
-                        Outcome: A phone-controlled AI OS that saves 10–20 hours/week. Your data, your infrastructure, your system.
+                        Outcome: A phone-controlled AI OS that saves 10–15 hours/week. Your data, your infrastructure, your system.
                     </p>
                     <p class="text-sm text-gray-500 mt-2">Results vary based on your business volume, workflows, and implementation. These figures are illustrative projections based on past client engagements.</p>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg hover-lift border-l-4 border-blue-600">
+                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg hover-lift border-l-4 border-purple-600">
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                         <h3 class="text-3xl md:text-4xl font-bold mb-2 md:mb-0">AI Optimization Retainer</h3>
                         <div class="text-right">
@@ -2060,7 +2090,7 @@
                 <div class="bg-gray-50 p-6 rounded-2xl shadow-lg text-center hover-lift border-2 border-gray-100">
                     <div class="text-4xl mb-4">🔧</div>
                     <h3 class="font-bold text-lg mb-2">Multi-Platform Expert</h3>
-                    <p class="text-gray-600 text-sm">GoHighLevel • HubSpot • n8n • Airtable • Claude AI</p>
+                    <p class="text-gray-600 text-sm">HubSpot • Airtable • Claude AI • GoHighLevel • n8n (advanced)</p>
                 </div>
 
                 <div class="bg-gray-50 p-6 rounded-2xl shadow-lg text-center hover-lift border-2 border-gray-100">
@@ -2094,7 +2124,7 @@
                 </div>
 
                 <!-- Phone-First Privacy-First differentiator -->
-                <div class="bg-blue-50 p-6 rounded-2xl shadow-lg text-center hover-lift border-2 border-blue-200">
+                <div class="bg-purple-50 p-6 rounded-2xl shadow-lg text-center hover-lift border-2 border-purple-200">
                     <div class="text-4xl mb-4">📱</div>
                     <h3 class="font-bold text-lg mb-2">Phone-First, Privacy-First AI OS</h3>
                     <p class="text-gray-700 text-sm">Run your entire business AI from your phone via Telegram. Your data lives on infrastructure you control — CASL/PIPEDA compliant by design.</p>
@@ -2187,7 +2217,7 @@
                         <span class="text-2xl flex-shrink-0">🔄</span>
                         <div>
                             <p class="font-semibold text-white mb-1">Intelligent Workflows</p>
-                            <p class="text-gray-400 text-sm">n8n-powered automations that route, respond, and escalate — without you touching anything.</p>
+                            <p class="text-gray-400 text-sm">AI-powered automations that route, respond, and escalate — without you touching anything.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 items-start">
@@ -2228,7 +2258,7 @@
                    target="_blank"
                    rel="noopener noreferrer"
                    onclick="trackEvent('cta_click', {'cta_text': 'Get Your AI OS — Book a Free Call', 'section': 'pvrpose_ai_os'})"
-                   class="inline-block px-10 py-5 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold text-lg rounded-2xl hover:opacity-90 transition-all hover-lift shadow-2xl">
+                   class="inline-block w-full sm:w-auto px-6 sm:px-10 py-5 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold text-lg rounded-2xl hover:opacity-90 transition-all hover-lift shadow-2xl text-center">
                     Get Your AI OS — Book a Free Call
                 </a>
                 <p class="text-gray-500 text-sm mt-4">No commitment. 30-minute strategy call. We'll map out what's possible for your business.</p>
@@ -2256,7 +2286,8 @@
                                 <img src="/JuanGonzalez.jpg"
                                      alt="Coach Juan Gonzalez - Founder of PVRPOSE AI"
                                      class="w-full h-full object-cover object-center"
-                                     style="object-position: 50% 30%;" />
+                                     style="object-position: 50% 30%;"
+                                     loading="lazy" />
                             </div>
                         </div>
                     </div>
@@ -2351,7 +2382,7 @@
                 </div>
             </div>
 
-            <div class="bg-gradient-to-br from-blue-900 to-blue-700 text-white p-10 md:p-12 rounded-3xl shadow-2xl hover-glow">
+            <div class="bg-gradient-to-br from-purple-900 to-purple-700 text-white p-10 md:p-12 rounded-3xl shadow-2xl hover-glow">
                 <p class="text-2xl md:text-3xl font-bold mb-6">
                     Know someone who needs AI help?
                 </p>
@@ -2600,7 +2631,7 @@
                             <li><strong>Collaborative Process:</strong> You approve each automation before we move forward</li>
                         </ul>
                         <p class="mb-4">
-                            <strong>Our Real Guarantee:</strong> You'll own a working PVRPOSE AI OS — phone-controlled, running on infrastructure you control — designed to reclaim 20 hours/week. If we can't deliver in 6 weeks, we keep working for free. Specific time savings and revenue outcomes are projections based on past results and are not guaranteed — individual results vary.
+                            <strong>Our Real Guarantee:</strong> You'll own a working PVRPOSE AI OS — phone-controlled, running on infrastructure you control — designed to reclaim 10–15 hours/week. If we can't deliver in 6 weeks, we keep working for free. Specific time savings and revenue outcomes are projections based on past results and are not guaranteed — individual results vary.
                         </p>
                         <p class="font-semibold text-gray-900">
                             We stand behind our work. Over 90% referral and warm-introduction rate proves it.
@@ -2714,7 +2745,6 @@
                         </p>
                     </div>
                 </div>
-            </div>
 
                 <!-- FAQ 11 -->
                 <div class="glass-dark p-8 rounded-2xl hover-lift">
@@ -2809,9 +2839,11 @@
                         </svg>
                     </button>
                     <div id="faq-answer-ea3" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden">
-                        <p>Most clients see measurable time savings in week 1. Full ROI on the build typically happens in 3–6 months for founders with an EA already costing $67K–$94K/year. The math is simple: if the system saves your EA 2 hours/day, that's 40 hours/month of higher-leverage work from someone you're already paying.</p>
+                        <p>Most clients see measurable time savings in week 1. Full ROI on the build typically happens in 3–6 months for founders with an EA already costing $63K–$98K/year (Robert Half 2026). The math is simple: if the system saves your EA 2 hours/day, that's 40 hours/month of higher-leverage work from someone you're already paying.</p>
                     </div>
                 </div>
+
+            </div><!-- end space-y-6 -->
 
             <!-- FAQ CTA -->
             <div class="mt-12 text-center p-8 bg-gradient-to-br from-pink-50 to-purple-50 rounded-3xl border-2 border-pink-200">
@@ -2819,7 +2851,7 @@
                 <p class="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
                     Book a free 30-minute discovery call. We'll answer your specific questions and see if PVRPOSE AI is a good fit for your business.
                 </p>
-                <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer" class="inline-block btn-primary text-white px-10 py-4 rounded-xl text-lg font-semibold hover-glow">
+                <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer" class="inline-block btn-primary text-white w-full sm:w-auto px-6 sm:px-10 py-4 rounded-xl text-lg font-semibold hover-glow text-center">
                     Schedule Discovery Call →
                 </a>
             </div>
@@ -2845,7 +2877,7 @@
     </script>
 
     <!-- PIONEER FAQ SECTION -->
-    <section id="pioneer-faq" class="py-20 px-6 bg-gradient-to-br from-blue-950 via-purple-900 to-pink-900 text-white">
+    <section id="pioneer-faq" class="py-20 px-6 bg-gradient-to-br from-purple-950 via-purple-900 to-pink-900 text-white">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-12">
                 <div class="inline-block bg-white/20 text-white text-sm font-bold px-4 py-2 rounded-full mb-4 uppercase tracking-wide border border-white/40">
@@ -2919,7 +2951,7 @@
             </div>
 
             <div class="text-center mt-10">
-                <a href="#pioneer" class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold px-10 py-4 rounded-xl text-lg transition">
+                <a href="#pioneer" class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold w-full sm:w-auto px-6 sm:px-10 py-4 rounded-xl text-lg transition">
                     Apply for Pioneer Spot →
                 </a>
             </div>
@@ -2941,7 +2973,7 @@
                 <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call"
                    target="_blank"
                    rel="noopener noreferrer"
-                   class="inline-block btn-primary text-white px-12 py-6 rounded-xl text-2xl font-semibold hover-glow"
+                   class="inline-block btn-primary text-white w-full sm:w-auto px-6 sm:px-12 py-5 sm:py-6 rounded-xl text-xl sm:text-2xl font-semibold hover-glow"
                    aria-label="Schedule your free 30-minute discovery call">
                     Schedule Your Free Discovery Call →
                 </a>
@@ -2969,7 +3001,7 @@
     <footer class="bg-black text-white py-16 px-6">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-12">
-                <img src="/logotypes-ai-rez-03.png" alt="PVRPOSE AI - Voice, Vision, Vibe" class="mx-auto mb-4" style="max-width: min(400px, 90vw); height: auto;" />
+                <img src="/logotypes-ai-rez-03.png" alt="PVRPOSE AI - Voice, Vision, Vibe" class="mx-auto mb-4" style="max-width: min(400px, 90vw); height: auto;" loading="lazy" />
                 <p class="text-gray-400 text-lg">Own Your Voice. Vision. Vibe.</p>
             </div>
 
@@ -3395,8 +3427,7 @@
             // Restore mobile CTA bar once cookie banner is dismissed
             document.body.classList.remove('cookie-visible');
 
-            // Log consent for compliance tracking
-            console.log('Cookie consent recorded:', consentData);
+            // Consent recorded in localStorage for compliance tracking
         }
 
         document.getElementById('acceptCookies').addEventListener('click', function() {
@@ -3405,8 +3436,7 @@
 
         document.getElementById('declineCookies').addEventListener('click', function() {
             setCookieConsent(false);
-            // If user declines, we still set essential cookies but log the preference
-            console.log('User declined optional cookies - using essential only');
+            // If user declines, we still set essential cookies but respect their preference
         });
 
         // Check consent on page load
@@ -3569,7 +3599,7 @@
             }
         });
 
-        console.log('✅ Advanced GA4 tracking initialized');
+        // Advanced GA4 tracking initialized (fires when GA4 Measurement ID is configured)
     </script>
     <script>
         function setHeroTab(tab) {
@@ -3590,11 +3620,11 @@
             var soloBtn = document.getElementById('tab-solo');
             var eaBtn = document.getElementById('tab-ea');
             if (isSolo) {
-                soloBtn.className = 'hero-tab-btn px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-blue-900 text-white shadow-lg';
-                eaBtn.className = 'hero-tab-btn px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600';
+                soloBtn.className = 'hero-tab-btn w-full sm:w-auto cursor-pointer px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-purple-900 text-white shadow-lg';
+                eaBtn.className = 'hero-tab-btn w-full sm:w-auto cursor-pointer px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600';
             } else {
-                eaBtn.className = 'hero-tab-btn px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-blue-900 text-white shadow-lg';
-                soloBtn.className = 'hero-tab-btn px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600';
+                eaBtn.className = 'hero-tab-btn w-full sm:w-auto cursor-pointer px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-purple-900 text-white shadow-lg';
+                soloBtn.className = 'hero-tab-btn w-full sm:w-auto cursor-pointer px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600';
             }
         }
         // Default to EA tab on page load

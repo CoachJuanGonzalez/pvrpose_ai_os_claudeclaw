@@ -518,10 +518,10 @@ Every client uses a CRM (Airtable, HubSpot, GoHighLevel, even a spreadsheet). Th
 
 The pattern:
 1. Start with manual sync (client updates both places)
-2. Week 3: set up n8n to auto-sync CRM to markdown files
-3. Week 5: test that Claude is reading fresh data
+2. Week 3: build direct API skill for the client's CRM (Airtable, HubSpot, or GHL)
+3. Week 5: test that Claude is reading fresh data via direct API calls
 
-Always plan for the n8n bridge even if you do not build it in Week 1.
+Always plan for the direct API skill even if you do not build it in Week 1. No middleware (n8n, Zapier, Make) -- direct API calls are more reliable with fewer failure points.
 
 ### Pattern 4: The Demo Moment That Always Closes
 

@@ -105,7 +105,7 @@ The 18-24 month window before Microsoft Copilot and enterprise tools commoditize
 | Offer | Price | Notes |
 |---|---|---|
 | PVRPOSE AI OS Audit | $5,000-7,500 CAD | 2-week engagement, credited toward build |
-| PVRPOSE AI OS Full Build | $15,000-25,000 CAD | 6-week engagement, one-time |
+| PVRPOSE AI OS Full Build | $15,000-$25,000 CAD | 6-week engagement, one-time |
 | AI Optimization Retainer | from $3,000 CAD/month | 1 automation/month + strategy + support |
 
 **Pricing rationale:**
@@ -311,7 +311,7 @@ Combined funnel: 18-28% of discovery calls become full builds
 | n8n / Zapier freelancers | Workflow automation for specific triggers | No conversational interface. Rigid. No voice. No memory. Breaks when reality changes. |
 | Marketing / ops agencies | Done-for-you content and admin | $5K-$15K/month ongoing. Humans make it fragile. No AI memory. |
 | Microsoft Copilot | AI in Office 365 | Enterprise-first, M365 required, no private infrastructure, no Telegram, no voice-to-action. |
-| Hiring an EA | Human executive assistant | $60K-$90K CAD/year. Requires management. Doesn't work at 11pm. |
+| Hiring an EA | Human executive assistant | $63K-$98K CAD/year (Robert Half 2026). Requires management. Doesn't work at 11pm. |
 | DIY with Claude Code | Build it yourself | 200+ hours to reach what PVRPOSE AI delivers in 6 weeks. No compliance review. No proven workflow. |
 
 **The pitch in one sentence:**

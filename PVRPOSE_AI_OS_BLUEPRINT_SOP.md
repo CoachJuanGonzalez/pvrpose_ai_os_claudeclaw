@@ -68,7 +68,7 @@ Juan does not sell technology. He sells a configured outcome. The moat has three
 
 **36 months:** PVRPOSE AI OS is a replicable deployment system that Juan licenses to a small network of trained AI integrators in Canada, each deploying to their own vertical (legal, accounting, construction, agencies).
 
-The goal is not a SaaS product. The goal is to become the best in the world at one specific thing: turning a professional service founder's business context into a private AI operating system that saves 15+ hours per week, then building a high-margin practice doing it for 20-30 clients per year.
+The goal is not a SaaS product. The goal is to become the best in the world at one specific thing: turning a professional service founder's business context into a private AI operating system that saves 10-15 hours per week, then building a high-margin practice doing it for 20-30 clients per year.
 
 ---
 
@@ -130,7 +130,7 @@ The most important layer. A configuration file that tells Claude who the client 
 ### What It Cannot Do (Be Honest With Clients)
 
 - Auto-send emails or WhatsApp messages without human approval -- drafts only, human approves and sends
-- Pull live CRM data without an n8n bridge -- Airtable sync is needed separately (see Section 6)
+- Pull live CRM data without a direct API skill -- Airtable direct API skill is needed separately (see Section 6)
 - Multi-user support -- one owner, one instance per deployment, not a SaaS product
 - Enterprise compliance audit logging -- not production-ready for regulated industries requiring full audit trails
 - Guaranteed uptime SLA -- runs on private infrastructure, VPS reliability applies
@@ -452,21 +452,20 @@ What Claude can do in Phase 1:
 - Update prospect markdown files when Juan tells it to (post-call voice note)
 - Surface who needs follow-up based on Next Action dates in the files
 
-**Phase 2 -- n8n Auto-Sync (Week 2-3)**
+**Phase 2 -- Direct API Skill (Week 2-3)**
 
-An n8n workflow watches Juan's Airtable base for changes. When a record is updated, n8n automatically rewrites the corresponding data/prospects/[name].md file. Claude always reads fresh Airtable data without Juan bridging anything.
+A direct Airtable API skill (`scripts/airtable.js` + `~/.claude/skills/airtable/SKILL.md`) lets Claude read and write Airtable records directly via the Airtable REST API. No middleware (n8n, Zapier, Make) -- fewer failure points, direct reliability.
 
-n8n workflow structure:
+Architecture:
 ```
-TRIGGER: Airtable -- Record Updated (watch Prospects base)
+TRIGGER: Claude skill invocation (e.g., "Check George's status in Airtable")
          |
          v
-ACTION: File Write -- overwrite data/prospects/[name].md
-        with Airtable record fields mapped to markdown template
+ACTION: scripts/airtable.js -- fetch/update via Airtable REST API
+        using AIRTABLE_API_KEY + AIRTABLE_BASE_ID from .env
          |
          v
-OPTIONAL: Send Telegram notification
-"Airtable sync: [name] updated to [status]"
+RETURN: Record data to Claude for response / file update
 ```
 
 What Claude can do in Phase 2:
@@ -552,10 +551,10 @@ The Airtable base needs these fields for the sync to work: Name, Company, Title,
 "What's my pipeline for today?" -- Claude reads all data/prospects/ files, surfaces who has a due Next Action date of today or earlier, returns a prioritized list.
 
 **M2. Post-call Airtable update via voice note (Phase 1)**
-After a call: "George confirmed the build. Start April 1. Update his file." -- Claude updates george-mills.md. Juan mirrors to Airtable manually (or n8n does it in Phase 2).
+After a call: "George confirmed the build. Start April 1. Update his file." -- Claude updates george-mills.md. Juan mirrors to Airtable manually (or direct API skill does it in Phase 2).
 
-**M3. Auto-sync from Airtable stage change (Phase 2)**
-Juan updates George's stage to "Active Client" in Airtable. n8n rewrites george-mills.md within 60 seconds. Next morning digest reflects the new status automatically.
+**M3. Direct Airtable query on demand (Phase 2)**
+"What's George's current stage in Airtable?" -- Claude calls the Airtable direct API skill, pulls the live record, and returns the current status. No sync delay, no middleware.
 
 **M4. Direct Airtable query (Phase 3)**
 "How many prospects are in the Proposal stage right now?" -- Claude calls the Airtable API directly, counts records, returns the answer in 5 seconds.
@@ -601,7 +600,7 @@ Manual time replaced: 20 minutes of scanning a CRM or inbox to find what is slip
 **A6. Airtable to markdown sync (manual)**
 Trigger: "George Mills just moved to proposal stage in Airtable. Update his prospect file."
 System: Updates data/prospects/george-mills.md with the new status and any additional context provided.
-Manual time replaced: 5 minutes per update. Automated sync (n8n Phase 2) removes this entirely.
+Manual time replaced: 5 minutes per update. Direct API skill (Phase 2) removes this entirely.
 
 ---
 
@@ -888,7 +887,7 @@ Context: EA salary in Canada ranges from $63,000-$98,000 CAD (national average ~
 
 **What ClaudeClaw executes today vs what requires future build:**
 - LIVE NOW: All prompts using Gmail, Google Calendar, Slack, memory/Obsidian, web research, voice transcripts, and document drafting
-- REQUIRES N8N BRIDGE (not yet live): GHL CRM scrubbing, automated inbox tagging at scale
+- REQUIRES DIRECT API SKILL (not yet live): GHL CRM scrubbing, automated inbox tagging at scale
 - REQUIRES FUTURE BUILD: Receipt/PDF OCR for expense parsing, board book PDF export
 
 ---
@@ -947,7 +946,7 @@ ClaudeClaw status: LIVE for pasted text. PDF parsing requires future build.
 Trigger: "Here are 10 cold leads from Airtable untouched for 90+ days [paste names/context]. Draft personalized reactivation messages in my voice."
 System: Reads pasted lead context, drafts 10 personalized outreach messages in Juan's voice using voice rules from CLAUDE.md.
 Manual time replaced: 2-3 hours of manual drafting.
-ClaudeClaw status: LIVE for pasted input. Auto-pull from GHL requires n8n bridge (not yet live).
+ClaudeClaw status: LIVE for pasted input. Auto-pull from GHL requires direct API skill (not yet live).
 
 ---
 
@@ -1066,7 +1065,7 @@ ClaudeClaw status: LIVE.
 | Timezone coordination | skills/timezone/SKILL.md | LIVE |
 | Slack status and comms | skills/slack/SKILL.md | LIVE |
 | Scheduled morning brief | dist/schedule-cli.js cron | LIVE |
-| GHL CRM auto-pull | n8n bridge | NOT YET LIVE (Phase 2) |
+| GHL CRM auto-pull | Direct API skill | NOT YET LIVE (Phase 2) |
 | Receipt/PDF OCR | scripts/generate-pdf.py | NOT YET BUILT |
 | Board book PDF export | scripts/generate-pdf.py | NOT YET BUILT |
 
@@ -1080,9 +1079,9 @@ Three prompts, live on phone, under 5 minutes:
 2. "Triage my inbox last 48 hours" -- 20 seconds -- returns tagged priorities + 3 draft replies in Juan's voice
 3. "Draft George Mills follow-up in my voice" -- 10 seconds -- returns ready-to-send message
 
-Pitch line: "Your EA already does all of this. PVRPOSE EA Superpowers makes them do it in one-tenth the time. Same human judgment. Same relationship. 10x the output."
+Pitch line: "Your EA already does all of this. PVRPOSE EA Superpowers makes them do it in one-tenth the time. Same human judgment. Same relationship. 3× the output."
 
-ROI frame (defensible): "A senior EA in Toronto costs $74,000-$98,000 CAD (Robert Half 2026). AI-assisted productivity gains of 40-55% (McKinsey/PwC 2025) mean your EA effectively delivers the work of 1.5 EAs for the same salary. The $15,000-$25,000 build pays back in under 6 months."
+ROI frame (defensible): "A senior EA in Toronto costs $74,000-$98,000 CAD (Robert Half 2026). AI-assisted productivity gains of 40-55% (McKinsey/PwC 2025) mean your EA effectively delivers the work of 1.5 EAs for the same salary. The $15,000-$25,000 build pays back in 3-6 months."
 
 ---
 
@@ -1270,7 +1269,7 @@ Say: "That would have taken me 45 minutes. It took 90 seconds."
 | Offer | Price (CAD) | What It Is |
 |---|---|---|
 | PVRPOSE AI OS Audit | $5,000-7,500 | 2-week engagement. Workflow map, blueprint, Readiness Report, ROI projection. Credited toward build. |
-| PVRPOSE AI OS Full Build | $15,000-25,000 | 6-week engagement, one-time. Full system live on private infrastructure. 30-day support included. |
+| PVRPOSE AI OS Full Build | $15,000-$25,000 | 6-week engagement, one-time. Full system live on private infrastructure. 30-day support included. |
 | AI Optimization Retainer | from $3,000/month | 1 new automation/month, optimization, monthly strategy call, async support. |
 
 **What drives variance in build pricing:**
@@ -1578,7 +1577,7 @@ Confirm client can independently:
 ### Out of Scope (Billable at Retainer Rate)
 
 - New automation builds not in the original scope
-- CRM integration via n8n (quoted separately)
+- CRM integration via direct API skills (quoted separately)
 - Infrastructure migration
 - Team expansion (additional users)
 
@@ -1690,7 +1689,7 @@ One copy per client. Store in their project folder. Check off as completed.
 | n8n / Zapier freelancers | Workflow automation for specific triggers and actions | No conversational interface. Rigid workflows break when reality changes. No voice input. No context. No memory. Requires constant maintenance. |
 | Marketing / ops agencies | Done-for-you content and admin | $5K-$15K/month ongoing. Still requires the founder's input for everything non-standard. No AI memory. Humans make it fragile. Off at night. |
 | Microsoft Copilot | AI in Office 365 tools | Enterprise-first. Requires M365 subscription. No private infrastructure. No Telegram. No voice-to-action. No custom business context. |
-| Hiring an EA | Human executive assistant | $60K-$90K CAD/year. Requires onboarding, management, vacation coverage. Does not work at 11pm. Cannot hold the entire company's context simultaneously. |
+| Hiring an EA | Human executive assistant | $63K-$98K CAD/year (Robert Half 2026). Requires onboarding, management, vacation coverage. Does not work at 11pm. Cannot hold the entire company's context simultaneously. |
 | DIY with Claude Code | Build it yourself | Requires 200+ hours to reach what PVRPOSE AI delivers in 6 weeks. No compliance review. No proven workflow. No voice pipeline. No agent architecture. |
 | Generic AI chatbot vendors | Pre-built chatbot platforms with templates | Template-based, not custom. No private infrastructure. No voice. No CRM integration. No proposal generation. Not the founder's voice. |
 
@@ -1981,7 +1980,7 @@ node dist/schedule-cli.js create "Read data/prospects/ and give me a morning pip
 
 8. **Set up WhatsApp bridge** -- enable WHATSAPP_ENABLED=true, run wa-daemon. Now Claude can see WhatsApp message history and queue messages.
 
-9. **Set up Airtable n8n sync** -- auto-update prospect files from Airtable. Without: Juan updates files manually. With: Airtable changes sync automatically.
+9. **Build Airtable direct API skill** -- `scripts/airtable.js` + `~/.claude/skills/airtable/SKILL.md`. Claude reads/writes Airtable directly via REST API. No middleware. Without: Juan updates files manually. With: Claude pulls and updates Airtable records on demand.
 
 10. **Create agents/research/agent.yaml** -- copy from agent.yaml.example, configure, test. Enables the research agent properly.
 

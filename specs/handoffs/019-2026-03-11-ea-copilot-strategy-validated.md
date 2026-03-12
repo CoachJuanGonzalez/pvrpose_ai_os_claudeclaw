@@ -24,7 +24,7 @@ Nothing started and abandoned.
 
 2. **Add EA/Copilot as Category N in SOP Section 7 (business case library)**
    File: `PVRPOSE_AI_OS_BLUEPRINT_SOP.md`
-   Framing: "Make your EA superhuman" (not replace them)
+   Framing: "Give your EA AI superpowers" (not replace them)
    Use cases: briefing prep, inbox triage, calendar intelligence, outreach drafts
    Pitch angle ready for TNC lunch March 17.
 
@@ -78,5 +78,5 @@ Nothing started and abandoned.
 - **CLAUDE.md placeholders are the single most important operational blocker** -- fix this first.
 - **George Mills role** -- some docs say CPA, some say construction law. Clarify before creating his prospect file.
 - **TNC lunch March 17** -- tnc-members/ files are time-sensitive (6 days from session 018, check actual days remaining).
-- **EA/Copilot Category N** -- agreed pitch angle for TNC: "make your EA superhuman." Add to SOP before demo prep.
+- **EA/Copilot Category N** -- agreed pitch angle for TNC: "give your EA AI superpowers." Add to SOP before demo prep.
 - **agents/research/agent.yaml** -- appeared in git ls-files this session; prior handoffs said it was missing. Verify it has real content before marking complete.

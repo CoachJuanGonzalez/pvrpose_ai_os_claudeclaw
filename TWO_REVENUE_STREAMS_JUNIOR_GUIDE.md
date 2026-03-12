@@ -198,7 +198,7 @@ I just launched something that I think is genuinely relevant for where you are.
 
 I've been building a private AI operating system for professional service businesses
 -- runs from your phone, handles proposals, briefings, follow-ups. A lawyer I built
-it for cut her proposal time from 3 hours to 20 minutes.
+it for cut her proposal drafting time from 3 hours to under 30 minutes.
 
 I have 3 pioneer spots where I'm doing a full audit or build at cost in exchange
 for a short video testimonial. Figured I'd reach out before I open it publicly.

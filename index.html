@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Run your entire business from your phone. PVRPOSE AI OS built with Claude Code — live in 6 weeks. 10–20x ROI for $100K+ firms. Your data, your infrastructure. Over 90% from referrals.">
-    <title>PVRPOSE AI OS — Run Your Business From Your Phone | Live in 6 Weeks | PVRPOSE AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Custom AI OS for founders and their EAs. PVRPOSE AI OS turns 3-hour admin tasks into 20 minutes — built in 6 weeks, runs from your phone. PVRPOSE EA Superpowers for founders with EAs or Chiefs of Staff. CASL/PIPEDA compliant. Your data, your infrastructure.">
+    <title>PVRPOSE AI OS — AI Superpowers for Founders & Their EAs | Live in 6 Weeks | PVRPOSE AI</title>
 
     <!-- Favicon - Standard -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -34,7 +34,7 @@
     <meta property="og:url" content="https://pvrpose.ai">
     <meta property="og:site_name" content="PVRPOSE AI">
     <meta property="og:title" content="PVRPOSE AI OS — Run Your Business From Your Phone | Live in 6 Weeks">
-    <meta property="og:description" content="Run your entire business from your phone. PVRPOSE AI OS built with Claude Code — live in 6 weeks. Reclaim 20 hrs/week. Your data stays on infrastructure you control. CASL/PIPEDA compliant. Over 90% from referrals.">
+    <meta property="og:description" content="Custom AI OS for founders and their EAs. PVRPOSE AI OS turns 3-hour admin tasks into 20 minutes — built in 6 weeks, runs from your phone. PVRPOSE EA Superpowers for founders with EAs or Chiefs of Staff. CASL/PIPEDA compliant. Your data, your infrastructure.">
     <meta property="og:image" content="https://pvrpose.ai/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -44,7 +44,7 @@
     <!-- Twitter Card meta tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Custom AI Systems Built in 6 Weeks | PVRPOSE AI">
-    <meta name="twitter:description" content="Run your entire business from your phone. PVRPOSE AI OS — built with Claude Code, live in 6 weeks, reclaims 20 hours/week. CASL/PIPEDA compliant. | PVRPOSE AI">
+    <meta name="twitter:description" content="Custom AI OS for founders and their EAs. Turns 3-hour admin tasks into 20 minutes — built in 6 weeks, runs from your phone. PVRPOSE EA Superpowers. CASL/PIPEDA compliant.">
     <meta name="twitter:image" content="https://pvrpose.ai/og-image.png">
     <meta name="twitter:image:alt" content="PVRPOSE AI - Custom AI Automation for Professional Services">
 
@@ -54,9 +54,10 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://pvrpose.ai; frame-src https://www.youtube.com https://calendly.com; connect-src 'self' https://pvrpose.ai; object-src 'none'; base-uri 'self'; form-action 'self' https://pvrpose.ai;">
 
     <!-- Additional SEO -->
-    <meta name="author" content="Juan Gonzalez, PVRPOSE AI">
+    <meta name="author" content="Coach Juan Gonzalez, PVRPOSE AI">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://pvrpose.ai">
 
@@ -101,8 +102,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        html {
-            scroll-behavior: smooth;
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
         }
         body {
             font-family: 'Inter', 'Helvetica', system-ui, sans-serif;
@@ -120,35 +123,39 @@
         /* Glassmorphism effects */
         .glass {
             background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            -moz-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
         .glass-dark {
             background: rgba(30, 58, 138, 0.1);
-            backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            -moz-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(30, 58, 138, 0.18);
         }
 
-        /* Micro-interactions */
+        /* Micro-interactions — only on devices with real hover (not touch-only) */
         .hover-lift {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .hover-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        @media (hover: hover) {
+            .hover-lift:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            }
+
+            .hover-glow:hover {
+                box-shadow: 0 0 30px rgba(236, 72, 153, 0.4);
+                transform: scale(1.02);
+            }
         }
 
         .hover-glow {
             transition: box-shadow 0.3s ease, transform 0.2s ease;
-        }
-
-        .hover-glow:hover {
-            box-shadow: 0 0 30px rgba(236, 72, 153, 0.4);
-            transform: scale(1.02);
         }
 
         /* Animations */
@@ -165,6 +172,21 @@
 
         .animate-fade-in {
             animation: fadeInUp 0.8s ease-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in,
+            .sticky-cta.visible,
+            .mobile-cta-bar,
+            .cookie-consent {
+                animation: none !important;
+            }
+            .hover-lift,
+            .hover-glow,
+            .btn-primary,
+            .option-card {
+                transition: none !important;
+            }
         }
 
         @keyframes pulse-glow {
@@ -195,9 +217,11 @@
         /* Stat counter animation */
         .stat-number {
             font-weight: 800;
+            color: #ec4899; /* fallback for browsers that don't support gradient text */
             background: linear-gradient(135deg, #ec4899 0%, #1E3A8A 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            -moz-background-clip: text;
             background-clip: text;
         }
 
@@ -207,9 +231,11 @@
             border-left: 4px solid transparent;
         }
 
-        .feature-card:hover {
-            border-left-color: #ec4899;
-            background: rgba(236, 72, 153, 0.02);
+        @media (hover: hover) {
+            .feature-card:hover {
+                border-left-color: #ec4899;
+                background: rgba(236, 72, 153, 0.02);
+            }
         }
 
         /* Typography */
@@ -232,6 +258,13 @@
             animation: fadeInUp 0.5s ease-out;
         }
 
+        /* Hide sticky CTA on mobile — mobile-cta-bar handles this */
+        @media (max-width: 767px) {
+            .sticky-cta {
+                display: none !important;
+            }
+        }
+
         /* Mobile Bottom Bar CTA — visible immediately, hidden on md+ */
         .mobile-cta-bar {
             position: fixed;
@@ -241,6 +274,8 @@
             z-index: 999;
             background: linear-gradient(135deg, #ec4899 0%, #1E3A8A 100%);
             padding: 12px 16px;
+            /* iOS safe-area support for notch/home bar */
+            padding-bottom: calc(12px + env(safe-area-inset-bottom));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -257,10 +292,10 @@
             }
         }
 
-        /* Push page content above bar so nothing is obscured */
+        /* Push page content above bar so nothing is obscured — accounts for iOS safe area */
         @media (max-width: 767px) {
             body {
-                padding-bottom: 68px;
+                padding-bottom: calc(68px + env(safe-area-inset-bottom));
             }
             /* When cookie banner is visible, push bar above it */
             body.cookie-visible .mobile-cta-bar {
@@ -391,8 +426,9 @@
             right: 0;
             z-index: 1000;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            -moz-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
@@ -437,8 +473,10 @@
 
     <!-- PIONEER URGENCY BAR -->
     <div class="pioneer-bar">
-        🚀 Pioneer Launch — <strong>1 Free Build Spot</strong> + <strong>2 Audit Spots at $2,500 CAD</strong> — 3 spots total. <em>(In exchange: 1 video testimonial + 1 warm intro if we deliver)</em>&nbsp;
-        <a href="#pioneer">Apply Now →</a>
+        <!-- Mobile: short version -->
+        <span class="inline md:hidden">🚀 <strong>3 Pioneer Spots</strong> — 1 Free + 2 at $2,500 CAD&nbsp;<a href="#pioneer">Apply →</a></span>
+        <!-- Desktop: full version -->
+        <span class="hidden md:inline">🚀 Pioneer Launch — <strong>1 Free Build Spot</strong> + <strong>2 Audit Spots at $2,500 CAD</strong> — 3 spots total. <em>(In exchange: 1 video testimonial + 1 warm intro if we deliver)</em>&nbsp;<a href="#pioneer">Apply Now →</a></span>
     </div>
 
     <!-- NAVIGATION -->
@@ -448,7 +486,7 @@
                 <!-- Logo -->
                 <a href="/" class="flex flex-col items-center leading-none">
                     <img src="/logotypes-ai-rez-01.png" alt="PVRPOSE AI" class="nav-logo" />
-                    <span class="text-gray-400 text-xl text-center mt-1">Own Your Voice. Vision. Vibe.</span>
+                    <span class="text-gray-400 text-xs sm:text-sm text-center mt-1">Own Your Voice. Vision. Vibe.</span>
                 </a>
 
                 <!-- Desktop Navigation Links -->
@@ -462,7 +500,7 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden text-gray-700 focus:outline-none" aria-label="Toggle mobile menu" aria-expanded="false">
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700 focus:outline-none p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Toggle mobile menu" aria-expanded="false">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -482,8 +520,11 @@
     </nav>
 
     <!-- BILL 96 FRENCH LANGUAGE NOTICE (Quebec CFL Compliance) -->
-    <div style="background:#1E3A8A;color:#fff;text-align:center;padding:10px 16px;font-size:13px;line-height:1.5;">
-        🇫🇷 <strong>Version française</strong> — La version française de ce site est en cours de préparation. Pour communiquer avec nous en français ou pour obtenir des informations dans cette langue, écrivez-nous à <a href="mailto:juan@pvrpose.ai" style="color:#fbcfe8;text-decoration:underline;">juan@pvrpose.ai</a> — nous vous répondrons avec plaisir en français.
+    <div style="background:#1E3A8A;color:#fff;text-align:center;padding:8px 16px;font-size:13px;line-height:1.5;">
+        <!-- Mobile: compact single line -->
+        <span class="inline md:hidden">🇫🇷 Version française en préparation — <a href="mailto:juan@pvrpose.ai" style="color:#fbcfe8;text-decoration:underline;">juan@pvrpose.ai</a></span>
+        <!-- Desktop: full notice -->
+        <span class="hidden md:inline">🇫🇷 <strong>Version française</strong> — La version française de ce site est en cours de préparation. Pour communiquer avec nous en français ou pour obtenir des informations dans cette langue, écrivez-nous à <a href="mailto:juan@pvrpose.ai" style="color:#fbcfe8;text-decoration:underline;">juan@pvrpose.ai</a> — nous vous répondrons avec plaisir en français.</span>
     </div>
 
     <!-- HERO SECTION -->
@@ -492,19 +533,42 @@
             <!-- Eyebrow (Pain Point Trigger) -->
             <div class="inline-block bg-gradient-to-r from-pink-100 to-purple-100 px-6 py-3 rounded-full mb-3">
                 <p class="text-sm md:text-base font-semibold gradient-accent bg-clip-text text-transparent">
-                    FOR PROFESSIONAL SERVICES & CONSTRUCTION · COACHES · CONSULTANTS · AGENCIES
+                    THE WINDOW IS NOW — PROFESSIONAL SERVICES & CONSTRUCTION · COACHES · CONSULTANTS · AGENCIES
                 </p>
             </div>
 
+            <!-- EA / Solo Founder Toggle -->
+            <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6" id="hero-toggle">
+                <button id="tab-solo" onclick="setHeroTab('solo')"
+                    class="hero-tab-btn px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600">
+                    Solo Founder
+                </button>
+                <button id="tab-ea" onclick="setHeroTab('ea')"
+                    class="hero-tab-btn px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-blue-900 text-white shadow-lg">
+                    I Have an EA / Chief of Staff
+                </button>
+            </div>
+
             <!-- Headline (Value-First) -->
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight hero-headline">
+            <!-- Solo H1 -->
+            <h1 id="hero-h1-solo" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight hero-headline">
                 Run Your Entire Business From Your Phone.<br />
-                <span class="gradient-accent bg-clip-text text-transparent">Live in 6 Weeks. Reclaims 20 Hours/Week Forever.</span>
+                <span class="gradient-accent bg-clip-text text-transparent">Live in 6 Weeks. Reclaim 20 Hours/Week.</span>
+            </h1>
+            <!-- EA H1 (hidden by default) -->
+            <h1 id="hero-h1-ea" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight hero-headline hidden">
+                Give Your EA AI Superpowers.<br />
+                <span class="gradient-accent bg-clip-text text-transparent">3 Hours → 20 Minutes. Keep the Human You Trust.</span>
             </h1>
 
             <!-- Supporting Tagline -->
-            <p class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium">
-                Built by a lawyer and AI expert who's done this for firms like yours — not an agency, not a template. PVRPOSE AI OS (Operating System) — a done-for-you AI system built around how your business actually runs. Built with Claude Code. Your data stays on infrastructure you control. CASL/PIPEDA compliant. You own everything.
+            <!-- Solo Tagline -->
+            <p id="hero-tagline-solo" class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium">
+                A done-for-you AI Operating System built around your voice and strategy. Live in 6 weeks. Your data stays on infrastructure you control. CASL/PIPEDA compliant. You own everything.
+            </p>
+            <!-- EA Tagline (hidden by default) -->
+            <p id="hero-tagline-ea" class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium hidden">
+                Your EA stays in control. The AI handles the repetitive work — in your exact voice — so they become 3× more effective.
             </p>
 
             <p style="font-size: 0.95em; color: #aaa; font-style: italic; margin-top: 0.5em; margin-bottom: 1.5em;">
@@ -512,7 +576,8 @@
             </p>
 
             <!-- Primary CTA — Two Paths -->
-            <div class="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <!-- Solo CTAs -->
+            <div id="hero-cta-solo" class="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a href="#pioneer"
                    class="inline-block bg-pink-600 hover:bg-pink-700 text-white px-12 py-6 rounded-xl text-xl md:text-2xl font-semibold hover:shadow-xl transition"
                    aria-label="Apply for Pioneer Spot"
@@ -536,7 +601,32 @@
                     Take Free Assessment →
                 </a>
             </div>
+            <!-- EA CTAs (hidden by default) -->
+            <div id="hero-cta-ea" class="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center hidden">
+                <a href="#ea-superpowers"
+                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white px-12 py-6 rounded-xl text-xl md:text-2xl font-semibold hover:shadow-xl transition"
+                   aria-label="Get Your EA Superpowers Demo">
+                    Get Your EA Superpowers Demo →
+                </a>
+                or
+                <a href="/assessment.html"
+                   class="inline-block btn-primary text-white px-12 py-6 rounded-xl text-xl md:text-2xl font-semibold"
+                   style="opacity: 0.75; font-size: 0.9em;"
+                   aria-label="Take Free Assessment">
+                    Take Free Assessment →
+                </a>
+            </div>
             <p class="text-sm text-gray-500 mb-16">Already know you're ready? Apply for a pioneer spot. Not sure yet? Take the 2-minute assessment.</p>
+
+            <div class="max-w-3xl mx-auto mb-10 px-6 py-5 rounded-2xl bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-100 text-center">
+                <p class="text-base md:text-lg font-semibold text-gray-800 italic mb-2">
+                    "There aren't individual contributing workers anymore — we all deploy with a set of AIs."
+                </p>
+                <p class="text-sm text-gray-500 mb-3">— Reid Hoffman, Co-founder of LinkedIn (February 2026)</p>
+                <p class="text-sm md:text-base font-semibold text-deep-blue">
+                    PVRPOSE AI OS is how professional services firms deploy theirs.
+                </p>
+            </div>
 
             <!-- Trust Indicators -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto pt-12 border-t border-gray-200">
@@ -579,90 +669,221 @@
     <!-- MONDAY MORNING MICRO-SCENARIO -->
     <section class="py-20 px-6 bg-white" id="day-in-life">
         <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <p class="text-pink-600 font-semibold text-sm tracking-widest uppercase mb-3">Your Voice. Your Vision. Your Vibe.</p>
+
+            <!-- SOLO FOUNDER VERSION (hidden when EA tab active) -->
+            <div id="monday-solo">
+                <div class="text-center mb-12">
+                    <p class="text-pink-600 font-semibold text-sm tracking-widest uppercase mb-3">Your Voice. Your Vision. Your Vibe.</p>
+                    <h2 class="text-3xl md:text-5xl font-bold hero-headline mb-4">
+                        What Monday Morning Looks Like<br class="hidden md:block"> With Your PVRPOSE AI OS
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Not a demo. Not a simulation. A real client morning — before 9 AM.
+                    </p>
+                </div>
+
+                <div class="relative max-w-3xl mx-auto">
+                    <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-pink-500 via-deep-blue to-pink-500 hidden md:block"></div>
+
+                    <div class="flex gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">7:10</div>
+                        <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
+                            <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Voice — Own Your Day</p>
+                            <p class="font-semibold text-gray-900 mb-2">Voice note to Telegram while driving to a site visit:</p>
+                            <p class="text-gray-600 italic text-sm mb-3">"I have a discovery call with a construction firm at 10. Brief me."</p>
+                            <p class="text-gray-800 text-sm">→ Your PVRPOSE AI OS pulls CRM history, recent emails, and context — and sends back a voice briefing before you park. You arrive prepared. No prep time spent.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">9:45</div>
+                        <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
+                            <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Vision — Execute Your Blueprint</p>
+                            <p class="font-semibold text-gray-900 mb-2">15 minutes before the call:</p>
+                            <p class="text-gray-600 italic text-sm mb-3">"Draft a proposal for $8,500 based on what we discussed last Tuesday."</p>
+                            <p class="text-gray-800 text-sm">→ Done in 4 minutes. In your voice. With your pricing. Formatted to your standard. Your PVRPOSE AI OS remembers the context — you don't re-explain anything.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">2:30</div>
+                        <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
+                            <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Vibe — Your Brand, Automated</p>
+                            <p class="font-semibold text-gray-900 mb-2">Client follows up after the call:</p>
+                            <p class="text-gray-600 italic text-sm mb-3">Your PVRPOSE AI OS already drafted the reply — in your tone, referencing what was discussed.</p>
+                            <p class="text-gray-800 text-sm">→ You review it on your phone. One tap to approve. Client gets a response that sounds exactly like you — because it was built around how you actually communicate.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start">
+                        <div class="flex-shrink-0 w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">EOD</div>
+                        <div class="flex-1 bg-gradient-to-br from-blue-950 via-deep-blue to-blue-900 text-white rounded-2xl p-6 hover-lift">
+                            <p class="text-pink-300 font-bold text-sm uppercase tracking-wide mb-2">The Scorecard</p>
+                            <div class="grid grid-cols-3 gap-4 text-center">
+                                <div><p class="text-3xl font-bold text-white">3 hrs</p><p class="text-blue-300 text-xs mt-1">Reclaimed before lunch</p></div>
+                                <div><p class="text-3xl font-bold text-white">0</p><p class="text-blue-300 text-xs mt-1">Missed follow-ups</p></div>
+                                <div><p class="text-3xl font-bold text-white">100%</p><p class="text-blue-300 text-xs mt-1">Your voice, your brand</p></div>
+                            </div>
+                            <p class="text-blue-200 text-sm text-center mt-4 italic">This is not a productivity hack. This is your business operating at a different level.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="#pioneer" class="inline-block bg-pink-600 hover:bg-pink-700 text-white px-10 py-5 rounded-xl text-lg font-semibold hover-glow transition">
+                        I Want This for My Business →
+                    </a>
+                    <p class="text-sm text-gray-500 mt-3">3 pioneer spots. Filling now.</p>
+                </div>
+            </div>
+
+            <!-- EA VERSION (shown when EA tab active, hidden by default) -->
+            <div id="monday-ea" class="hidden">
+                <div class="text-center mb-12">
+                    <p class="text-pink-600 font-semibold text-sm tracking-widest uppercase mb-3">Your EA's Voice. Your Vision. Your Vibe.</p>
+                    <h2 class="text-3xl md:text-5xl font-bold hero-headline mb-4">
+                        What Your EA's Monday Looks Like<br class="hidden md:block"> With PVRPOSE EA Superpowers
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Not a demo. Not a simulation. A real EA morning — and everything still sounds like you.
+                    </p>
+                </div>
+
+                <div class="relative max-w-3xl mx-auto">
+                    <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-pink-500 via-deep-blue to-pink-500 hidden md:block"></div>
+
+                    <div class="flex gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">8:30</div>
+                        <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
+                            <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Your EA — Morning Brief</p>
+                            <p class="font-semibold text-gray-900 mb-2">EA opens Telegram before sitting down:</p>
+                            <p class="text-gray-600 italic text-sm mb-3">"Prep the CEO's morning brief for today."</p>
+                            <p class="text-gray-800 text-sm">→ Pipeline summary, calendar overview, inbox priorities — compiled in 45 seconds. EA forwards a 3-line summary to you. You know your day before your first coffee.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">9:45</div>
+                        <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
+                            <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Your EA — Pre-Call Prep</p>
+                            <p class="font-semibold text-gray-900 mb-2">15 minutes before your 10am call:</p>
+                            <p class="text-gray-600 italic text-sm mb-3">"Brief the CEO for the construction firm call at 10."</p>
+                            <p class="text-gray-800 text-sm">→ CRM history, past emails, context, and one sharp opening question — delivered to your phone in 30 seconds. You walk in prepared. Your EA never had to interrupt you to ask what you need.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">1:15</div>
+                        <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
+                            <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Your EA — Proposal Ready</p>
+                            <p class="font-semibold text-gray-900 mb-2">Right after the call, EA sends:</p>
+                            <p class="text-gray-600 italic text-sm mb-3">"Draft the proposal for $8,500 based on today's call. Send me the PDF."</p>
+                            <p class="text-gray-800 text-sm">→ Full proposal in your voice, formatted to your standard, PDF delivered to EA's Telegram in 4 minutes. EA reviews, forwards to the client. You approved nothing — because it was already right.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start">
+                        <div class="flex-shrink-0 w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">EOD</div>
+                        <div class="flex-1 bg-gradient-to-br from-blue-950 via-deep-blue to-blue-900 text-white rounded-2xl p-6 hover-lift">
+                            <p class="text-pink-300 font-bold text-sm uppercase tracking-wide mb-2">The EA Scorecard</p>
+                            <div class="grid grid-cols-3 gap-4 text-center">
+                                <div><p class="text-3xl font-bold text-white">3×</p><p class="text-blue-300 text-xs mt-1">More output, same EA</p></div>
+                                <div><p class="text-3xl font-bold text-white">0</p><p class="text-blue-300 text-xs mt-1">Interruptions to you</p></div>
+                                <div><p class="text-3xl font-bold text-white">100%</p><p class="text-blue-300 text-xs mt-1">Still your voice</p></div>
+                            </div>
+                            <p class="text-blue-200 text-sm text-center mt-4 italic">Your EA didn't get replaced. They got superpowers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="#ea-superpowers" class="inline-block bg-pink-600 hover:bg-pink-700 text-white px-10 py-5 rounded-xl text-lg font-semibold hover-glow transition">
+                        Give My EA Superpowers →
+                    </a>
+                    <p class="text-sm text-gray-500 mt-3">3 pioneer spots. Filling now.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PVRPOSE EA SUPERPOWERS SECTION -->
+    <section class="py-20 px-6 bg-gradient-to-br from-blue-950 via-purple-900 to-pink-900 text-white" id="ea-superpowers">
+        <div class="max-w-5xl mx-auto">
+            <!-- Eyebrow -->
+            <div class="text-center mb-10">
+                <div class="inline-block bg-white/10 backdrop-blur border border-white/20 px-6 py-3 rounded-full mb-4">
+                    <p class="text-sm font-bold tracking-widest uppercase text-pink-300">PVRPOSE EA SUPERPOWERS</p>
+                </div>
                 <h2 class="text-3xl md:text-5xl font-bold hero-headline mb-4">
-                    What Monday Morning Looks Like<br class="hidden md:block"> With Your PVRPOSE AI OS
+                    Don't replace your EA.<br>
+                    <span class="gradient-accent bg-clip-text text-transparent">Give them superpowers.</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Not a demo. Not a simulation. A real client morning — before 9 AM.
+                <p class="text-lg text-blue-100 max-w-2xl mx-auto">
+                    Your EA stays in control. The AI handles the repetitive work — in your exact voice.
                 </p>
             </div>
 
-            <div class="relative max-w-3xl mx-auto">
-                <!-- Timeline vertical line -->
-                <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-pink-500 via-deep-blue to-pink-500 hidden md:block"></div>
+            <!-- Before / After Table — 4 rows -->
+            <div class="mb-12 overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="py-3 px-6 text-pink-300 font-bold text-sm border-b border-white/20 w-1/2">Before — 3 hours</th>
+                            <th class="py-3 px-6 text-green-300 font-bold text-sm border-b border-white/20 w-1/2">After — 20 minutes</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="py-3 px-6 text-blue-100 text-sm">Drafting replies in the founder's exact voice</td>
+                            <td class="py-3 px-6 text-white text-sm">"Draft CEO's response in her voice" → ready for final polish</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="py-3 px-6 text-blue-100 text-sm">Prepping a brief before every meeting</td>
+                            <td class="py-3 px-6 text-white text-sm">"Brief me for the 3pm call" → CRM + notes + context, instant</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="py-3 px-6 text-blue-100 text-sm">Inbox triage and priority routing</td>
+                            <td class="py-3 px-6 text-white text-sm">"Triage last 48 hours" → tagged summaries + suggested replies</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="py-3 px-6 text-blue-100 text-sm">Calendar chaos and deep-work conflicts</td>
+                            <td class="py-3 px-6 text-white text-sm">"Optimize this week's schedule" → conflict-free proposal, done</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                <!-- Step 1 -->
-                <div class="flex gap-6 items-start mb-8">
-                    <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">
-                        7:10
-                    </div>
-                    <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
-                        <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Voice — Own Your Day</p>
-                        <p class="font-semibold text-gray-900 mb-2">Voice note to Telegram while driving to a site visit:</p>
-                        <p class="text-gray-600 italic text-sm mb-3">"I have a discovery call with a construction firm at 10. Brief me."</p>
-                        <p class="text-gray-800 text-sm">→ Your PVRPOSE AI OS pulls CRM history, recent emails, and context — and sends back a voice briefing before you park. You arrive prepared. No prep time spent.</p>
-                    </div>
+            <!-- 3 Ultra-Short Benefits -->
+            <div class="grid md:grid-cols-3 gap-6 mb-10 text-center">
+                <div class="bg-white/10 rounded-2xl p-5">
+                    <div class="text-3xl mb-2">🏆</div>
+                    <p class="text-white font-medium text-sm">Your EA becomes the hero. Their output triples.</p>
                 </div>
-
-                <!-- Step 2 -->
-                <div class="flex gap-6 items-start mb-8">
-                    <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">
-                        9:45
-                    </div>
-                    <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
-                        <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Vision — Execute Your Blueprint</p>
-                        <p class="font-semibold text-gray-900 mb-2">15 minutes before the call:</p>
-                        <p class="text-gray-600 italic text-sm mb-3">"Draft a proposal for $8,500 based on what we discussed last Tuesday."</p>
-                        <p class="text-gray-800 text-sm">→ Done in 4 minutes. In your voice. With your pricing. Formatted to your standard. Your PVRPOSE AI OS remembers the context — you don't re-explain anything.</p>
-                    </div>
+                <div class="bg-white/10 rounded-2xl p-5">
+                    <div class="text-3xl mb-2">⏱️</div>
+                    <p class="text-white font-medium text-sm">You reclaim 15–20 strategic hours/week.</p>
                 </div>
-
-                <!-- Step 3 -->
-                <div class="flex gap-6 items-start mb-8">
-                    <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">
-                        2:30
-                    </div>
-                    <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
-                        <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Vibe — Your Brand, Automated</p>
-                        <p class="font-semibold text-gray-900 mb-2">Client follows up after the call:</p>
-                        <p class="text-gray-600 italic text-sm mb-3">Your PVRPOSE AI OS already drafted the reply — in your tone, referencing what was discussed.</p>
-                        <p class="text-gray-800 text-sm">→ You review it on your phone. One tap to approve. Client gets a response that sounds exactly like you — because it was built around how you actually communicate.</p>
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="flex gap-6 items-start">
-                    <div class="flex-shrink-0 w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">
-                        EOD
-                    </div>
-                    <div class="flex-1 bg-gradient-to-br from-blue-950 via-deep-blue to-blue-900 text-white rounded-2xl p-6 hover-lift">
-                        <p class="text-pink-300 font-bold text-sm uppercase tracking-wide mb-2">The Scorecard</p>
-                        <div class="grid grid-cols-3 gap-4 text-center">
-                            <div>
-                                <p class="text-3xl font-bold text-white">3 hrs</p>
-                                <p class="text-blue-300 text-xs mt-1">Reclaimed before lunch</p>
-                            </div>
-                            <div>
-                                <p class="text-3xl font-bold text-white">0</p>
-                                <p class="text-blue-300 text-xs mt-1">Missed follow-ups</p>
-                            </div>
-                            <div>
-                                <p class="text-3xl font-bold text-white">100%</p>
-                                <p class="text-blue-300 text-xs mt-1">Your voice, your brand</p>
-                            </div>
-                        </div>
-                        <p class="text-blue-200 text-sm text-center mt-4 italic">This is not a productivity hack. This is your business operating at a different level.</p>
-                    </div>
+                <div class="bg-white/10 rounded-2xl p-5">
+                    <div class="text-3xl mb-2">💰</div>
+                    <p class="text-white font-medium text-sm">$20K build. $80K EA salary. Pays back in 4 months.</p>
                 </div>
             </div>
 
-            <div class="text-center mt-12">
-                <a href="#pioneer" class="inline-block bg-pink-600 hover:bg-pink-700 text-white px-10 py-5 rounded-xl text-lg font-semibold hover-glow transition">
-                    I Want This for My Business →
+            <!-- Trust Bar -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10 text-center">
+                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-blue-100">✓ 28-feature AI OS</span>
+                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-blue-100">✓ CASL/PIPEDA compliant</span>
+                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-blue-100">✓ 6-week build</span>
+                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-blue-100">✓ No vendor lock-in</span>
+            </div>
+
+            <!-- Single CTA -->
+            <div class="text-center">
+                <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer"
+                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white px-12 py-5 rounded-xl text-lg font-semibold hover-glow transition">
+                    See the EA Superpowers Demo →
                 </a>
-                <p class="text-sm text-gray-500 mt-3">3 pioneer spots. Filling now.</p>
             </div>
         </div>
     </section>
@@ -686,26 +907,30 @@
                         </svg>
                         <h3 class="text-2xl font-bold">You're a Perfect Fit If:</h3>
                     </div>
-                    <ul class="space-y-4 text-lg">
+                    <ul class="space-y-3 text-base">
                         <li class="flex items-start">
                             <span class="text-pink-500 mr-3 font-bold text-xl">✓</span>
-                            <span>You run a <strong>professional service or construction firm:</strong> coaching, consulting, agency, legal, accounting, advisory, or modular housing manufacturing.</span>
+                            <span><strong>Professional services or construction</strong> — legal, CPA, consulting, agency, advisory, modular housing</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-pink-500 mr-3 font-bold text-xl">✓</span>
-                            <span>You're doing <strong>$50K–$100K+ annually</strong> and ready to scale — or already past $100K and looking to grow faster</span>
+                            <span><strong>$50K–$100K+ annually</strong> and ready to scale</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-pink-500 mr-3 font-bold text-xl">✓</span>
-                            <span><strong>You're drowning in admin work:</strong> follow-ups, proposals, scheduling, CRM updates... taking 10+ hours/week</span>
+                            <span><strong>Losing 10+ hours/week</strong> to admin: proposals, follow-ups, scheduling, CRM</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-pink-500 mr-3 font-bold text-xl">✓</span>
-                            <span>You're <strong>stuck in the weeds</strong> instead of working on growth and strategy</span>
+                            <span><strong>Stuck in the weeds</strong> instead of working on growth</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-pink-500 mr-3 font-bold text-xl">✓</span>
-                            <span>You want to <strong>scale without burning out</strong> or tripling your team size</span>
+                            <span><strong>Have an EA, VA, or Chief of Staff</strong> you want to make 3× more effective</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-pink-500 mr-3 font-bold text-xl">✓</span>
+                            <span><strong>Want to scale</strong> without burning out or tripling your team</span>
                         </li>
                     </ul>
                 </div>
@@ -718,26 +943,26 @@
                         </svg>
                         <h3 class="text-2xl font-bold text-gray-600">This Isn't For You If:</h3>
                     </div>
-                    <ul class="space-y-4 text-lg text-gray-600">
+                    <ul class="space-y-3 text-base text-gray-600">
                         <li class="flex items-start">
                             <span class="mr-3">✗</span>
-                            <span>You're pre-revenue or under $50K annually (focus on sales first)</span>
+                            <span>Pre-revenue or under $50K (focus on sales first)</span>
                         </li>
                         <li class="flex items-start">
                             <span class="mr-3">✗</span>
-                            <span>You want to build and maintain a DIY solution yourself</span>
+                            <span>Want to build and maintain a DIY solution</span>
                         </li>
                         <li class="flex items-start">
                             <span class="mr-3">✗</span>
-                            <span>You're looking for a chatbot to put on your website</span>
+                            <span>Looking for a website chatbot</span>
                         </li>
                         <li class="flex items-start">
                             <span class="mr-3">✗</span>
-                            <span>You need instant results (our process takes 6 weeks)</span>
+                            <span>Need results in under 6 weeks</span>
                         </li>
                         <li class="flex items-start">
                             <span class="mr-3">✗</span>
-                            <span>You're not willing to invest in professional AI implementation (implementation starts at $15,000 CAD)</span>
+                            <span>Not ready to invest $15,000+ CAD in professional implementation</span>
                         </li>
                     </ul>
                 </div>
@@ -746,9 +971,9 @@
             <!-- CTA -->
             <div class="glass-dark p-8 md:p-10 rounded-3xl shadow-xl mt-12">
                 <div class="text-center">
-                    <h3 class="text-2xl md:text-3xl font-bold mb-4">Sound Like You?</h3>
-                    <p class="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-                        Take our 2-minute interactive assessment to get your personalized AI Implementation Roadmap with custom recommendations.
+                    <h3 class="text-2xl md:text-3xl font-bold mb-3">Sound Like You?</h3>
+                    <p class="text-base text-gray-700 mb-6 max-w-xl mx-auto">
+                        Take the 2-minute assessment and get your personalized AI Implementation Roadmap.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <a href="/assessment.html" class="inline-block btn-primary text-white px-10 py-4 rounded-xl text-lg font-semibold hover-glow">
@@ -760,6 +985,18 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- PULL QUOTE BRIDGE -->
+    <section class="py-12 px-6 bg-white">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-xl md:text-2xl font-semibold text-gray-800 leading-relaxed">
+                AI handles the repetitive layer so your team focuses on the moments that require a human touch.
+            </p>
+            <p class="text-sm text-gray-500 mt-3">
+                That is the entire premise of PVRPOSE AI OS. Strategy first. Systems second. Humans where it matters most.
+            </p>
         </div>
     </section>
 
@@ -818,6 +1055,7 @@
                     </ul>
                     <p class="text-xs text-gray-500 mb-4 text-center">⚠️ Pioneer spots are reserved for registered businesses in Canada or the USA — $100K+ annual revenue, active operations. All deliverables are in English.</p>
                     <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call"
+                       target="_blank" rel="noopener noreferrer"
                        class="block w-full text-center bg-deep-blue hover:opacity-90 text-white font-bold py-4 rounded-xl transition">
                         Apply for Free Pioneer Spot →
                     </a>
@@ -854,6 +1092,7 @@
                     </div>
                     <p class="text-xs text-gray-500 mb-4 text-center">⚠️ Pioneer spots are reserved for registered businesses in Canada or the USA — $100K+ annual revenue, active operations. All deliverables are in English.</p>
                     <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call"
+                       target="_blank" rel="noopener noreferrer"
                        class="block w-full text-center bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 rounded-xl transition">
                         Book PVRPOSE AI OS Audit — $2,500 CAD →
                     </a>
@@ -1060,6 +1299,7 @@
                         title="Client Testimonial - Strategic Partnership with Dominion Equity Holdings"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                         allowfullscreen>
                     </iframe>
                 </div>
@@ -1201,6 +1441,7 @@
                         title="Client Testimonial - James Evans from Vensa Coaching"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                         allowfullscreen>
                     </iframe>
                 </div>
@@ -1318,58 +1559,6 @@
             setupVideo('videoThumb2', 'youtubeIframe2', 'https://www.youtube.com/embed/_6A20lEqDtg?autoplay=1&rel=0&modestbranding=1&playsinline=1');
         });
     </script>
-
-    <!-- Change: Condensed transition and intro to reduce word count -->
-    <!-- PROBLEM WE SOLVE SECTION -->
-    <section class="py-20 px-6 bg-gray-50">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center hero-headline">
-                Why Traditional Approaches Fail
-            </h2>
-            <p class="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
-                Most AI implementations are too slow, expensive, or generic.
-            </p>
-
-            <div class="space-y-6 mb-20">
-                <!-- Change: Condensed problem descriptions to reduce word count -->
-                <div class="feature-card bg-white p-8 md:p-10 rounded-2xl shadow-sm hover-lift">
-                    <h3 class="text-2xl md:text-3xl font-bold mb-4">Enterprise AI implementations typically take 6–12 months</h3>
-                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
-                        Established AI agencies (e.g., Morningside AI) start at $60,000 USD. PVRPOSE AI OS is built for the mid-market, not enterprise budgets.
-                    </p>
-                </div>
-
-                <div class="feature-card bg-white p-8 md:p-10 rounded-2xl shadow-sm hover-lift">
-                    <h3 class="text-2xl md:text-3xl font-bold mb-4">DIY AI tools require becoming a full-time tech person</h3>
-                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
-                        Generic solutions don't match how your business operates. Focus on clients, not prompts.
-                    </p>
-                </div>
-
-                <div class="feature-card bg-white p-8 md:p-10 rounded-2xl shadow-sm hover-lift">
-                    <h3 class="text-2xl md:text-3xl font-bold mb-4">AI implementation often triggers burnout</h3>
-                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
-                        Adding AI creates decision fatigue and analysis paralysis—most ignore the human cost.
-                    </p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-                <div class="text-center p-6 rounded-2xl glass-dark">
-                    <p class="stat-number text-5xl md:text-6xl mb-3">80%</p>
-                    <p class="text-gray-700 font-medium">of businesses aren't ready for AI adoption</p>
-                </div>
-                <div class="text-center p-6 rounded-2xl glass-dark">
-                    <p class="stat-number text-5xl md:text-6xl mb-3">93%</p>
-                    <p class="text-gray-700 font-medium">cite culture and change management as top AI challenges</p>
-                </div>
-                <div class="text-center p-6 rounded-2xl glass-dark">
-                    <p class="stat-number text-5xl md:text-6xl mb-3">10–20 hrs</p>
-                    <p class="text-gray-700 font-medium">lost per week to admin tasks that don't generate revenue</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- DIY VS PROFESSIONAL COMPARISON -->
     <section id="diy-comparison" class="py-20 px-6 bg-white">
@@ -1536,6 +1725,11 @@
                     Take Free Assessment – See Your ROI →
                 </a>
                 <p class="text-sm text-gray-500 mt-4">2-minute assessment • Get your personalized AI Implementation Roadmap</p>
+                    <p class="text-sm text-gray-500 mt-4 text-center">
+                        <a href="#ea-superpowers" class="hover:text-pink-600 transition">Solo founder? → Personal AI OS.</a>
+                        &nbsp;&nbsp;
+                        <a href="#ea-superpowers" class="hover:text-pink-600 transition">Have an EA? → EA Superpowers Upgrade.</a>
+                    </p>
             </div>
         </div>
     </section>
@@ -2067,7 +2261,8 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-4xl md:text-5xl font-bold mb-8 gradient-accent bg-clip-text text-transparent">Coach Juan Gonzalez</h3>
+                        <h3 class="text-4xl md:text-5xl font-bold mb-2 gradient-accent bg-clip-text text-transparent">Coach Juan Gonzalez</h3>
+                        <p class="text-lg font-semibold text-gray-500 mb-8">AI Performance Strategist | PVRPOSE AI</p>
 
                         <p class="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
                             Coach Juan spent 15+ years leading tech transformations at companies like Ericsson and Ubisoft, then walked away as a solo-entrepreneur to build something with more soul at PVRPOSE AI.
@@ -2101,6 +2296,23 @@
                                     <span>Based in Quebec, Canada</span>
                                 </li>
                             </ul>
+                            <div class="mt-8 pt-6 border-t-2 border-gray-300">
+                                <p class="font-semibold mb-4 text-lg">The Framework Behind Every Build:</p>
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="text-center p-4 bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl">
+                                        <p class="text-2xl font-bold gradient-accent bg-clip-text text-transparent mb-1">Strategy</p>
+                                        <p class="text-xs text-gray-600">Business problem first. Technology second.</p>
+                                    </div>
+                                    <div class="text-center p-4 bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl">
+                                        <p class="text-2xl font-bold gradient-accent bg-clip-text text-transparent mb-1">Systems</p>
+                                        <p class="text-xs text-gray-600">Real running infrastructure. Not advice.</p>
+                                    </div>
+                                    <div class="text-center p-4 bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl">
+                                        <p class="text-2xl font-bold gradient-accent bg-clip-text text-transparent mb-1">Humans</p>
+                                        <p class="text-xs text-gray-600">Adoption, behavior change, people outcomes.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2208,7 +2420,7 @@
                     <!-- Change: Condensed FAQ intro to reduce word count -->
                     <div id="faq-answer-2" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden">
                         <p class="mb-4">AI and VAs solve different problems:</p>
-                        <div class="overflow-x-auto">
+                        <div class="overflow-x-auto" style="-webkit-overflow-scrolling: touch;">
                             <table class="w-full border-collapse mb-4">
                                 <thead>
                                     <tr class="bg-gray-100">
@@ -2442,6 +2654,9 @@
                             <li>Trigger a follow-up sequence for a specific client</li>
                             <li>Get your daily business briefing every morning</li>
                         </ul>
+                        <p class="mb-4">
+                            The Telegram interface is powered by ClaudeClaw — a custom-built bot layer I developed specifically for PVRPOSE AI OS. It is not an off-the-shelf integration. It is purpose-built to connect Claude's intelligence to your phone in a way that feels like texting, not using software.
+                        </p>
                         <p class="font-semibold text-gray-900">
                             Your AI OS runs on a private server you control. Your phone is just the interface — light, fast, and always with you.
                         </p>
@@ -2452,7 +2667,7 @@
                 <div class="glass-dark p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(9)">
                         <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
-                            What is Claude Code and why does it matter?
+                            What makes PVRPOSE AI OS different from every other AI tool out there?
                         </h3>
                         <svg id="faq-icon-9" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -2460,7 +2675,7 @@
                     </button>
                     <div id="faq-answer-9" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden">
                         <p class="mb-4">
-                            Claude Code is Anthropic's most advanced AI development engine — think of it as the brain that powers your entire AI OS. Unlike generic AI tools that give you one-size-fits-all answers, Claude Code is configured specifically around your business: your context, your workflows, your language, your data.
+                            Most AI tools give you a chat interface and call it an AI system. PVRPOSE AI OS is something different — a fully configured, running AI operating system built around how your specific business works. It knows your workflows, speaks in your voice, connects to your tools, and operates 24/7 without you having to manage it. The brain behind it is Claude — Anthropic's most advanced AI, configured specifically around your business context, workflows, language, and data.
                         </p>
                         <p class="mb-4">
                             This means your AI OS doesn't just answer questions — it understands your business deeply enough to draft proposals in your voice, flag anomalies in your pipeline, automate follow-ups the way you would do them, and brief you daily on what matters most.
@@ -2495,7 +2710,7 @@
                             <li><strong>Quebec Law 25 ready:</strong> Designed for Canadian privacy law requirements</li>
                         </ul>
                         <p class="font-semibold text-gray-900">
-                            Unlike most AI tools that process your business data through shared American servers, your PVRPOSE AI OS runs on infrastructure you control. That is by design.
+                            Unlike most AI tools that process your business data through shared American servers, your PVRPOSE AI OS runs on infrastructure you control. And because compliance review is part of every build — with legal professionals involved where needed — CASL/PIPEDA is built in from day one, not bolted on as an afterthought. By design.
                         </p>
                     </div>
                 </div>
@@ -2545,6 +2760,56 @@
                     </button>
                     <div id="faq-answer-12" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden">
                         <p>One 2-hour discovery call. That is it from you in Week 1. We run the workflow mapping, build the AI OS blueprint, and configure your private infrastructure plan. You see the first working piece by end of Week 2 — not at Week 6. Every week after that you get a live demo so you are never waiting in the dark wondering if it is working.</p>
+                    </div>
+                </div>
+
+                <!-- EA & Chief of Staff Questions -->
+                <div class="mt-10 mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 px-2 pb-2 border-b-2 border-pink-200">EA &amp; Chief of Staff Questions</h3>
+                </div>
+
+                <!-- FAQ EA-1 -->
+                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ('ea1')">
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                            Does this replace my EA?
+                        </h3>
+                        <svg id="faq-icon-ea1" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="faq-answer-ea1" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden">
+                        <p>No. PVRPOSE AI OS is built to make your EA 3–10× more effective, not replace them. Your EA stays in control. The AI does the grinding repetitive work so they can focus on judgment, relationships, and strategy.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ EA-2 -->
+                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ('ea2')">
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                            My EA isn't technical. Will they be able to use this?
+                        </h3>
+                        <svg id="faq-icon-ea2" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="faq-answer-ea2" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden">
+                        <p>Yes. The interface is Telegram — a messaging app they already know. They type or speak a command on their phone. The system does the rest. No training required beyond 30 minutes of onboarding.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ EA-3 -->
+                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ('ea3')">
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                            How long until we see ROI?
+                        </h3>
+                        <svg id="faq-icon-ea3" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="faq-answer-ea3" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden">
+                        <p>Most clients see measurable time savings in week 1. Full ROI on the build typically happens in 3–6 months for founders with an EA already costing $67K–$94K/year. The math is simple: if the system saves your EA 2 hours/day, that's 40 hours/month of higher-leverage work from someone you're already paying.</p>
                     </div>
                 </div>
 
@@ -2704,7 +2969,7 @@
     <footer class="bg-black text-white py-16 px-6">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-12">
-                <img src="/logotypes-ai-rez-03.png" alt="PVRPOSE AI - Voice, Vision, Vibe" class="mx-auto mb-4" style="max-width: 400px; height: auto;" />
+                <img src="/logotypes-ai-rez-03.png" alt="PVRPOSE AI - Voice, Vision, Vibe" class="mx-auto mb-4" style="max-width: min(400px, 90vw); height: auto;" />
                 <p class="text-gray-400 text-lg">Own Your Voice. Vision. Vibe.</p>
             </div>
 
@@ -3305,6 +3570,37 @@
         });
 
         console.log('✅ Advanced GA4 tracking initialized');
+    </script>
+    <script>
+        function setHeroTab(tab) {
+            var isSolo = tab === 'solo';
+            // Toggle H1
+            document.getElementById('hero-h1-solo').classList.toggle('hidden', !isSolo);
+            document.getElementById('hero-h1-ea').classList.toggle('hidden', isSolo);
+            // Toggle tagline
+            document.getElementById('hero-tagline-solo').classList.toggle('hidden', !isSolo);
+            document.getElementById('hero-tagline-ea').classList.toggle('hidden', isSolo);
+            // Toggle CTAs
+            document.getElementById('hero-cta-solo').classList.toggle('hidden', !isSolo);
+            document.getElementById('hero-cta-ea').classList.toggle('hidden', isSolo);
+            // Toggle Monday Morning timelines
+            document.getElementById('monday-solo').classList.toggle('hidden', !isSolo);
+            document.getElementById('monday-ea').classList.toggle('hidden', isSolo);
+            // Toggle tab button styles
+            var soloBtn = document.getElementById('tab-solo');
+            var eaBtn = document.getElementById('tab-ea');
+            if (isSolo) {
+                soloBtn.className = 'hero-tab-btn px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-blue-900 text-white shadow-lg';
+                eaBtn.className = 'hero-tab-btn px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600';
+            } else {
+                eaBtn.className = 'hero-tab-btn px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-blue-900 text-white shadow-lg';
+                soloBtn.className = 'hero-tab-btn px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600';
+            }
+        }
+        // Default to EA tab on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setHeroTab('ea');
+        });
     </script>
 </body>
 </html>

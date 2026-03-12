@@ -1050,6 +1050,24 @@ Trigger: "Summarize our Series A story: traction, team, market size, 3 risks wit
 System: Reads memory and prospect/client files, drafts a structured 2-page DD summary.
 ClaudeClaw status: LIVE.
 
+#### PERSONAL AND FAMILY SUPPORT
+
+**EA24. GIFT AND CONCIERGE**
+Trigger: "Spouse's birthday next Friday. 3 gift options under $300 CAD, Toronto delivery, gift-wrapped. Include a personal note draft in my voice."
+System: Web search for gift options matching criteria, proposes 3 options with pricing and delivery info, drafts a personal note in founder's voice.
+Manual time replaced: 30-60 minutes of browsing and decision-making.
+ClaudeClaw status: LIVE -- web search + voice rules.
+
+---
+
+#### CULTURE AND TEAM
+
+**EA25. TEAM RECOGNITION AND AWARDS**
+Trigger: "Q1 high-performer awards. List top 5 nominees from [team/department], their key achievements, and draft a 2-minute presentation script for the all-hands."
+System: Uses pasted team data or memory context to identify top performers, structures achievements, and drafts a presentation script in founder's voice.
+Manual time replaced: 1-2 hours of compiling achievements and writing scripts.
+ClaudeClaw status: LIVE for drafting. Actual team data must be pasted or stored in memory/prospect files.
+
 ---
 
 #### TECH MAPPING (what powers each prompt)

@@ -379,7 +379,7 @@ When the Airtable skill is live, the EA can query and update Airtable directly f
 
 ## SECTION 7: EA BUSINESS CASE LIBRARY — CATEGORIES A THROUGH N
 
-> Categories A through M are fully documented in master SOP Section 7 and all apply in the EA configuration. The trigger phrases and workflows are identical — they are now operated by the EA instead of the founder directly. Category N is new — EA-specific use cases that only exist when a human EA is part of the team.
+> Categories A through M are fully documented in master SOP Section 7 and all apply in the EA configuration. The trigger phrases and workflows are identical — they are now operated by the EA instead of the founder directly. Category EA is new — EA-specific use cases that only exist when a human EA is part of the team.
 
 ### How Categories A–M Map to EA Operations
 
@@ -707,7 +707,7 @@ When a message comes from [FOUNDER_TELEGRAM_ID]:
 ### What the EA is Empowered to Trigger
 
 - All Category A–M use cases (pipeline management, communications, documents, content, scheduling, email, Slack, research, files, WhatsApp)
-- All Category N use cases (EA-specific workflows above)
+- All Category EA use cases (EA-specific workflows above)
 - Morning digest cron (receives output first, forwards summary to founder)
 - Pre-call brief preparation
 - Checkpoint (end of shift handoff)
@@ -763,7 +763,7 @@ Morning routine (EA triggers at 8:30am):
 1. Read all data/prospects/ files
 2. Read Google Calendar for the day
 3. Check Gmail for overnight priority emails
-4. Compile morning brief (see Category N1 format)
+4. Compile morning brief (see Category EA1 format)
 5. Send to EA's Telegram
 6. EA forwards condensed version to founder
 
@@ -844,7 +844,7 @@ Pull up Telegram on your phone or laptop.
 
 ---
 
-### MINUTE 2–7: The Morning Briefing (Category N1)
+### MINUTE 2–7: The Morning Briefing (Category EA1)
 
 Type in Telegram (or have EA type): "Prep the CEO's morning brief for today."
 
@@ -940,7 +940,7 @@ The standard pricing structure applies:
 | Pricing | EA ROI Frame |
 |---|---|
 | $2,500 audit | "Your EA costs more than this per month. This maps out exactly how to make them 3x more productive." |
-| $20,000 build | "At $80K/year for your EA, this pays for itself in under 4 months on output gains alone." |
+| $20,000 build | "At $63K-$98K/year for your EA (Robert Half 2026), this pays for itself in 3-6 months on output gains alone." |
 | $3,000/month retainer | "Less than 1 week of your EA's monthly cost. Keeps the system optimized as your needs evolve." |
 
 ### What to Quote for EA vs. Standard Builds
@@ -1065,7 +1065,7 @@ Add to the standard QA checklist from master SOP Section 12:
 - Adjust CLAUDE.md routing logic based on EA feedback
 
 **Week 2 post-delivery:**
-- Review which Category N use cases the EA is using most
+- Review which Category EA use cases the EA is using most
 - If the EA is not using the morning briefing cron: investigate and fix (usually a timezone or cron syntax issue)
 - If the EA is bypassing the draft confirmation prompt: investigate why (usually the draft quality is low — fix the comms agent config)
 
@@ -1201,7 +1201,7 @@ PVRPOSE AI OS EA Superpowers does none of these. It:
 
 Identical to master SOP Section 17. No EA-specific changes.
 
-`convolife`, `checkpoint`, `/newchat`, `/respin`, `/stop`, `/model`, `/memory`, `/forget` — all work the same way. The EA can use all of these. The checkpoint function is especially important for EA shift handoffs (see Category N7).
+`convolife`, `checkpoint`, `/newchat`, `/respin`, `/stop`, `/model`, `/memory`, `/forget` — all work the same way. The EA can use all of these. The checkpoint function is especially important for EA shift handoffs (see Category EA7).
 
 ---
 
@@ -1279,7 +1279,7 @@ Total time for EA: 5 minutes. Old time: 30–45 minutes of drafting and editing.
 
 EA sends: "Handoff notes for today."
 
-System produces the structured summary (Category N7 format). EA reviews, adds one note ("Michael Schacter expected to respond by tomorrow morning — watch inbox at 9am"), and saves.
+System produces the structured summary (Category EA7 format). EA reviews, adds one note ("Michael Schacter expected to respond by tomorrow morning — watch inbox at 9am"), and saves.
 
 EA sends a one-line Telegram to founder: "Day wrapped. Nathalie reply sent, Schacter proposal delivered, George still needs to sign. Full notes saved."
 
@@ -1574,7 +1574,7 @@ In addition to the standard skills setup from master SOP Section 29:
 - [ ] LinkedIn skill confirmed active in ~/.claude/skills/linkedin/SKILL.md with client's voice rules
 - [ ] WhatsApp bridge enabled if client uses WhatsApp significantly (WHATSAPP_ENABLED=true)
 - [ ] EA onboarding session completed and documented
-- [ ] All Category N use cases tested with EA in the seat
+- [ ] All Category EA use cases tested with EA in the seat
 
 ---
 

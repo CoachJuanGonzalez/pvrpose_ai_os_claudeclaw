@@ -880,6 +880,212 @@ Manual time replaced: Scrolling through WhatsApp chat history manually.
 
 ---
 
+### CATEGORY EA: EA-AUGMENTED WORKFLOW
+
+**For founders with a human EA, VA, or Chief of Staff -- AI handles the repetitive grind, the human applies judgment and relationship intelligence.**
+
+Context: EA salary in Canada ranges from $63,000-$98,000 CAD (national average ~$65,000; Toronto senior roles $74,000-$98,000 per Robert Half 2026). The ROI case is not "replace your EA" -- it is "your EA's output capacity doubles or triples, which means you get the equivalent of two EAs for the price of one, with zero additional headcount."
+
+**What ClaudeClaw executes today vs what requires future build:**
+- LIVE NOW: All prompts using Gmail, Google Calendar, Slack, memory/Obsidian, web research, voice transcripts, and document drafting
+- REQUIRES N8N BRIDGE (not yet live): GHL CRM scrubbing, automated inbox tagging at scale
+- REQUIRES FUTURE BUILD: Receipt/PDF OCR for expense parsing, board book PDF export
+
+---
+
+#### BASIC TASKS -- HIGH REPETITION, HIGH AUTOMATION (entry-level EA, 0-3 years)
+
+Realistic daily volume for a busy founder's EA: 50-150 emails processed, 3-8 meetings booked, 5-10 calls screened.
+
+**EA1. INBOX TRIAGE**
+Trigger: "Triage my inbox from the last 48 hours. Flag priorities: Hot (act today), Warm (this week), Cold (archive). Draft 3 replies in my voice."
+System: Gmail skill reads inbox, applies priority logic against known contacts and open deals in memory, drafts replies in Juan's voice. EA reviews and approves before sending.
+Manual time replaced: 45-90 minutes of manual inbox sorting and drafting.
+ClaudeClaw status: LIVE -- Gmail skill + memory.
+
+**EA2. CALENDAR CONFLICT SCANNER**
+Trigger: "Scan my calendar for the next 7 days. Flag double-bookings, missing prep time before calls, and travel gaps. Propose 3 fixes."
+System: Google Calendar skill reads the week, cross-references travel or location context in memory, returns a structured conflict report with proposed reschedules.
+Manual time replaced: 20-40 minutes of manual calendar review.
+ClaudeClaw status: LIVE -- Google Calendar skill.
+
+**EA3. MEETING CONFIRMATION DRAFTS**
+Trigger: "Draft confirmation replies for all meetings tomorrow in my voice. Include agenda line."
+System: Reads calendar events for the next day, drafts a short confirmation email per meeting in Juan's voice, ready for EA to send.
+Manual time replaced: 15-30 minutes of repetitive drafting.
+ClaudeClaw status: LIVE -- Google Calendar + Gmail skill.
+
+**EA4. EXPENSE CATEGORIZATION PREP**
+Trigger: "Here are this week's receipts [paste text/amounts]. Categorize for Expensify: Client meals, Travel, Office. Total by vendor. Flag anything over $200."
+System: Reads pasted receipt data, categorizes and totals, outputs a structured table ready for Expensify entry.
+Manual time replaced: 20-30 minutes of manual data entry prep.
+ClaudeClaw status: LIVE for text/pasted input. PDF/photo OCR requires future build.
+
+---
+
+#### MIDDLE TASKS -- JUDGMENT + SYSTEM ACCESS (senior EA, 3-7 years)
+
+**EA5. PRE-MEETING EXECUTIVE BRIEFING**
+Trigger: "Brief me for my 3pm call with Nathalie McKenzie. Pull everything -- CRM notes, past emails, Obsidian, LinkedIn research. 200 words max."
+System: Reads data/prospects/nathalie-mckenzie.md, pulls relevant Gmail threads via Gmail skill, searches Obsidian memory, runs a web search for recent LinkedIn/news context. Delivers a tight 200-word brief.
+Manual time replaced: 20-30 minutes of manual research and synthesis.
+ClaudeClaw status: LIVE -- memory + Gmail + web search + prospect files.
+
+**EA6. STAKEHOLDER SCHEDULE ALIGNMENT**
+Trigger: "Find a time for me, George Mills, and Andrea Soueidan for a 45-minute call next week. Propose 3 options."
+System: Reads Juan's Google Calendar for availability, cross-references known time preferences in prospect files, proposes 3 specific slots with draft invite text.
+Manual time replaced: 15-30 minutes of back-and-forth scheduling.
+ClaudeClaw status: LIVE -- Google Calendar skill + prospect files.
+
+**EA7. VENDOR DOCUMENT SUMMARY**
+Trigger: "Here's the caterer proposal [paste text]. Extract: price, terms, cancellation policy, key dates. Flag negotiation points."
+System: Reads pasted vendor document, extracts structured summary, flags anything outside standard terms.
+Manual time replaced: 20-40 minutes of document review.
+ClaudeClaw status: LIVE for pasted text. PDF parsing requires future build.
+
+**EA8. CRM REACTIVATION DRAFTS**
+Trigger: "Here are 10 cold leads from Airtable untouched for 90+ days [paste names/context]. Draft personalized reactivation messages in my voice."
+System: Reads pasted lead context, drafts 10 personalized outreach messages in Juan's voice using voice rules from CLAUDE.md.
+Manual time replaced: 2-3 hours of manual drafting.
+ClaudeClaw status: LIVE for pasted input. Auto-pull from GHL requires n8n bridge (not yet live).
+
+---
+
+#### ADVANCED TASKS -- STRATEGIC, HIGH-TRUST (Chief of Staff level, 7+ years)
+
+**EA9. PRE-MEETING RESEARCH DOSSIER**
+Trigger: "Research James Hutchinson before dinner tonight. Company status, recent news, mutual connections, 3 talking points I can use."
+System: Web search for recent news/LinkedIn, cross-references memory for any prior interaction notes, returns a structured 300-word dossier.
+Manual time replaced: 20-45 minutes of manual research.
+ClaudeClaw status: LIVE -- web search + memory + prospect files.
+
+**EA10. DRAFT IN FOUNDER'S VOICE**
+Trigger: "Draft a 500-word keynote opening for my TNC lunch on AI and the future of professional services. Use my voice."
+System: Uses voice rules from CLAUDE.md + LinkedIn post history in memory to draft in Juan's exact tone, structure, and cadence.
+Manual time replaced: 1-2 hours of writing.
+ClaudeClaw status: LIVE -- memory + voice rules.
+
+**EA11. CRISIS RESPONSE OPTIONS**
+Trigger: "Client complaint just came in on LinkedIn [paste text]. Draft 3 response options: diplomatic, neutral, assertive. In my voice."
+System: Reads complaint, drafts 3 responses calibrated by tone, each in Juan's voice. EA or founder selects and edits.
+Manual time replaced: 30-60 minutes of careful drafting under pressure.
+ClaudeClaw status: LIVE.
+
+**EA12. ONBOARDING KNOWLEDGE TRANSFER**
+Trigger: "New ops person starting Monday. Create a 1-page handoff doc: key clients, calendar rhythm, escalation paths, voice rules."
+System: Reads prospect files, Obsidian notes, CLAUDE.md, and recent calendar patterns to compile a structured 1-page onboarding doc.
+Manual time replaced: 2-4 hours of institutional knowledge documentation.
+ClaudeClaw status: LIVE -- all data sources already in context.
+
+---
+
+#### DAILY EA COMMAND CENTER (rhythm prompts)
+
+**EA13. MORNING EXEC BRIEF (EA runs at 6-7am)**
+Trigger: "Generate the CEO's morning brief. Yesterday's closes, today's critical path, 3 priorities, 2 blockers, 1 decision needed. 1 page max."
+System: Reads prospect files, yesterday's calendar, open Gmail threads, memory. Outputs a tight structured brief.
+ClaudeClaw status: LIVE. Can be scheduled as a cron at 6:30am weekdays.
+
+**EA14. PRE-MEETING BRIEFING ENGINE**
+Trigger: "Prep me for my next 3 meetings today. Who, context, goals, risks, one talking point each."
+System: Reads Google Calendar for next 3 meetings, pulls relevant context for each person from memory and prospect files.
+ClaudeClaw status: LIVE.
+
+**EA15. EOD CRITICAL PATH**
+Trigger: "EOD wrap. What's unresolved today? Build tomorrow's must-do list, time-blocked, protecting deep work windows."
+System: Reviews today's calendar and any open threads in memory, outputs a prioritized tomorrow plan with time blocks.
+ClaudeClaw status: LIVE.
+
+---
+
+#### CANADIAN URBAN SPECIALTIES
+
+**EA16. MONTREAL -- BILINGUAL COMMUNICATION**
+Trigger: "Adapt this board email for our French board members. Keep my tone, ensure it's natural French -- not translated."
+System: Rewrites in professional Quebec French, preserving Juan's directness and cadence. Bill 96 compliant -- French-first for all official communications.
+ClaudeClaw status: LIVE -- Claude is fluent in Quebec French.
+Note: Under Bill 96 (2025), all official Quebec workplace communications must be available in French. English can be used where the role requires it and is documented. EA must ensure French versions exist for all formal documents.
+
+**EA17. OTTAWA -- GOVERNMENT CALENDAR SYNC**
+Trigger: "Cross-reference my calendar with federal committee schedules for the next 30 days. Flag any conflicts with sessions relevant to [policy area]."
+System: Web search for parliamentary committee schedule, cross-reference with Google Calendar, return a conflict and opportunity report.
+ClaudeClaw status: LIVE -- web search + Google Calendar skill.
+
+**EA18. VANCOUVER -- ASIA-PACIFIC TIME ZONE COORDINATION**
+Trigger: "Propose 3 meeting times for me (PST) and 4 contacts in Tokyo, Singapore, and Seoul. Overlap window only. Include travel feasibility for Q3 offsite."
+System: Timezone skill calculates overlap windows, returns 3 slots with local times for each participant, flags Q3 travel logistics.
+ClaudeClaw status: LIVE -- Timezone skill.
+
+**EA19. TORONTO -- INVESTOR RELATIONS PREP**
+Trigger: "Prep me for my TSX investor call with [name]. Recent filings, news, any compliance flags, 3 questions to ask."
+System: Web search for recent investor news and filings, cross-references memory for prior interaction, returns a structured prep doc.
+ClaudeClaw status: LIVE -- web search + memory.
+
+---
+
+#### TRAVEL AND EVENTS
+
+**EA20. CROSS-BORDER TRAVEL LOGISTICS (CANADA-US)**
+Trigger: "Montreal-Toronto-New York trip next week. Propose flight options, ground transport, hotel zones. Flag anything I need for US entry."
+System: Web search for travel options, returns a structured itinerary outline. Notes: Canadian citizens do not require ESTA for US travel -- only a valid passport and may require an eTA for air travel within Canada.
+Manual time replaced: 1-2 hours of manual booking research.
+ClaudeClaw status: LIVE for research and itinerary drafting. Actual booking requires human action.
+
+**EA21. EXEC RETREAT PLANNING**
+Trigger: "Plan a 25-person company retreat. Venue options under $15,000 CAD, 2-day agenda, CEO keynote slot. Montreal or Eastern Townships."
+System: Web search for venue options, proposes agenda structure, drafts CEO keynote slot outline.
+ClaudeClaw status: LIVE for research and drafting. Vendor calls require human follow-up.
+
+---
+
+#### BOARD AND INVESTORS
+
+**EA22. BOARD BOOK PREPARATION**
+Trigger: "Format this month's board update [paste content]. Structure: Exec summary, KPIs, key decisions needed, financials, next steps."
+System: Structures pasted content into a clean board book format, outputs ready-to-paste or Markdown file.
+Manual time replaced: 2-4 hours of formatting and structuring.
+ClaudeClaw status: LIVE for structure and Markdown output. PDF export requires future build (scripts/generate-pdf.py -- not yet built).
+
+**EA23. INVESTOR DUE DILIGENCE SUMMARY**
+Trigger: "Summarize our Series A story: traction, team, market size, 3 risks with mitigations. 2 pages max, investor voice."
+System: Reads memory and prospect/client files, drafts a structured 2-page DD summary.
+ClaudeClaw status: LIVE.
+
+---
+
+#### TECH MAPPING (what powers each prompt)
+
+| Task type | ClaudeClaw component | Status |
+|---|---|---|
+| Email drafting and triage | skills/gmail/SKILL.md | LIVE |
+| Calendar read and conflict detection | skills/google-calendar/SKILL.md | LIVE |
+| Memory and context pull | store/claudeclaw.db + Obsidian | LIVE |
+| Voice matching | CLAUDE.md voice rules + memory | LIVE |
+| Web research and dossiers | Web search tool | LIVE |
+| Bilingual (FR/EN) output | Claude native capability | LIVE |
+| Timezone coordination | skills/timezone/SKILL.md | LIVE |
+| Slack status and comms | skills/slack/SKILL.md | LIVE |
+| Scheduled morning brief | dist/schedule-cli.js cron | LIVE |
+| GHL CRM auto-pull | n8n bridge | NOT YET LIVE (Phase 2) |
+| Receipt/PDF OCR | scripts/generate-pdf.py | NOT YET BUILT |
+| Board book PDF export | scripts/generate-pdf.py | NOT YET BUILT |
+
+---
+
+#### TNC DEMO SCRIPT -- EA SUPERPOWERS (March 17, 2026)
+
+Three prompts, live on phone, under 5 minutes:
+
+1. "Brief me for my 3pm with Nathalie" -- 15 seconds -- returns 200-word brief pulling CRM + email + web research
+2. "Triage my inbox last 48 hours" -- 20 seconds -- returns tagged priorities + 3 draft replies in Juan's voice
+3. "Draft George Mills follow-up in my voice" -- 10 seconds -- returns ready-to-send message
+
+Pitch line: "Your EA already does all of this. PVRPOSE EA Superpowers makes them do it in one-tenth the time. Same human judgment. Same relationship. 10x the output."
+
+ROI frame (defensible): "A senior EA in Toronto costs $74,000-$98,000 CAD (Robert Half 2026). AI-assisted productivity gains of 40-55% (McKinsey/PwC 2025) mean your EA effectively delivers the work of 1.5 EAs for the same salary. The $15,000-$25,000 build pays back in under 6 months."
+
+---
+
 ## SECTION 8: THE BLUEPRINT ARCHITECTURE
 
 Every client deployment follows this exact structure.

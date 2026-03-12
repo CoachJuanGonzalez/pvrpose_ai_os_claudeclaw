@@ -400,13 +400,13 @@ The system serves both — the trigger point shifts from founder to EA, but the 
 
 ---
 
-### CATEGORY N: EA-AUGMENTED WORKFLOW (NEW — EA CONFIGURATION ONLY)
+### CATEGORY EA: EA-AUGMENTED WORKFLOW (NEW — EA CONFIGURATION ONLY)
 
 These use cases only exist in the EA Superpowers configuration. They require the two-person access architecture documented in Section 3.
 
 ---
 
-**N1. EA Morning Briefing Prep**
+**EA1. EA Morning Briefing Prep**
 
 Trigger (EA, 8:30am): "Prep the CEO's morning brief for today."
 
@@ -441,7 +441,7 @@ Manual time replaced: EA spends 30–45 minutes every morning pulling from Airta
 
 ---
 
-**N2. Pre-Call Brief Preparation (EA-Triggered)**
+**EA2. Pre-Call Brief Preparation (EA-Triggered)**
 
 Trigger (EA, 15 minutes before a call): "Prep the CEO's brief for the 2pm George Mills call."
 
@@ -459,7 +459,7 @@ Manual time replaced: 15 minutes of digging through email and CRM before every c
 
 ---
 
-**N3. Draft in Founder's Voice — Full Delegation Mode**
+**EA3. Draft in Founder's Voice — Full Delegation Mode**
 
 Trigger (EA): "Draft the CEO's response to Nathalie's email about the agreement timeline. She's asking for a 2-week extension."
 
@@ -477,7 +477,7 @@ Manual time replaced: EA writing the email themselves (15–20 minutes), founder
 
 ---
 
-**N4. Inbox Triage + Priority Routing**
+**EA4. Inbox Triage + Priority Routing**
 
 Trigger (EA, 9am): "Triage the CEO's inbox for the last 24 hours. Flag by priority."
 
@@ -502,7 +502,7 @@ Manual time replaced: 20–30 minutes of EA scanning the inbox, deciding what ma
 
 ---
 
-**N5. Calendar Optimization and Deep-Work Protection**
+**EA5. Calendar Optimization and Deep-Work Protection**
 
 Trigger (EA, Monday morning): "The CEO has 7 meeting requests this week. Optimize their schedule to protect deep-work blocks and flag any conflicts."
 
@@ -533,7 +533,7 @@ Manual time replaced: 30–45 minutes of calendar Tetris every Monday morning.
 
 ---
 
-**N6. Prospect Research — Full Briefing Doc**
+**EA6. Prospect Research — Full Briefing Doc**
 
 Trigger (EA, before a key meeting or dinner): "Research Michael Schacter — immigration lawyer, Montreal, solo practice. The CEO is meeting him for dinner Thursday. Prep a briefing doc."
 
@@ -554,7 +554,7 @@ Manual time replaced: 1–2 hours of LinkedIn and Google research before a key m
 
 ---
 
-**N7. EA Shift Handoff Notes**
+**EA7. EA Shift Handoff Notes**
 
 Trigger (EA, end of shift): "Handoff notes for today. Summarize what was done, what is pending, and what the CEO needs to know."
 
@@ -587,7 +587,7 @@ Manual time replaced: EA writing manual handoff notes (20 minutes). System produ
 
 ---
 
-**N8. Delegate-and-Track**
+**EA8. Delegate-and-Track**
 
 Trigger (founder, or EA on founder's behalf): "Delegate the Schacter follow-up to the EA system. Track it and remind me if not done by Thursday 5pm."
 
@@ -604,7 +604,7 @@ Manual time replaced: Mental tracking of delegated tasks, follow-up reminders, t
 
 ---
 
-**N9. EA-to-Founder Escalation**
+**EA9. EA-to-Founder Escalation**
 
 Trigger (EA, when a situation exceeds their authority): "Flag this for the CEO: Schacter is asking for a 20% discount. I don't know how to handle this."
 
@@ -633,7 +633,7 @@ Manual time replaced: EA hunting down the founder for a decision, founder interr
 
 ---
 
-**N10. Voice Note to Founder Brief**
+**EA10. Voice Note to Founder Brief**
 
 Trigger (EA): EA sends a founder's voice note or recorded message to the system.
 

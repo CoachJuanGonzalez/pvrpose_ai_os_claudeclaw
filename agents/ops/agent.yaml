@@ -6,7 +6,7 @@ telegram_bot_token_env: OPS_BOT_TOKEN
 model: claude-sonnet-4-6
 
 obsidian:
-  vault: /Users/marwankashef/Desktop/Prompt Advisers/Mark's World
+  vault: C:\Users\Juan Gonzalez\Documents\PVRPOSE_AI\notes
   folders:
     - Finance/
     - Inbox/

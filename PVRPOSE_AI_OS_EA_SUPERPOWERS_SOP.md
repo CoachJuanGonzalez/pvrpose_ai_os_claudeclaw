@@ -1,7 +1,7 @@
 # PVRPOSE AI OS — EA Superpowers SOP
 ## The Complete Guide to Building, Deploying, and Selling the EA Copilot Configuration
 
-**Version:** v1.0 | March 2026
+**Version:** v1.2 | March 2026
 **Status:** Internal SOP — Not for distribution
 **Author:** Juan Gonzalez, PVRPOSE AI — Montreal
 **Parent Document:** PVRPOSE_AI_OS_BLUEPRINT_SOP.md v3.0 (supersedes nothing — this is an additive configuration layer)
@@ -9,7 +9,7 @@
 ---
 
 > **How to use this document:**
-> This SOP is the single source of truth for the EA Superpowers configuration of PVRPOSE AI OS. It is not a standalone document — it extends the master SOP. All 28 features, all 6 skills, all infrastructure, all pricing, and all compliance from the master SOP still apply. This document adds the EA-specific layer: the use cases, CLAUDE.md configuration, sales framing, demo script, and business cases specific to founders who have an EA, VA, or Chief of Staff.
+> PVRPOSE AI OS ships as a 3-tier product line: **PVRPOSE EA** (Tier 1 -- solo founder), **PVRPOSE EA Amplify** (Tier 2 -- founder + human EA/VA/CoS), and **PVRPOSE EA Scale** (Tier 3 -- agency/firm with 3+ team members). This SOP is the single source of truth for the EA Superpowers configuration layer -- the capabilities and onboarding specific to Tiers 1 and 2. It is not a standalone document -- it extends the master SOP. All 28 features, all 6 skills, all infrastructure, and all compliance from the master SOP still apply. This document adds the EA-specific layer: the use cases, CLAUDE.md configuration, sales framing, demo script, and business cases. Tier 3 (Scale) is referenced here for pricing and positioning context but detailed in the EA Capability Roadmap.
 >
 > When this document says "see master SOP Section X," follow the cross-reference. Do not duplicate content that is already authoritative in the master document.
 
@@ -23,7 +23,7 @@
 4. Complete EA Feature Mapping — All 28 Features Applied to the EA Context
 5. Skills Reference — EA-Specific Usage
 6. Airtable CRM Data Flow for EA Teams
-7. EA Business Case Library — Categories A through N
+7. EA Business Case Library — Categories A through M + Category EA
 8. EA Blueprint Architecture — CLAUDE.md Configuration
 9. EA Demo Strategy — The 20-Minute Demo Script
 10. Pricing and Offer Structure (EA Context)
@@ -54,21 +54,30 @@
 
 ### What This Is
 
-PVRPOSE AI OS EA Superpowers is not a new product. It is a specific **configuration** of PVRPOSE AI OS designed for one segment: founders and firm principals who already have a human Executive Assistant, Virtual Assistant, or Chief of Staff.
+PVRPOSE AI OS ships as a 3-tier product line. "EA Superpowers" is the marketing frame for what the AI gives an EA -- it is not the product name. The three product tiers are:
 
-The technology is identical to the standard PVRPOSE AI OS build documented in the master SOP. The difference is:
+| Tier | Product Name | Who It Serves | Users |
+|---|---|---|---|
+| 1 | **PVRPOSE EA** | Solo founder, no human EA | 1 |
+| 2 | **PVRPOSE EA Amplify** | Founder WITH a human EA, VA, or Chief of Staff | 2 |
+| 3 | **PVRPOSE EA Scale** | Agency or firm with 3+ team members | 3+ |
 
-- **Who uses it:** Two people — the founder AND their EA — not just the founder
-- **How it is positioned:** "Give your EA AI superpowers" not "replace your EA"
-- **How CLAUDE.md is configured:** The system knows both the founder's voice AND the EA's workflow patterns
-- **What use cases are documented:** EA-specific trigger phrases, briefing formats, and delegation patterns
-- **How it is sold:** Door 2 — for founders who already have support staff
+The underlying technology is identical across all tiers -- the same PVRPOSE AI OS documented in the master SOP. The differences are configuration depth, user count, onboarding scope, and pricing.
 
-### Who This Is For
+**This SOP specifically covers Tier 2 (Amplify) and the EA-relevant parts of Tier 1 (PVRPOSE EA).** Tier 3 (Scale) is referenced for pricing and positioning context but detailed in the EA Capability Roadmap.
+
+Key differences across tiers:
+
+- **PVRPOSE EA (Tier 1):** One user (the founder). CLAUDE.md configured for the founder's voice and workflows. Positioned as "your personal AI operating system." 6-week build. 10-15 hours/week reclaimed for the founder.
+- **PVRPOSE EA Amplify (Tier 2):** Two users (founder + EA). CLAUDE.md knows both the founder's voice AND the EA's workflow patterns. Positioned as "give your EA AI superpowers." 6-week build with EA onboarding at Week 3. 24-32 hours/week of automatable EA time (up to 60% of routine tasks per McKinsey).
+- **PVRPOSE EA Scale (Tier 3):** 3+ users. Dedicated agent bots per role. Positioned as "AI-powered operations layer." 8-12 week build. Detailed in the capability roadmap.
+
+### Who This Is For (Tiers 1 and 2)
 
 **The Buyer (Founder/Principal):**
-- Has a human EA, VA, or Chief of Staff currently employed or contracted
-- Pays $40K–$94K CAD/year for that person's time
+- Tier 1 (PVRPOSE EA): Manages everything themselves, no support staff
+- Tier 2 (PVRPOSE EA Amplify): Has a human EA, VA, or Chief of Staff currently employed or contracted
+- Pays $63K–$98K CAD/year for that person's time (Robert Half 2026)
 - Frustrated that their EA is bottlenecked by repetitive, low-judgment work
 - Bills $200–$500+/hour and values their own time proportionally
 - Sector: Legal, CPA, consulting, agency, advisory, modular construction
@@ -93,7 +102,7 @@ This SOP is designed so that by the end of a 6-week build, both people feel the 
 
 ### The Core Insight
 
-Every other AI tool on the market says "replace your assistant." PVRPOSE AI OS EA Superpowers says "upgrade the assistant you already trust."
+Every other AI tool on the market says "replace your assistant." PVRPOSE EA Amplify says "upgrade the assistant you already trust." For solo founders without an EA, PVRPOSE EA says "become your own chief of staff." For teams, PVRPOSE EA Scale says "stop scaling with headcount."
 
 This positioning wins for three reasons:
 
@@ -106,20 +115,20 @@ The founder wants more output. The EA wants job security and to stop doing tedio
 **3. The ROI math is immediate.**
 The founder is already paying $63K–$98K CAD/year for the EA (Robert Half 2026). A $20K build that makes that person 3× more productive is obvious math. Payback period is 3–6 months. No sophisticated financial modeling required.
 
-### Two Doors, One System
+### Three Tiers, One System
 
-| | Door 1 — Solo Founder | Door 2 — EA Superpowers |
-|---|---|---|
-| **Who** | Founder manages everything themselves | Founder + EA or Chief of Staff |
-| **First sentence** | "I build you a personal AI assistant" | "I give your EA AI superpowers" |
-| **Primary pain** | Admin overload, no support | EA is bottlenecked, not leveraged |
-| **ROI framing** | Hours reclaimed for the founder | EA handles 3x volume, no new hire |
-| **Objection** | "Is AI really ready for this?" | "Will this replace my EA?" |
-| **Answer** | "Yes — see the demo" | "No — it upgrades them" |
-| **Same system?** | Yes | Yes |
-| **Same price?** | Yes | Yes |
+| | Tier 1 -- PVRPOSE EA | Tier 2 -- PVRPOSE EA Amplify | Tier 3 -- PVRPOSE EA Scale |
+|---|---|---|---|
+| **Who** | Solo founder, no support staff | Founder + EA, VA, or CoS | Agency/firm with 3+ team members |
+| **First sentence** | "I build you a personal AI operating system" | "I give your EA AI superpowers" | "I build your team an AI operations layer" |
+| **Primary pain** | Admin overload, no support | EA is bottlenecked, not leveraged | Coordination overhead, scaling people costs |
+| **ROI framing** | 10-15 hrs/week reclaimed for founder | EA handles 3x volume, no new hire | Operational throughput at team level |
+| **Objection** | "Is AI really ready for this?" | "Will this replace my EA?" | "Can it work across multiple people?" |
+| **Answer** | "Yes -- see the demo" | "No -- it upgrades them" | "Yes -- each person gets a dedicated agent" |
+| **Users** | 1 | 2 | 3+ |
+| **Build timeline** | 6 weeks | 6 weeks + EA onboarding Week 3 | 8-12 weeks |
 
-The system, pricing, 6-week build process, and retainer structure are identical. Only the configuration of CLAUDE.md, the use cases demonstrated, and the sales language differ.
+The underlying system is identical across all three tiers. Tier differences are configuration depth (CLAUDE.md complexity, number of agent bots), user count, onboarding scope, and pricing. "EA Superpowers" remains the marketing frame for what the AI gives a human EA -- it is not limited to one tier.
 
 ### The Positioning Statement
 
@@ -377,9 +386,9 @@ When the Airtable skill is live, the EA can query and update Airtable directly f
 
 ---
 
-## SECTION 7: EA BUSINESS CASE LIBRARY — CATEGORIES A THROUGH N
+## SECTION 7: EA BUSINESS CASE LIBRARY — CATEGORIES A THROUGH M + CATEGORY EA
 
-> Categories A through M are fully documented in master SOP Section 7 and all apply in the EA configuration. The trigger phrases and workflows are identical — they are now operated by the EA instead of the founder directly. Category EA is new — EA-specific use cases that only exist when a human EA is part of the team.
+> Categories A through M are fully documented in master SOP Section 7 and all apply in the EA configuration. The trigger phrases and workflows are identical — they are now operated by the EA instead of the founder directly. Category EA (EA1–EA25) is also fully documented in the master SOP Section 7. This section provides the EA-specific workflow context for how Category EA use cases are operated within the two-person (founder + EA) architecture.
 
 ### How Categories A–M Map to EA Operations
 
@@ -402,7 +411,7 @@ The system serves both — the trigger point shifts from founder to EA, but the 
 
 ### CATEGORY EA: EA-AUGMENTED WORKFLOW (NEW — EA CONFIGURATION ONLY)
 
-These use cases only exist in the EA Superpowers configuration. They require the two-person access architecture documented in Section 3.
+These use cases only exist in the EA Superpowers configuration (PVRPOSE EA Amplify, Tier 2). They require the two-person access architecture documented in Section 3.
 
 ---
 
@@ -664,13 +673,41 @@ Manual time replaced: EA listening to founder voice notes, writing notes manuall
 
 ---
 
+### EA11–EA25: ADDITIONAL EA USE CASES (Cross-Reference)
+
+EA use cases EA11 through EA25 are fully documented in the master SOP (PVRPOSE_AI_OS_BLUEPRINT_SOP.md), Section 7, Category EA. They cover:
+
+| Use Case | Description | EA Workflow Context |
+|---|---|---|
+| EA11 | Crisis Response Options | EA triggers when client complaint arrives. Founder selects response option. |
+| EA12 | Onboarding Knowledge Transfer | EA generates handoff doc when new team member joins. |
+| EA13 | Morning Exec Brief (6–7am) | System auto-generates. EA receives, reviews, forwards condensed version to founder. |
+| EA14 | Pre-Meeting Briefing Engine | EA triggers 15 min before calls. Brief delivered to both EA and founder. |
+| EA15 | EOD Critical Path | System generates end-of-day summary. EA reviews and adds notes before forwarding. |
+| EA16 | Montreal -- Bilingual Communication | EA triggers French/English drafts. Founder approves before sending. |
+| EA17 | Ottawa -- Government Calendar Sync | EA manages government meeting scheduling on founder's behalf. |
+| EA18 | Vancouver -- Asia-Pacific Time Zone Coordination | EA handles cross-timezone scheduling. |
+| EA19 | Toronto -- Investor Relations Prep | EA preps investor briefing docs. Founder reviews before meetings. |
+| EA20 | Cross-Border Travel Logistics (Canada-US) | EA compiles travel docs and logistics. |
+| EA21 | Exec Retreat Planning | EA manages full retreat logistics and agenda. |
+| EA22 | Board Book Preparation | EA triggers board deck generation. Requires future PDF build. |
+| EA23 | Investor Due Diligence Summary | EA compiles due diligence packages. Founder reviews. |
+| EA24 | Gift and Concierge | EA manages personal/family gift and concierge tasks. |
+| EA25 | Team Recognition and Awards | EA tracks team milestones and drafts recognition communications. |
+
+> For full trigger phrases, system workflows, and status (LIVE vs. future build) for each of these, see master SOP Section 7, Category EA.
+
+In the EA Superpowers configuration, all EA11–EA25 use cases follow the same two-person pattern: the EA triggers or receives the output, reviews it, and either acts on it directly or forwards to the founder for approval.
+
+---
+
 ## SECTION 8: EA BLUEPRINT ARCHITECTURE — CLAUDE.MD CONFIGURATION
 
 > For complete blueprint architecture documentation, see master SOP Section 8. This section covers EA-specific additions to CLAUDE.md only.
 
 ### Root CLAUDE.md — EA Additions
 
-Add the following section to the standard CLAUDE.md root file when configuring an EA Superpowers deployment:
+Add the following section to the standard CLAUDE.md root file when configuring a PVRPOSE EA Amplify (Tier 2) deployment:
 
 ```markdown
 ## EA Configuration
@@ -695,7 +732,7 @@ When a message comes from [EA_TELEGRAM_ID]:
 - You are in EA mode.
 - All drafts must be in [FOUNDER NAME]'s voice — never [EA NAME]'s.
 - End every draft with: "Ready to send? Reply 'send' to confirm or give me edits."
-- For any decision that affects pricing, client commitments, or relationship direction: escalate to [FOUNDER NAME] with options (see N9 use case).
+- For any decision that affects pricing, client commitments, or relationship direction: escalate to [FOUNDER NAME] with options (see EA9 use case in this SOP, Section 7).
 - For tasks that can be completed autonomously (research, briefing prep, document generation): complete them and deliver to EA for review.
 
 When a message comes from [FOUNDER_TELEGRAM_ID]:
@@ -813,7 +850,7 @@ data/ea-team/
 [What the EA handles exceptionally well — informs how to allocate tasks]
 
 ## Access Level
-- Can trigger: All Category A–N use cases
+- Can trigger: All Category A–M + EA use cases
 - Requires founder approval: [List from Section 8 above]
 
 ## Notes
@@ -882,7 +919,7 @@ Show the PDF arriving in Telegram via [SEND_FILE:].
 
 ---
 
-### MINUTE 13–18: The Inbox + Draft Approval (Categories F1 + N3)
+### MINUTE 13–18: The Inbox + Draft Approval (Categories F1 + EA3)
 
 Type: "Triage the inbox — what needs a response today?"
 
@@ -926,32 +963,59 @@ Show the draft arrive. Point to the confirmation prompt at the bottom.
 
 ## SECTION 10: PRICING AND OFFER STRUCTURE (EA CONTEXT)
 
-> For complete pricing documentation, see master SOP Section 10. Pricing is identical. This section covers EA-specific framing only.
+> For complete pricing documentation, see master SOP Section 10. This section covers the 3-tier pricing structure and EA-specific framing.
 
-### How to Frame Pricing for EA Clients
+### 3-Tier Pricing Structure
 
-The standard pricing structure applies:
-- Pioneer Audit: $2,500 CAD (credits toward build)
-- Full Build: $15,000–$25,000 CAD
-- Monthly Retainer: $3,000+ CAD/month
+| | PVRPOSE EA (Tier 1) | PVRPOSE EA Amplify (Tier 2) | PVRPOSE EA Scale (Tier 3) |
+|---|---|---|---|
+| **Audit/Discovery** | $2,500 pioneer / $5,000-$7,500 standard | $2,500 pioneer / $5,000-$7,500 standard | $7,500 discovery |
+| **Build** | $15,000-$20,000 CAD | $18,000-$25,000 CAD | $25,000-$40,000 CAD |
+| **Retainer** | From $2,500/month | From $3,000/month | From $5,000/month |
+| **Build timeline** | 6 weeks | 6 weeks + EA onboarding Week 3 | 8-12 weeks |
+| **Users** | 1 | 2 | 3+ |
+| **Agent bots** | Main bot only | Main bot + shared EA access | Dedicated agent bots per role |
 
-**EA-specific ROI framing:**
+### How to Frame Pricing by Tier
 
-| Pricing | EA ROI Frame |
+**Tier 1 (PVRPOSE EA) -- Solo founder:**
+
+| Pricing | ROI Frame |
+|---|---|
+| $2,500 audit | "Maps out exactly where you're losing 10-15 hours/week to admin work the AI can handle." |
+| $15K-$20K build | "At $200-$500/hr for your time, reclaiming 10-15 hours/week pays this back in 3-6 months." |
+| $2,500/month retainer | "Keeps the system optimized as your needs evolve. Less than one billable hour/week." |
+
+**Tier 2 (PVRPOSE EA Amplify) -- Founder + EA:**
+
+| Pricing | ROI Frame |
 |---|---|
 | $2,500 audit | "Your EA costs more than this per month. This maps out exactly how to make them 3x more productive." |
-| $20,000 build | "At $63K-$98K/year for your EA (Robert Half 2026), this pays for itself in 3-6 months on output gains alone." |
+| $18K-$25K build | "At $63K-$98K/year for your EA (Robert Half 2026), this pays for itself in 3-6 months on output gains alone." |
 | $3,000/month retainer | "Less than 1 week of your EA's monthly cost. Keeps the system optimized as your needs evolve." |
 
-### What to Quote for EA vs. Standard Builds
+**Tier 3 (PVRPOSE EA Scale) -- Agency/firm:**
 
-The build scope is the same. However, EA builds typically include:
-- EA onboarding session (30 minutes, documented in retainer scope)
+| Pricing | ROI Frame |
+|---|---|
+| $7,500 discovery | "Maps every team member's workflow and designs the multi-agent architecture before we build." |
+| $25K-$40K build | "Replaces the coordination overhead of scaling -- more throughput without more headcount." |
+| $5,000/month retainer | "Dedicated support for a multi-user system. Fraction of one additional hire." |
+
+### What Changes Between Tiers
+
+**Tier 1 to Tier 2 (Amplify) adds:**
+- EA onboarding session (30 minutes, Week 3)
 - Two-person ALLOWED_CHAT_ID configuration
 - Additional agent configurations for EA-specific workflows (ops + comms get extra EA routing logic)
 - `data/ea-team/` folder setup and documentation
 
-**No price change for EA configuration.** This is a configuration difference, not a feature addition. The system supports it natively.
+**Tier 2 to Tier 3 (Scale) adds:**
+- Discovery phase replaces audit (deeper workflow mapping across multiple roles)
+- Dedicated agent bots per team member or role
+- Extended build timeline (8-12 weeks)
+- Multi-user access architecture with role-based routing
+- Detailed in EA Capability Roadmap
 
 ---
 
@@ -996,6 +1060,8 @@ A Red on any criterion: note the risk, discuss with founder, consider starting w
 ## SECTION 12: THE 6-WEEK BUILD SOP (EA CONFIGURATION)
 
 > For complete 6-week build documentation, see master SOP Section 12. This section covers EA-specific additions only.
+>
+> **Tier note:** The 6-week timeline applies to Tier 1 (PVRPOSE EA) and Tier 2 (PVRPOSE EA Amplify). Amplify adds EA onboarding at Week 3. Tier 3 (PVRPOSE EA Scale) follows an 8-12 week timeline with extended discovery and multi-agent setup -- see the EA Capability Roadmap for the Scale build SOP.
 
 ### Pre-Build Checklist (EA Additions)
 
@@ -1046,18 +1112,20 @@ Add to the standard QA checklist from master SOP Section 12:
 - [ ] EA can trigger pre-call brief and receive it within 30 seconds
 - [ ] Draft confirmation prompt appears on every external-facing draft
 - [ ] Founder approval flow works for email, calendar, LinkedIn, and WhatsApp
-- [ ] EA escalation flow (N9) works correctly — escalation reaches founder's Telegram
+- [ ] EA escalation flow (EA9) works correctly — escalation reaches founder's Telegram
 - [ ] data/ea-team/ files are created and accessible
 - [ ] EA has been through the 30-minute onboarding session
 - [ ] EA has successfully completed 5 real workflows without assistance
 
 ---
 
-## SECTION 13: POST-DELIVERY — 30-DAY SUPPORT (EA CONTEXT)
+## SECTION 13: POST-DELIVERY SUPPORT (EA CONTEXT)
 
 > For complete post-delivery support documentation, see master SOP Section 13.
+>
+> **Tier note:** Tiers 1 (PVRPOSE EA) and 2 (PVRPOSE EA Amplify) include 30-day post-delivery support. Tier 3 (PVRPOSE EA Scale) includes 60-day post-delivery support to account for the larger team onboarding and multi-agent stabilization period.
 
-### EA-Specific 30-Day Support Activities
+### EA-Specific 30-Day Support Activities (Tiers 1 and 2)
 
 **Week 1 post-delivery:**
 - Check in with EA (not just founder) — ask "what is working well and what is confusing?"
@@ -1070,7 +1138,7 @@ Add to the standard QA checklist from master SOP Section 12:
 - If the EA is bypassing the draft confirmation prompt: investigate why (usually the draft quality is low — fix the comms agent config)
 
 **Week 3–4 post-delivery:**
-- Identify which use cases from Categories A–N have not been triggered yet
+- Identify which use cases from Categories A–M + EA have not been triggered yet
 - Run a 30-minute "advanced features" session with EA to unlock unused capabilities
 - If applicable: begin scoping Airtable direct API skill for Phase 2
 
@@ -1610,7 +1678,13 @@ File: skills/google-calendar/SKILL.md
 Problem: Default timezone is America/New_York (from master SOP Issue 2). For Quebec EA deployments, this creates wrong times.
 Fix: Change to America/Toronto.
 Priority: Medium for Quebec clients.
-Status: Open (same as master SOP Issue 2 — fix both at the same time).
+Status: Open (same as master SOP Issue 2 -- fix both at the same time).
+
+**Issue EA-5: Missing integrations for full EA workflow coverage**
+File: specs/todo/EA-CAPABILITY-ROADMAP.md
+Problem: Several capabilities referenced in EA use cases (CRM pipelines, Google Drive content delivery, client dashboards, PDF generation, image generation) are not yet built. See the EA Capability Roadmap for the full prioritized build plan.
+Priority: Tracked per-item in the roadmap. Top 4 priorities: Client Dashboard upgrade, Team Coordination system, Google Drive integration, Content Generation pipeline.
+Status: Roadmap created 2026-03-12. Builds will be executed in phases.
 
 ---
 
@@ -1618,7 +1692,7 @@ Status: Open (same as master SOP Issue 2 — fix both at the same time).
 
 ```
 PVRPOSE AI OS EA SUPERPOWERS SOP
-Version: v1.0
+Version: v1.2
 Date: March 2026
 Parent Document: PVRPOSE_AI_OS_BLUEPRINT_SOP.md v3.0
 Author: Juan Gonzalez, PVRPOSE AI — Montreal
@@ -1626,6 +1700,24 @@ Author: Juan Gonzalez, PVRPOSE AI — Montreal
 This document is an additive configuration layer on top of the master SOP.
 It does not replace, override, or supersede any section of the master SOP.
 When conflict exists, the master SOP wins.
+
+v1.2 changelog (2026-03-12):
+- Architecture: Introduced 3-tier product naming -- PVRPOSE EA (Tier 1), PVRPOSE EA Amplify (Tier 2), PVRPOSE EA Scale (Tier 3)
+- Updated: Section 1 -- full tier definitions, scope clarification (this SOP covers Tiers 1-2, Scale in roadmap)
+- Updated: Section 2 -- "Two Doors" replaced with "Three Tiers" positioning table
+- Updated: Section 10 -- complete 3-tier pricing structure with per-tier ROI framing
+- Updated: Section 12 -- tier notes for build timelines (6 weeks for Tiers 1-2, 8-12 weeks for Scale)
+- Updated: Section 13 -- tier-differentiated support (30-day for Tiers 1-2, 60-day for Scale)
+- Clarified: "EA Superpowers" is the marketing frame for what AI gives an EA, not the product name
+- Enforced: EA salary $63K-$98K CAD (Robert Half 2026), payback 3-6 months, 3x multiplier, up to 60% automation (McKinsey)
+
+v1.1 changelog (2026-03-12):
+- Fixed: All "Category N" references renamed to "Category EA" (N9->EA9, N3->EA3, A-N->A-M+EA)
+- Fixed: EA salary range $40K-$94K -> $63K-$98K CAD (Robert Half 2026) in Section 1
+- Added: EA11-EA25 cross-reference table in Section 7 (was missing -- only EA1-EA10 were detailed)
+- Added: Issue EA-5 in Section 30 -- links to EA-CAPABILITY-ROADMAP.md for missing integrations
+- Updated: TOC and section headers to reflect correct category naming
+- Aligned: All figures match verified claim standards from capability audit
 
 Next review: After first 3 EA configuration client builds.
 Update trigger: Any change to multi-user access architecture, EA workflow patterns, or EA-specific pricing decisions.

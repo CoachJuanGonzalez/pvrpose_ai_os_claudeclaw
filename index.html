@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- v3-pvrpose-ai-os -->
+<!-- v4-pvrpose-ea-tiers -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Custom AI OS for founders and their EAs. PVRPOSE AI OS turns 3-hour admin tasks into 20 minutes — built in 6 weeks, runs from your phone. PVRPOSE EA Superpowers for founders with EAs or Chiefs of Staff. CASL/PIPEDA compliant. Your data, your infrastructure.">
-    <title>PVRPOSE AI OS — AI Superpowers for Founders & Their EAs | Live in 6 Weeks | PVRPOSE AI</title>
+    <meta name="description" content="PVRPOSE EA: Your AI operating system. Solo founders, founder+EA teams, or full agencies — built in 6 weeks, runs from your phone. PVRPOSE EA | EA Amplify | EA Scale. CASL/PIPEDA compliant. Your data, your infrastructure.">
+    <title>PVRPOSE EA — AI Operating System for Founders & Teams | Live in 6 Weeks | PVRPOSE AI</title>
 
     <!-- Favicon - Standard -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -33,8 +33,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pvrpose.ai">
     <meta property="og:site_name" content="PVRPOSE AI">
-    <meta property="og:title" content="PVRPOSE AI OS — Run Your Business From Your Phone | Live in 6 Weeks">
-    <meta property="og:description" content="Custom AI OS for founders and their EAs. PVRPOSE AI OS turns 3-hour admin tasks into 20 minutes — built in 6 weeks, runs from your phone. PVRPOSE EA Superpowers for founders with EAs or Chiefs of Staff. CASL/PIPEDA compliant. Your data, your infrastructure.">
+    <meta property="og:title" content="PVRPOSE EA — Your AI Operating System | Solo, Amplify, or Scale">
+    <meta property="og:description" content="PVRPOSE EA: AI operating system for professional services founders. Solo founders, founder+EA teams, or full agencies — built in 6 weeks, runs from your phone. CASL/PIPEDA compliant.">
     <meta property="og:image" content="https://pvrpose.ai/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -43,8 +43,8 @@
 
     <!-- Twitter Card meta tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Custom AI Systems Built in 6 Weeks | PVRPOSE AI">
-    <meta name="twitter:description" content="Custom AI OS for founders and their EAs. Turns 3-hour admin tasks into 20 minutes — built in 6 weeks, runs from your phone. PVRPOSE EA Superpowers. CASL/PIPEDA compliant.">
+    <meta name="twitter:title" content="PVRPOSE EA — AI Operating System Built in 6 Weeks | PVRPOSE AI">
+    <meta name="twitter:description" content="PVRPOSE EA: AI operating system for professional services founders. Solo, Amplify, or Scale — built in 6 weeks, runs from your phone. CASL/PIPEDA compliant.">
     <meta name="twitter:image" content="https://pvrpose.ai/og-image.png">
     <meta name="twitter:image:alt" content="PVRPOSE AI - Custom AI Automation for Professional Services">
 
@@ -537,38 +537,51 @@
                 </p>
             </div>
 
-            <!-- EA / Solo Founder Toggle -->
-            <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6" id="hero-toggle">
+            <!-- 3-Tier Toggle: PVRPOSE EA | EA Amplify | EA Scale -->
+            <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center items-center mb-6" id="hero-toggle">
                 <button id="tab-solo" onclick="setHeroTab('solo')"
-                    class="hero-tab-btn w-full sm:w-auto cursor-pointer px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600">
-                    Solo Founder
+                    class="hero-tab-btn w-full sm:w-auto cursor-pointer px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-purple-900 text-white shadow-lg">
+                    PVRPOSE EA
                 </button>
                 <button id="tab-ea" onclick="setHeroTab('ea')"
-                    class="hero-tab-btn w-full sm:w-auto cursor-pointer px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-purple-900 text-white shadow-lg">
-                    I Have an EA / Chief of Staff
+                    class="hero-tab-btn w-full sm:w-auto cursor-pointer px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600">
+                    EA Amplify
+                </button>
+                <button id="tab-scale" onclick="setHeroTab('scale')"
+                    class="hero-tab-btn w-full sm:w-auto cursor-pointer px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600">
+                    EA Scale
                 </button>
             </div>
 
             <!-- Headline (Value-First) -->
-            <!-- Solo H1 -->
+            <!-- PVRPOSE EA H1 (default) -->
             <h1 id="hero-h1-solo" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight hero-headline">
                 Run Your Entire Business From Your Phone.<br />
                 <span class="gradient-accent bg-clip-text text-transparent">Live in 6 Weeks. Reclaim 10–15 Hours/Week.</span>
             </h1>
-            <!-- EA H1 (hidden by default) -->
+            <!-- EA Amplify H1 -->
             <h1 id="hero-h1-ea" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight hero-headline hidden">
                 Give Your EA AI Superpowers.<br />
-                <span class="gradient-accent bg-clip-text text-transparent">Drafts, Prep & Triage: 3 Hours → 20 Minutes. Keep the Human You Trust.</span>
+                <span class="gradient-accent bg-clip-text text-transparent">Drafts, Prep & Triage: 3 Hours → 20 Minutes.</span>
+            </h1>
+            <!-- EA Scale H1 -->
+            <h1 id="hero-h1-scale" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight hero-headline hidden">
+                AI-Powered Operations for Your Entire Team.<br />
+                <span class="gradient-accent bg-clip-text text-transparent">Dedicated AI Agents. CRM Integration. Full Scale.</span>
             </h1>
 
             <!-- Supporting Tagline -->
-            <!-- Solo Tagline -->
+            <!-- PVRPOSE EA Tagline (default) -->
             <p id="hero-tagline-solo" class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium leading-relaxed">
                 A done-for-you AI Operating System built around your voice and strategy. Live in 6 weeks. Your data stays on infrastructure you control. CASL/PIPEDA compliant. You own everything.
             </p>
-            <!-- EA Tagline (hidden by default) -->
+            <!-- EA Amplify Tagline -->
             <p id="hero-tagline-ea" class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium leading-relaxed hidden">
-                Your EA stays in control. The AI handles the repetitive work — in your exact voice — so they become 3× more effective.
+                Your EA stays in control. The AI handles the repetitive work — in your exact voice — so they become 3× more effective. 2 users, one system.
+            </p>
+            <!-- EA Scale Tagline -->
+            <p id="hero-tagline-scale" class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium leading-relaxed hidden">
+                For agencies and firms with 3+ team members. Dedicated agent bots per role, CRM integration, client dashboards, and team coordination — built in 8–12 weeks.
             </p>
 
             <p style="font-size: 0.95em; color: #aaa; font-style: italic; margin-top: 0.5em; margin-bottom: 1.5em;">
@@ -601,12 +614,27 @@
                     Take Free Assessment →
                 </a>
             </div>
-            <!-- EA CTAs (hidden by default) -->
+            <!-- EA Amplify CTAs (hidden by default) -->
             <div id="hero-cta-ea" class="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center hidden">
                 <a href="#ea-superpowers"
                    class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold hover:shadow-xl transition text-center"
-                   aria-label="Get Your EA Superpowers Demo">
-                    Get Your EA Superpowers Demo →
+                   aria-label="See EA Amplify in Action">
+                    See EA Amplify in Action →
+                </a>
+                or
+                <a href="/assessment.html"
+                   class="inline-block btn-primary text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold text-center"
+                   style="opacity: 0.75; font-size: 0.9em;"
+                   aria-label="Take Free Assessment">
+                    Take Free Assessment →
+                </a>
+            </div>
+            <!-- EA Scale CTAs (hidden by default) -->
+            <div id="hero-cta-scale" class="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center hidden">
+                <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer"
+                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold hover:shadow-xl transition text-center"
+                   aria-label="Book EA Scale Discovery Call">
+                    Book EA Scale Discovery Call →
                 </a>
                 or
                 <a href="/assessment.html"
@@ -647,7 +675,7 @@
                         </svg>
                     </div>
                     <p class="stat-number text-4xl md:text-5xl font-bold mb-2 gradient-accent bg-clip-text text-transparent">6 weeks</p>
-                    <p class="text-sm font-medium text-gray-700 mb-1">Phone-Controlled PVRPOSE AI OS Live</p>
+                    <p class="text-sm font-medium text-gray-700 mb-1">Phone-Controlled PVRPOSE EA Live</p>
                     <p class="text-xs text-gray-500">Your data, your infrastructure — not 6–12 months like others</p>
                 </div>
                 <div class="text-center group hover-lift">
@@ -675,7 +703,7 @@
                 <div class="text-center mb-12">
                     <p class="text-pink-600 font-bold text-xs tracking-widest uppercase mb-3">Your Voice. Your Vision. Your Vibe.</p>
                     <h2 class="text-3xl md:text-5xl font-bold hero-headline mb-4">
-                        What Monday Morning Looks Like<br class="hidden md:block"> With Your PVRPOSE AI OS
+                        What Monday Morning Looks Like<br class="hidden md:block"> With Your PVRPOSE EA
                     </h2>
                     <p class="text-xl text-gray-600 max-w-2xl mx-auto">
                         Not a demo. Not a simulation. A real client morning — before 9 AM.
@@ -691,7 +719,7 @@
                             <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Voice — Own Your Day</p>
                             <p class="font-semibold text-gray-900 mb-2">Voice note to Telegram while driving to a site visit:</p>
                             <p class="text-gray-600 italic text-sm mb-3">"I have a discovery call with a construction firm at 10. Brief me."</p>
-                            <p class="text-gray-800 text-sm">→ Your PVRPOSE AI OS pulls CRM history, recent emails, and context — and sends back a voice briefing before you park. You arrive prepared. No prep time spent.</p>
+                            <p class="text-gray-800 text-sm">→ Your PVRPOSE EA pulls CRM history, recent emails, and context — and sends back a voice briefing before you park. You arrive prepared. No prep time spent.</p>
                         </div>
                     </div>
 
@@ -701,7 +729,7 @@
                             <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Vision — Execute Your Blueprint</p>
                             <p class="font-semibold text-gray-900 mb-2">15 minutes before the call:</p>
                             <p class="text-gray-600 italic text-sm mb-3">"Draft a proposal for $8,500 based on what we discussed last Tuesday."</p>
-                            <p class="text-gray-800 text-sm">→ Done in 4 minutes. In your voice. With your pricing. Formatted to your standard. Your PVRPOSE AI OS remembers the context — you don't re-explain anything.</p>
+                            <p class="text-gray-800 text-sm">→ Done in 4 minutes. In your voice. With your pricing. Formatted to your standard. Your PVRPOSE EA remembers the context — you don't re-explain anything.</p>
                         </div>
                     </div>
 
@@ -710,7 +738,7 @@
                         <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
                             <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Vibe — Your Brand, Automated</p>
                             <p class="font-semibold text-gray-900 mb-2">Client follows up after the call:</p>
-                            <p class="text-gray-600 italic text-sm mb-3">Your PVRPOSE AI OS already drafted the reply — in your tone, referencing what was discussed.</p>
+                            <p class="text-gray-600 italic text-sm mb-3">Your PVRPOSE EA already drafted the reply — in your tone, referencing what was discussed.</p>
                             <p class="text-gray-800 text-sm">→ You review it on your phone. One tap to approve. Client gets a response that sounds exactly like you — because it was built around how you actually communicate.</p>
                         </div>
                     </div>
@@ -742,7 +770,7 @@
                 <div class="text-center mb-12">
                     <p class="text-pink-600 font-bold text-xs tracking-widest uppercase mb-3">Your EA's Voice. Your Vision. Your Vibe.</p>
                     <h2 class="text-3xl md:text-5xl font-bold hero-headline mb-4">
-                        What Your EA's Monday Looks Like<br class="hidden md:block"> With PVRPOSE EA Superpowers
+                        What Your EA's Monday Looks Like<br class="hidden md:block"> With PVRPOSE EA Amplify
                     </h2>
                     <p class="text-xl text-gray-600 max-w-2xl mx-auto">
                         Not a demo. Not a simulation. A real EA morning — and everything still sounds like you.
@@ -798,7 +826,7 @@
 
                 <div class="text-center mt-12">
                     <a href="#ea-superpowers" class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-10 py-5 rounded-xl text-lg font-semibold hover-glow transition">
-                        Give My EA Superpowers →
+                        Amplify My EA →
                     </a>
                     <p class="text-sm text-gray-500 mt-3">3 pioneer spots. Filling now.</p>
                 </div>
@@ -813,14 +841,14 @@
             <!-- Eyebrow -->
             <div class="text-center mb-10">
                 <div class="inline-block bg-white/10 backdrop-blur border border-white/20 px-6 py-3 rounded-full mb-4">
-                    <p class="text-sm font-bold tracking-widest uppercase text-pink-300">PVRPOSE EA SUPERPOWERS</p>
+                    <p class="text-sm font-bold tracking-widest uppercase text-pink-300">PVRPOSE EA AMPLIFY</p>
                 </div>
                 <h2 class="text-3xl md:text-5xl font-bold hero-headline mb-4">
                     Don't replace your EA.<br>
-                    <span class="gradient-accent bg-clip-text text-transparent">Give them superpowers.</span>
+                    <span class="gradient-accent bg-clip-text text-transparent">Amplify them.</span>
                 </h2>
                 <p class="text-lg text-purple-100 max-w-2xl mx-auto">
-                    Your EA stays in control. The AI handles the repetitive work — in your exact voice — so they become 3× more effective.
+                    Your EA stays in control. The AI handles the repetitive work — in your exact voice — so they become 3× more effective. 2 users, one system.
                 </p>
             </div>
 
@@ -910,7 +938,7 @@
             <div class="text-center">
                 <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer"
                    class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-12 py-5 rounded-xl text-lg font-semibold hover-glow transition hover:scale-105 transition-transform">
-                    See the EA Superpowers Demo →
+                    See EA Amplify in Action →
                 </a>
             </div>
         </div>
@@ -990,7 +1018,7 @@
                         </li>
                         <li class="flex items-start">
                             <span class="mr-3">✗</span>
-                            <span>Not ready to invest $15,000+ CAD in professional implementation</span>
+                            <span>Not ready to invest in professional AI implementation ($15K–$40K CAD)</span>
                         </li>
                     </ul>
                 </div>
@@ -1133,7 +1161,7 @@
                     <strong class="text-white">Why the exchange?</strong> These are pioneer engagements — your real-world results help us prove what PVRPOSE AI OS delivers. You get a fully custom system at a fraction of future pricing. We get documented proof. Fair deal.
                 </p>
                 <p class="text-pink-300 text-sm font-semibold">
-                    1 Free Build spot + 2 PVRPOSE AI OS Audit spots at $2,500 CAD each — 3 pioneer spots total. Once filled, standard pricing applies: $5,000–$7,500 CAD audit · $15,000–$25,000 CAD full build.
+                    1 Free Build spot + 2 PVRPOSE AI OS Audit spots at $2,500 CAD each — 3 pioneer spots total. Once filled, standard pricing applies: $5,000–$7,500 CAD audit · PVRPOSE EA from $15K · EA Amplify from $18K · EA Scale from $25K.
                 </p>
             </div>
         </div>
@@ -1289,7 +1317,7 @@
     <section id="james-green-video" class="py-16 px-6 bg-gray-50">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 hero-headline">What Happens After We Build Your PVRPOSE AI OS</h2>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 hero-headline">What Happens After We Build Your PVRPOSE EA</h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">
                     Hear directly from James Green, Managing Partner at Dominion Equity Holdings, about how our AI automation creates revenue "almost for free"
                 </p>
@@ -1710,8 +1738,8 @@
 
                     <div class="bg-white p-6 rounded-xl border-2 border-pink-200">
                         <p class="text-sm font-semibold text-gray-600 mb-2">TOTAL INVESTMENT:</p>
-                        <p class="text-2xl font-bold text-gray-900 mb-2">$15,000 - $25,000 CAD</p>
-                        <p class="text-sm text-gray-700 mb-3">One-time for 1–3 working automations</p>
+                        <p class="text-2xl font-bold text-gray-900 mb-2">$15,000 - $40,000 CAD</p>
+                        <p class="text-sm text-gray-700 mb-3">PVRPOSE EA from $15K · EA Amplify from $18K · EA Scale from $25K</p>
                         <p class="text-xs text-pink-700 font-semibold">Typical for $100K+ revenue firms with 10+ hrs/week admin: save 10–15 hrs/week or unlock $10K–$50K+ per year</p>
                     </div>
                 </div>
@@ -1756,9 +1784,11 @@
                 </a>
                 <p class="text-sm text-gray-500 mt-4">2-minute assessment • Get your personalized AI Implementation Roadmap</p>
                     <p class="text-sm text-gray-500 mt-4 text-center">
-                        <a href="#ea-superpowers" class="hover:text-pink-600 transition">Solo founder? → Personal AI OS.</a>
+                        <a href="#services" class="hover:text-pink-600 transition">Solo founder? → PVRPOSE EA.</a>
                         &nbsp;&nbsp;
-                        <a href="#ea-superpowers" class="hover:text-pink-600 transition">Have an EA? → EA Superpowers Upgrade.</a>
+                        <a href="#services" class="hover:text-pink-600 transition">Have an EA? → EA Amplify.</a>
+                        &nbsp;&nbsp;
+                        <a href="#services" class="hover:text-pink-600 transition">Full team? → EA Scale.</a>
                     </p>
             </div>
         </div>
@@ -1777,10 +1807,10 @@
     <section class="py-20 px-6 bg-white">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center hero-headline">
-                Your 6-Week Path to PVRPOSE AI OS
+                Your Path to PVRPOSE EA
             </h2>
             <p class="text-xl text-center text-gray-700 mb-8 max-w-3xl mx-auto">
-                From discovery to phone-controlled AI OS — guaranteed in 6 weeks
+                PVRPOSE EA & EA Amplify: 6 weeks. EA Scale: 8–12 weeks. All guaranteed.
             </p>
 
             <!-- Why 6 Weeks Callout -->
@@ -1852,7 +1882,7 @@
             <!-- Guarantee -->
             <div class="mt-12 p-8 bg-gradient-to-br from-deep-blue to-purple-700 rounded-2xl text-white text-center">
                 <p class="text-2xl font-bold mb-2">⚡ Delivery Guarantee</p>
-                <p class="text-lg opacity-90">We commit to delivering your agreed PVRPOSE AI OS scope within 6 weeks — or we continue at no additional charge for up to 4 additional weeks.</p>
+                <p class="text-lg opacity-90">PVRPOSE EA and EA Amplify: delivered in 6 weeks — or we continue at no additional charge for up to 4 additional weeks. EA Scale: 8–12 weeks with the same guarantee.</p>
                 <p class="text-xs opacity-75 mt-3">Subject to client providing timely access, feedback, and cooperation as outlined in the Service Agreement.</p>
             </div>
         </div>
@@ -1862,186 +1892,157 @@
     <section class="py-8 px-6 bg-gradient-to-r from-pink-600 to-deep-blue">
         <div class="max-w-5xl mx-auto text-center text-white">
             <p class="text-2xl md:text-3xl font-bold mb-2">⚡ Pioneer Launch: 3 Spots Total — 1 Free Build + 2 Audits at $2,500 CAD. Filling Now.</p>
-            <p class="text-lg md:text-xl opacity-90">Once filled, standard pricing applies: $5,000–$7,500 CAD audit · $15,000–$25,000 CAD full build.</p>
+            <p class="text-lg md:text-xl opacity-90">Once filled, standard pricing applies. PVRPOSE EA from $15K · EA Amplify from $18K · EA Scale from $25K.</p>
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
+    <!-- PRODUCT TIERS SECTION -->
     <section class="py-20 px-6 bg-gray-50" id="services">
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center hero-headline">
-                How PVRPOSE AI Works
+                Choose Your PVRPOSE EA
             </h2>
 
-            <p class="text-xl md:text-2xl text-center text-gray-700 mb-20 max-w-3xl mx-auto font-light leading-relaxed">
-                Three service tiers designed for sustainable AI transformation
+            <p class="text-xl md:text-2xl text-center text-gray-700 mb-6 max-w-3xl mx-auto font-light leading-relaxed">
+                Three tiers. One system. Built around how your business actually runs.
             </p>
 
-            <div class="space-y-8">
-                <!-- Service 1 -->
-                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg hover-lift border-l-4 border-pink-500">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                        <div>
-                            <h3 class="text-3xl md:text-4xl font-bold mb-1">PVRPOSE AI OS Readiness Audit</h3>
-                            <span class="inline-block bg-pink-100 text-pink-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Pioneer Rate — 2 spots remaining</span>
-                        </div>
-                        <div class="text-right mt-2 md:mt-0">
-                            <p class="text-2xl md:text-3xl font-bold gradient-accent bg-clip-text text-transparent">$2,500 CAD</p>
-                            <p class="text-gray-400 text-sm line-through">Standard: $5,000–$7,500 CAD</p>
-                            <p class="text-gray-600">2 weeks</p>
-                        </div>
+            <!-- Tier comparison intro -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 text-sm text-gray-500">
+                <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-purple-600 inline-block"></span> Solo founder — the AI IS your EA</span>
+                <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-pink-500 inline-block"></span> Founder + human EA — AI amplifies them</span>
+                <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-gray-800 inline-block"></span> 3+ team — dedicated AI agents per role</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+
+                <!-- TIER 1: PVRPOSE EA -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift border-t-4 border-purple-600 flex flex-col">
+                    <div class="mb-6">
+                        <span class="inline-block bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3">Tier 1</span>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-1">PVRPOSE EA</h3>
+                        <p class="text-gray-600 text-sm">Solo founder — no human EA needed</p>
                     </div>
-
-                    <p class="text-lg text-gray-700 mb-6">
-                        We map your workflows, identify your top 3 admin bottlenecks, and design your custom PVRPOSE AI OS blueprint — including which Claude Code automations will have the highest impact and how your phone-controlled mobile access will work.
-                    </p>
-
-                    <p class="font-semibold mb-3">What you get:</p>
-                    <ul class="space-y-2 text-gray-700 mb-6">
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>2-hour workflow mapping session with founder/owner</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>15-page AI Readiness Report with ROI projections</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>Prioritized automation opportunity matrix</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>Custom PVRPOSE AI OS architecture blueprint</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>Telegram mobile interface setup plan</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>Private infrastructure configuration plan</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>6-week implementation roadmap</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>60-minute presentation of findings</span>
-                        </li>
+                    <div class="mb-6">
+                        <p class="text-3xl font-bold gradient-accent bg-clip-text text-transparent">$15,000–$20,000 CAD</p>
+                        <p class="text-gray-500 text-sm">6-week build · 1 user</p>
+                        <p class="text-gray-500 text-sm">Retainer from $2,500/mo</p>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-6 leading-relaxed">The AI IS your EA. Voice-controlled from your phone, it handles email, calendar, proposals, follow-ups, and morning briefings — in your exact voice.</p>
+                    <ul class="space-y-2 text-gray-700 text-sm mb-8 flex-1">
+                        <li class="flex items-start"><span class="text-purple-600 mr-2 font-bold">✓</span> Gmail, Calendar, Slack integration</li>
+                        <li class="flex items-start"><span class="text-purple-600 mr-2 font-bold">✓</span> Voice notes in/out (your cloned voice)</li>
+                        <li class="flex items-start"><span class="text-purple-600 mr-2 font-bold">✓</span> Cross-session memory — it knows your business</li>
+                        <li class="flex items-start"><span class="text-purple-600 mr-2 font-bold">✓</span> Prospect files & research dossiers</li>
+                        <li class="flex items-start"><span class="text-purple-600 mr-2 font-bold">✓</span> Morning digest & scheduled tasks</li>
+                        <li class="flex items-start"><span class="text-purple-600 mr-2 font-bold">✓</span> Web dashboard for monitoring</li>
+                        <li class="flex items-start"><span class="text-purple-600 mr-2 font-bold">✓</span> Obsidian vault integration</li>
+                        <li class="flex items-start"><span class="text-purple-600 mr-2 font-bold">✓</span> 30-day post-delivery support</li>
                     </ul>
-
-                    <p class="text-lg font-semibold">
-                        Outcome: You know exactly what to build, how your phone-controlled PVRPOSE AI OS will work, and what ROI to expect — before committing to a full build.
-                    </p>
-                    <p class="text-sm text-pink-700 bg-pink-50 border border-pink-200 rounded-xl p-4 mt-4">
-                        <strong>Pioneer rate:</strong> $2,500 CAD (standard: $5,000–$7,500 CAD). Your $2,500 CAD audit fee is credited in full toward the full build if you proceed.
-                    </p>
+                    <div class="bg-purple-50 border border-purple-200 rounded-xl p-4 mb-4 text-sm">
+                        <p class="font-bold text-purple-800 mb-1">Pioneer Audit: $2,500 CAD</p>
+                        <p class="text-purple-700">Standard: $5,000–$7,500 · Credited toward build</p>
+                    </div>
+                    <a href="#pioneer" class="block w-full text-center btn-primary text-white font-bold py-4 rounded-xl transition">
+                        Apply for Pioneer Spot →
+                    </a>
                 </div>
 
-                <!-- Service 2 -->
-                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg hover-lift border-l-4 border-pink-500">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                        <h3 class="text-3xl md:text-4xl font-bold mb-2 md:mb-0">PVRPOSE AI OS — Full Build</h3>
-                        <div class="text-right">
-                            <p class="text-2xl md:text-3xl font-bold gradient-accent bg-clip-text text-transparent">$15,000–$25,000 CAD</p>
-                            <p class="text-gray-600">6 weeks</p>
-                        </div>
+                <!-- TIER 2: PVRPOSE EA AMPLIFY (Featured) -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border-t-4 border-pink-500 flex flex-col relative ring-2 ring-pink-200">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">
+                        Most Popular
                     </div>
-
-                    <p class="text-lg text-gray-700 mb-6">
-                        We build your complete PVRPOSE AI OS using weekly Agile sprints. Built on Claude Code — your system connects to your real business data and is fully accessible from your phone via Telegram. Your data stays on infrastructure you control — never on shared or third-party servers.
-                    </p>
-
-                    <p class="font-semibold mb-3">What you get:</p>
-                    <ul class="space-y-2 text-gray-700 mb-6">
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>Weekly sprint cycles with live build sessions</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>Your business fully configured into Claude's context — your workflows, your voice, your data, your preferences — plus 1–2 priority automations built around your highest-ROI opportunities (proposal generation, CRM workflows, client follow-ups)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Claude Code engine</strong> configured to know your business fully</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Telegram mobile interface</strong> — manage your entire AI OS from your phone, anywhere</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Always-on private server</strong> — runs 24/7 on infrastructure registered to you (your machine or a dedicated VPS at ~$10–20/month, client-owned). Your data never passes through third-party systems.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>AI-Generated SOPs</strong> with complete documentation and video training library</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>Team training sessions (2–3 hours)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>30-day email/Slack support after delivery</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>You own all source code and prompts — no vendor lock-in</span>
-                        </li>
+                    <div class="mb-6 mt-2">
+                        <span class="inline-block bg-pink-100 text-pink-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3">Tier 2</span>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-1">PVRPOSE EA Amplify</h3>
+                        <p class="text-gray-600 text-sm">Founder + human EA/VA/Chief of Staff</p>
+                    </div>
+                    <div class="mb-6">
+                        <p class="text-3xl font-bold gradient-accent bg-clip-text text-transparent">$18,000–$25,000 CAD</p>
+                        <p class="text-gray-500 text-sm">6-week build + EA onboarding · 2 users</p>
+                        <p class="text-gray-500 text-sm">Retainer from $3,000/mo</p>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-6 leading-relaxed">Everything in PVRPOSE EA, plus your human EA gets their own Telegram access with AI-powered drafting, triage, and prep — all in your voice.</p>
+                    <ul class="space-y-2 text-gray-700 text-sm mb-8 flex-1">
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Everything in PVRPOSE EA</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> 2-user access (founder + EA)</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> EA routing logic (founder mode / EA mode)</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Pre-call brief engine & inbox triage</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Draft-approve workflow</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Shift handoff notes & escalation engine</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> WhatsApp bridge</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> EA onboarding session (Week 3)</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> 30-day post-delivery support</li>
                     </ul>
-
-                    <p class="text-lg font-semibold">
-                        Outcome: A phone-controlled AI OS that saves 10–15 hours/week. Your data, your infrastructure, your system.
-                    </p>
-                    <p class="text-sm text-gray-500 mt-2">Results vary based on your business volume, workflows, and implementation. These figures are illustrative projections based on past client engagements.</p>
+                    <div class="bg-pink-50 border border-pink-200 rounded-xl p-4 mb-4 text-sm">
+                        <p class="font-bold text-pink-800 mb-1">Pioneer Audit: $2,500 CAD</p>
+                        <p class="text-pink-700">Standard: $5,000–$7,500 · Credited toward build</p>
+                    </div>
+                    <a href="#ea-superpowers" class="block w-full text-center bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 rounded-xl transition">
+                        See EA Amplify in Action →
+                    </a>
                 </div>
 
-                <!-- Service 3 -->
-                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg hover-lift border-l-4 border-purple-600">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                        <h3 class="text-3xl md:text-4xl font-bold mb-2 md:mb-0">AI Optimization Retainer</h3>
-                        <div class="text-right">
-                            <p class="text-2xl md:text-3xl font-bold gradient-accent bg-clip-text text-transparent">From $3,000 CAD/month</p>
-                            <p class="text-gray-600">Ongoing</p>
-                        </div>
+                <!-- TIER 3: PVRPOSE EA SCALE -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift border-t-4 border-gray-800 flex flex-col">
+                    <div class="mb-6">
+                        <span class="inline-block bg-gray-100 text-gray-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3">Tier 3</span>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-1">PVRPOSE EA Scale</h3>
+                        <p class="text-gray-600 text-sm">Agencies & firms with 3+ team members</p>
                     </div>
-
-                    <p class="text-lg text-gray-700 mb-6">
-                        Your AI systems stay current and improve over time. Monthly sprint cycles, new automation builds, and continuous optimization.
-                    </p>
-
-                    <p class="font-semibold mb-3">What you get:</p>
-                    <ul class="space-y-2 text-gray-700 mb-6">
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>Monthly 60-minute strategy call</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>Performance monitoring and optimization</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>1 new automation per month (included)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>Bug fixes and troubleshooting</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span>Unlimited async support (email/Slack)</span>
-                        </li>
+                    <div class="mb-6">
+                        <p class="text-3xl font-bold gradient-accent bg-clip-text text-transparent">$25,000–$40,000 CAD</p>
+                        <p class="text-gray-500 text-sm">8–12 week build · 3+ users</p>
+                        <p class="text-gray-500 text-sm">Retainer from $5,000/mo</p>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-6 leading-relaxed">Everything in EA Amplify, plus dedicated agent bots per role, CRM integration, client dashboards, and team coordination across your entire operation.</p>
+                    <ul class="space-y-2 text-gray-700 text-sm mb-8 flex-1">
+                        <li class="flex items-start"><span class="text-gray-800 mr-2 font-bold">✓</span> Everything in EA Amplify</li>
+                        <li class="flex items-start"><span class="text-gray-800 mr-2 font-bold">✓</span> 3+ user access with dedicated agent bots</li>
+                        <li class="flex items-start"><span class="text-gray-800 mr-2 font-bold">✓</span> GHL/HubSpot CRM API integration</li>
+                        <li class="flex items-start"><span class="text-gray-800 mr-2 font-bold">✓</span> Client dashboards & PDF generation</li>
+                        <li class="flex items-start"><span class="text-gray-800 mr-2 font-bold">✓</span> Team task tracking & coordination</li>
+                        <li class="flex items-start"><span class="text-gray-800 mr-2 font-bold">✓</span> Email campaigns & lead reactivation</li>
+                        <li class="flex items-start"><span class="text-gray-800 mr-2 font-bold">✓</span> Google Drive integration</li>
+                        <li class="flex items-start"><span class="text-gray-800 mr-2 font-bold">✓</span> 60-day post-delivery support</li>
                     </ul>
-
-                    <p class="text-lg font-semibold">
-                        Outcome: Your AI systems adapt to changing business needs without requiring a full-time tech person.
-                    </p>
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4 text-sm">
+                        <p class="font-bold text-gray-800 mb-1">Discovery: $7,500 CAD</p>
+                        <p class="text-gray-600">3-week deep scoping · Credited toward build</p>
+                    </div>
+                    <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 rounded-xl transition">
+                        Book Scale Discovery Call →
+                    </a>
                 </div>
+            </div>
+
+            <!-- Comparison Table (desktop) -->
+            <div class="hidden md:block overflow-x-auto bg-white rounded-2xl shadow-lg p-8">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="border-b-2 border-gray-200">
+                            <th class="py-3 px-4 text-gray-500 font-semibold"></th>
+                            <th class="py-3 px-4 text-purple-700 font-bold">PVRPOSE EA</th>
+                            <th class="py-3 px-4 text-pink-600 font-bold">EA Amplify</th>
+                            <th class="py-3 px-4 text-gray-800 font-bold">EA Scale</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr><td class="py-3 px-4 font-semibold text-gray-600">Users</td><td class="py-3 px-4">1 (founder)</td><td class="py-3 px-4">2 (founder + EA)</td><td class="py-3 px-4">3+ (entire team)</td></tr>
+                        <tr><td class="py-3 px-4 font-semibold text-gray-600">Build</td><td class="py-3 px-4">$15K–$20K</td><td class="py-3 px-4">$18K–$25K</td><td class="py-3 px-4">$25K–$40K</td></tr>
+                        <tr><td class="py-3 px-4 font-semibold text-gray-600">Retainer</td><td class="py-3 px-4">from $2,500/mo</td><td class="py-3 px-4">from $3,000/mo</td><td class="py-3 px-4">from $5,000/mo</td></tr>
+                        <tr><td class="py-3 px-4 font-semibold text-gray-600">Build Time</td><td class="py-3 px-4">6 weeks</td><td class="py-3 px-4">6 weeks</td><td class="py-3 px-4">8–12 weeks</td></tr>
+                        <tr><td class="py-3 px-4 font-semibold text-gray-600">CRM</td><td class="py-3 px-4">Manual files</td><td class="py-3 px-4">Manual + Airtable API</td><td class="py-3 px-4">Full GHL/HubSpot</td></tr>
+                        <tr><td class="py-3 px-4 font-semibold text-gray-600">Client Dashboard</td><td class="py-3 px-4">No</td><td class="py-3 px-4">No</td><td class="py-3 px-4">Yes</td></tr>
+                        <tr><td class="py-3 px-4 font-semibold text-gray-600">Post-Delivery Support</td><td class="py-3 px-4">30 days</td><td class="py-3 px-4">30 days</td><td class="py-3 px-4">60 days</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- All tiers include -->
+            <div class="mt-8 text-center">
+                <p class="text-sm text-gray-500">All tiers include: private infrastructure · CASL/PIPEDA compliance review · Telegram mobile interface · cross-session memory · you own all code and data · no vendor lock-in</p>
             </div>
         </div>
     </section>
@@ -2231,7 +2232,7 @@
                         <span class="text-2xl flex-shrink-0">💾</span>
                         <div>
                             <p class="font-semibold text-white mb-1">Business Memory Layer — It Knows You</p>
-                            <p class="text-gray-400 text-sm">Your PVRPOSE AI OS remembers your clients, pricing, preferences, and conversation history. Every response builds on what it already knows — so you never repeat yourself. It's not a fresh start every session. It's an AI that grows with your business.</p>
+                            <p class="text-gray-400 text-sm">Your PVRPOSE EA remembers your clients, pricing, preferences, and conversation history. Every response builds on what it already knows — so you never repeat yourself. It's not a fresh start every session. It's an AI that grows with your business.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 items-start">
@@ -2424,7 +2425,7 @@
                             <strong>Long answer:</strong> Many of our clients come to us after 20–40 hours of DIY frustration. They've watched YouTube tutorials, joined communities, started setting things up... then hit walls with technical errors, integration issues, or systems that break in production.
                         </p>
                         <p class="mb-4">
-                            See our <a href="#diy-comparison" class="text-pink-600 hover:underline font-semibold">full DIY vs. Professional comparison</a> for detailed cost breakdown. Our professional implementation costs $15,000-$25,000 and includes:
+                            See our <a href="#diy-comparison" class="text-pink-600 hover:underline font-semibold">full DIY vs. Professional comparison</a> for detailed cost breakdown. Our professional implementation starts at $15,000 CAD (PVRPOSE EA) and includes:
                         </p>
                         <ul class="list-disc pl-6 space-y-2 mb-4">
                             <li>Expert setup in 6 weeks (not 3–6 months DIY)</li>
@@ -2510,7 +2511,7 @@
                             Great question. Business evolves—your AI systems should too. Here's how we handle it:
                         </p>
                         <p class="mb-4">
-                            <strong>Option 1: AI Optimization Retainer ($3,000+ CAD/month)</strong>
+                            <strong>Option 1: AI Optimization Retainer (from $2,500 CAD/month)</strong>
                         </p>
                         <ul class="list-disc pl-6 space-y-2 mb-4">
                             <li>1 new automation per month included</li>
@@ -2573,7 +2574,7 @@
                 <div class="glass-dark p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(5)">
                         <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
-                            Why does this cost $15K–$25K when I can use ChatGPT for $20/month?
+                            Why does this cost $15K–$40K when I can use ChatGPT for $20/month?
                         </h3>
                         <svg id="faq-icon-5" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -2584,7 +2585,7 @@
                             Because ChatGPT is a chat interface. We build custom AI systems that <strong>run your business operations automatically.</strong>
                         </p>
                         <p class="mb-4">
-                            Here's what $15K–$25K gets you that ChatGPT doesn't:
+                            Here's what $15K–$40K gets you that ChatGPT doesn't:
                         </p>
                         <ul class="list-disc pl-6 space-y-2 mb-4">
                             <li><strong>Workflow Integration:</strong> AI connected to your CRM, email, calendar, databases—not just chat</li>
@@ -2596,7 +2597,7 @@
                             <li><strong>Ongoing Support:</strong> 30 days of troubleshooting included</li>
                         </ul>
                         <p class="mb-4">
-                            <strong>The ROI math (illustrative example):</strong> If you're at $500K revenue and we save you 15 hours/week at $200/hour effective rate, that's $156,000/year in time saved. Even at $25K investment, you're at 6× ROI in Year 1. Actual results vary based on your revenue, hourly rate, and admin volume.
+                            <strong>The ROI math (illustrative example):</strong> If you're at $500K revenue and we save you 15 hours/week at $200/hour effective rate, that's $156,000/year in time saved. Even at a $20K PVRPOSE EA build, you're at 7× ROI in Year 1. Actual results vary based on your revenue, hourly rate, and admin volume.
                         </p>
                         <p class="font-semibold text-gray-900">
                             ChatGPT is a tool. We build business systems. Big difference.
@@ -2809,7 +2810,7 @@
                         </svg>
                     </button>
                     <div id="faq-answer-ea1" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden">
-                        <p>No. PVRPOSE AI OS is built to make your EA 3–10× more effective, not replace them. Your EA stays in control. The AI does the grinding repetitive work so they can focus on judgment, relationships, and strategy.</p>
+                        <p>No. PVRPOSE EA Amplify is built to make your EA 3× more effective, not replace them. Your EA stays in control. The AI does the grinding repetitive work so they can focus on judgment, relationships, and strategy.</p>
                     </div>
                 </div>
 
@@ -3009,10 +3010,10 @@
                 <div>
                     <h4 class="font-semibold mb-3">Services</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#pioneer" class="hover:text-white transition-colors">PVRPOSE AI OS — Pioneer Spots</a></li>
-                        <li><a href="#services" class="hover:text-white transition-colors">PVRPOSE AI OS Readiness Audit</a></li>
-                        <li><a href="#services" class="hover:text-white transition-colors">PVRPOSE AI OS — Full Build</a></li>
-                        <li><a href="#services" class="hover:text-white transition-colors">AI Optimization Retainer</a></li>
+                        <li><a href="#pioneer" class="hover:text-white transition-colors">Pioneer Spots</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">PVRPOSE EA — Solo Founder</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">PVRPOSE EA Amplify — Founder + EA</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">PVRPOSE EA Scale — Full Team</a></li>
                     </ul>
                 </div>
 
@@ -3186,15 +3187,17 @@
             const monthlySavings = Math.round(weeklySavings * 4.33); // Average weeks per month
             const annualSavings = Math.round(weeklySavings * 50); // 50 working weeks
 
-            // Dynamic implementation cost based on complexity
-            // More admin hours = more complex setup = higher cost
-            let estimatedCost = 15000; // Minimum
-            if (adminHours >= 20) {
-                estimatedCost = 25000; // Maximum for complex
+            // Dynamic implementation cost based on complexity (maps to tier pricing)
+            // PVRPOSE EA: $15K-$20K, EA Amplify: $18K-$25K, EA Scale: $25K-$40K
+            let estimatedCost = 15000; // PVRPOSE EA minimum
+            if (adminHours >= 25) {
+                estimatedCost = 32500; // EA Scale range
+            } else if (adminHours >= 20) {
+                estimatedCost = 21500; // EA Amplify range
             } else if (adminHours >= 15) {
-                estimatedCost = 20000; // Middle range
+                estimatedCost = 17500; // PVRPOSE EA upper
             } else if (adminHours >= 10) {
-                estimatedCost = 17500; // Lower-middle
+                estimatedCost = 15000; // PVRPOSE EA lower
             }
 
             // Calculate ROI (annual savings divided by implementation cost)
@@ -3603,33 +3606,33 @@
     </script>
     <script>
         function setHeroTab(tab) {
-            var isSolo = tab === 'solo';
-            // Toggle H1
-            document.getElementById('hero-h1-solo').classList.toggle('hidden', !isSolo);
-            document.getElementById('hero-h1-ea').classList.toggle('hidden', isSolo);
-            // Toggle tagline
-            document.getElementById('hero-tagline-solo').classList.toggle('hidden', !isSolo);
-            document.getElementById('hero-tagline-ea').classList.toggle('hidden', isSolo);
-            // Toggle CTAs
-            document.getElementById('hero-cta-solo').classList.toggle('hidden', !isSolo);
-            document.getElementById('hero-cta-ea').classList.toggle('hidden', isSolo);
-            // Toggle Monday Morning timelines
-            document.getElementById('monday-solo').classList.toggle('hidden', !isSolo);
-            document.getElementById('monday-ea').classList.toggle('hidden', isSolo);
-            // Toggle tab button styles
-            var soloBtn = document.getElementById('tab-solo');
-            var eaBtn = document.getElementById('tab-ea');
-            if (isSolo) {
-                soloBtn.className = 'hero-tab-btn w-full sm:w-auto cursor-pointer px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-purple-900 text-white shadow-lg';
-                eaBtn.className = 'hero-tab-btn w-full sm:w-auto cursor-pointer px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600';
-            } else {
-                eaBtn.className = 'hero-tab-btn w-full sm:w-auto cursor-pointer px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-purple-900 text-white shadow-lg';
-                soloBtn.className = 'hero-tab-btn w-full sm:w-auto cursor-pointer px-8 py-3 rounded-full font-semibold text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600';
-            }
+            var tabs = ['solo', 'ea', 'scale'];
+            var activeClass = 'hero-tab-btn w-full sm:w-auto cursor-pointer px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-purple-900 text-white shadow-lg';
+            var inactiveClass = 'hero-tab-btn w-full sm:w-auto cursor-pointer px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600';
+
+            tabs.forEach(function(t) {
+                var isActive = t === tab;
+                // Toggle H1, tagline, CTAs
+                var h1 = document.getElementById('hero-h1-' + t);
+                var tagline = document.getElementById('hero-tagline-' + t);
+                var cta = document.getElementById('hero-cta-' + t);
+                if (h1) h1.classList.toggle('hidden', !isActive);
+                if (tagline) tagline.classList.toggle('hidden', !isActive);
+                if (cta) cta.classList.toggle('hidden', !isActive);
+                // Toggle tab button styles
+                var btn = document.getElementById('tab-' + t);
+                if (btn) btn.className = isActive ? activeClass : inactiveClass;
+            });
+
+            // Toggle Monday Morning timelines (only solo and ea have them)
+            var mondaySolo = document.getElementById('monday-solo');
+            var mondayEa = document.getElementById('monday-ea');
+            if (mondaySolo) mondaySolo.classList.toggle('hidden', tab !== 'solo');
+            if (mondayEa) mondayEa.classList.toggle('hidden', tab !== 'ea' && tab !== 'scale');
         }
-        // Default to EA tab on page load
+        // Default to solo (PVRPOSE EA) tab on page load
         document.addEventListener('DOMContentLoaded', function() {
-            setHeroTab('ea');
+            setHeroTab('solo');
         });
     </script>
 </body>

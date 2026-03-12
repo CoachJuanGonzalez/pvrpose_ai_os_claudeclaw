@@ -2,7 +2,7 @@
 ## Build Once. Demo. Replicate for Clients.
 
 **Author:** Juan Gonzalez, PVRPOSE AI -- Montreal
-**Version:** v3.0 | March 2026
+**Version:** v3.1 | March 2026
 **Status:** Internal SOP -- Not for distribution
 **Source of truth for:** system architecture, capability inventory, business cases, build SOP, pricing, compliance
 
@@ -33,7 +33,7 @@ Professional service founders -- lawyers, CPAs, consultants, agency owners, cons
 The cause is structural:
 - Their tools (CRM, email, calendar, billing) are siloed. No tool talks to another without manual bridging.
 - Generic AI tools (ChatGPT, Gemini, Claude.ai) are stateless -- they know nothing about this specific founder's voice, their clients, their pricing, their open deals. Every session starts from zero.
-- Hiring a real EA costs $60,000-$90,000 CAD per year plus overhead, benefits, and management time.
+- Hiring a real EA costs $63,000-$98,000 CAD per year (Robert Half 2026) plus overhead, benefits, and management time.
 - Automation agencies build n8n and Zapier workflows that are brittle, require maintenance, and give the founder no intelligent conversational interface.
 
 The result: a founder billing $250-500/hour spends Monday morning doing things a $25/hour admin could do. They do not want to hire and manage an admin. They want the time back.
@@ -64,9 +64,9 @@ Juan does not sell technology. He sells a configured outcome. The moat has three
 
 ### North Star Vision
 
-**18 months:** PVRPOSE AI OS is the standard operating system for solo and small-team professional services founders in Quebec and Ontario who want to run a $500K-$1M practice from their phone.
+**18 months:** PVRPOSE AI OS is the standard operating system for solo and small-team professional services founders in Quebec and Ontario who want to run a $500K-$1M practice from their phone -- delivered through three product tiers: PVRPOSE EA (solo founder, 1 user), EA Amplify (founder + EA, 2 users), and EA Scale (team, 3+ users).
 
-**36 months:** PVRPOSE AI OS is a replicable deployment system that Juan licenses to a small network of trained AI integrators in Canada, each deploying to their own vertical (legal, accounting, construction, agencies).
+**36 months:** PVRPOSE AI OS is a replicable deployment system that Juan licenses to a small network of trained AI integrators in Canada, each deploying to their own vertical (legal, accounting, construction, agencies). All three tiers are licensable.
 
 The goal is not a SaaS product. The goal is to become the best in the world at one specific thing: turning a professional service founder's business context into a private AI operating system that saves 10-15 hours per week, then building a high-margin practice doing it for 20-30 clients per year.
 
@@ -131,10 +131,19 @@ The most important layer. A configuration file that tells Claude who the client 
 
 - Auto-send emails or WhatsApp messages without human approval -- drafts only, human approves and sends
 - Pull live CRM data without a direct API skill -- Airtable direct API skill is needed separately (see Section 6)
-- Multi-user support -- one owner, one instance per deployment, not a SaaS product
 - Enterprise compliance audit logging -- not production-ready for regulated industries requiring full audit trails
 - Guaranteed uptime SLA -- runs on private infrastructure, VPS reliability applies
 - Replace a human EA entirely -- it handles drafting, briefing, research, and scheduling, not judgment calls that require relationship context
+
+### Product Tiers (3-Tier Architecture)
+
+| Tier | Name | Users | Build Price (CAD) | Retainer (CAD/mo) | Build Timeline |
+|---|---|---|---|---|---|
+| 1 | PVRPOSE EA | 1 (solo founder) | $15,000-$20,000 | $2,500 | 6 weeks |
+| 2 | EA Amplify | 2 (founder + EA) | $18,000-$25,000 | $3,000 | 6 weeks |
+| 3 | EA Scale | 3+ (team) | $25,000-$40,000 | $5,000 | 8-12 weeks |
+
+Multi-user access is implemented via ALLOWED_CHAT_IDS in .env -- each authorized Telegram user gets their own chat ID. PVRPOSE EA is single-user. EA Amplify and EA Scale support multiple authenticated users on the same instance.
 
 ---
 
@@ -1099,7 +1108,7 @@ Three prompts, live on phone, under 5 minutes:
 
 Pitch line: "Your EA already does all of this. PVRPOSE EA Superpowers makes them do it in one-tenth the time. Same human judgment. Same relationship. 3× the output."
 
-ROI frame (defensible): "A senior EA in Toronto costs $74,000-$98,000 CAD (Robert Half 2026). AI-assisted productivity gains of 40-55% (McKinsey/PwC 2025) mean your EA effectively delivers the work of 1.5 EAs for the same salary. The $15,000-$25,000 build pays back in 3-6 months."
+ROI frame (defensible): "A senior EA in Toronto costs $74,000-$98,000 CAD (Robert Half 2026). AI-assisted productivity gains of 40-55% (McKinsey/PwC 2025) mean your EA effectively delivers the work of 1.5 EAs for the same salary. A PVRPOSE EA build ($15K-$20K) pays back in 3-6 months. EA Amplify ($18K-$25K) pays back in 2-4 months because the founder and their EA both get time back."
 
 ---
 
@@ -1270,9 +1279,9 @@ Say: "That would have taken me 45 minutes. It took 90 seconds."
 ### Current Offers (Pioneer Phase -- March 2026)
 
 **Pioneer 1 -- Free Full Build (1 spot)**
-- Full audit plus full 6-week build at $0 upfront
+- Full audit plus full 6-week build at $0 upfront (PVRPOSE EA tier)
 - Client pays tooling only: $100-350/month (Anthropic API + optional VPS $10-20/month)
-- Build value: $15,000-$25,000 CAD
+- Build value: $15,000-$20,000 CAD
 - Exchange: one on-camera video testimonial (face visible, one specific measurable result) plus one warm introduction to a founder in their network
 - Status: George Mills confirmed
 
@@ -1280,38 +1289,47 @@ Say: "That would have taken me 45 minutes. It took 90 seconds."
 - Full 2-week AI OS Readiness Audit as described in Section 12
 - Includes: workflow mapping session, blueprint design, CLAUDE.md architecture, AI Readiness Report, ROI projection
 - $2,500 credited in full toward the build if client proceeds
-- Standard audit rate: $5,000-7,500 CAD (pioneer discount)
+- Standard audit rate: $5,000-$7,500 CAD for Tiers 1-2, $7,500 Discovery for Tier 3 (pioneer discount applies to Tiers 1-2)
 
-### Standard Pricing (Post-Pioneer)
+### Standard Pricing (Post-Pioneer) -- 3-Tier Structure
 
 | Offer | Price (CAD) | What It Is |
 |---|---|---|
-| PVRPOSE AI OS Audit | $5,000-7,500 | 2-week engagement. Workflow map, blueprint, Readiness Report, ROI projection. Credited toward build. |
-| PVRPOSE AI OS Full Build | $15,000-$25,000 | 6-week engagement, one-time. Full system live on private infrastructure. 30-day support included. |
-| AI Optimization Retainer | from $3,000/month | 1 new automation/month, optimization, monthly strategy call, async support. |
+| PVRPOSE AI OS Audit (Tiers 1-2) | $5,000-$7,500 | 2-week engagement. Workflow map, blueprint, Readiness Report, ROI projection. Credited toward build. |
+| EA Scale Discovery (Tier 3) | $7,500 | Extended discovery for team deployments. Includes multi-user workflow mapping, role-based access design, and team onboarding plan. |
+| PVRPOSE EA Build (Tier 1) | $15,000-$20,000 | 6-week engagement, one-time. Solo founder, 1 user. Full system live on private infrastructure. 30-day support included. |
+| EA Amplify Build (Tier 2) | $18,000-$25,000 | 6-week engagement, one-time. Founder + EA, 2 users. Full system with multi-user config. 30-day support included. |
+| EA Scale Build (Tier 3) | $25,000-$40,000 | 8-12 week engagement, one-time. Team deployment, 3+ users. Full system with role-based access. 60-day support included. |
+| AI Optimization Retainer -- EA | $2,500/month | 1 new automation/month, optimization, monthly strategy call, async support. |
+| AI Optimization Retainer -- Amplify | $3,000/month | Same as EA plus multi-user optimization and EA coordination workflows. |
+| AI Optimization Retainer -- Scale | $5,000/month | Same as Amplify plus team workflow optimization, quarterly business review, priority support. |
 
 **What drives variance in build pricing:**
+- Tier selection (number of users and deployment complexity)
 - Number of integrations (each skill setup adds time)
 - Number of automations (standard is 2 during the build)
 - Data complexity (50 active prospect files vs 5)
 - Compliance requirements (Quebec Law 25 review adds scope)
-- Training requirements (1 founder vs a small team)
+- Training requirements (1 founder vs a small team -- Scale tier includes team onboarding)
 
 **Retainer economics:**
-The retainer requires 8-12 hours of work per client per month. At $3,000/month: 3 retainer clients = $9,000/month recurring, 5 = $15,000/month recurring. Target: every full build client converts to a retainer. Conversion target: 50%+.
+EA retainer requires 8-12 hours/month per client. Amplify requires 10-14 hours/month. Scale requires 15-20 hours/month. At blended average: 3 retainer clients = $7,500-$15,000/month recurring, 5 = $12,500-$25,000/month recurring. Target: every full build client converts to a retainer. Conversion target: 50%+.
 
 **What this is NOT:**
 Not a SaaS product. Not a white-label reseller model. Not a template you sell for $99. This is a custom-built, done-for-you professional service. Like hiring a contractor to build your office -- bespoke, owned by the client, maintained optionally.
 
 ### Financial Projections
 
-**Pioneer Phase outcome:** 3 pioneers = $5,000 CAD minimum cash + 1 full build case study. If 2 of 3 convert to full builds: $30,000-$50,000 CAD additional.
+**Pioneer Phase outcome:** 3 pioneers = $5,000 CAD minimum cash + 1 full build case study. If 2 of 3 convert to full builds (EA tier): $30,000-$40,000 CAD additional.
 
-**Year 1 Conservative (3 builds, 2 retainers):** $130,000-$145,000 CAD
-**Year 1 Moderate (5 builds, 3 retainers):** $140,000-$163,500 CAD
-**Year 2 (referral engine running, 6-8 builds, 5-6 retainers):** $345,000-$506,000 CAD
+**Year 1 Conservative (3 EA builds, 2 EA retainers):** $105,000-$120,000 CAD
+**Year 1 Moderate (3 EA + 2 Amplify builds, 3 mixed retainers):** $165,000-$205,000 CAD
+**Year 2 (referral engine running, 4 EA + 3 Amplify + 1 Scale builds, 5-6 mixed retainers):** $375,000-$555,000 CAD
 
-**Average client lifetime value (audit + build + 12 months retainer):** $53,500-$75,500 CAD
+**Average client lifetime value by tier (audit + build + 12 months retainer):**
+- PVRPOSE EA: $50,000-$57,500 CAD
+- EA Amplify: $59,000-$68,500 CAD
+- EA Scale: $92,500-$107,500 CAD
 
 ---
 
@@ -1332,8 +1350,7 @@ Not a SaaS product. Not a white-label reseller model. Not a template you sell fo
 
 - Pre-revenue or under $50K annually
 - Wants to build and maintain it themselves (sell them the Audit, not the Build)
-- Expects instant results (minimum 6 weeks to deliver real value)
-- Needs multi-user enterprise access (not the right product yet)
+- Expects instant results (minimum 6 weeks to deliver real value, 8-12 weeks for Scale tier)
 - Operates in a heavily regulated industry requiring full compliance audit without first engaging legal counsel
 - Not willing to invest in professional implementation
 
@@ -1708,7 +1725,7 @@ One copy per client. Store in their project folder. Check off as completed.
 | Marketing / ops agencies | Done-for-you content and admin | $5K-$15K/month ongoing. Still requires the founder's input for everything non-standard. No AI memory. Humans make it fragile. Off at night. |
 | Microsoft Copilot | AI in Office 365 tools | Enterprise-first. Requires M365 subscription. No private infrastructure. No Telegram. No voice-to-action. No custom business context. |
 | Hiring an EA | Human executive assistant | $63K-$98K CAD/year (Robert Half 2026). Requires onboarding, management, vacation coverage. Does not work at 11pm. Cannot hold the entire company's context simultaneously. |
-| DIY with Claude Code | Build it yourself | Requires 200+ hours to reach what PVRPOSE AI delivers in 6 weeks. No compliance review. No proven workflow. No voice pipeline. No agent architecture. |
+| DIY with Claude Code | Build it yourself | Requires 200+ hours to reach what PVRPOSE AI delivers in 6-12 weeks (depending on tier). No compliance review. No proven workflow. No voice pipeline. No agent architecture. |
 | Generic AI chatbot vendors | Pre-built chatbot platforms with templates | Template-based, not custom. No private infrastructure. No voice. No CRM integration. No proposal generation. Not the founder's voice. |
 
 **The pitch in one sentence:** The intelligence of a senior EA combined with the speed of AI and the security of private infrastructure, built specifically around how your business works.
@@ -1732,7 +1749,7 @@ Use this when pitching the system. Conservative estimates based on actual workfl
 | Pre-call research and prep | 3 hours/week | 30 minutes/week |
 
 At $350-500/hour billing rate: $3,500-$7,500/week in recovered billable capacity.
-PVRPOSE AI OS cost: $15,000-$25,000 CAD one-time.
+PVRPOSE AI OS cost: $15,000-$20,000 CAD one-time (PVRPOSE EA tier).
 Break-even: 2-6 weeks.
 Year 1 ROI: 600-910%.
 
@@ -2598,6 +2615,6 @@ Status: Open.
 
 ---
 
-*Version v3.0 -- March 2026*
+*Version v3.1 -- March 2026*
 *Owner: Juan Gonzalez, PVRPOSE AI, Montreal*
 *This is a living document -- update after every client build, every resolved issue, and every new confirmed capability.*

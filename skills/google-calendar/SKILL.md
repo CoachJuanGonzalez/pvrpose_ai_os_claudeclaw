@@ -131,7 +131,7 @@ All of these work:
 
 ## Timezone
 
-The script defaults to **America/New_York**. To change it, edit the `TIMEZONE` constant in `gcal.py`.
+The script defaults to **America/Toronto**. To change it, edit the `TIMEZONE` constant in `gcal.py`.
 
 ## Defaults
 

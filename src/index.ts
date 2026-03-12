@@ -10,6 +10,7 @@ import { logger } from './logger.js';
 import { cleanupOldUploads } from './media.js';
 import { runDecaySweep } from './memory.js';
 import { initScheduler } from './scheduler.js';
+import { startSlackBot, stopSlackBot, isSlackConfigured } from './slack-bot.js';
 import { setTelegramConnected, setBotInfo } from './state.js';
 
 // Parse --agent flag
@@ -103,10 +104,16 @@ async function main(): Promise<void> {
     logger.warn('ALLOWED_CHAT_ID not set — scheduler disabled (no destination for results)');
   }
 
+  // Start Slack bot alongside Telegram (if configured)
+  if (AGENT_ID === 'main' && isSlackConfigured()) {
+    startSlackBot().catch((err) => logger.error({ err }, 'Slack bot failed to start'));
+  }
+
   const shutdown = async () => {
     logger.info('Shutting down...');
     setTelegramConnected(false);
     releaseLock();
+    await stopSlackBot();
     await bot.stop();
     process.exit(0);
   };

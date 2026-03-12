@@ -6,6 +6,7 @@ import { readEnvFile } from './env.js';
 const envConfig = readEnvFile([
   'TELEGRAM_BOT_TOKEN',
   'ALLOWED_CHAT_ID',
+  'ALLOWED_CHAT_IDS',
   'GROQ_API_KEY',
   'ELEVENLABS_API_KEY',
   'ELEVENLABS_VOICE_ID',
@@ -15,6 +16,9 @@ const envConfig = readEnvFile([
   'DASHBOARD_PORT',
   'DASHBOARD_TOKEN',
   'DASHBOARD_URL',
+  'AIRTABLE_API_TOKEN',
+  'AIRTABLE_BASE_ID',
+  'AIRTABLE_TABLE_ID',
 ]);
 
 // ── Multi-agent support ──────────────────────────────────────────────
@@ -46,9 +50,31 @@ export function setAgentOverrides(opts: {
 export const TELEGRAM_BOT_TOKEN =
   process.env.TELEGRAM_BOT_TOKEN || envConfig.TELEGRAM_BOT_TOKEN || '';
 
-// Only respond to this Telegram chat ID. Set this after getting your ID via /chatid.
-export const ALLOWED_CHAT_ID =
+// ── Authorised Telegram chat IDs ────────────────────────────────────────────
+// Supports comma-separated list for multi-user access (EA Amplify / Scale).
+// Backward-compatible: ALLOWED_CHAT_ID still works for single-user setups.
+// Example:  ALLOWED_CHAT_IDS=12345,67890
+//           ALLOWED_CHAT_ID=12345          (single user, still supported)
+const rawAllowedIds =
+  process.env.ALLOWED_CHAT_IDS || envConfig.ALLOWED_CHAT_IDS ||
   process.env.ALLOWED_CHAT_ID || envConfig.ALLOWED_CHAT_ID || '';
+
+/** Set of authorised numeric chat ID strings. Empty = not yet configured. */
+export const ALLOWED_CHAT_IDS: ReadonlySet<string> = new Set(
+  rawAllowedIds
+    .split(',')
+    .map((id) => id.trim())
+    .filter(Boolean),
+);
+
+/** First (primary) chat ID — used for dashboard messages and notifications. */
+export const PRIMARY_CHAT_ID: string = [...ALLOWED_CHAT_IDS][0] ?? '';
+
+/**
+ * @deprecated Use ALLOWED_CHAT_IDS set or PRIMARY_CHAT_ID instead.
+ * Kept for backward compatibility with code that checks truthiness.
+ */
+export const ALLOWED_CHAT_ID: string = PRIMARY_CHAT_ID;
 
 export const WHATSAPP_ENABLED =
   (process.env.WHATSAPP_ENABLED || envConfig.WHATSAPP_ENABLED || '').toLowerCase() === 'true';

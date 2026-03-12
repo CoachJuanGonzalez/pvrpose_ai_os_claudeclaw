@@ -5,6 +5,8 @@ import { runAgent, UsageInfo, AgentProgressEvent } from './agent.js';
 import {
   AGENT_ID,
   ALLOWED_CHAT_ID,
+  ALLOWED_CHAT_IDS,
+  PRIMARY_CHAT_ID,
   CONTEXT_LIMIT,
   DASHBOARD_PORT,
   DASHBOARD_TOKEN,
@@ -270,16 +272,22 @@ async function sendTyping(api: Api<RawApi>, chatId: number): Promise<void> {
 }
 
 /**
- * Authorise the incoming chat against ALLOWED_CHAT_ID.
- * If ALLOWED_CHAT_ID is not yet configured, guide the user to set it up.
- * Returns true if the message should be processed.
+ * Authorise the incoming chat against ALLOWED_CHAT_IDS.
+ * Security: strict numeric ID matching + private-chat-only enforcement.
+ * Fail-closed: if no IDs configured, returns true only so the setup handler
+ * can guide the user — the setup handler itself blocks further processing.
  */
-function isAuthorised(chatId: number): boolean {
-  if (!ALLOWED_CHAT_ID) {
-    // Not yet configured — let every request through but warn in the reply handler
+function isAuthorised(chatId: number, chatType?: string): boolean {
+  if (ALLOWED_CHAT_IDS.size === 0) {
+    // Not yet configured — let through so setup guidance can be shown
     return true;
   }
-  return chatId.toString() === ALLOWED_CHAT_ID;
+  // Only allow private chats — blocks group, supergroup, and channel attacks
+  if (chatType && chatType !== 'private') {
+    logger.warn({ chatId, chatType }, 'Rejected non-private chat');
+    return false;
+  }
+  return ALLOWED_CHAT_IDS.has(chatId.toString());
 }
 
 /**
@@ -291,16 +299,16 @@ async function handleMessage(ctx: Context, message: string, forceVoiceReply = fa
   const chatId = ctx.chat!.id;
   const chatIdStr = chatId.toString();
 
-  // Security gate
-  if (!isAuthorised(chatId)) {
+  // Security gate — strict ID match + private chat only
+  if (!isAuthorised(chatId, ctx.chat!.type)) {
     logger.warn({ chatId }, 'Rejected message from unauthorised chat');
     return;
   }
 
-  // First-run setup guidance: ALLOWED_CHAT_ID not set yet
-  if (!ALLOWED_CHAT_ID) {
+  // First-run setup guidance: no IDs configured yet
+  if (ALLOWED_CHAT_IDS.size === 0) {
     await ctx.reply(
-      `Your chat ID is ${chatId}.\n\nAdd this to your .env:\n\nALLOWED_CHAT_ID=${chatId}\n\nThen restart ClaudeClaw.`,
+      `Your chat ID is ${chatId}.\n\nAdd this to your .env:\n\nALLOWED_CHAT_IDS=${chatId}\n\nFor multi-user (EA Amplify): ALLOWED_CHAT_IDS=${chatId},OTHER_ID\n\nThen restart ClaudeClaw.`,
     );
     return;
   }
@@ -510,7 +518,7 @@ export function createBot(): Bot {
 
   // /help — list available commands
   bot.command('help', (ctx) => {
-    if (!isAuthorised(ctx.chat!.id)) return;
+    if (!isAuthorised(ctx.chat!.id, ctx.chat!.type)) return;
     return ctx.reply(
       'ClaudeClaw — Commands\n\n' +
       '/newchat — Start a new Claude session\n' +
@@ -528,16 +536,15 @@ export function createBot(): Bot {
   });
 
   // /chatid — get the chat ID (used during first-time setup)
-  // Responds to anyone only when ALLOWED_CHAT_ID is not yet configured.
-  // /chatid — only responds when ALLOWED_CHAT_ID is not yet configured (first-time setup)
+  // /chatid — only responds when no IDs are configured yet (first-time setup)
   bot.command('chatid', (ctx) => {
-    if (ALLOWED_CHAT_ID) return; // Already configured — don't respond to anyone
+    if (ALLOWED_CHAT_IDS.size > 0) return; // Already configured — don't respond to anyone
     return ctx.reply(`Your chat ID: ${ctx.chat!.id}`);
   });
 
   // /start — simple greeting (auth-gated after setup)
   bot.command('start', (ctx) => {
-    if (ALLOWED_CHAT_ID && !isAuthorised(ctx.chat!.id)) return;
+    if (ALLOWED_CHAT_IDS.size > 0 && !isAuthorised(ctx.chat!.id, ctx.chat!.type)) return;
     if (AGENT_ID !== 'main') {
       return ctx.reply(`${AGENT_ID.charAt(0).toUpperCase() + AGENT_ID.slice(1)} agent online.`);
     }
@@ -546,7 +553,7 @@ export function createBot(): Bot {
 
   // /newchat — clear Claude session, start fresh
   bot.command('newchat', async (ctx) => {
-    if (!isAuthorised(ctx.chat!.id)) return;
+    if (!isAuthorised(ctx.chat!.id, ctx.chat!.type)) return;
     const chatIdStr = ctx.chat!.id.toString();
     const oldSessionId = getSession(chatIdStr, AGENT_ID);
     clearSession(chatIdStr, AGENT_ID);
@@ -559,7 +566,7 @@ export function createBot(): Bot {
 
   // /respin — after /newchat, pull recent conversation back as context
   bot.command('respin', async (ctx) => {
-    if (!isAuthorised(ctx.chat!.id)) return;
+    if (!isAuthorised(ctx.chat!.id, ctx.chat!.type)) return;
     const chatIdStr = ctx.chat!.id.toString();
 
     // Pull the last 20 turns (10 back-and-forth exchanges) from conversation_log
@@ -586,7 +593,7 @@ export function createBot(): Bot {
 
   // /voice — toggle voice mode for this chat
   bot.command('voice', async (ctx) => {
-    if (!isAuthorised(ctx.chat!.id)) return;
+    if (!isAuthorised(ctx.chat!.id, ctx.chat!.type)) return;
     const caps = voiceCapabilities();
     if (!caps.tts) {
       await ctx.reply('No TTS provider configured. Add ElevenLabs, Gradium, or install ffmpeg for macOS say fallback.');
@@ -604,7 +611,7 @@ export function createBot(): Bot {
 
   // /model — switch Claude model (opus, sonnet, haiku)
   bot.command('model', async (ctx) => {
-    if (!isAuthorised(ctx.chat!.id)) return;
+    if (!isAuthorised(ctx.chat!.id, ctx.chat!.type)) return;
     const chatIdStr = ctx.chat!.id.toString();
     const arg = ctx.match?.trim().toLowerCase();
 
@@ -637,7 +644,7 @@ export function createBot(): Bot {
 
   // /memory — show recent memories for this chat
   bot.command('memory', async (ctx) => {
-    if (!isAuthorised(ctx.chat!.id)) return;
+    if (!isAuthorised(ctx.chat!.id, ctx.chat!.type)) return;
     const chatId = ctx.chat!.id.toString();
     const recent = getRecentMemories(chatId, 10);
     if (recent.length === 0) {
@@ -650,7 +657,7 @@ export function createBot(): Bot {
 
   // /forget — clear session (memory decay handles the rest)
   bot.command('forget', async (ctx) => {
-    if (!isAuthorised(ctx.chat!.id)) return;
+    if (!isAuthorised(ctx.chat!.id, ctx.chat!.type)) return;
     clearSession(ctx.chat!.id.toString(), AGENT_ID);
     await ctx.reply('Session cleared. Memories will fade naturally over time.');
   });
@@ -658,7 +665,7 @@ export function createBot(): Bot {
   // /wa — pull recent WhatsApp chats on demand
   bot.command('wa', async (ctx) => {
     const chatIdStr = ctx.chat!.id.toString();
-    if (!isAuthorised(ctx.chat!.id)) return;
+    if (!isAuthorised(ctx.chat!.id, ctx.chat!.type)) return;
 
     try {
       const chats = await getWaChats(5);
@@ -691,7 +698,7 @@ export function createBot(): Bot {
   // /slack — pull recent Slack conversations on demand
   bot.command('slack', async (ctx) => {
     const chatIdStr = ctx.chat!.id.toString();
-    if (!isAuthorised(ctx.chat!.id)) return;
+    if (!isAuthorised(ctx.chat!.id, ctx.chat!.type)) return;
 
     try {
       await sendTyping(ctx.api, ctx.chat!.id);
@@ -726,7 +733,7 @@ export function createBot(): Bot {
 
   // /dashboard — send a clickable link to the web dashboard
   bot.command('dashboard', async (ctx) => {
-    if (!isAuthorised(ctx.chat!.id)) return;
+    if (!isAuthorised(ctx.chat!.id, ctx.chat!.type)) return;
     if (!DASHBOARD_TOKEN) {
       await ctx.reply('Dashboard not configured. Set DASHBOARD_TOKEN in .env and restart.');
       return;
@@ -739,7 +746,7 @@ export function createBot(): Bot {
 
   // /stop — interrupt the current agent query
   bot.command('stop', async (ctx) => {
-    if (!isAuthorised(ctx.chat!.id)) return;
+    if (!isAuthorised(ctx.chat!.id, ctx.chat!.type)) return;
     const chatIdStr = ctx.chat!.id.toString();
     const aborted = abortActiveQuery(chatIdStr);
     if (aborted) {
@@ -923,9 +930,9 @@ export function createBot(): Bot {
     }
     const chatId = ctx.chat!.id;
     if (!isAuthorised(chatId)) return;
-    if (!ALLOWED_CHAT_ID) {
+    if (ALLOWED_CHAT_IDS.size === 0) {
       await ctx.reply(
-        `Your chat ID is ${chatId}.\n\nAdd this to your .env:\n\nALLOWED_CHAT_ID=${chatId}\n\nThen restart ClaudeClaw.`,
+        `Your chat ID is ${chatId}.\n\nAdd this to your .env:\n\nALLOWED_CHAT_IDS=${chatId}\n\nThen restart ClaudeClaw.`,
       );
       return;
     }
@@ -951,9 +958,9 @@ export function createBot(): Bot {
   bot.on('message:photo', async (ctx) => {
     const chatId = ctx.chat!.id;
     if (!isAuthorised(chatId)) return;
-    if (!ALLOWED_CHAT_ID) {
+    if (ALLOWED_CHAT_IDS.size === 0) {
       await ctx.reply(
-        `Your chat ID is ${chatId}.\n\nAdd this to your .env:\n\nALLOWED_CHAT_ID=${chatId}\n\nThen restart ClaudeClaw.`,
+        `Your chat ID is ${chatId}.\n\nAdd this to your .env:\n\nALLOWED_CHAT_IDS=${chatId}\n\nThen restart ClaudeClaw.`,
       );
       return;
     }
@@ -977,9 +984,9 @@ export function createBot(): Bot {
   bot.on('message:document', async (ctx) => {
     const chatId = ctx.chat!.id;
     if (!isAuthorised(chatId)) return;
-    if (!ALLOWED_CHAT_ID) {
+    if (ALLOWED_CHAT_IDS.size === 0) {
       await ctx.reply(
-        `Your chat ID is ${chatId}.\n\nAdd this to your .env:\n\nALLOWED_CHAT_ID=${chatId}\n\nThen restart ClaudeClaw.`,
+        `Your chat ID is ${chatId}.\n\nAdd this to your .env:\n\nALLOWED_CHAT_IDS=${chatId}\n\nThen restart ClaudeClaw.`,
       );
       return;
     }
@@ -1004,8 +1011,8 @@ export function createBot(): Bot {
   bot.on('message:video', async (ctx) => {
     const chatId = ctx.chat!.id;
     if (!isAuthorised(chatId)) return;
-    if (!ALLOWED_CHAT_ID) {
-      await ctx.reply(`Your chat ID is ${chatId}.\n\nAdd this to your .env:\n\nALLOWED_CHAT_ID=${chatId}\n\nThen restart ClaudeClaw.`);
+    if (ALLOWED_CHAT_IDS.size === 0) {
+      await ctx.reply(`Your chat ID is ${chatId}.\n\nAdd this to your .env:\n\nALLOWED_CHAT_IDS=${chatId}\n\nThen restart ClaudeClaw.`);
       return;
     }
 
@@ -1029,8 +1036,8 @@ export function createBot(): Bot {
   bot.on('message:video_note', async (ctx) => {
     const chatId = ctx.chat!.id;
     if (!isAuthorised(chatId)) return;
-    if (!ALLOWED_CHAT_ID) {
-      await ctx.reply(`Your chat ID is ${chatId}.\n\nAdd this to your .env:\n\nALLOWED_CHAT_ID=${chatId}\n\nThen restart ClaudeClaw.`);
+    if (ALLOWED_CHAT_IDS.size === 0) {
+      await ctx.reply(`Your chat ID is ${chatId}.\n\nAdd this to your .env:\n\nALLOWED_CHAT_IDS=${chatId}\n\nThen restart ClaudeClaw.`);
       return;
     }
 
@@ -1067,9 +1074,9 @@ export async function processMessageFromDashboard(
   botApi: Api<RawApi>,
   text: string,
 ): Promise<void> {
-  if (!ALLOWED_CHAT_ID) return;
+  if (!PRIMARY_CHAT_ID) return;
 
-  const chatIdStr = ALLOWED_CHAT_ID;
+  const chatIdStr = PRIMARY_CHAT_ID;
 
   logger.info({ messageLen: text.length, source: 'dashboard' }, 'Processing dashboard message');
 
@@ -1167,13 +1174,13 @@ export async function notifyWhatsAppIncoming(
   isGroup: boolean,
   groupName?: string,
 ): Promise<void> {
-  if (!ALLOWED_CHAT_ID) return;
+  if (!PRIMARY_CHAT_ID) return;
 
   const origin = isGroup && groupName ? groupName : contactName;
   const text = `📱 <b>${escapeHtml(origin)}</b> — new message\n<i>/wa to view &amp; reply</i>`;
 
   try {
-    await api.sendMessage(parseInt(ALLOWED_CHAT_ID), text, { parse_mode: 'HTML' });
+    await api.sendMessage(parseInt(PRIMARY_CHAT_ID), text, { parse_mode: 'HTML' });
   } catch (err) {
     logger.error({ err }, 'Failed to send WhatsApp notification');
   }

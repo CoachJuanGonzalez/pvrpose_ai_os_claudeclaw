@@ -1,8 +1,8 @@
 # PVRPOSE AI OS -- Monetization Strategy
-## Professional Services Custom Build + Retainer Model
+## Professional Services Custom Build + Retainer Model (3-Tier Architecture)
 
-**Document Status:** Aligned to PVRPOSE_AI_OS_BLUEPRINT_SOP.md v2.0
-**Last Updated:** March 2026
+**Document Status:** Aligned to PVRPOSE_AI_OS_BLUEPRINT_SOP.md v2.0 and 3-Tier Product Architecture
+**Last Updated:** March 2026 (v3.0 -- 3-tier update)
 **Supersedes:** Previous version (coaching SaaS model -- not applicable to current business)
 
 ---
@@ -19,13 +19,23 @@ The correct business model is documented in full in `PVRPOSE_AI_OS_BLUEPRINT_SOP
 
 PVRPOSE AI builds custom AI operating systems for professional service founders. The product is not software -- it is a configured, deployed, and maintained intelligent system that saves 10-15 hours per week for founders who bill $250-500/hour.
 
-The revenue model is:
-- **High-ticket custom builds:** $15,000-$25,000 CAD one-time
-- **Recurring retainers:** from $3,000 CAD/month
-- **Audit engagements:** $5,000-$7,500 CAD (gateway to the build)
-- **Pioneer spots:** 3 discounted engagements to build case studies (current phase)
+The revenue model is structured across three named tiers:
 
-This is a high-margin, relationship-driven professional services business. Not a SaaS company. The unit economics are fundamentally different -- fewer clients, higher value per client, longer relationship.
+**PVRPOSE EA** (Tier 1) -- Solo founder, 1 user
+- Audit: $5,000-$7,500 CAD | Build: $15,000-$20,000 CAD | Retainer: from $2,500/month
+- Average CLV (audit + build + 12mo retainer): **$52,500 CAD**
+
+**PVRPOSE EA Amplify** (Tier 2) -- Founder + human EA, 2 users
+- Audit: $5,000-$7,500 CAD | Build: $18,000-$25,000 CAD | Retainer: from $3,000/month
+- Average CLV (audit + build + 12mo retainer): **$62,500 CAD**
+
+**PVRPOSE EA Scale** (Tier 3) -- Agency/firm, 3+ users
+- Discovery: $7,500 CAD | Build: $25,000-$40,000 CAD | Retainer: from $5,000/month
+- Average CLV (discovery + build + 12mo retainer): **$100,000 CAD**
+
+- **Pioneer spots:** discounted engagements to build case studies (current phase)
+
+This is a high-margin, relationship-driven professional services business. Not a SaaS company. The unit economics are fundamentally different -- fewer clients, higher value per client, longer relationship. Builds range from $15,000 to $40,000 CAD depending on tier, and retainers from $2,500 to $5,000/month.
 
 ---
 
@@ -63,7 +73,6 @@ Each month of the retainer makes the system smarter about that specific client's
 **Disqualifiers:**
 - Pre-revenue or under $50K annually
 - Wants to DIY (sell the Audit, not the Build)
-- Needs multi-user enterprise access
 - Operates in heavily regulated industry without compliance review first
 
 ### Why This Market Now
@@ -85,45 +94,49 @@ The 18-24 month window before Microsoft Copilot and enterprise tools commoditize
 **Pioneer 1 -- Free Full Build (1 spot)**
 - Full 6-week build at $0
 - Client pays tooling only: $100-350/month (Anthropic API + optional VPS)
-- Build value: $15,000-$25,000 CAD
+- Build value: $15,000-$20,000 CAD (EA tier)
 - Exchange: on-camera video testimonial + one warm referral
 - Purpose: Generate first case study with measurable ROI
 
 **Pioneers 2 and 3 -- Audit ($2,500 CAD each, 2 spots)**
 - Full 2-week AI OS Readiness Audit
 - Deliverables: workflow map, CLAUDE.md blueprint, AI Readiness Report, ROI projection
-- $2,500 credited in full toward the build if they proceed
+- $2,500 credited in full toward the build if they proceed (any tier)
 - Purpose: Cash now + builds pipeline for full build conversion
 
 **Financial reality of Pioneer Phase:**
 - 3 pioneers: $5,000 CAD minimum cash + 1 full build case study
-- If 2 of 3 convert to full builds: $30,000-$50,000 CAD additional
+- If 2 of 3 convert to full builds: $30,000-$45,000 CAD additional
 - If 1 provides strong testimonial: accelerates all future conversion
 
-### Standard Pricing (Post-Pioneer)
+### Standard Pricing (Post-Pioneer) -- 3-Tier Architecture
 
-| Offer | Price | Notes |
-|---|---|---|
-| PVRPOSE AI OS Audit | $5,000-7,500 CAD | 2-week engagement, credited toward build |
-| PVRPOSE AI OS Full Build | $15,000-$25,000 CAD | 6-week engagement, one-time |
-| AI Optimization Retainer | from $3,000 CAD/month | 1 automation/month + strategy + support |
+| | PVRPOSE EA | PVRPOSE EA Amplify | PVRPOSE EA Scale |
+|---|---|---|---|
+| **Target** | Solo founder, 1 user | Founder + human EA, 2 users | Agency/firm, 3+ users |
+| **Entry** | Audit: $5,000-$7,500 CAD (2 weeks) | Audit: $5,000-$7,500 CAD (2 weeks) | Discovery: $7,500 CAD (3 weeks) |
+| **Build** | $15,000-$20,000 CAD (6 weeks) | $18,000-$25,000 CAD (6 weeks, EA onboarding Week 3) | $25,000-$40,000 CAD (8-12 weeks) |
+| **Retainer** | from $2,500/month | from $3,000/month | from $5,000/month |
+| **Pioneer Audit** | $2,500 CAD | $2,500 CAD | N/A |
 
 **Pricing rationale:**
-The audit price is what the Readiness Report and workflow mapping are worth on their own -- similar to what a management consultant charges for a 2-week assessment. The build price reflects 40-80 hours of skilled implementation at $200-350/hour effective rate.
+The audit/discovery price reflects the Readiness Report and workflow mapping value -- similar to what a management consultant charges for a multi-week assessment. Build prices reflect 40-120 hours of skilled implementation at $200-350/hour effective rate. Amplify adds EA onboarding and dual-user configuration. Scale includes multi-user access, role-based permissions, and extended discovery.
 
-**What drives variance in build pricing:**
+**What drives tier selection and variance within tiers:**
+- Number of users (1 user = EA, 2 users = Amplify, 3+ = Scale)
 - Number of integrations (Gmail + Calendar + Slack = more time)
 - Number of agents to configure (standard is 4 -- comms, content, ops, research)
 - Data complexity (50 active prospect files vs. 5)
 - Compliance requirements (Quebec Law 25 review adds scope)
-- Training requirements (1 founder vs. small team)
+- EA onboarding and training scope (Amplify includes human EA training)
+- Multi-user access control and permissions (Scale)
 
 ### Retainer Economics
 
-The retainer is the recurring revenue component. It is not passive -- it requires 8-12 hours of work per client per month. But at $3,000/month, the economics are strong.
+The retainer is the recurring revenue component. It is not passive -- it requires 8-12 hours of work per client per month. At $2,500-$5,000/month depending on tier, the economics are strong.
 
-**3 retainer clients = $9,000/month recurring**
-**5 retainer clients = $15,000/month recurring**
+**3 retainer clients (mix of tiers) = $7,500-$15,000/month recurring**
+**5 retainer clients (mix of tiers) = $12,500-$25,000/month recurring**
 
 Target: Every full build client converts to a retainer. Conversion rate target: 50%+. The retainer is easy to sell because clients have already seen the system deliver value.
 
@@ -131,42 +144,42 @@ Target: Every full build client converts to a retainer. Conversion rate target: 
 
 ## Part 3: Financial Projections (Realistic Model)
 
-### Conservative Year 1 (3 builds, 2 retainers)
+### Conservative Year 1 (3 builds across tiers, 2 retainers)
 
 | Month | Activity | Revenue (CAD) |
 |---|---|---|
-| Mar-Apr | 3 pioneer spots | $5,000 |
-| May | First paid audit | $5,000 |
-| Jun | First paid full build | $17,500 |
-| Jul | Second full build | $20,000 |
-| Aug | First retainer starts (1 client) | $3,000 |
-| Sep | Third full build + 2nd retainer | $17,500 + $6,000 |
-| Oct | Builds + retainers | $20,000 + $6,000 |
-| Nov | Builds + retainers | $17,500 + $9,000 |
-| Dec | Builds + retainers | $15,000 + $9,000 |
+| Mar-Apr | 3 pioneer spots (audits) | $5,000 |
+| May | First paid audit (EA tier) | $5,000 |
+| Jun | First paid build (EA: $17,500) | $17,500 |
+| Jul | Second build (Amplify: $21,500) | $21,500 |
+| Aug | First retainer starts (EA: $2,500) | $2,500 |
+| Sep | Third build (EA: $17,500) + 2nd retainer (Amplify: $3,000) | $17,500 + $5,500 |
+| Oct | Audit + retainers (2 clients) | $5,000 + $5,500 |
+| Nov | Build (Amplify) + retainers | $21,500 + $5,500 |
+| Dec | Retainers (2 clients) | $5,500 |
 
-**Year 1 Conservative Total: $130,000-$145,000 CAD**
+**Year 1 Conservative Total: $117,000-$140,000 CAD**
 
-### Moderate Year 1 (5 builds, 3 retainers)
+### Moderate Year 1 (5 builds across tiers, 3 retainers)
 
-At 5 full builds + 3 retainers by year end:
-- Build revenue: $85,000-$100,000 CAD
+At 5 builds (mix of EA and Amplify) + 3 retainers by year end:
+- Build revenue: $85,000-$115,000 CAD (range reflects tier mix)
 - Audit revenue: $15,000-$22,500 CAD
-- Retainer revenue (last 4 months): $36,000 CAD
+- Retainer revenue (last 4 months): $30,000-$42,000 CAD
 - Pioneer: $5,000 CAD
 
-**Year 1 Moderate Total: $140,000-$163,500 CAD**
+**Year 1 Moderate Total: $135,000-$184,500 CAD**
 
-### Year 2 (Referral engine running)
+### Year 2 (Referral engine running, Scale tier active)
 
-Assumptions: 6-8 builds, 5-6 retainers active all year, 2 audits/month as pipeline
-- Build revenue: $105,000-$200,000 CAD
-- Retainer revenue: $180,000-$216,000 CAD
-- Audit revenue: $60,000-$90,000 CAD
+Assumptions: 6-8 builds across all 3 tiers, 5-6 retainers active all year, 2 audits/month as pipeline
+- Build revenue: $120,000-$240,000 CAD (includes 1-2 Scale builds at $25K-$40K)
+- Retainer revenue: $150,000-$300,000 CAD ($2,500-$5,000/mo x 5-6 clients x 12 months)
+- Audit/Discovery revenue: $60,000-$105,000 CAD (includes Scale discovery at $7,500)
 
-**Year 2 Target: $345,000-$506,000 CAD**
+**Year 2 Target: $330,000-$645,000 CAD**
 
-**Note:** These numbers assume Juan is the primary builder. To exceed $500K CAD annually requires either raising prices (appropriate at that stage) or training a junior engineer. The Junior Engineer Guide covers exactly how to do the latter.
+**Note:** These numbers assume Juan is the primary builder. To exceed $500K CAD annually requires either raising prices (appropriate at that stage), landing Scale-tier clients, or training a junior engineer. The Junior Engineer Guide covers exactly how to do the latter.
 
 ---
 
@@ -223,30 +236,33 @@ AWARENESS (LinkedIn, TNC, referral)
 DISCOVERY CALL (30-45 min)
     - Qualify: $100K+ revenue, real admin pain, right timing
     - Show: demo if possible, or case study
-    - Offer: Audit at $2,500 CAD (credited toward build)
+    - Determine tier fit: EA (solo) / Amplify (founder + EA) / Scale (agency/firm)
+    - Offer: Audit at $2,500 CAD pioneer / $5,000-$7,500 standard (EA/Amplify)
+             Discovery at $7,500 CAD (Scale)
     |
     v
-AUDIT (2 weeks, $2,500-$7,500 CAD)
-    - Workflow mapping session (2 hours)
-    - Blueprint design (CLAUDE.md draft)
-    - AI Readiness Report with ROI projection
-    - Present and get approval
-    |
-    v
-BUILD (6 weeks, $15,000-$25,000 CAD)
-    - Infrastructure setup
-    - Full CLAUDE.md configuration
-    - 2+ automations live
-    - QA pass
-    - Training
-    - 30-day support included
-    |
-    v
-RETAINER (from $3,000 CAD/month, optional)
-    - 1 new automation/month
-    - Optimization and voice tuning
-    - Monthly strategy call
-    - System health monitoring
+    +------------------+------------------+
+    |                  |                  |
+    v                  v                  v
+
+PATH 1: PVRPOSE EA   PATH 2: AMPLIFY    PATH 3: SCALE
+
+AUDIT (2 wks)         AUDIT (2 wks)      DISCOVERY (3 wks)
+$5,000-$7,500         $5,000-$7,500      $7,500
+    |                  |                  |
+    v                  v                  v
+BUILD (6 wks)         BUILD (6 wks)      BUILD (8-12 wks)
+$15,000-$20,000       $18,000-$25,000    $25,000-$40,000
+- 1 user config       - 2 user config    - 3+ user config
+- Standard agents     - EA onboarding    - Role-based access
+- 30-day support        (Week 3)         - Extended QA
+                      - 30-day support   - 60-day support
+    |                  |                  |
+    v                  v                  v
+RETAINER              RETAINER           RETAINER
+from $2,500/mo        from $3,000/mo     from $5,000/mo
+    |                  |                  |
+    +------------------+------------------+
     |
     v
 REFERRAL + TESTIMONIAL
@@ -255,33 +271,43 @@ REFERRAL + TESTIMONIAL
     - Case study for PVRPOSE AI content
 ```
 
-Average client lifetime value (audit + build + 12 months retainer): **$53,500-$75,500 CAD**
-Average client lifetime with 24-month retainer: **$73,500-$95,500 CAD**
+**Average CLV by tier (audit/discovery + build + 12 months retainer):**
+- **PVRPOSE EA:** $52,500 CAD
+- **PVRPOSE EA Amplify:** $62,500 CAD
+- **PVRPOSE EA Scale:** $100,000 CAD
+
+**With 24-month retainer:**
+- **EA:** $82,500 CAD | **Amplify:** $98,500 CAD | **Scale:** $160,000 CAD
 
 ---
 
 ## Part 6: Pricing Psychology and Objection Handling
 
-### Why $15,000-$25,000 CAD Is Defensible
+### Why $15,000-$40,000 CAD Is Defensible
 
 The objection: "That's expensive for an AI tool."
 The reframe: "This is not a tool. This is a custom operating system built around your specific business, by a specialist, deployed on your private infrastructure. The comparable would be hiring a developer to build you a custom CRM and workflow system -- which would cost $50K-$100K and wouldn't be as intelligent."
 
+**By tier:**
+- **EA ($15K-$20K):** Less than 4 months of a part-time VA. Pays back in 5-6 weeks for a $300+/hr professional.
+- **Amplify ($18K-$25K):** Replaces $40K-$60K/year in EA management overhead while making the human EA 2-3x more effective.
+- **Scale ($25K-$40K):** An agency spending $15K-$25K/month on ops staff recoups the build cost in 2-3 months.
+
 The ROI case (from SOP Part 26, Category J):
 - A solo immigration lawyer at $350/hour billing rate, saving 10 hours/week:
   - $3,500/week recovered capacity
-  - Payback on a $20,000 build: 5.7 weeks
+  - Payback on a $20,000 build (EA tier): 5.7 weeks
   - Year 1 ROI: 910%
 
 The ROI case always closes the conversation. Present it with their actual numbers, not generic ones.
 
 ### Why the Audit-First Structure Works
 
-Selling a $15,000 build cold is hard. Selling a $2,500 audit that delivers a blueprint and ROI projection is easy -- because:
-- Risk is low ($2,500 vs $15,000)
+Selling a $15,000-$40,000 build cold is hard. Selling a $2,500 audit (or $7,500 discovery for Scale) that delivers a blueprint and ROI projection is easy -- because:
+- Risk is low ($2,500-$7,500 vs $15,000-$40,000)
 - They see the quality of the work before committing to the full build
 - The audit produces a document that makes the build feel obvious
-- The $2,500 is credited toward the build, so it feels like a test drive
+- The audit fee is credited toward the build, so it feels like a test drive
 
 Audit close rate target: 30-40% of discovery calls
 Build close rate from audit: 60-70%
@@ -311,11 +337,11 @@ Combined funnel: 18-28% of discovery calls become full builds
 | n8n / Zapier freelancers | Workflow automation for specific triggers | No conversational interface. Rigid. No voice. No memory. Breaks when reality changes. |
 | Marketing / ops agencies | Done-for-you content and admin | $5K-$15K/month ongoing. Humans make it fragile. No AI memory. |
 | Microsoft Copilot | AI in Office 365 | Enterprise-first, M365 required, no private infrastructure, no Telegram, no voice-to-action. |
-| Hiring an EA | Human executive assistant | $63K-$98K CAD/year (Robert Half 2026). Requires management. Doesn't work at 11pm. |
-| DIY with Claude Code | Build it yourself | 200+ hours to reach what PVRPOSE AI delivers in 6 weeks. No compliance review. No proven workflow. |
+| Hiring an EA | Human executive assistant | $63K-$98K CAD/year (Robert Half 2026). Requires management. Doesn't work at 11pm. PVRPOSE EA starts at $30K/year retainer. Amplify makes your human EA 2-3x more effective. |
+| DIY with Claude Code | Build it yourself | 200+ hours to reach what PVRPOSE AI delivers in 6-12 weeks. No compliance review. No proven workflow. No multi-user support. |
 
 **The pitch in one sentence:**
-The intelligence of a senior EA, the speed of AI, the security of private infrastructure -- built specifically around how your business works.
+The intelligence of a senior EA, the speed of AI, the security of private infrastructure -- in three tiers that scale from solo founder to full agency.
 
 ---
 
@@ -329,7 +355,7 @@ Track these weekly to know if the business is on track.
 | Discovery calls booked | 2-3/week (after Month 2) | Is acquisition working? |
 | Audit close rate | 30-40% | Is the pitch landing? |
 | Build close rate from audit | 60-70% | Is the audit delivering value? |
-| Average build value | $17,500 CAD | Is pricing correct? |
+| Average build value | $15,000-$40,000 CAD (tier-dependent) | Is pricing correct? |
 | Time to close (audit → decision) | 7-14 days | Is the funnel moving? |
 
 ### Delivery Metrics
@@ -344,13 +370,13 @@ Track these weekly to know if the business is on track.
 ### Financial Metrics
 | Metric | Target | Meaning |
 |---|---|---|
-| Monthly build revenue | $15K-$50K CAD | Active pipeline health |
-| MRR (retainers) | Growing by $3K each new retainer | Compounding floor |
+| Monthly build revenue | $15K-$80K CAD | Active pipeline health (tier mix dependent) |
+| MRR (retainers) | Growing by $2.5K-$5K each new retainer | Compounding floor (tier dependent) |
 | Revenue per hour worked | $250+ CAD | Is pricing sustainable? |
 
 ---
 
-*Document version 2.0 -- March 2026*
-*Aligned to: PVRPOSE_AI_OS_BLUEPRINT_SOP.md v2.0*
-*Supersedes: Previous coaching SaaS monetization analysis (kept in git history)*
+*Document version 3.0 -- March 2026*
+*Aligned to: PVRPOSE_AI_OS_BLUEPRINT_SOP.md v2.0 and 3-Tier Product Architecture (EA / EA Amplify / EA Scale)*
+*Supersedes: v2.0 (single-tier pricing) and previous coaching SaaS monetization analysis (kept in git history)*
 *Owner: Juan Gonzalez, PVRPOSE AI*

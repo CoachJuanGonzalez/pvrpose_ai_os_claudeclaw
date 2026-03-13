@@ -115,6 +115,11 @@
             overflow-x: hidden;
             max-width: 100vw;
         }
+        /* Prevent ANY element from causing horizontal scroll */
+        * { box-sizing: border-box; }
+        section, header, footer, nav, div {
+            max-width: 100%;
+        }
 
         /* Gradient backgrounds */
         .gradient-hero {
@@ -452,6 +457,8 @@
         .nav-logo {
             height: 48px;
             width: auto;
+            /* Force white on dark nav -- works regardless of image version or cache */
+            filter: brightness(0) invert(1);
         }
 
         .nav-link {
@@ -462,14 +469,14 @@
             color: #ec4899;
         }
 
-        /* Add padding to body to account for fixed pioneer bar + fixed nav */
+        /* Add padding to body to account for all 3 fixed bars */
         body {
-            padding-top: 122px; /* 42px bar + 80px nav */
+            padding-top: 160px; /* pioneer(42) + nav(80) + french(38) -- JS recalculates */
         }
 
         @media (max-width: 768px) {
             body {
-                padding-top: 122px; /* 52px bar + 70px nav */
+                padding-top: 148px; /* pioneer(38) + nav(70) + french(40) */
             }
             .pioneer-bar {
                 font-size: 12px;
@@ -477,7 +484,7 @@
                 height: 38px;
             }
             .main-nav {
-                top: 52px;
+                top: 38px; /* sit directly under pioneer bar on mobile */
             }
             .nav-logo {
                 height: 40px;
@@ -736,7 +743,7 @@
     </nav>
 
     <!-- BILL 96 FRENCH LANGUAGE NOTICE (Quebec CFL Compliance) -->
-    <div style="background:#7c3aed;color:#fff;text-align:center;padding:8px 16px;font-size:13px;line-height:1.5;position:relative;z-index:1;">
+    <div id="french-bar" style="background:#7c3aed;color:#fff;text-align:center;padding:8px 16px;font-size:13px;line-height:1.5;position:fixed;left:0;right:0;z-index:999;">
         <!-- Mobile: compact single line -->
         <span class="inline md:hidden">🇫🇷 Version française en préparation — <a href="mailto:juan@pvrpose.ai" style="color:#fbcfe8;text-decoration:underline;">juan@pvrpose.ai</a></span>
         <!-- Desktop: full notice -->
@@ -748,8 +755,8 @@
         <!-- Star particles canvas -->
         <canvas id="hero-stars" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;" aria-hidden="true"></canvas>
         <!-- Floating ambient orbs -->
-        <div style="position:absolute;top:15%;left:10%;width:min(300px,50vw);height:min(300px,50vw);background:radial-gradient(ellipse,rgba(109,40,217,0.18) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;animation:floatOrb 12s ease-in-out infinite alternate;" aria-hidden="true"></div>
-        <div style="position:absolute;bottom:20%;right:8%;width:min(250px,45vw);height:min(250px,45vw);background:radial-gradient(ellipse,rgba(236,72,153,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;animation:floatOrb 9s ease-in-out infinite alternate-reverse;" aria-hidden="true"></div>
+        <div style="position:absolute;top:15%;left:10%;width:min(350px,60vw);height:min(350px,60vw);background:radial-gradient(ellipse,rgba(109,40,217,0.35) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;animation:floatOrb 12s ease-in-out infinite alternate;" aria-hidden="true"></div>
+        <div style="position:absolute;bottom:20%;right:8%;width:min(280px,55vw);height:min(280px,55vw);background:radial-gradient(ellipse,rgba(236,72,153,0.25) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;animation:floatOrb 9s ease-in-out infinite alternate-reverse;" aria-hidden="true"></div>
         <div class="max-w-5xl mx-auto text-center animate-fade-in" style="position:relative;z-index:1;">
             <!-- Eyebrow (Pain Point Trigger) -->
             <div class="inline-block bg-white/10 backdrop-blur border border-white/20 px-6 py-3 rounded-full mb-3">
@@ -3849,7 +3856,7 @@
         });
     </script>
     <script>
-        // Star particles for dark hero -- fully responsive (mobile/tablet/desktop)
+        // Star particles -- dramatic, visible on ALL screen sizes including mobile retina
         (function() {
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             var canvas = document.getElementById('hero-stars');
@@ -3859,38 +3866,53 @@
             var W, H, dpr, animId;
 
             function resize() {
-                // Always use viewport width -- never exceed it (fixes mobile overflow)
-                dpr = Math.min(window.devicePixelRatio || 1, 2); // cap at 2x for perf
+                dpr = Math.min(window.devicePixelRatio || 1, 2);
+                // Hard cap to viewport -- never causes overflow
                 W = Math.min(window.innerWidth, document.documentElement.clientWidth);
                 var section = document.getElementById('hero-section');
                 H = section ? section.offsetHeight : window.innerHeight;
-                // Set canvas logical size = viewport, physical size = dpr scaled
                 canvas.style.width = W + 'px';
                 canvas.style.height = H + 'px';
                 canvas.width = Math.floor(W * dpr);
                 canvas.height = Math.floor(H * dpr);
+                ctx.setTransform(1, 0, 0, 1, 0, 0); // reset before rescaling
                 ctx.scale(dpr, dpr);
             }
 
             function initStars() {
                 stars = [];
-                // More stars on larger screens, fewer on mobile (but never less than 40)
-                var area = W * H;
-                var density = W < 480 ? 5000 : W < 768 ? 6000 : 8000;
-                var count = Math.max(40, Math.floor(area / density));
+                // Generous counts -- clearly visible on all screens
+                var count = W < 480 ? 120 : W < 768 ? 180 : 260;
                 for (var i = 0; i < count; i++) {
-                    // Slightly larger stars on high-dpr screens (retina mobile)
-                    var maxR = dpr > 1 ? 1.4 : 1.2;
+                    var size = Math.random();
+                    // Mix of tiny (0.5px), medium (1-2px), and a few large (2.5-3.5px) stars
+                    var r = size < 0.6
+                        ? Math.random() * 0.8 + 0.5     // small: 0.5-1.3px
+                        : size < 0.9
+                            ? Math.random() * 1.2 + 1.0  // medium: 1.0-2.2px
+                            : Math.random() * 1.5 + 2.0; // large: 2.0-3.5px
+
+                    // Large stars get a glow effect
+                    var glow = r > 2.0;
+
+                    // Color: 70% white, 20% purple, 10% pink
+                    var colorRoll = Math.random();
+                    var color = colorRoll < 0.7
+                        ? [255, 255, 255]
+                        : colorRoll < 0.9
+                            ? [180, 130, 255]  // purple
+                            : [255, 140, 200]; // pink
+
                     stars.push({
                         x: Math.random() * W,
                         y: Math.random() * H,
-                        r: Math.random() * maxR + 0.3,
-                        alpha: Math.random() * 0.65 + 0.15,
-                        speed: Math.random() * 0.25 + 0.04,
-                        twinkleSpeed: Math.random() * 0.018 + 0.004,
+                        r: r,
+                        alpha: Math.random() * 0.5 + 0.5, // 0.5 - 1.0 (bright!)
+                        speed: r > 2 ? Math.random() * 0.15 + 0.05 : Math.random() * 0.3 + 0.1,
+                        twinkleSpeed: Math.random() * 0.025 + 0.008,
                         twinkleDir: Math.random() > 0.5 ? 1 : -1,
-                        // Occasional slightly brighter pink/purple tinted star
-                        tinted: Math.random() > 0.85
+                        color: color,
+                        glow: glow
                     });
                 }
             }
@@ -3899,17 +3921,29 @@
                 ctx.clearRect(0, 0, W, H);
                 stars.forEach(function(s) {
                     s.alpha += s.twinkleSpeed * s.twinkleDir;
-                    if (s.alpha >= 0.8 || s.alpha <= 0.1) s.twinkleDir *= -1;
+                    if (s.alpha >= 1.0) { s.alpha = 1.0; s.twinkleDir = -1; }
+                    if (s.alpha <= 0.3) { s.alpha = 0.3; s.twinkleDir = 1; }
                     s.y -= s.speed;
-                    if (s.y < -2) { s.y = H + 2; s.x = Math.random() * W; }
+                    if (s.y < -4) { s.y = H + 4; s.x = Math.random() * W; }
+
+                    var c = s.color;
+                    var alphaStr = s.alpha.toFixed(2);
+
+                    // Glow effect for larger stars
+                    if (s.glow) {
+                        var grad = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 3);
+                        grad.addColorStop(0, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + alphaStr + ')');
+                        grad.addColorStop(1, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0)');
+                        ctx.beginPath();
+                        ctx.arc(s.x, s.y, s.r * 3, 0, Math.PI * 2);
+                        ctx.fillStyle = grad;
+                        ctx.fill();
+                    }
+
+                    // Core star dot
                     ctx.beginPath();
                     ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-                    if (s.tinted) {
-                        // Subtle purple/pink tint on some stars
-                        ctx.fillStyle = 'rgba(200,160,255,' + s.alpha + ')';
-                    } else {
-                        ctx.fillStyle = 'rgba(255,255,255,' + s.alpha + ')';
-                    }
+                    ctx.fillStyle = 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + alphaStr + ')';
                     ctx.fill();
                 });
                 animId = requestAnimationFrame(draw);
@@ -3919,22 +3953,37 @@
             window.addEventListener('resize', function() {
                 clearTimeout(resizeTimer);
                 cancelAnimationFrame(animId);
-                resizeTimer = setTimeout(function() {
-                    resize();
-                    initStars();
-                    draw();
-                }, 150);
+                resizeTimer = setTimeout(function() { resize(); initStars(); draw(); }, 150);
             });
 
-            // Wait for DOM + fonts to settle before measuring section height
-            if (document.readyState === 'complete') {
-                resize(); initStars(); draw();
-            } else {
-                window.addEventListener('load', function() {
-                    resize(); initStars(); draw();
-                });
-            }
+            window.addEventListener('load', function() { resize(); initStars(); draw(); });
+            if (document.readyState === 'complete') { resize(); initStars(); draw(); }
         })();
+    </script>
+    <script>
+        // Dynamic stacking: pioneer bar → nav → french bar → content
+        function positionFixedBars() {
+            var pioneerBar = document.querySelector('.pioneer-bar');
+            var mainNav = document.querySelector('.main-nav');
+            var frenchBar = document.getElementById('french-bar');
+            if (!pioneerBar || !mainNav || !frenchBar) return;
+
+            var pioneerH = pioneerBar.offsetHeight;
+            var navH = mainNav.offsetHeight;
+
+            // Stack: pioneer at top=0, nav directly below, french bar directly below nav
+            mainNav.style.top = pioneerH + 'px';
+            frenchBar.style.top = (pioneerH + navH) + 'px';
+
+            // Body padding = total height of all 3 fixed bars
+            var frenchH = frenchBar.offsetHeight;
+            document.body.style.paddingTop = (pioneerH + navH + frenchH) + 'px';
+        }
+
+        // Run on load and resize
+        document.addEventListener('DOMContentLoaded', positionFixedBars);
+        window.addEventListener('resize', positionFixedBars);
+        window.addEventListener('load', positionFixedBars);
     </script>
     <script>
         // Scroll-triggered reveal animations (Phase 5A)

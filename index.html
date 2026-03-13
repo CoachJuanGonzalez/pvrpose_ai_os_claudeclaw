@@ -84,9 +84,10 @@
             theme: {
                 extend: {
                     colors: {
-                        'deep-blue': '#7c3aed',
+                        'deep-blue': '#6d28d9',
                         'brand-pink': '#ec4899',
                         'brand-purple': '#8b5cf6',
+                        'accent-cyan': '#06b6d4',
                     },
                     fontFamily: {
                         'sans': ['Inter', 'Helvetica', 'system-ui', 'sans-serif'],
@@ -117,7 +118,7 @@
         }
 
         .gradient-accent {
-            background: linear-gradient(135deg, #ec4899 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #6d28d9 100%);
         }
 
         /* Glassmorphism effects */
@@ -130,11 +131,11 @@
         }
 
         .glass-dark {
-            background: rgba(124, 58, 237, 0.1);
-            -webkit-backdrop-filter: blur(10px);
-            -moz-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(124, 58, 237, 0.18);
+            background: rgba(109, 40, 217, 0.08);
+            -webkit-backdrop-filter: blur(12px);
+            -moz-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(109, 40, 217, 0.15);
         }
 
         /* Micro-interactions — only on devices with real hover (not touch-only) */
@@ -204,13 +205,13 @@
 
         /* Enhanced button styles */
         .btn-primary {
-            background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%);
             transition: all 0.3s ease;
-            box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+            box-shadow: 0 4px 14px rgba(109, 40, 217, 0.4);
         }
 
         .btn-primary:hover {
-            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.6);
+            box-shadow: 0 6px 20px rgba(109, 40, 217, 0.6);
             transform: translateY(-2px);
         }
 
@@ -218,7 +219,7 @@
         .stat-number {
             font-weight: 800;
             color: #ec4899; /* fallback for browsers that don't support gradient text */
-            background: linear-gradient(135deg, #ec4899 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #6d28d9 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             -moz-background-clip: text;
@@ -382,7 +383,7 @@
 
         /* Pioneer urgency top bar */
         .pioneer-bar {
-            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            background: linear-gradient(135deg, #6d28d9 0%, #ec4899 100%);
             color: white;
             text-align: center;
             padding: 10px 16px;
@@ -409,7 +410,7 @@
 
         /* Pioneer section boxes */
         .pioneer-free-box {
-            border: 3px solid #7c3aed;
+            border: 3px solid #6d28d9;
             background: linear-gradient(135deg, #faf5ff 0%, #ede9fe 100%);
             position: relative;
         }
@@ -832,115 +833,83 @@
                 </div>
             </div>
 
-        </div>
-    </section>
+            <!-- EA SCALE VERSION (shown when Scale tab active, hidden by default) -->
+            <div id="monday-scale" class="hidden">
+                <div class="text-center mb-12">
+                    <p class="text-pink-600 font-bold text-xs tracking-widest uppercase mb-3">Multi-Agent Team. One Operating System.</p>
+                    <h2 class="text-3xl md:text-5xl font-bold hero-headline mb-4">
+                        What Monday Morning Looks Like<br class="hidden md:block"> With PVRPOSE EA Scale
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Not a demo. A real multi-agent team operating across your entire firm.
+                    </p>
+                </div>
 
-    <!-- PVRPOSE EA SUPERPOWERS SECTION -->
-    <section class="py-20 px-6 bg-gradient-to-br from-purple-950 via-purple-900 to-pink-900 text-white" id="ea-superpowers">
-        <div class="max-w-5xl mx-auto">
-            <!-- Eyebrow -->
-            <div class="text-center mb-10">
-                <div class="inline-block bg-white/10 backdrop-blur border border-white/20 px-6 py-3 rounded-full mb-4">
-                    <p class="text-sm font-bold tracking-widest uppercase text-pink-300">PVRPOSE EA AMPLIFY</p>
-                </div>
-                <h2 class="text-3xl md:text-5xl font-bold hero-headline mb-4">
-                    Don't replace your EA.<br>
-                    <span class="gradient-accent bg-clip-text text-transparent">Amplify them.</span>
-                </h2>
-                <p class="text-lg text-purple-100 max-w-2xl mx-auto">
-                    Your EA stays in control. The AI handles the repetitive work — in your exact voice — so they become 3× more effective. 2 users, one system.
-                </p>
-            </div>
+                <div class="relative max-w-3xl mx-auto">
+                    <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-pink-500 via-deep-blue to-pink-500 hidden md:block"></div>
 
-            <!-- Before / After Table — desktop (md+) -->
-            <div class="mb-16 hidden md:block overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr>
-                            <th class="py-3 px-6 text-red-300 font-bold text-sm border-b border-white/20 w-1/2">Before — 3 hours</th>
-                            <th class="py-3 px-6 text-green-300 font-bold text-sm border-b border-white/20 w-1/2">After — 20 minutes</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-white/10">
-                        <tr class="hover:bg-white/5 transition">
-                            <td class="py-3 px-6 text-purple-100 text-sm">Drafting replies in the founder's exact voice</td>
-                            <td class="py-3 px-6 text-white text-sm">"Draft CEO's response in her voice" → ready for final polish</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition">
-                            <td class="py-3 px-6 text-purple-100 text-sm">Prepping a brief before every meeting</td>
-                            <td class="py-3 px-6 text-white text-sm">"Brief me for the 3pm call" → CRM + notes + context, instant</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition">
-                            <td class="py-3 px-6 text-purple-100 text-sm">Inbox triage and priority routing</td>
-                            <td class="py-3 px-6 text-white text-sm">"Triage last 48 hours" → tagged summaries + suggested replies</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition">
-                            <td class="py-3 px-6 text-purple-100 text-sm">Calendar chaos and deep-work conflicts</td>
-                            <td class="py-3 px-6 text-white text-sm">"Optimize this week's schedule" → conflict-free proposal, done</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                    <div class="flex gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">7:30</div>
+                        <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
+                            <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Founder — Strategic Priorities</p>
+                            <p class="font-semibold text-gray-900 mb-2">One voice note sets the day for the entire team:</p>
+                            <p class="text-gray-600 italic text-sm mb-3">"Top priority today: close the ModHaus proposal, follow up on 3 overdue invoices, and prep for Thursday's investor call."</p>
+                            <p class="text-gray-800 text-sm">→ Your PVRPOSE EA Scale routes each task to the right agent. Operations gets the proposal. Finance gets the invoices. Your EA gets the investor prep. One message, three departments moving.</p>
+                        </div>
+                    </div>
 
-            <!-- Before / After Cards — mobile only (hidden md+) -->
-            <div class="mb-16 md:hidden space-y-4">
-                <div class="bg-white/10 rounded-2xl p-5">
-                    <p class="text-xs font-bold text-red-300 uppercase tracking-widest mb-1">Before — 3 hours</p>
-                    <p class="text-purple-100 text-sm leading-relaxed mb-3">Drafting replies in the founder's exact voice</p>
-                    <p class="text-xs font-bold text-green-300 uppercase tracking-widest mb-1">After — 20 minutes</p>
-                    <p class="text-white text-sm leading-relaxed">"Draft CEO's response in her voice" → ready for final polish</p>
-                </div>
-                <div class="bg-white/10 rounded-2xl p-5">
-                    <p class="text-xs font-bold text-red-300 uppercase tracking-widest mb-1">Before — 3 hours</p>
-                    <p class="text-purple-100 text-sm leading-relaxed mb-3">Prepping a brief before every meeting</p>
-                    <p class="text-xs font-bold text-green-300 uppercase tracking-widest mb-1">After — 20 minutes</p>
-                    <p class="text-white text-sm leading-relaxed">"Brief me for the 3pm call" → CRM + notes + context, instant</p>
-                </div>
-                <div class="bg-white/10 rounded-2xl p-5">
-                    <p class="text-xs font-bold text-red-300 uppercase tracking-widest mb-1">Before — 3 hours</p>
-                    <p class="text-purple-100 text-sm leading-relaxed mb-3">Inbox triage and priority routing</p>
-                    <p class="text-xs font-bold text-green-300 uppercase tracking-widest mb-1">After — 20 minutes</p>
-                    <p class="text-white text-sm leading-relaxed">"Triage last 48 hours" → tagged summaries + suggested replies</p>
-                </div>
-                <div class="bg-white/10 rounded-2xl p-5">
-                    <p class="text-xs font-bold text-red-300 uppercase tracking-widest mb-1">Before — 3 hours</p>
-                    <p class="text-purple-100 text-sm leading-relaxed mb-3">Calendar chaos and deep-work conflicts</p>
-                    <p class="text-xs font-bold text-green-300 uppercase tracking-widest mb-1">After — 20 minutes</p>
-                    <p class="text-white text-sm leading-relaxed">"Optimize this week's schedule" → conflict-free proposal, done</p>
-                </div>
-            </div>
+                    <div class="flex gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">8:45</div>
+                        <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
+                            <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Operations Agent — Auto-Generated Tasks</p>
+                            <p class="font-semibold text-gray-900 mb-2">Team leads receive their daily assignments:</p>
+                            <p class="text-gray-600 italic text-sm mb-3">Ops agent drafts task lists for 3 team leads based on CRM pipeline, deadlines, and the founder's priorities.</p>
+                            <p class="text-gray-800 text-sm">→ Each lead gets a Telegram message with their top 3 priorities, client context, and deadlines. No morning standup needed.</p>
+                        </div>
+                    </div>
 
-            <!-- 3 Ultra-Short Benefits -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-center">
-                <div class="bg-white/10 rounded-2xl p-5">
-                    <div class="text-3xl mb-2">🏆</div>
-                    <p class="text-white font-medium text-sm leading-relaxed">Your EA becomes the hero. Their output triples.</p>
+                    <div class="flex gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">10:00</div>
+                        <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
+                            <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Client Services Agent — Follow-Up Engine</p>
+                            <p class="font-semibold text-gray-900 mb-2">4 client follow-ups drafted and routed:</p>
+                            <p class="text-gray-600 italic text-sm mb-3">Each email is drafted in the founder's voice, personalized with CRM context, and sent to the right team member for review.</p>
+                            <p class="text-gray-800 text-sm">→ Team members approve with one tap. Clients get a response that sounds exactly like the founder. Zero dropped balls.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">2:00</div>
+                        <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
+                            <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Finance Agent — Revenue Protection</p>
+                            <p class="font-semibold text-gray-900 mb-2">Overdue invoices flagged, collection emails drafted:</p>
+                            <p class="text-gray-600 italic text-sm mb-3">Finance agent identifies 3 overdue invoices, drafts polite but firm collection emails, and updates the CRM pipeline.</p>
+                            <p class="text-gray-800 text-sm">→ Revenue that would have slipped through the cracks gets recovered automatically. Pipeline stays clean.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start">
+                        <div class="flex-shrink-0 w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">EOD</div>
+                        <div class="flex-1 bg-gradient-to-br from-purple-950 via-deep-blue to-purple-900 text-white rounded-2xl p-6 hover-lift">
+                            <p class="text-pink-300 font-bold text-sm uppercase tracking-wide mb-2">The Scale Scorecard</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                                <div><p class="text-3xl font-bold text-white">5</p><p class="text-purple-300 text-xs mt-1">AI agents coordinated</p></div>
+                                <div><p class="text-3xl font-bold text-white">0</p><p class="text-purple-300 text-xs mt-1">Dropped balls</p></div>
+                                <div><p class="text-3xl font-bold text-white">12+ hrs</p><p class="text-purple-300 text-xs mt-1">Saved across the team</p></div>
+                            </div>
+                            <p class="text-purple-200 text-sm text-center mt-4 italic">One voice note. Five agents. Your entire operation running in sync.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white/10 rounded-2xl p-5">
-                    <div class="text-3xl mb-2">⏱️</div>
-                    <p class="text-white font-medium text-sm leading-relaxed">You reclaim 10–15 strategic hours/week.</p>
-                </div>
-                <div class="bg-white/10 rounded-2xl p-5 border-l-4 border-pink-400">
-                    <div class="text-3xl mb-2">💰</div>
-                    <p class="text-white font-medium text-sm leading-relaxed">$20K build. $63K-$98K EA salary. Pays back in 3-6 months.</p>
+
+                <div class="text-center mt-12">
+                    <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer" class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-10 py-5 rounded-xl text-lg font-semibold hover-glow transition">
+                        Book EA Scale Discovery Call →
+                    </a>
+                    <p class="text-sm text-gray-500 mt-3">3 pioneer spots. Filling now.</p>
                 </div>
             </div>
 
-            <!-- Trust Bar -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-10 text-center">
-                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-purple-100">✓ 28-feature AI OS</span>
-                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-purple-100">✓ CASL/PIPEDA compliant</span>
-                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-purple-100">✓ 6-week build</span>
-                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-purple-100">✓ No vendor lock-in</span>
-            </div>
-
-            <!-- Single CTA -->
-            <div class="text-center">
-                <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer"
-                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-12 py-5 rounded-xl text-lg font-semibold hover-glow transition hover:scale-105 transition-transform">
-                    See EA Amplify in Action →
-                </a>
-            </div>
         </div>
     </section>
 
@@ -1052,176 +1021,6 @@
             </p>
             <p class="text-sm text-gray-500 mt-3">
                 That is the entire premise of PVRPOSE AI OS. Strategy first. Systems second. Humans where it matters most.
-            </p>
-        </div>
-    </section>
-
-    <!-- PIONEER SECTION -->
-    <section id="pioneer" class="py-20 px-6 bg-gradient-to-br from-purple-950 via-purple-900 to-pink-900 text-white">
-        <div class="max-w-6xl mx-auto">
-            <!-- Headline -->
-            <div class="text-center mb-4">
-                <div class="inline-block bg-white/20 text-white text-sm font-bold px-4 py-2 rounded-full mb-4 uppercase tracking-wide border border-white/40">
-                    Pioneer Launch — 3 Spots Total. Filling Now.
-                </div>
-                <h2 class="text-3xl md:text-5xl font-bold mb-6">Personally Handpicked. First 3 Founders Only.</h2>
-            </div>
-
-            <!-- Why Pioneer Spots Explanation -->
-            <div class="bg-white/10 backdrop-blur rounded-2xl p-8 mb-10 max-w-3xl mx-auto text-center">
-                <h3 class="text-xl font-bold mb-4 text-pink-300">Why Pioneer Spots?</h3>
-                <p class="text-white/90 leading-relaxed mb-4">
-                    After 6 months going deep into Claude Code — Anthropic's most advanced AI development engine — PVRPOSE AI OS is a fundamentally more powerful system than traditional automation. To document it with real-world results, I am personally handpicking 3 founders to build alongside at pioneer pricing.
-                </p>
-                <div class="bg-white/10 rounded-xl p-4 mb-4 text-sm text-white/90 text-left">
-                    <p class="font-bold text-white mb-2">3 Pioneer Spots — Here Is Exactly What Each Gets:</p>
-                    <p class="mb-1"><span class="text-pink-300 font-bold">Pioneer 1 (1 spot):</span> Full audit + full build — completely free. You pay tooling only (~$100–$350/month). Build value: $15,000–$25,000 CAD.</p>
-                    <p class="mb-3"><span class="text-pink-300 font-bold">Pioneers 2 & 3 (2 spots):</span> Full 2-week PVRPOSE AI OS Audit at $2,500 CAD pioneer rate. Your $2,500 CAD is credited in full toward your build if you proceed. Standard audit rate: $5,000–$7,500 CAD.</p>
-                    <p class="text-white/80 border-t border-white/20 pt-3"><span class="font-bold text-white">Who qualifies:</span> Established business owners with a registered business in Canada or the USA, $100K+ annual revenue, and active operations. All PVRPOSE AI OS systems, documentation, and deliverables are built and delivered exclusively in English — you must be comfortable working in English to benefit from this engagement. This ensures your results are real, measurable, and valuable as documented case studies.</p>
-                </div>
-                <p class="text-pink-300 font-semibold">
-                    This is not a discount. This is an early seat at something that will cost significantly more once the case studies are documented.
-                </p>
-            </div>
-
-            <!-- Two Boxes -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-
-                <!-- Box 1 — Free Spot -->
-                <div class="pioneer-free-box rounded-2xl p-8 relative">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-deep-blue text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">
-                        ⭐ Most Exclusive — 1 Spot Only
-                    </div>
-                    <h3 class="text-gray-900 text-xl font-bold mb-2 mt-4">Pioneer 1 — Free Full Build</h3>
-                    <p class="text-3xl font-bold text-deep-blue mb-1">$0 — Audit + Build Included</p>
-                    <p class="text-gray-600 text-sm mb-1">You pay tooling only (~$100–$350/month). Everything else is free.</p>
-                    <p class="text-gray-500 text-xs mb-4">Includes always-on private server — your data, your infrastructure, registered to you. (~$10–20/month VPS option available.)</p>
-                    <p class="text-gray-700 text-sm mb-4 font-semibold">Full value: $15,000–$25,000 CAD — fully waived for Pioneer 1</p>
-                    <div class="bg-amber-50 border border-amber-300 rounded-xl p-4 mb-5 text-sm text-amber-900">
-                        <p class="font-bold text-amber-800 mb-1">Your commitment (required):</p>
-                        One 1–2 minute on-camera video (face visible, any device), sharing at least one measurable outcome (e.g., hours saved, revenue recovered, admin eliminated) — required within 2 weeks of delivery. And if we deliver, one warm introduction to a founder in your network who could benefit from PVRPOSE AI OS.
-                    </div>
-                    <ul class="space-y-2 text-gray-700 text-sm mb-6">
-                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Full PVRPOSE AI OS — done for you</li>
-                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> 1–2 custom automations built around your business</li>
-                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Telegram mobile interface configured</li>
-                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Private server setup — your data, your control</li>
-                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> CASL/PIPEDA compliant from day one</li>
-                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> 30-day post-delivery support (email/Slack)</li>
-                    </ul>
-                    <p class="text-xs text-gray-500 mb-4 text-center">⚠️ Pioneer spots are reserved for registered businesses in Canada or the USA — $100K+ annual revenue, active operations. All deliverables are in English.</p>
-                    <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call"
-                       target="_blank" rel="noopener noreferrer"
-                       class="block w-full text-center bg-deep-blue hover:opacity-90 text-white font-bold py-4 rounded-xl transition">
-                        Apply for Free Pioneer Spot →
-                    </a>
-                </div>
-
-                <!-- Box 2 — 2 Paid Audit Spots -->
-                <div class="pioneer-paid-box rounded-2xl p-8 relative">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-pink-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">
-                        2 Spots Available
-                    </div>
-                    <h3 class="text-gray-900 text-xl font-bold mb-2 mt-4">Pioneers 2 & 3 — PVRPOSE AI OS Audit</h3>
-                    <p class="text-3xl font-bold text-pink-600 mb-1">$2,500 CAD</p>
-                    <p class="text-gray-500 text-sm mb-1">Pioneer Rate · 2-week audit · $2,500 credited toward full build if you proceed</p>
-                    <p class="text-gray-500 text-sm mb-4 line-through">Standard audit rate: $5,000–$7,500 CAD</p>
-                    <!-- Spot counter visual -->
-                    <div class="flex gap-2 mb-4">
-                        <div class="flex-1 bg-pink-100 border-2 border-pink-400 rounded-lg py-2 text-center text-xs font-bold text-pink-700">Spot 1 — Available</div>
-                        <div class="flex-1 bg-pink-100 border-2 border-pink-400 rounded-lg py-2 text-center text-xs font-bold text-pink-700">Spot 2 — Available</div>
-                    </div>
-                    <div class="bg-amber-50 border border-amber-300 rounded-xl p-4 mb-5 text-sm text-amber-900">
-                        <p class="font-bold text-amber-800 mb-1">Your commitment (required):</p>
-                        One 1–2 minute on-camera video (face visible, any device), sharing at least one measurable outcome upon completion. And if we deliver, one warm introduction to a founder in your network who could benefit.
-                    </div>
-                    <ul class="space-y-2 text-gray-700 text-sm mb-6">
-                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> 2-week deep dive into your workflows</li>
-                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Top 3 admin bottlenecks identified</li>
-                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Custom PVRPOSE AI OS blueprint</li>
-                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Telegram mobile access plan included</li>
-                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Private infrastructure setup plan</li>
-                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> ROI projection with real numbers</li>
-                    </ul>
-                    <div class="bg-pink-50 border border-pink-200 rounded-xl p-4 mb-6 text-sm text-pink-800">
-                        <strong>What's included:</strong> Full 2-week audit — deep workflow analysis, custom PVRPOSE AI OS blueprint, ROI projection, and Telegram access plan. Your $2,500 CAD audit fee is credited in full toward the build if you proceed (full build quoted separately at standard pricing: $15,000–$25,000 CAD).
-                    </div>
-                    <p class="text-xs text-gray-500 mb-4 text-center">⚠️ Pioneer spots are reserved for registered businesses in Canada or the USA — $100K+ annual revenue, active operations. All deliverables are in English.</p>
-                    <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call"
-                       target="_blank" rel="noopener noreferrer"
-                       class="block w-full text-center bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 rounded-xl transition">
-                        Book PVRPOSE AI OS Audit — $2,500 CAD →
-                    </a>
-                </div>
-            </div>
-
-            <!-- Transparency + Scarcity notes -->
-            <div class="text-center max-w-2xl mx-auto">
-                <p class="text-white/80 text-sm mb-2">
-                    <strong class="text-white">Why the exchange?</strong> These are pioneer engagements — your real-world results help us prove what PVRPOSE AI OS delivers. You get a fully custom system at a fraction of future pricing. We get documented proof. Fair deal.
-                </p>
-                <p class="text-pink-300 text-sm font-semibold">
-                    1 Free Build spot + 2 PVRPOSE AI OS Audit spots at $2,500 CAD each — 3 pioneer spots total. Once filled, standard pricing applies: $5,000–$7,500 CAD audit · PVRPOSE EA from $15K · EA Amplify from $18K · EA Scale from $25K.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- James Green Testimonial — Social Proof at Decision Point -->
-    <section class="py-16 px-6 bg-white border-b border-gray-100">
-        <div class="max-w-2xl mx-auto">
-            <p class="text-pink-600 text-xs font-bold uppercase tracking-widest mb-8 text-center">What Clients Say After Working With PVRPOSE AI</p>
-
-            <!-- Card -->
-            <div class="flex flex-col md:flex-row items-center gap-8 bg-gray-50 border border-gray-100 rounded-2xl p-8 shadow-sm hover-lift">
-
-                <!-- Photo -->
-                <div class="flex-shrink-0">
-                    <img src="/James_Green_pic.png"
-                         alt="James Green — Managing Partner, Dominion Equity Holdings"
-                         class="w-24 h-24 rounded-full object-cover object-top border-4 border-white shadow-lg"
-                         loading="lazy">
-                </div>
-
-                <!-- Quote + identity + CTA -->
-                <div class="text-center md:text-left">
-                    <!-- Large open-quote glyph -->
-                    <p class="text-pink-500 text-4xl font-serif leading-none mb-2">"</p>
-                    <blockquote class="text-xl md:text-2xl text-gray-800 font-semibold italic leading-snug mb-4">
-                        We're creating revenue for almost free.
-                    </blockquote>
-                    <p class="text-gray-600 font-semibold text-sm mb-1">James Green</p>
-                    <p class="text-gray-500 text-xs mb-4">Managing Partner · Dominion Equity Holdings</p>
-                    <a href="#james-green-video"
-                       class="inline-flex items-center gap-2 text-pink-600 font-semibold text-sm hover:text-pink-700 transition group">
-                        <span class="w-7 h-7 bg-pink-100 rounded-full flex items-center justify-center group-hover:bg-pink-200 transition">
-                            <svg class="w-3.5 h-3.5 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </span>
-                        Watch James explain how →
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Change: Added Darwin-inspired quote for engagement, memorability, and adaptation theme -->
-    <section class="py-16 px-6 bg-gradient-to-br from-gray-50 via-purple-50 to-pink-50">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="mb-6">
-                <svg class="w-12 h-12 text-pink-500 mx-auto opacity-30" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                </svg>
-            </div>
-            <blockquote class="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-800 mb-6 italic leading-relaxed animate-fade-in">
-                "It is not the strongest of the species that survives, nor the most intelligent that survives. It is the one that is most adaptable to change."
-            </blockquote>
-            <p class="text-lg text-gray-600 mb-8">
-                —Commonly attributed to Darwin (Leon C. Megginson, 1963)
-            </p>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                PVRPOSE AI OS is built on this principle — a system that adapts to your business, not the other way around. Built once. Owned by you. Evolves with you.
             </p>
         </div>
     </section>
@@ -1746,7 +1545,7 @@
             </div>
 
             <!-- Bottom Comparison Stats -->
-            <div class="bg-gradient-to-br from-gray-900 to-gray-800 text-white p-8 md:p-12 rounded-3xl">
+            <div class="bg-gradient-to-br from-[#0a0a0f] to-gray-800 text-white p-8 md:p-12 rounded-3xl">
                 <h3 class="text-2xl md:text-3xl font-bold mb-8 text-center">The Real Cost Comparison</h3>
 
                 <div class="grid md:grid-cols-3 gap-8 mb-8">
@@ -1874,7 +1673,7 @@
                     <div class="flex-1 glass p-6 rounded-2xl">
                         <h3 class="text-2xl font-bold mb-3">Go-Live — Phone-Controlled from Day 1</h3>
                         <p class="text-gray-700 mb-3 leading-relaxed">Full testing, team training, and handoff. Your Telegram mobile interface goes live — tested, working, and accessible from your phone from the moment we hand over the keys.</p>
-                        <p class="text-sm text-gray-600">✓ Telegram mobile interface live & tested • ✓ Full QA • ✓ Video training library • ✓ 2-week post-delivery support</p>
+                        <p class="text-sm text-gray-600">✓ Telegram mobile interface live & tested • ✓ Full QA • ✓ Video training library • ✓ 30-day post-delivery support</p>
                     </div>
                 </div>
             </div>
@@ -2047,6 +1846,115 @@
         </div>
     </section>
 
+    <!-- PVRPOSE EA SUPERPOWERS SECTION -->
+    <section class="py-20 px-6 bg-gradient-to-br from-purple-950 via-purple-900 to-pink-900 text-white" id="ea-superpowers">
+        <div class="max-w-5xl mx-auto">
+            <!-- Eyebrow -->
+            <div class="text-center mb-10">
+                <div class="inline-block bg-white/10 backdrop-blur border border-white/20 px-6 py-3 rounded-full mb-4">
+                    <p class="text-sm font-bold tracking-widest uppercase text-pink-300">PVRPOSE EA AMPLIFY</p>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold hero-headline mb-4">
+                    Don't replace your EA.<br>
+                    <span class="gradient-accent bg-clip-text text-transparent">Amplify them.</span>
+                </h2>
+                <p class="text-lg text-purple-100 max-w-2xl mx-auto">
+                    Your EA stays in control. The AI handles the repetitive work — in your exact voice — so they become 3× more effective. 2 users, one system.
+                </p>
+            </div>
+
+            <!-- Before / After Table — desktop (md+) -->
+            <div class="mb-16 hidden md:block overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="py-3 px-6 text-red-300 font-bold text-sm border-b border-white/20 w-1/2">Before — 3 hours</th>
+                            <th class="py-3 px-6 text-green-300 font-bold text-sm border-b border-white/20 w-1/2">After — 20 minutes</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="py-3 px-6 text-purple-100 text-sm">Drafting replies in the founder's exact voice</td>
+                            <td class="py-3 px-6 text-white text-sm">"Draft CEO's response in her voice" → ready for final polish</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="py-3 px-6 text-purple-100 text-sm">Prepping a brief before every meeting</td>
+                            <td class="py-3 px-6 text-white text-sm">"Brief me for the 3pm call" → CRM + notes + context, instant</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="py-3 px-6 text-purple-100 text-sm">Inbox triage and priority routing</td>
+                            <td class="py-3 px-6 text-white text-sm">"Triage last 48 hours" → tagged summaries + suggested replies</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="py-3 px-6 text-purple-100 text-sm">Calendar chaos and deep-work conflicts</td>
+                            <td class="py-3 px-6 text-white text-sm">"Optimize this week's schedule" → conflict-free proposal, done</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Before / After Cards — mobile only (hidden md+) -->
+            <div class="mb-16 md:hidden space-y-4">
+                <div class="bg-white/10 rounded-2xl p-5">
+                    <p class="text-xs font-bold text-red-300 uppercase tracking-widest mb-1">Before — 3 hours</p>
+                    <p class="text-purple-100 text-sm leading-relaxed mb-3">Drafting replies in the founder's exact voice</p>
+                    <p class="text-xs font-bold text-green-300 uppercase tracking-widest mb-1">After — 20 minutes</p>
+                    <p class="text-white text-sm leading-relaxed">"Draft CEO's response in her voice" → ready for final polish</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-5">
+                    <p class="text-xs font-bold text-red-300 uppercase tracking-widest mb-1">Before — 3 hours</p>
+                    <p class="text-purple-100 text-sm leading-relaxed mb-3">Prepping a brief before every meeting</p>
+                    <p class="text-xs font-bold text-green-300 uppercase tracking-widest mb-1">After — 20 minutes</p>
+                    <p class="text-white text-sm leading-relaxed">"Brief me for the 3pm call" → CRM + notes + context, instant</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-5">
+                    <p class="text-xs font-bold text-red-300 uppercase tracking-widest mb-1">Before — 3 hours</p>
+                    <p class="text-purple-100 text-sm leading-relaxed mb-3">Inbox triage and priority routing</p>
+                    <p class="text-xs font-bold text-green-300 uppercase tracking-widest mb-1">After — 20 minutes</p>
+                    <p class="text-white text-sm leading-relaxed">"Triage last 48 hours" → tagged summaries + suggested replies</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-5">
+                    <p class="text-xs font-bold text-red-300 uppercase tracking-widest mb-1">Before — 3 hours</p>
+                    <p class="text-purple-100 text-sm leading-relaxed mb-3">Calendar chaos and deep-work conflicts</p>
+                    <p class="text-xs font-bold text-green-300 uppercase tracking-widest mb-1">After — 20 minutes</p>
+                    <p class="text-white text-sm leading-relaxed">"Optimize this week's schedule" → conflict-free proposal, done</p>
+                </div>
+            </div>
+
+            <!-- 3 Ultra-Short Benefits -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-center">
+                <div class="bg-white/10 rounded-2xl p-5">
+                    <div class="text-3xl mb-2">🏆</div>
+                    <p class="text-white font-medium text-sm leading-relaxed">Your EA becomes the hero. Their output triples.</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-5">
+                    <div class="text-3xl mb-2">⏱️</div>
+                    <p class="text-white font-medium text-sm leading-relaxed">You reclaim 10–15 strategic hours/week.</p>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-5 border-l-4 border-pink-400">
+                    <div class="text-3xl mb-2">💰</div>
+                    <p class="text-white font-medium text-sm leading-relaxed">$20K build. $63K-$98K EA salary. Pays back in 3-6 months.</p>
+                </div>
+            </div>
+
+            <!-- Trust Bar -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-10 text-center">
+                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-purple-100">✓ 28-feature AI OS</span>
+                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-purple-100">✓ CASL/PIPEDA compliant</span>
+                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-purple-100">✓ 6-week build</span>
+                <span class="bg-white/10 rounded-full px-4 py-2 text-xs text-purple-100">✓ No vendor lock-in</span>
+            </div>
+
+            <!-- Single CTA -->
+            <div class="text-center">
+                <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer"
+                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-12 py-5 rounded-xl text-lg font-semibold hover-glow transition hover:scale-105 transition-transform">
+                    See EA Amplify in Action →
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- TRANSITION: Services to Credentials -->
     <section class="py-8 px-6 bg-white">
         <div class="max-w-4xl mx-auto text-center">
@@ -2135,7 +2043,7 @@
     </section>
 
     <!-- PVRPOSE AI OS SECTION -->
-    <section class="py-20 px-6 bg-gradient-to-br from-gray-900 via-purple-950 to-gray-900" id="pvrpose-ai-os">
+    <section class="py-20 px-6 bg-gradient-to-br from-[#0a0a0f] via-purple-950 to-[#0a0a0f]" id="pvrpose-ai-os">
         <div class="max-w-5xl mx-auto">
 
             <!-- Header -->
@@ -2352,47 +2260,6 @@
         </div>
     </section>
 
-    <!-- HOW CLIENTS FIND US -->
-    <section class="py-20 px-6 bg-gray-50">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 hero-headline">
-                How Our Clients Find Us
-            </h2>
-
-            <p class="text-xl md:text-2xl text-gray-700 mb-16 max-w-3xl mx-auto font-light leading-relaxed">
-                Over 90% of our clients come from referrals and warm introductions: from colleagues, business partners, and professional networks who know the quality of our work.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
-                    <p class="stat-number text-5xl md:text-6xl mb-4">Over 90%</p>
-                    <p class="text-gray-900 font-bold text-xl mb-3">Referrals & warm introductions</p>
-                    <p class="text-gray-600">Trusted recommendations from professional networks</p>
-                </div>
-
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
-                    <p class="stat-number text-5xl md:text-6xl mb-4">6 weeks</p>
-                    <p class="text-gray-900 font-bold text-xl mb-3">Average Time to Results</p>
-                    <p class="text-gray-600">From discovery call to phone-controlled AI OS</p>
-                </div>
-
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
-                    <p class="stat-number text-5xl md:text-6xl mb-4">10–20×</p>
-                    <p class="text-gray-900 font-bold text-xl mb-3">Projected ROI</p>
-                    <p class="text-gray-600">Projected return in Year 1 for qualifying $100K+ revenue firms with significant admin load</p>
-                </div>
-            </div>
-
-            <div class="bg-gradient-to-br from-purple-900 to-purple-700 text-white p-10 md:p-12 rounded-3xl shadow-2xl hover-glow">
-                <p class="text-2xl md:text-3xl font-bold mb-6">
-                    Know someone who needs AI help?
-                </p>
-                <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
-                    We offer referral incentives for introductions to qualified businesses. Reach out to discuss partnership opportunities.
-                </p>
-            </div>
-        </div>
-    </section>
 
     <!-- FAQ SECTION -->
     <section class="py-20 px-6 bg-white">
@@ -2945,7 +2812,7 @@
                         </svg>
                     </summary>
                     <div class="px-6 pb-6 text-white/85 leading-relaxed">
-                        You own everything — the system, the infrastructure, the code. 2 weeks of post-delivery support is included. After that, ongoing support is available at standard rates.
+                        You own everything — the system, the infrastructure, the code. 30 days of post-delivery support is included (60 days for EA Scale). After that, ongoing support is available at standard rates.
                     </div>
                 </details>
 
@@ -2958,6 +2825,118 @@
             </div>
         </div>
     </section>
+
+    <!-- PIONEER SECTION -->
+    <section id="pioneer" class="py-20 px-6 bg-gradient-to-br from-purple-950 via-purple-900 to-pink-900 text-white">
+        <div class="max-w-6xl mx-auto">
+            <!-- Headline -->
+            <div class="text-center mb-4">
+                <div class="inline-block bg-white/20 text-white text-sm font-bold px-4 py-2 rounded-full mb-4 uppercase tracking-wide border border-white/40">
+                    Pioneer Launch — 3 Spots Total. Filling Now.
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Personally Handpicked. First 3 Founders Only.</h2>
+            </div>
+
+            <!-- Why Pioneer Spots Explanation -->
+            <div class="bg-white/10 backdrop-blur rounded-2xl p-8 mb-10 max-w-3xl mx-auto text-center">
+                <h3 class="text-xl font-bold mb-4 text-pink-300">Why Pioneer Spots?</h3>
+                <p class="text-white/90 leading-relaxed mb-4">
+                    After 6 months going deep into Claude Code — Anthropic's most advanced AI development engine — PVRPOSE AI OS is a fundamentally more powerful system than traditional automation. To document it with real-world results, I am personally handpicking 3 founders to build alongside at pioneer pricing.
+                </p>
+                <div class="bg-white/10 rounded-xl p-4 mb-4 text-sm text-white/90 text-left">
+                    <p class="font-bold text-white mb-2">3 Pioneer Spots — Here Is Exactly What Each Gets:</p>
+                    <p class="mb-1"><span class="text-pink-300 font-bold">Pioneer 1 (1 spot):</span> Full audit + full build — completely free. You pay tooling only (~$100–$350/month). Build value: $15,000–$25,000 CAD.</p>
+                    <p class="mb-3"><span class="text-pink-300 font-bold">Pioneers 2 & 3 (2 spots):</span> Full 2-week PVRPOSE AI OS Audit at $2,500 CAD pioneer rate. Your $2,500 CAD is credited in full toward your build if you proceed. Standard audit rate: $5,000–$7,500 CAD.</p>
+                    <p class="text-white/80 border-t border-white/20 pt-3"><span class="font-bold text-white">Who qualifies:</span> Established business owners with a registered business in Canada or the USA, $100K+ annual revenue, and active operations. All PVRPOSE AI OS systems, documentation, and deliverables are built and delivered exclusively in English — you must be comfortable working in English to benefit from this engagement. This ensures your results are real, measurable, and valuable as documented case studies.</p>
+                </div>
+                <p class="text-pink-300 font-semibold">
+                    This is not a discount. This is an early seat at something that will cost significantly more once the case studies are documented.
+                </p>
+            </div>
+
+            <!-- Two Boxes -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+                <!-- Box 1 — Free Spot -->
+                <div class="pioneer-free-box rounded-2xl p-8 relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-deep-blue text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">
+                        ⭐ Most Exclusive — 1 Spot Only
+                    </div>
+                    <h3 class="text-gray-900 text-xl font-bold mb-2 mt-4">Pioneer 1 — Free Full Build</h3>
+                    <p class="text-3xl font-bold text-deep-blue mb-1">$0 — Audit + Build Included</p>
+                    <p class="text-gray-600 text-sm mb-1">You pay tooling only (~$100–$350/month). Everything else is free.</p>
+                    <p class="text-gray-500 text-xs mb-4">Includes always-on private server — your data, your infrastructure, registered to you. (~$10–20/month VPS option available.)</p>
+                    <p class="text-gray-700 text-sm mb-4 font-semibold">Full value: $15,000–$25,000 CAD — fully waived for Pioneer 1</p>
+                    <div class="bg-amber-50 border border-amber-300 rounded-xl p-4 mb-5 text-sm text-amber-900">
+                        <p class="font-bold text-amber-800 mb-1">Your commitment (required):</p>
+                        One 1–2 minute on-camera video (face visible, any device), sharing at least one measurable outcome (e.g., hours saved, revenue recovered, admin eliminated) — required within 2 weeks of delivery. And if we deliver, one warm introduction to a founder in your network who could benefit from PVRPOSE AI OS.
+                    </div>
+                    <ul class="space-y-2 text-gray-700 text-sm mb-6">
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Full PVRPOSE AI OS — done for you</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> 1–2 custom automations built around your business</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Telegram mobile interface configured</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Private server setup — your data, your control</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> CASL/PIPEDA compliant from day one</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> 30-day post-delivery support (email/Slack)</li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mb-4 text-center">⚠️ Pioneer spots are reserved for registered businesses in Canada or the USA — $100K+ annual revenue, active operations. All deliverables are in English.</p>
+                    <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call"
+                       target="_blank" rel="noopener noreferrer"
+                       class="block w-full text-center bg-deep-blue hover:opacity-90 text-white font-bold py-4 rounded-xl transition">
+                        Apply for Free Pioneer Spot →
+                    </a>
+                </div>
+
+                <!-- Box 2 — 2 Paid Audit Spots -->
+                <div class="pioneer-paid-box rounded-2xl p-8 relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-pink-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">
+                        2 Spots Available
+                    </div>
+                    <h3 class="text-gray-900 text-xl font-bold mb-2 mt-4">Pioneers 2 & 3 — PVRPOSE AI OS Audit</h3>
+                    <p class="text-3xl font-bold text-pink-600 mb-1">$2,500 CAD</p>
+                    <p class="text-gray-500 text-sm mb-1">Pioneer Rate · 2-week audit · $2,500 credited toward full build if you proceed</p>
+                    <p class="text-gray-500 text-sm mb-4 line-through">Standard audit rate: $5,000–$7,500 CAD</p>
+                    <!-- Spot counter visual -->
+                    <div class="flex gap-2 mb-4">
+                        <div class="flex-1 bg-pink-100 border-2 border-pink-400 rounded-lg py-2 text-center text-xs font-bold text-pink-700">Spot 1 — Available</div>
+                        <div class="flex-1 bg-pink-100 border-2 border-pink-400 rounded-lg py-2 text-center text-xs font-bold text-pink-700">Spot 2 — Available</div>
+                    </div>
+                    <div class="bg-amber-50 border border-amber-300 rounded-xl p-4 mb-5 text-sm text-amber-900">
+                        <p class="font-bold text-amber-800 mb-1">Your commitment (required):</p>
+                        One 1–2 minute on-camera video (face visible, any device), sharing at least one measurable outcome upon completion. And if we deliver, one warm introduction to a founder in your network who could benefit.
+                    </div>
+                    <ul class="space-y-2 text-gray-700 text-sm mb-6">
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> 2-week deep dive into your workflows</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Top 3 admin bottlenecks identified</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Custom PVRPOSE AI OS blueprint</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Telegram mobile access plan included</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> Private infrastructure setup plan</li>
+                        <li class="flex items-start"><span class="text-pink-500 mr-2 font-bold">✓</span> ROI projection with real numbers</li>
+                    </ul>
+                    <div class="bg-pink-50 border border-pink-200 rounded-xl p-4 mb-6 text-sm text-pink-800">
+                        <strong>What's included:</strong> Full 2-week audit — deep workflow analysis, custom PVRPOSE AI OS blueprint, ROI projection, and Telegram access plan. Your $2,500 CAD audit fee is credited in full toward the build if you proceed (full build quoted separately at standard pricing: $15,000–$25,000 CAD).
+                    </div>
+                    <p class="text-xs text-gray-500 mb-4 text-center">⚠️ Pioneer spots are reserved for registered businesses in Canada or the USA — $100K+ annual revenue, active operations. All deliverables are in English.</p>
+                    <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call"
+                       target="_blank" rel="noopener noreferrer"
+                       class="block w-full text-center bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 rounded-xl transition">
+                        Book PVRPOSE AI OS Audit — $2,500 CAD →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Transparency + Scarcity notes -->
+            <div class="text-center max-w-2xl mx-auto">
+                <p class="text-white/80 text-sm mb-2">
+                    <strong class="text-white">Why the exchange?</strong> These are pioneer engagements — your real-world results help us prove what PVRPOSE AI OS delivers. You get a fully custom system at a fraction of future pricing. We get documented proof. Fair deal.
+                </p>
+                <p class="text-pink-300 text-sm font-semibold">
+                    1 Free Build spot + 2 PVRPOSE AI OS Audit spots at $2,500 CAD each — 3 pioneer spots total. Once filled, standard pricing applies: $5,000–$7,500 CAD audit · PVRPOSE EA from $15K · EA Amplify from $18K · EA Scale from $25K.
+                </p>
+            </div>
+        </div>
+    </section>
+
 
     <!-- FINAL CTA / CONTACT SECTION -->
     <section id="contact" class="py-20 px-6 gradient-hero">
@@ -2999,7 +2978,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-black text-white py-16 px-6">
+    <footer class="bg-[#0a0a0f] text-white py-16 px-6">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-12">
                 <img src="/logotypes-ai-rez-03.png" alt="PVRPOSE AI - Voice, Vision, Vibe" class="mx-auto mb-4" style="max-width: min(400px, 90vw); height: auto;" loading="lazy" />
@@ -3624,11 +3603,13 @@
                 if (btn) btn.className = isActive ? activeClass : inactiveClass;
             });
 
-            // Toggle Monday Morning timelines (only solo and ea have them)
+            // Toggle Monday Morning timelines (solo, ea, and scale each have their own)
             var mondaySolo = document.getElementById('monday-solo');
             var mondayEa = document.getElementById('monday-ea');
+            var mondayScale = document.getElementById('monday-scale');
             if (mondaySolo) mondaySolo.classList.toggle('hidden', tab !== 'solo');
-            if (mondayEa) mondayEa.classList.toggle('hidden', tab !== 'ea' && tab !== 'scale');
+            if (mondayEa) mondayEa.classList.toggle('hidden', tab !== 'ea');
+            if (mondayScale) mondayScale.classList.toggle('hidden', tab !== 'scale');
         }
         // Default to solo (PVRPOSE EA) tab on page load
         document.addEventListener('DOMContentLoaded', function() {

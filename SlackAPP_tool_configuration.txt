@@ -1,0 +1,47 @@
+● You're right -- let's nuke it and start fresh. Socket Mode should work, period.                                                                                                                                                             
+  Here's what you need to do in the Slack API dashboard (api.slack.com/apps):                                                                                                                                                                 
+  Step 1: Delete the current app                                                                                                                                                                                                           
+  - Go to api.slack.com/apps → select the Sophie AI app → Settings → Delete App
+  
+  Step 2: Create a brand new app
+  - Click "Create New App" → "From scratch"
+  - Name: Sophie AI
+  - Workspace: Sophie AI (sophie-ai-workspace)
+
+  Step 3: Enable Socket Mode FIRST (before anything else)
+  - Left sidebar → Socket Mode → Toggle ON
+  - It will ask you to create an App-Level Token
+  - Name it socket and add scope connections:write
+  - Copy the xapp-... token and send it to me
+
+  Step 4: Add Event Subscriptions
+  - Left sidebar → Event Subscriptions → Toggle ON
+  - Scroll to Subscribe to bot events → Add:
+    - message.im
+    - message.channels
+    - message.groups
+    - app_mention
+
+  Step 5: Add Bot Token Scopes
+  - Left sidebar → OAuth & Permissions → Scroll to Bot Token Scopes → Add:
+    - app_mentions:read
+    - channels:history
+    - channels:read
+    - chat:write
+    - groups:history
+    - im:history
+    - im:read
+    - im:write
+    - users:read
+
+  Step 6: Install to workspace
+  - Left sidebar → Install App → Install to Workspace → Allow
+  - Copy the Bot User OAuth Token (xoxb-...) and send it to me
+
+  Step 7: Enable App Home
+  - Left sidebar → App Home
+  - Check "Allow users to send Slash commands and messages from the messages tab"
+
+  Once you've done all 7 steps, send me the two tokens:
+  1. xapp-... (App-Level Token from Step 3)
+  2. xoxb-... (Bot Token from Step 6)

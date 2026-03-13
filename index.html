@@ -432,7 +432,8 @@
             left: 0;
             right: 0;
             z-index: 1002;
-            height: 42px;
+            min-height: 42px;
+            height: auto; /* auto so it can grow if text wraps on very small screens */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -497,28 +498,111 @@
             padding-top: 160px; /* pioneer(42) + nav(80) + french(38) -- JS recalculates */
         }
 
-        @media (max-width: 768px) {
+        /* ---- RESPONSIVE FIXES ---- */
+
+        /* Mobile (≤767px) */
+        @media (max-width: 767px) {
             body {
-                padding-top: 142px; /* pioneer(38) + nav(68) + french(36) -- JS recalculates */
+                padding-top: 130px; /* JS recalculates -- this is a safe fallback */
             }
             .pioneer-bar {
-                font-size: 12px;
-                padding: 8px 12px;
-                height: 38px;
+                font-size: 11px;
+                padding: 6px 10px;
+                height: auto;
+                min-height: 34px;
             }
             .main-nav {
-                top: 38px; /* CSS fallback -- JS overrides */
+                top: 34px; /* CSS fallback -- JS overrides */
+            }
+            .main-nav .max-w-7xl {
+                padding-left: 12px;
+                padding-right: 12px;
+                padding-top: 10px;
+                padding-bottom: 10px;
             }
             #french-bar {
-                top: 108px; /* CSS fallback: pioneer(38) + nav(70) -- JS overrides */
+                top: 100px; /* CSS fallback -- JS overrides */
                 font-size: 11px;
-                padding: 5px 12px;
+                padding: 5px 10px;
+                line-height: 1.3;
             }
             .nav-logo {
-                height: 40px;
+                height: 36px;
                 -webkit-filter: brightness(0) saturate(0) invert(1) !important;
                 filter: brightness(0) saturate(0) invert(1) !important;
             }
+            /* Section padding: tighter on mobile */
+            .py-20 { padding-top: 48px !important; padding-bottom: 48px !important; }
+            .py-24 { padding-top: 56px !important; padding-bottom: 56px !important; }
+            .py-32 { padding-top: 64px !important; padding-bottom: 64px !important; }
+            .mb-16 { margin-bottom: 32px !important; }
+            .mb-12 { margin-bottom: 24px !important; }
+            /* Heading sizes: prevent overflow on narrow screens */
+            .text-4xl { font-size: 1.75rem !important; line-height: 1.15 !important; }
+            .text-5xl { font-size: 2rem !important; line-height: 1.15 !important; }
+            .text-6xl { font-size: 2.25rem !important; line-height: 1.1 !important; }
+            .text-7xl { font-size: 2.5rem !important; line-height: 1.05 !important; }
+            /* FAQ cards */
+            .glass-dark.p-8 { padding: 16px !important; }
+            /* DIY comparison cards */
+            .rounded-3xl.p-8 { padding: 16px !important; }
+            /* General card padding reduction */
+            .p-8 { padding: 16px; }
+            .p-10 { padding: 20px; }
+            .p-12 { padding: 24px; }
+            /* Fix px-6 sections to px-4 on mobile */
+            .px-6 { padding-left: 16px; padding-right: 16px; }
+            .px-8 { padding-left: 16px; padding-right: 16px; }
+            /* Timeline: tighter gap */
+            .flex.gap-6.items-start { gap: 12px; }
+            /* FAQ button pr */
+            .faq-question { padding-right: 0; }
+            .faq-question h3 { padding-right: 36px; font-size: 1rem !important; line-height: 1.4 !important; }
+        }
+
+        /* All sections: reduce large top/bottom padding on mobile */
+        @media (max-width: 767px) {
+            /* Section paragraphs: readable size */
+            .text-xl { font-size: 1rem !important; }
+            .text-2xl { font-size: 1.125rem !important; }
+            .text-3xl { font-size: 1.5rem !important; }
+            /* Ensure dark section cards are readable */
+            .section-dark .rounded-3xl { border-radius: 16px; }
+            /* Star canvas: ensure no extra space */
+            #hero-section canvas { max-width: 100% !important; }
+            /* Hide long French bar text properly */
+            #french-bar span.hidden { display: none !important; }
+            /* Reduce hero mb-12 gap before CTAs */
+            .mb-12 { margin-bottom: 20px; }
+            /* Section headings */
+            section h2.text-4xl,
+            section h2.text-5xl,
+            section h2.text-6xl {
+                font-size: 1.75rem !important;
+                line-height: 1.2 !important;
+            }
+        }
+
+        /* Tablet (768px – 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            body {
+                padding-top: 150px;
+            }
+            .main-nav {
+                top: 42px;
+            }
+            #french-bar {
+                top: 118px; /* CSS fallback -- JS overrides */
+            }
+            .nav-logo {
+                height: 44px;
+                -webkit-filter: brightness(0) saturate(0) invert(1) !important;
+                filter: brightness(0) saturate(0) invert(1) !important;
+            }
+            .text-5xl { font-size: 2.5rem !important; }
+            .text-6xl { font-size: 3rem !important; }
+            .text-7xl { font-size: 3.5rem !important; }
+            .py-20 { padding-top: 60px !important; padding-bottom: 60px !important; }
         }
 
         /* =============================================
@@ -734,12 +818,12 @@
 
     <!-- NAVIGATION -->
     <nav class="main-nav">
-        <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="max-w-7xl mx-auto px-3 py-2 md:px-6 md:py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <a href="/" class="flex flex-col items-center leading-none">
                     <img src="/logotypes-ai-rez-03.png" alt="PVRPOSE AI" class="nav-logo" loading="eager" />
-                    <span class="text-gray-400 text-xs sm:text-sm text-center mt-1">Own Your Voice. Vision. Vibe.</span>
+                    <span class="hidden sm:block text-gray-400 text-xs sm:text-sm text-center mt-1">Own Your Voice. Vision. Vibe.</span>
                 </a>
 
                 <!-- Desktop Navigation Links -->
@@ -973,8 +1057,8 @@
                 <div class="relative max-w-3xl mx-auto">
                     <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-pink-500 via-deep-blue to-pink-500 hidden md:block"></div>
 
-                    <div class="flex gap-6 items-start mb-8">
-                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">7:10</div>
+                    <div class="flex gap-3 md:gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-10 shadow-lg">7:10</div>
                         <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
                             <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Voice — Own Your Day</p>
                             <p class="font-semibold text-gray-900 mb-2">Voice note to Telegram while driving to a site visit:</p>
@@ -983,8 +1067,8 @@
                         </div>
                     </div>
 
-                    <div class="flex gap-6 items-start mb-8">
-                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">9:45</div>
+                    <div class="flex gap-3 md:gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-10 shadow-lg">9:45</div>
                         <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
                             <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Vision — Execute Your Blueprint</p>
                             <p class="font-semibold text-gray-900 mb-2">15 minutes before the call:</p>
@@ -993,8 +1077,8 @@
                         </div>
                     </div>
 
-                    <div class="flex gap-6 items-start mb-8">
-                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">2:30</div>
+                    <div class="flex gap-3 md:gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-10 shadow-lg">2:30</div>
                         <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
                             <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Vibe — Your Brand, Automated</p>
                             <p class="font-semibold text-gray-900 mb-2">Client follows up after the call:</p>
@@ -1003,8 +1087,8 @@
                         </div>
                     </div>
 
-                    <div class="flex gap-6 items-start">
-                        <div class="flex-shrink-0 w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">EOD</div>
+                    <div class="flex gap-3 md:gap-6 items-start">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-10 shadow-lg">EOD</div>
                         <div class="flex-1 bg-gradient-to-br from-purple-950 via-deep-blue to-purple-900 text-white rounded-2xl p-6 hover-lift">
                             <p class="text-pink-300 font-bold text-sm uppercase tracking-wide mb-2">The Scorecard</p>
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
@@ -1040,8 +1124,8 @@
                 <div class="relative max-w-3xl mx-auto">
                     <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-pink-500 via-deep-blue to-pink-500 hidden md:block"></div>
 
-                    <div class="flex gap-6 items-start mb-8">
-                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">8:30</div>
+                    <div class="flex gap-3 md:gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-10 shadow-lg">8:30</div>
                         <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
                             <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Your EA — Morning Brief</p>
                             <p class="font-semibold text-gray-900 mb-2">EA opens Telegram before sitting down:</p>
@@ -1050,8 +1134,8 @@
                         </div>
                     </div>
 
-                    <div class="flex gap-6 items-start mb-8">
-                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">9:45</div>
+                    <div class="flex gap-3 md:gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-10 shadow-lg">9:45</div>
                         <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
                             <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Your EA — Pre-Call Prep</p>
                             <p class="font-semibold text-gray-900 mb-2">15 minutes before your 10am call:</p>
@@ -1060,8 +1144,8 @@
                         </div>
                     </div>
 
-                    <div class="flex gap-6 items-start mb-8">
-                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">1:15</div>
+                    <div class="flex gap-3 md:gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-10 shadow-lg">1:15</div>
                         <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
                             <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Your EA — Proposal Ready</p>
                             <p class="font-semibold text-gray-900 mb-2">Right after the call, EA sends:</p>
@@ -1070,8 +1154,8 @@
                         </div>
                     </div>
 
-                    <div class="flex gap-6 items-start">
-                        <div class="flex-shrink-0 w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">EOD</div>
+                    <div class="flex gap-3 md:gap-6 items-start">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-10 shadow-lg">EOD</div>
                         <div class="flex-1 bg-gradient-to-br from-purple-950 via-deep-blue to-purple-900 text-white rounded-2xl p-6 hover-lift">
                             <p class="text-pink-300 font-bold text-sm uppercase tracking-wide mb-2">The EA Scorecard</p>
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
@@ -1107,8 +1191,8 @@
                 <div class="relative max-w-3xl mx-auto">
                     <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-pink-500 via-deep-blue to-pink-500 hidden md:block"></div>
 
-                    <div class="flex gap-6 items-start mb-8">
-                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">7:30</div>
+                    <div class="flex gap-3 md:gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-10 shadow-lg">7:30</div>
                         <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
                             <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Founder — Strategic Priorities</p>
                             <p class="font-semibold text-gray-900 mb-2">One voice note sets the day for the entire team:</p>
@@ -1117,8 +1201,8 @@
                         </div>
                     </div>
 
-                    <div class="flex gap-6 items-start mb-8">
-                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">8:45</div>
+                    <div class="flex gap-3 md:gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-10 shadow-lg">8:45</div>
                         <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
                             <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Operations Agent — Auto-Generated Tasks</p>
                             <p class="font-semibold text-gray-900 mb-2">Team leads receive their daily assignments:</p>
@@ -1127,8 +1211,8 @@
                         </div>
                     </div>
 
-                    <div class="flex gap-6 items-start mb-8">
-                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">10:00</div>
+                    <div class="flex gap-3 md:gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-10 shadow-lg">10:00</div>
                         <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
                             <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Client Services Agent — Follow-Up Engine</p>
                             <p class="font-semibold text-gray-900 mb-2">4 client follow-ups drafted and routed:</p>
@@ -1137,8 +1221,8 @@
                         </div>
                     </div>
 
-                    <div class="flex gap-6 items-start mb-8">
-                        <div class="flex-shrink-0 w-16 h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">2:00</div>
+                    <div class="flex gap-3 md:gap-6 items-start mb-8">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-deep-blue rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-10 shadow-lg">2:00</div>
                         <div class="flex-1 bg-gray-50 border border-gray-200 rounded-2xl p-6 hover-lift">
                             <p class="text-xs font-bold text-pink-600 uppercase tracking-wide mb-1">Finance Agent — Revenue Protection</p>
                             <p class="font-semibold text-gray-900 mb-2">Overdue invoices flagged, collection emails drafted:</p>
@@ -1147,8 +1231,8 @@
                         </div>
                     </div>
 
-                    <div class="flex gap-6 items-start">
-                        <div class="flex-shrink-0 w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm z-10 shadow-lg">EOD</div>
+                    <div class="flex gap-3 md:gap-6 items-start">
+                        <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-10 shadow-lg">EOD</div>
                         <div class="flex-1 bg-gradient-to-br from-purple-950 via-deep-blue to-purple-900 text-white rounded-2xl p-6 hover-lift">
                             <p class="text-pink-300 font-bold text-sm uppercase tracking-wide mb-2">The Scale Scorecard</p>
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
@@ -1294,7 +1378,7 @@
                 See exactly how much time and money you could save with AI automation
             </p>
 
-            <div class="glass-dark p-8 md:p-12 rounded-3xl shadow-2xl reveal-scale shadow-glow-purple">
+            <div class="glass-dark p-4 md:p-12 rounded-3xl shadow-2xl reveal-scale shadow-glow-purple">
                 <form id="roiCalculator" class="space-y-6">
                     <div>
                         <label for="revenue" class="block text-lg font-semibold mb-2">Current Annual Revenue</label>
@@ -1319,7 +1403,7 @@
                                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-pink-500 text-lg">
                     </div>
 
-                    <button type="submit" class="w-full btn-primary text-white px-8 py-4 rounded-xl text-xl font-semibold">
+                    <button type="submit" class="w-full btn-primary text-white px-4 py-3 md:py-4 rounded-xl text-base md:text-xl font-semibold">
                         Calculate My Savings →
                     </button>
                 </form>
@@ -1691,7 +1775,7 @@
             <!-- Comparison Table -->
             <div class="grid md:grid-cols-2 gap-8 mb-12">
                 <!-- DIY Column -->
-                <div class="bg-white/5 border border-white/10 card-glow rounded-3xl p-8 md:p-10 reveal-left">
+                <div class="bg-white/5 border border-white/10 card-glow rounded-3xl p-4 md:p-10 reveal-left">
                     <div class="text-center mb-8">
                         <div class="inline-block p-4 bg-white/10 rounded-2xl mb-4">
                             <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1742,7 +1826,7 @@
                 </div>
 
                 <!-- Professional Column -->
-                <div class="bg-gradient-to-br from-pink-900/30 to-purple-900/30 border-2 border-pink-500 shadow-glow-pink rounded-3xl p-8 md:p-10 relative reveal-right">
+                <div class="bg-gradient-to-br from-pink-900/30 to-purple-900/30 border-2 border-pink-500 shadow-glow-pink rounded-3xl p-4 md:p-10 relative reveal-right">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
                         <span class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
                             RECOMMENDED
@@ -2534,9 +2618,9 @@
 
             <div class="space-y-6">
                 <!-- FAQ 1 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(1)">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             Should I try DIY automation first before hiring you?
                         </h3>
                         <svg id="faq-icon-1" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2566,9 +2650,9 @@
                 </div>
 
                 <!-- FAQ 2 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(2)">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             How is this different from hiring a VA or admin assistant?
                         </h3>
                         <svg id="faq-icon-2" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2623,9 +2707,9 @@
                 </div>
 
                 <!-- FAQ 3 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(3)">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             What if my business changes after implementation?
                         </h3>
                         <svg id="faq-icon-3" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2661,9 +2745,9 @@
                 </div>
 
                 <!-- FAQ 4 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(4)">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             How do I know this will actually work for MY business?
                         </h3>
                         <svg id="faq-icon-4" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2697,9 +2781,9 @@
                 </div>
 
                 <!-- FAQ 5 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(5)">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             Why does this cost $15K–$40K when I can use ChatGPT for $20/month?
                         </h3>
                         <svg id="faq-icon-5" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2732,9 +2816,9 @@
                 </div>
 
                 <!-- FAQ 6 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(6)">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             What's your refund policy or satisfaction guarantee?
                         </h3>
                         <svg id="faq-icon-6" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2767,9 +2851,9 @@
                 </div>
 
                 <!-- FAQ 7 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(7)">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             Why are you offering pioneer spots instead of just selling at full price?
                         </h3>
                         <svg id="faq-icon-7" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2790,9 +2874,9 @@
                 </div>
 
                 <!-- FAQ 8 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(8)">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             Can I really manage my business AI from my phone?
                         </h3>
                         <svg id="faq-icon-8" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2822,9 +2906,9 @@
                 </div>
 
                 <!-- FAQ 9 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(9)">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             What makes PVRPOSE AI OS different from every other AI tool out there?
                         </h3>
                         <svg id="faq-icon-9" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2845,9 +2929,9 @@
                 </div>
 
                 <!-- FAQ 10 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(10)">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             Where does my business data go? Is this CASL/PIPEDA compliant?
                         </h3>
                         <svg id="faq-icon-10" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2874,9 +2958,9 @@
                 </div>
 
                 <!-- FAQ 11 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(11)">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             You already use n8n, Zapier, or Make.com — why would you need PVRPOSE AI OS?
                         </h3>
                         <svg id="faq-icon-11" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2906,9 +2990,9 @@
                 </div>
 
                 <!-- FAQ 12 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(12)">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             What does the first week actually look like? What do I have to do?
                         </h3>
                         <svg id="faq-icon-12" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2926,9 +3010,9 @@
                 </div>
 
                 <!-- FAQ EA-1 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ('ea1')">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             Does this replace my EA?
                         </h3>
                         <svg id="faq-icon-ea1" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2941,9 +3025,9 @@
                 </div>
 
                 <!-- FAQ EA-2 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ('ea2')">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             My EA isn't technical. Will they be able to use this?
                         </h3>
                         <svg id="faq-icon-ea2" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2956,9 +3040,9 @@
                 </div>
 
                 <!-- FAQ EA-3 -->
-                <div class="glass-dark p-8 rounded-2xl hover-lift">
+                <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
                     <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ('ea3')">
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 pr-8">
+                        <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             How long until we see ROI?
                         </h3>
                         <svg id="faq-icon-ea3" class="w-6 h-6 text-pink-600 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

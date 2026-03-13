@@ -145,8 +145,9 @@
 
         @media (hover: hover) {
             .hover-lift:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+                transform: translateY(-6px);
+                box-shadow: 0 20px 40px -12px rgba(109, 40, 217, 0.15),
+                            0 8px 16px -8px rgba(0, 0, 0, 0.1);
             }
 
             .hover-glow:hover {
@@ -188,6 +189,14 @@
             .option-card {
                 transition: none !important;
             }
+            .reveal, .reveal-left, .reveal-right, .reveal-scale {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .btn-sweep::before {
+                display: none !important;
+            }
         }
 
         @keyframes pulse-glow {
@@ -206,13 +215,15 @@
         /* Enhanced button styles */
         .btn-primary {
             background: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 14px rgba(109, 40, 217, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 14px rgba(109, 40, 217, 0.4),
+                        0 0 40px rgba(109, 40, 217, 0.12);
         }
 
         .btn-primary:hover {
-            box-shadow: 0 6px 20px rgba(109, 40, 217, 0.6);
-            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(109, 40, 217, 0.5),
+                        0 0 60px rgba(236, 72, 153, 0.15);
+            transform: translateY(-3px) scale(1.02);
         }
 
         /* Stat counter animation */
@@ -426,11 +437,11 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            -webkit-backdrop-filter: blur(10px);
-            -moz-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background: rgba(10, 10, 15, 0.85);
+            -webkit-backdrop-filter: blur(12px);
+            -moz-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.3s ease;
         }
 
@@ -468,6 +479,148 @@
                 height: 40px;
             }
         }
+
+        /* =============================================
+           VISUAL UPGRADE v5: Futuristic Premium Design
+           ============================================= */
+
+        /* Scroll-triggered reveals */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.visible, .reveal-left.visible, .reveal-right.visible, .reveal-scale.visible {
+            opacity: 1;
+            transform: translateY(0) translateX(0) scale(1);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* Dark hero gradient */
+        .gradient-hero-dark {
+            background: linear-gradient(160deg, #0a0a0f 0%, #1a0a2e 40%, #150820 70%, #0a0a0f 100%);
+        }
+
+        /* Deep layered shadows */
+        .shadow-deep {
+            box-shadow: 0 4px 6px rgba(109, 40, 217, 0.04),
+                        0 12px 20px rgba(109, 40, 217, 0.06),
+                        0 42px 69px -18px rgba(109, 40, 217, 0.12);
+        }
+        .shadow-glow-purple {
+            box-shadow: 0 0 20px rgba(109, 40, 217, 0.2),
+                        0 0 60px rgba(109, 40, 217, 0.08);
+        }
+        .shadow-glow-pink {
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.2),
+                        0 0 60px rgba(236, 72, 153, 0.08);
+        }
+
+        /* Card border glow for dark sections */
+        .card-glow {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        @media (hover: hover) {
+            .card-glow:hover {
+                border-color: rgba(236, 72, 153, 0.3);
+                box-shadow: 0 0 30px rgba(236, 72, 153, 0.08),
+                            0 20px 40px -12px rgba(109, 40, 217, 0.15);
+            }
+        }
+
+        /* Button light sweep on hover */
+        .btn-sweep {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-sweep::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+        @media (hover: hover) {
+            .btn-sweep:hover::before {
+                left: 100%;
+            }
+        }
+
+        /* Section gradient transitions */
+        .section-fade-in-dark {
+            position: relative;
+        }
+        .section-fade-in-dark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, #0a0a0f, transparent);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .section-fade-out-dark {
+            position: relative;
+        }
+        .section-fade-out-dark::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, #0a0a0f, transparent);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Dark section utility */
+        .section-dark {
+            background: linear-gradient(160deg, #0a0a0f 0%, #110a1f 50%, #0a0a0f 100%);
+            color: #fff;
+        }
+        .section-dark h2, .section-dark h3 {
+            color: #fff;
+        }
+        .section-dark p {
+            color: #d1d5db;
+        }
+        .section-dark .glass-dark {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .section-dark .faq-question h3 { color: #fff; }
+        .section-dark .faq-answer { color: #d1d5db; }
+        .section-dark table { color: #d1d5db; }
+        .section-dark th { color: #fff; background: rgba(255,255,255,0.1); }
+        .section-dark td { border-color: rgba(255,255,255,0.1); }
     </style>
 </head>
 <body class="bg-white text-black antialiased">
@@ -492,16 +645,16 @@
 
                 <!-- Desktop Navigation Links -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/assessment.html" class="nav-link text-gray-700 font-medium hover:text-pink-600 transition">Assessment</a>
-                    <a href="#calculator" class="nav-link text-gray-700 font-medium hover:text-pink-600 transition">ROI Calculator</a>
-                    <a href="#about" class="nav-link text-gray-700 font-medium hover:text-pink-600 transition">About</a>
+                    <a href="/assessment.html" class="nav-link text-gray-300 font-medium hover:text-pink-400 transition">Assessment</a>
+                    <a href="#calculator" class="nav-link text-gray-300 font-medium hover:text-pink-400 transition">ROI Calculator</a>
+                    <a href="#about" class="nav-link text-gray-300 font-medium hover:text-pink-400 transition">About</a>
                     <a href="#contact" class="btn-primary text-white px-6 py-3 rounded-xl font-semibold text-sm hover-glow">
                         Get Started →
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden text-gray-700 focus:outline-none p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Toggle mobile menu" aria-expanded="false">
+                <button id="mobileMenuBtn" class="md:hidden text-gray-300 focus:outline-none p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Toggle mobile menu" aria-expanded="false">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -509,10 +662,10 @@
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 space-y-4">
-                <a href="/assessment.html" class="block nav-link text-gray-700 font-medium py-2">Assessment</a>
-                <a href="#calculator" class="block nav-link text-gray-700 font-medium py-2">ROI Calculator</a>
-                <a href="#about" class="block nav-link text-gray-700 font-medium py-2">About</a>
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 space-y-4 bg-[#0a0a0f]/95 rounded-xl px-4">
+                <a href="/assessment.html" class="block nav-link text-gray-300 font-medium py-2">Assessment</a>
+                <a href="#calculator" class="block nav-link text-gray-300 font-medium py-2">ROI Calculator</a>
+                <a href="#about" class="block nav-link text-gray-300 font-medium py-2">About</a>
                 <a href="#contact" class="block btn-primary text-white px-6 py-3 rounded-xl font-semibold text-center">
                     Get Started →
                 </a>
@@ -529,10 +682,10 @@
     </div>
 
     <!-- HERO SECTION -->
-    <section class="min-h-screen flex items-center justify-center px-6 py-20 gradient-hero">
+    <section class="min-h-screen flex items-center justify-center px-6 py-20 gradient-hero-dark section-fade-out-dark">
         <div class="max-w-5xl mx-auto text-center animate-fade-in">
             <!-- Eyebrow (Pain Point Trigger) -->
-            <div class="inline-block bg-gradient-to-r from-pink-100 to-purple-100 px-6 py-3 rounded-full mb-3">
+            <div class="inline-block bg-white/10 backdrop-blur border border-white/20 px-6 py-3 rounded-full mb-3">
                 <p class="text-sm md:text-base font-semibold gradient-accent bg-clip-text text-transparent">
                     THE WINDOW IS NOW — PROFESSIONAL SERVICES & CONSTRUCTION · COACHES · CONSULTANTS · AGENCIES
                 </p>
@@ -545,11 +698,11 @@
                     PVRPOSE EA
                 </button>
                 <button id="tab-ea" onclick="setHeroTab('ea')"
-                    class="hero-tab-btn w-full sm:w-auto cursor-pointer px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600">
+                    class="hero-tab-btn w-full sm:w-auto cursor-pointer px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 border-2 border-gray-600 bg-transparent text-gray-400 hover:border-pink-400 hover:text-pink-300">
                     EA Amplify
                 </button>
                 <button id="tab-scale" onclick="setHeroTab('scale')"
-                    class="hero-tab-btn w-full sm:w-auto cursor-pointer px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600">
+                    class="hero-tab-btn w-full sm:w-auto cursor-pointer px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 border-2 border-gray-600 bg-transparent text-gray-400 hover:border-pink-400 hover:text-pink-300">
                     EA Scale
                 </button>
             </div>
@@ -573,19 +726,19 @@
 
             <!-- Supporting Tagline -->
             <!-- PVRPOSE EA Tagline (default) -->
-            <p id="hero-tagline-solo" class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium leading-relaxed">
+            <p id="hero-tagline-solo" class="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto font-medium leading-relaxed">
                 A done-for-you AI Operating System built around your voice and strategy. Live in 6 weeks. Your data stays on infrastructure you control. CASL/PIPEDA compliant. You own everything.
             </p>
             <!-- EA Amplify Tagline -->
-            <p id="hero-tagline-ea" class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium leading-relaxed hidden">
+            <p id="hero-tagline-ea" class="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto font-medium leading-relaxed hidden">
                 Your EA stays in control. The AI handles the repetitive work — in your exact voice — so they become 3× more effective. 2 users, one system.
             </p>
             <!-- EA Scale Tagline -->
-            <p id="hero-tagline-scale" class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium leading-relaxed hidden">
+            <p id="hero-tagline-scale" class="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto font-medium leading-relaxed hidden">
                 For agencies and firms with 3+ team members. Dedicated agent bots per role, CRM integration, client dashboards, and team coordination — built in 8–12 weeks.
             </p>
 
-            <p style="font-size: 0.95em; color: #aaa; font-style: italic; margin-top: 0.5em; margin-bottom: 1.5em;">
+            <p style="font-size: 0.95em; color: #9ca3af; font-style: italic; margin-top: 0.5em; margin-bottom: 1.5em;">
             🇫🇷 <strong>Vous êtes basé au Québec?</strong> PVRPOSE AI OS est conçu pour les professionnels canadiens — conforme CASL, PIPEDA et Loi 25. Écrivez-nous en français : <a href="mailto:juan@pvrpose.ai">juan@pvrpose.ai</a>
             </p>
 
@@ -593,7 +746,7 @@
             <!-- Solo CTAs -->
             <div id="hero-cta-solo" class="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a href="#pioneer"
-                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold hover:shadow-xl transition text-center"
+                   class="inline-block bg-pink-600 hover:bg-pink-500 text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold hover:shadow-xl transition text-center btn-sweep"
                    aria-label="Apply for Pioneer Spot"
                    onclick="trackEvent('cta_click', {
                        'cta_type': 'pioneer',
@@ -604,7 +757,7 @@
                 </a>
                 or
                 <a href="/assessment.html"
-                   class="inline-block btn-primary text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold text-center"
+                   class="inline-block btn-primary btn-sweep text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold text-center"
                    style="opacity: 0.75; font-size: 0.9em;"
                    aria-label="Take AI Readiness Assessment"
                    onclick="trackEvent('cta_click', {
@@ -618,13 +771,13 @@
             <!-- EA Amplify CTAs (hidden by default) -->
             <div id="hero-cta-ea" class="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center hidden">
                 <a href="#ea-superpowers"
-                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold hover:shadow-xl transition text-center"
+                   class="inline-block bg-pink-600 hover:bg-pink-500 text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold hover:shadow-xl transition text-center btn-sweep"
                    aria-label="See EA Amplify in Action">
                     See EA Amplify in Action →
                 </a>
                 or
                 <a href="/assessment.html"
-                   class="inline-block btn-primary text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold text-center"
+                   class="inline-block btn-primary btn-sweep text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold text-center"
                    style="opacity: 0.75; font-size: 0.9em;"
                    aria-label="Take Free Assessment">
                     Take Free Assessment →
@@ -633,65 +786,65 @@
             <!-- EA Scale CTAs (hidden by default) -->
             <div id="hero-cta-scale" class="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center hidden">
                 <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer"
-                   class="inline-block bg-pink-600 hover:bg-pink-700 text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold hover:shadow-xl transition text-center"
+                   class="inline-block bg-pink-600 hover:bg-pink-500 text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold hover:shadow-xl transition text-center btn-sweep"
                    aria-label="Book EA Scale Discovery Call">
                     Book EA Scale Discovery Call →
                 </a>
                 or
                 <a href="/assessment.html"
-                   class="inline-block btn-primary text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold text-center"
+                   class="inline-block btn-primary btn-sweep text-white w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 rounded-xl text-lg sm:text-xl md:text-2xl font-semibold text-center"
                    style="opacity: 0.75; font-size: 0.9em;"
                    aria-label="Take Free Assessment">
                     Take Free Assessment →
                 </a>
             </div>
-            <p class="text-sm text-gray-500 mb-16">Already know you're ready? Apply for a pioneer spot. Not sure yet? Take the 2-minute assessment.</p>
+            <p class="text-sm text-gray-400 mb-16">Already know you're ready? Apply for a pioneer spot. Not sure yet? Take the 2-minute assessment.</p>
 
-            <div class="max-w-3xl mx-auto mb-10 px-6 py-5 rounded-2xl bg-gradient-to-r from-purple-50 to-purple-50 border border-purple-100 text-center">
-                <p class="text-base md:text-lg font-semibold text-gray-800 italic mb-2">
+            <div class="max-w-3xl mx-auto mb-10 px-6 py-5 rounded-2xl bg-white/5 backdrop-blur border border-white/10 text-center">
+                <p class="text-base md:text-lg font-semibold text-gray-200 italic mb-2">
                     "There aren't individual contributing workers anymore — we all deploy with a set of AIs."
                 </p>
-                <p class="text-sm text-gray-500 mb-3">— Reid Hoffman, Co-founder of LinkedIn (February 2026)</p>
-                <p class="text-sm md:text-base font-semibold text-deep-blue">
+                <p class="text-sm text-gray-400 mb-3">— Reid Hoffman, Co-founder of LinkedIn (February 2026)</p>
+                <p class="text-sm md:text-base font-semibold text-pink-400">
                     PVRPOSE AI OS is how professional services firms deploy theirs.
                 </p>
             </div>
 
             <!-- Trust Indicators -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto pt-12 border-t border-gray-200">
-                <div class="text-center group hover-lift">
-                    <div class="inline-block p-3 bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl mb-3">
-                        <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto pt-12 border-t border-white/10">
+                <div class="text-center group hover-lift reveal reveal-delay-1">
+                    <div class="inline-block p-3 bg-white/10 rounded-2xl mb-3">
+                        <svg class="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path>
                         </svg>
                     </div>
                     <p class="stat-number text-3xl sm:text-4xl md:text-5xl font-bold mb-2 gradient-accent bg-clip-text text-transparent">Over 90%</p>
-                    <p class="text-sm font-medium text-gray-700 mb-1">From referrals & warm introductions</p>
-                    <p class="text-xs text-gray-500">Trusted recommendations from professional networks</p>
+                    <p class="text-sm font-medium text-gray-300 mb-1">From referrals & warm introductions</p>
+                    <p class="text-xs text-gray-400">Trusted recommendations from professional networks</p>
                 </div>
-                <div class="text-center group hover-lift">
-                    <div class="inline-block p-3 bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl mb-3">
-                        <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="text-center group hover-lift reveal reveal-delay-2">
+                    <div class="inline-block p-3 bg-white/10 rounded-2xl mb-3">
+                        <svg class="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
                     <p class="stat-number text-3xl sm:text-4xl md:text-5xl font-bold mb-2 gradient-accent bg-clip-text text-transparent">6 weeks</p>
-                    <p class="text-sm font-medium text-gray-700 mb-1">Phone-Controlled PVRPOSE EA Live</p>
-                    <p class="text-xs text-gray-500">Your data, your infrastructure — not 6–12 months like others</p>
+                    <p class="text-sm font-medium text-gray-300 mb-1">Phone-Controlled PVRPOSE EA Live</p>
+                    <p class="text-xs text-gray-400">Your data, your infrastructure — not 6–12 months like others</p>
                 </div>
-                <div class="text-center group hover-lift">
-                    <div class="inline-block p-3 bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl mb-3">
-                        <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="text-center group hover-lift reveal reveal-delay-3">
+                    <div class="inline-block p-3 bg-white/10 rounded-2xl mb-3">
+                        <svg class="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
                         </svg>
                     </div>
                     <p class="stat-number text-3xl sm:text-4xl md:text-5xl font-bold mb-2 gradient-accent bg-clip-text text-transparent">10–20×</p>
-                    <p class="text-sm font-medium text-gray-700 mb-1">Projected ROI for qualifying clients</p>
-                    <p class="text-xs text-gray-500">For $100K+ revenue firms with 10+ hrs/week admin load</p>
+                    <p class="text-sm font-medium text-gray-300 mb-1">Projected ROI for qualifying clients</p>
+                    <p class="text-xs text-gray-400">For $100K+ revenue firms with 10+ hrs/week admin load</p>
                 </div>
             </div>
             <p class="text-center text-xs text-gray-500 mt-6">ROI projections based on documented client outcomes and comparable business analysis, 2023–2025. Results depend on your revenue, admin volume, implementation completeness, and business model. Individual results will vary.</p>
-            <p class="text-center text-xs text-gray-500 mt-2">All ROI figures shown on this page are illustrative projections. Past performance in comparable engagements does not guarantee your results.</p>
+            <p class="text-center text-xs text-gray-500 mt-2 mb-8">All ROI figures shown on this page are illustrative projections. Past performance in comparable engagements does not guarantee your results.</p>
         </div>
     </section>
 
@@ -701,7 +854,7 @@
 
             <!-- SOLO FOUNDER VERSION (hidden when EA tab active) -->
             <div id="monday-solo">
-                <div class="text-center mb-12">
+                <div class="text-center mb-12 reveal">
                     <p class="text-pink-600 font-bold text-xs tracking-widest uppercase mb-3">Your Voice. Your Vision. Your Vibe.</p>
                     <h2 class="text-3xl md:text-5xl font-bold hero-headline mb-4">
                         What Monday Morning Looks Like<br class="hidden md:block"> With Your PVRPOSE EA
@@ -914,18 +1067,18 @@
     </section>
 
     <!-- IS THIS FOR YOU? SECTION -->
-    <section class="py-20 px-6 bg-white border-t border-b border-gray-200">
+    <section class="py-20 px-6 section-dark section-fade-in-dark section-fade-out-dark relative">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center hero-headline">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center hero-headline reveal">
                 Is This For You?
             </h2>
-            <p class="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            <p class="text-xl text-gray-400 text-center mb-12 max-w-2xl mx-auto reveal">
                 We work with a specific type of business owner. See if you qualify.
             </p>
 
             <div class="grid md:grid-cols-2 gap-12">
                 <!-- Perfect Fit Column -->
-                <div class="glass-dark p-8 rounded-2xl">
+                <div class="bg-white/5 backdrop-blur border border-white/10 card-glow p-8 rounded-2xl reveal-left">
                     <div class="flex items-center mb-6">
                         <svg class="w-8 h-8 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -961,14 +1114,14 @@
                 </div>
 
                 <!-- Not a Fit Column -->
-                <div class="bg-gray-50 p-8 rounded-2xl border-2 border-gray-200">
+                <div class="bg-white/5 backdrop-blur border border-white/10 card-glow p-8 rounded-2xl reveal-right">
                     <div class="flex items-center mb-6">
-                        <svg class="w-8 h-8 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        <h3 class="text-2xl font-bold text-gray-600">This Isn't For You If:</h3>
+                        <h3 class="text-2xl font-bold text-gray-400">This Isn't For You If:</h3>
                     </div>
-                    <ul class="space-y-3 text-base text-gray-600">
+                    <ul class="space-y-3 text-base text-gray-400">
                         <li class="flex items-start">
                             <span class="mr-3">✗</span>
                             <span>Pre-revenue or under $50K (focus on sales first)</span>
@@ -994,17 +1147,17 @@
             </div>
 
             <!-- CTA -->
-            <div class="glass-dark p-8 md:p-10 rounded-3xl shadow-xl mt-12">
+            <div class="bg-white/5 backdrop-blur border border-white/10 p-8 md:p-10 rounded-3xl mt-12 reveal">
                 <div class="text-center">
-                    <h3 class="text-2xl md:text-3xl font-bold mb-3">Sound Like You?</h3>
-                    <p class="text-base text-gray-700 mb-6 max-w-xl mx-auto">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white">Sound Like You?</h3>
+                    <p class="text-base text-gray-300 mb-6 max-w-xl mx-auto">
                         Take the 2-minute assessment and get your personalized AI Implementation Roadmap.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a href="/assessment.html" class="inline-block btn-primary text-white w-full sm:w-auto px-6 sm:px-10 py-4 rounded-xl text-lg font-semibold hover-glow text-center">
+                        <a href="/assessment.html" class="inline-block btn-primary btn-sweep text-white w-full sm:w-auto px-6 sm:px-10 py-4 rounded-xl text-lg font-semibold hover-glow text-center">
                             Take Free Assessment →
                         </a>
-                        <a href="#calculator" class="inline-block bg-white text-gray-800 border-2 border-gray-300 w-full sm:w-auto px-6 sm:px-10 py-4 rounded-xl text-lg font-semibold hover:border-pink-500 hover:bg-gray-50 transition text-center">
+                        <a href="#calculator" class="inline-block bg-white/10 text-gray-200 border border-white/20 w-full sm:w-auto px-6 sm:px-10 py-4 rounded-xl text-lg font-semibold hover:border-pink-500 hover:bg-white/15 transition text-center">
                             Calculate ROI
                         </a>
                     </div>
@@ -1028,14 +1181,14 @@
     <!-- ROI CALCULATOR SECTION (MOVED UP for conversion optimization) -->
     <section id="calculator" class="py-20 px-6 bg-white">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center hero-headline">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center hero-headline reveal">
                 Calculate Your ROI
             </h2>
-            <p class="text-xl text-center text-gray-700 mb-12 max-w-2xl mx-auto">
+            <p class="text-xl text-center text-gray-700 mb-12 max-w-2xl mx-auto reveal">
                 See exactly how much time and money you could save with AI automation
             </p>
 
-            <div class="glass-dark p-8 md:p-12 rounded-3xl shadow-2xl">
+            <div class="glass-dark p-8 md:p-12 rounded-3xl shadow-2xl reveal-scale shadow-glow-purple">
                 <form id="roiCalculator" class="space-y-6">
                     <div>
                         <label for="revenue" class="block text-lg font-semibold mb-2">Current Annual Revenue</label>
@@ -1418,13 +1571,13 @@
     </script>
 
     <!-- DIY VS PROFESSIONAL COMPARISON -->
-    <section id="diy-comparison" class="py-20 px-6 bg-white">
+    <section id="diy-comparison" class="py-20 px-6 section-dark section-fade-in-dark section-fade-out-dark relative">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 hero-headline">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 hero-headline reveal">
                     DIY vs. Professional AI Implementation
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto reveal">
                     Should you try to build AI automation yourself first?
                 </p>
             </div>
@@ -1432,58 +1585,58 @@
             <!-- Comparison Table -->
             <div class="grid md:grid-cols-2 gap-8 mb-12">
                 <!-- DIY Column -->
-                <div class="bg-gray-50 border-2 border-gray-200 rounded-3xl p-8 md:p-10">
+                <div class="bg-white/5 border border-white/10 card-glow rounded-3xl p-8 md:p-10 reveal-left">
                     <div class="text-center mb-8">
-                        <div class="inline-block p-4 bg-gray-200 rounded-2xl mb-4">
-                            <svg class="w-12 h-12 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="inline-block p-4 bg-white/10 rounded-2xl mb-4">
+                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-3xl font-bold text-gray-800 mb-2">DIY Approach</h3>
-                        <p class="text-gray-600">Building it yourself</p>
+                        <h3 class="text-3xl font-bold text-white mb-2">DIY Approach</h3>
+                        <p class="text-gray-400">Building it yourself</p>
                     </div>
 
                     <div class="space-y-4 mb-8">
                         <div class="flex items-start">
-                            <span class="text-red-500 mr-3 text-xl font-bold flex-shrink-0">✗</span>
-                            <span class="text-gray-700"><strong>40–80 hours</strong> of your time for initial setup</span>
+                            <span class="text-red-400 mr-3 text-xl font-bold flex-shrink-0">✗</span>
+                            <span class="text-gray-300"><strong class="text-white">40–80 hours</strong> of your time for initial setup</span>
                         </div>
                         <div class="flex items-start">
-                            <span class="text-red-500 mr-3 text-xl font-bold flex-shrink-0">✗</span>
-                            <span class="text-gray-700">Requires <strong>technical troubleshooting</strong> when things break</span>
+                            <span class="text-red-400 mr-3 text-xl font-bold flex-shrink-0">✗</span>
+                            <span class="text-gray-300">Requires <strong class="text-white">technical troubleshooting</strong> when things break</span>
                         </div>
                         <div class="flex items-start">
-                            <span class="text-red-500 mr-3 text-xl font-bold flex-shrink-0">✗</span>
-                            <span class="text-gray-700">No compliance review (CASL, PIPEDA, GDPR risks)</span>
+                            <span class="text-red-400 mr-3 text-xl font-bold flex-shrink-0">✗</span>
+                            <span class="text-gray-300">No compliance review (CASL, PIPEDA, GDPR risks)</span>
                         </div>
                         <div class="flex items-start">
-                            <span class="text-red-500 mr-3 text-xl font-bold flex-shrink-0">✗</span>
-                            <span class="text-gray-700">You're on your own if automations fail</span>
+                            <span class="text-red-400 mr-3 text-xl font-bold flex-shrink-0">✗</span>
+                            <span class="text-gray-300">You're on your own if automations fail</span>
                         </div>
                         <div class="flex items-start">
-                            <span class="text-red-500 mr-3 text-xl font-bold flex-shrink-0">✗</span>
-                            <span class="text-gray-700">Limited to your own expertise and time</span>
+                            <span class="text-red-400 mr-3 text-xl font-bold flex-shrink-0">✗</span>
+                            <span class="text-gray-300">Limited to your own expertise and time</span>
                         </div>
                         <div class="flex items-start">
-                            <span class="text-red-500 mr-3 text-xl font-bold flex-shrink-0">✗</span>
-                            <span class="text-gray-700">High risk of brittle systems that don't scale</span>
+                            <span class="text-red-400 mr-3 text-xl font-bold flex-shrink-0">✗</span>
+                            <span class="text-gray-300">High risk of brittle systems that don't scale</span>
                         </div>
                         <div class="flex items-start">
-                            <span class="text-red-500 mr-3 text-xl font-bold flex-shrink-0">✗</span>
-                            <span class="text-gray-700">No documentation or training for your team</span>
+                            <span class="text-red-400 mr-3 text-xl font-bold flex-shrink-0">✗</span>
+                            <span class="text-gray-300">No documentation or training for your team</span>
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-xl border-2 border-gray-200">
-                        <p class="text-sm font-semibold text-gray-600 mb-2">HIDDEN COSTS:</p>
-                        <p class="text-xl sm:text-2xl font-bold text-gray-800 mb-2">$32,000 - $80,000+</p>
-                        <p class="text-sm text-gray-600">Setup (40–80 hrs) + troubleshooting (5–10 hrs/month × 12 months) at $200/hr — higher for founders billing $300–$500/hr</p>
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/20">
+                        <p class="text-sm font-semibold text-gray-400 mb-2">HIDDEN COSTS:</p>
+                        <p class="text-xl sm:text-2xl font-bold text-white mb-2">$32,000 - $80,000+</p>
+                        <p class="text-sm text-gray-400">Setup (40–80 hrs) + troubleshooting (5–10 hrs/month × 12 months) at $200/hr — higher for founders billing $300–$500/hr</p>
                     </div>
                 </div>
 
                 <!-- Professional Column -->
-                <div class="bg-gradient-to-br from-pink-50 to-purple-50 border-4 border-pink-500 rounded-3xl p-8 md:p-10 relative">
+                <div class="bg-gradient-to-br from-pink-900/30 to-purple-900/30 border-2 border-pink-500 shadow-glow-pink rounded-3xl p-8 md:p-10 relative reveal-right">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
                         <span class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
                             RECOMMENDED
@@ -1491,55 +1644,55 @@
                     </div>
 
                     <div class="text-center mb-8 mt-4">
-                        <div class="inline-block p-4 bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl mb-4">
-                            <svg class="w-12 h-12 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="inline-block p-4 bg-gradient-to-br from-pink-900/40 to-purple-900/40 rounded-2xl mb-4">
+                            <svg class="w-12 h-12 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-3xl font-bold text-gray-900 mb-2">PVRPOSE AI</h3>
-                        <p class="text-gray-700 font-medium">Professional Implementation</p>
+                        <h3 class="text-3xl font-bold text-white mb-2">PVRPOSE AI</h3>
+                        <p class="text-gray-300 font-medium">Professional Implementation</p>
                     </div>
 
                     <div class="space-y-4 mb-8">
                         <div class="flex items-start">
-                            <span class="text-green-600 mr-3 text-xl font-bold flex-shrink-0">✓</span>
-                            <span class="text-gray-800"><strong>15–20 hours</strong> of your time over 6 weeks</span>
+                            <span class="text-green-400 mr-3 text-xl font-bold flex-shrink-0">✓</span>
+                            <span class="text-gray-200"><strong class="text-white">15–20 hours</strong> of your time over 6 weeks</span>
                         </div>
                         <div class="flex items-start">
-                            <span class="text-green-600 mr-3 text-xl font-bold flex-shrink-0">✓</span>
-                            <span class="text-gray-800">We handle <strong>all technical setup & troubleshooting</strong></span>
+                            <span class="text-green-400 mr-3 text-xl font-bold flex-shrink-0">✓</span>
+                            <span class="text-gray-200">We handle <strong class="text-white">all technical setup & troubleshooting</strong></span>
                         </div>
                         <div class="flex items-start">
-                            <span class="text-green-600 mr-3 text-xl font-bold flex-shrink-0">✓</span>
-                            <span class="text-gray-800"><strong>Compliance-aware</strong> implementation (CASL, PIPEDA, GDPR, CCPA)</span>
+                            <span class="text-green-400 mr-3 text-xl font-bold flex-shrink-0">✓</span>
+                            <span class="text-gray-200"><strong class="text-white">Compliance-aware</strong> implementation (CASL, PIPEDA, GDPR, CCPA)</span>
                         </div>
                         <div class="flex items-start">
-                            <span class="text-green-600 mr-3 text-xl font-bold flex-shrink-0">✓</span>
-                            <span class="text-gray-800"><strong>30-day support</strong> + optional retainer for ongoing help</span>
+                            <span class="text-green-400 mr-3 text-xl font-bold flex-shrink-0">✓</span>
+                            <span class="text-gray-200"><strong class="text-white">30-day support</strong> + optional retainer for ongoing help</span>
                         </div>
                         <div class="flex items-start">
-                            <span class="text-green-600 mr-3 text-xl font-bold flex-shrink-0">✓</span>
-                            <span class="text-gray-800">Enterprise expertise applied to <strong>your business</strong></span>
+                            <span class="text-green-400 mr-3 text-xl font-bold flex-shrink-0">✓</span>
+                            <span class="text-gray-200">Enterprise expertise applied to <strong class="text-white">your business</strong></span>
                         </div>
                         <div class="flex items-start">
-                            <span class="text-green-600 mr-3 text-xl font-bold flex-shrink-0">✓</span>
-                            <span class="text-gray-800">Purpose-built systems designed around your specific workflows</span>
+                            <span class="text-green-400 mr-3 text-xl font-bold flex-shrink-0">✓</span>
+                            <span class="text-gray-200">Purpose-built systems designed around your specific workflows</span>
                         </div>
                         <div class="flex items-start">
-                            <span class="text-green-600 mr-3 text-xl font-bold flex-shrink-0">✓</span>
-                            <span class="text-gray-800"><strong>Complete documentation</strong> + video training for team</span>
+                            <span class="text-green-400 mr-3 text-xl font-bold flex-shrink-0">✓</span>
+                            <span class="text-gray-200"><strong class="text-white">Complete documentation</strong> + video training for team</span>
                         </div>
                         <div class="flex items-start">
-                            <span class="text-green-600 mr-3 text-xl font-bold flex-shrink-0">✓</span>
-                            <span class="text-gray-800"><strong>You own all code & prompts</strong>—no vendor lock-in</span>
+                            <span class="text-green-400 mr-3 text-xl font-bold flex-shrink-0">✓</span>
+                            <span class="text-gray-200"><strong class="text-white">You own all code & prompts</strong>—no vendor lock-in</span>
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-xl border-2 border-pink-200">
-                        <p class="text-sm font-semibold text-gray-600 mb-2">TOTAL INVESTMENT:</p>
-                        <p class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">$15,000 - $40,000 CAD</p>
-                        <p class="text-sm text-gray-700 mb-3">PVRPOSE EA from $15K · EA Amplify from $18K · EA Scale from $25K</p>
-                        <p class="text-xs text-pink-700 font-semibold">Typical for $100K+ revenue firms with 10+ hrs/week admin: save 10–15 hrs/week or unlock $10K–$50K+ per year</p>
+                    <div class="bg-gradient-to-br from-pink-900/20 to-purple-900/20 p-6 rounded-xl border border-pink-500/30">
+                        <p class="text-sm font-semibold text-gray-400 mb-2">TOTAL INVESTMENT:</p>
+                        <p class="text-xl sm:text-2xl font-bold text-white mb-2">$15,000 - $40,000 CAD</p>
+                        <p class="text-sm text-gray-300 mb-3">PVRPOSE EA from $15K · EA Amplify from $18K · EA Scale from $25K</p>
+                        <p class="text-xs text-pink-300 font-semibold">Typical for $100K+ revenue firms with 10+ hrs/week admin: save 10–15 hrs/week or unlock $10K–$50K+ per year</p>
                     </div>
                 </div>
             </div>
@@ -1696,13 +1849,13 @@
     </section>
 
     <!-- PRODUCT TIERS SECTION -->
-    <section class="py-20 px-6 bg-gray-50" id="services">
+    <section class="py-24 md:py-28 px-6 bg-gray-50" id="services">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center hero-headline">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center hero-headline reveal">
                 Choose Your PVRPOSE EA
             </h2>
 
-            <p class="text-xl md:text-2xl text-center text-gray-700 mb-6 max-w-3xl mx-auto font-light leading-relaxed">
+            <p class="text-xl md:text-2xl text-center text-gray-700 mb-6 max-w-3xl mx-auto font-light leading-relaxed reveal">
                 Three tiers. One system. Built around how your business actually runs.
             </p>
 
@@ -1716,7 +1869,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
 
                 <!-- TIER 1: PVRPOSE EA -->
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift border-t-4 border-purple-600 flex flex-col">
+                <div class="bg-white p-8 rounded-2xl shadow-deep hover-lift border-t-4 border-purple-600 flex flex-col reveal reveal-delay-1">
                     <div class="mb-6">
                         <span class="inline-block bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3">Tier 1</span>
                         <h3 class="text-2xl md:text-3xl font-bold mb-1">PVRPOSE EA</h3>
@@ -1748,7 +1901,7 @@
                 </div>
 
                 <!-- TIER 2: PVRPOSE EA AMPLIFY (Featured) -->
-                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border-t-4 border-pink-500 flex flex-col relative ring-2 ring-pink-200">
+                <div class="bg-white p-8 rounded-2xl shadow-glow-pink hover-lift border-t-4 border-pink-500 flex flex-col relative ring-2 ring-pink-200 reveal reveal-delay-2">
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">
                         Most Popular
                     </div>
@@ -1784,7 +1937,7 @@
                 </div>
 
                 <!-- TIER 3: PVRPOSE EA SCALE -->
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift border-t-4 border-gray-800 flex flex-col">
+                <div class="bg-white p-8 rounded-2xl shadow-deep hover-lift border-t-4 border-gray-800 flex flex-col reveal reveal-delay-3">
                     <div class="mb-6">
                         <span class="inline-block bg-gray-100 text-gray-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3">Tier 3</span>
                         <h3 class="text-2xl md:text-3xl font-bold mb-1">PVRPOSE EA Scale</h3>
@@ -2262,13 +2415,13 @@
 
 
     <!-- FAQ SECTION -->
-    <section class="py-20 px-6 bg-white">
+    <section class="py-20 px-6 section-dark section-fade-in-dark relative">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 hero-headline">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 hero-headline reveal">
                     Frequently Asked Questions
                 </h2>
-                <p class="text-xl text-gray-600">
+                <p class="text-xl text-gray-400 reveal">
                     Everything you need to know about working with PVRPOSE AI
                 </p>
             </div>
@@ -2714,12 +2867,12 @@
             </div><!-- end space-y-6 -->
 
             <!-- FAQ CTA -->
-            <div class="mt-12 text-center p-8 bg-gradient-to-br from-pink-50 to-purple-50 rounded-3xl border-2 border-pink-200">
-                <h3 class="text-2xl font-bold mb-4 text-gray-900">Still Have Questions?</h3>
-                <p class="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+            <div class="mt-12 text-center p-8 bg-white/5 backdrop-blur border border-white/10 rounded-3xl reveal">
+                <h3 class="text-2xl font-bold mb-4 text-white">Still Have Questions?</h3>
+                <p class="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
                     Book a free 30-minute discovery call. We'll answer your specific questions and see if PVRPOSE AI is a good fit for your business.
                 </p>
-                <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer" class="inline-block btn-primary text-white w-full sm:w-auto px-6 sm:px-10 py-4 rounded-xl text-lg font-semibold hover-glow text-center">
+                <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call" target="_blank" rel="noopener noreferrer" class="inline-block btn-primary btn-sweep text-white w-full sm:w-auto px-6 sm:px-10 py-4 rounded-xl text-lg font-semibold hover-glow text-center">
                     Schedule Discovery Call →
                 </a>
             </div>
@@ -2827,7 +2980,7 @@
     </section>
 
     <!-- PIONEER SECTION -->
-    <section id="pioneer" class="py-20 px-6 bg-gradient-to-br from-purple-950 via-purple-900 to-pink-900 text-white">
+    <section id="pioneer" class="py-24 md:py-28 px-6 bg-gradient-to-br from-purple-950 via-purple-900 to-pink-900 text-white">
         <div class="max-w-6xl mx-auto">
             <!-- Headline -->
             <div class="text-center mb-4">
@@ -2858,7 +3011,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 
                 <!-- Box 1 — Free Spot -->
-                <div class="pioneer-free-box rounded-2xl p-8 relative">
+                <div class="pioneer-free-box rounded-2xl p-8 relative shadow-glow-purple reveal reveal-delay-1">
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-deep-blue text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">
                         ⭐ Most Exclusive — 1 Spot Only
                     </div>
@@ -2888,7 +3041,7 @@
                 </div>
 
                 <!-- Box 2 — 2 Paid Audit Spots -->
-                <div class="pioneer-paid-box rounded-2xl p-8 relative">
+                <div class="pioneer-paid-box rounded-2xl p-8 relative reveal reveal-delay-2">
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-pink-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">
                         2 Spots Available
                     </div>
@@ -2939,38 +3092,38 @@
 
 
     <!-- FINAL CTA / CONTACT SECTION -->
-    <section id="contact" class="py-20 px-6 gradient-hero">
+    <section id="contact" class="py-20 px-6 gradient-hero-dark">
         <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 hero-headline">
+            <h2 class="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 hero-headline reveal">
                 Ready to Get Started?
             </h2>
 
-            <p class="text-xl md:text-2xl text-gray-700 mb-16 max-w-3xl mx-auto font-light leading-relaxed">
+            <p class="text-xl md:text-2xl text-gray-300 mb-16 max-w-3xl mx-auto font-light leading-relaxed reveal">
                 Book a free 30-minute discovery call. We'll discuss your business, identify automation opportunities, and see if PVRPOSE AI is a good fit.
             </p>
 
-            <div class="mb-16">
+            <div class="mb-16 reveal-scale">
                 <a href="https://calendly.com/coachjuan-pvrposeai/discovery-call"
                    target="_blank"
                    rel="noopener noreferrer"
-                   class="inline-block btn-primary text-white w-full sm:w-auto px-6 sm:px-12 py-5 sm:py-6 rounded-xl text-xl sm:text-2xl font-semibold hover-glow"
+                   class="inline-block btn-primary btn-sweep text-white w-full sm:w-auto px-6 sm:px-12 py-5 sm:py-6 rounded-xl text-xl sm:text-2xl font-semibold hover-glow"
                    aria-label="Schedule your free 30-minute discovery call">
                     Schedule Your Free Discovery Call →
                 </a>
-                <p class="mt-4 text-sm text-gray-600">⚡ Delivery Guarantee — Delivered in 6 weeks or we continue at no charge • 💯 You own everything — code, data, infrastructure</p>
+                <p class="mt-4 text-sm text-gray-400">⚡ Delivery Guarantee — Delivered in 6 weeks or we continue at no charge • 💯 You own everything — code, data, infrastructure</p>
             </div>
 
-            <div class="border-t-2 border-gray-200 pt-12">
-                <p class="text-lg font-semibold mb-6">Or reach out directly:</p>
+            <div class="border-t border-white/10 pt-12">
+                <p class="text-lg font-semibold mb-6 text-white">Or reach out directly:</p>
 
                 <div class="space-y-4 text-lg">
                     <p>
-                        <span class="font-semibold">Email:</span>
-                        <a href="mailto:juan@pvrpose.ai" class="text-deep-blue hover:underline ml-2">juan@pvrpose.ai</a>
+                        <span class="font-semibold text-white">Email:</span>
+                        <a href="mailto:juan@pvrpose.ai" class="text-pink-400 hover:text-pink-300 ml-2">juan@pvrpose.ai</a>
                     </p>
                     <p>
-                        <span class="font-semibold">LinkedIn:</span>
-                        <a href="https://www.linkedin.com/company/pvrpose-ai/" target="_blank" rel="noopener noreferrer" class="text-deep-blue hover:underline ml-2">Follow PVRPOSE AI on LinkedIn</a>
+                        <span class="font-semibold text-white">LinkedIn:</span>
+                        <a href="https://www.linkedin.com/company/pvrpose-ai/" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 ml-2">Follow PVRPOSE AI on LinkedIn</a>
                     </p>
                 </div>
             </div>
@@ -3211,6 +3364,18 @@
                         stickyCTA.classList.add('visible');
                     } else {
                         stickyCTA.classList.remove('visible');
+                    }
+
+                    // Nav scroll state
+                    const nav = document.querySelector('.main-nav');
+                    if (nav) {
+                        if (window.scrollY > 20) {
+                            nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
+                            nav.style.borderBottomColor = 'rgba(255, 255, 255, 0.05)';
+                        } else {
+                            nav.style.boxShadow = 'none';
+                            nav.style.borderBottomColor = 'rgba(255, 255, 255, 0.08)';
+                        }
                     }
                 });
             }, 100); // Throttle to once every 100ms
@@ -3587,7 +3752,7 @@
         function setHeroTab(tab) {
             var tabs = ['solo', 'ea', 'scale'];
             var activeClass = 'hero-tab-btn w-full sm:w-auto cursor-pointer px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 border-2 border-pink-500 bg-gradient-to-r from-pink-600 to-purple-900 text-white shadow-lg';
-            var inactiveClass = 'hero-tab-btn w-full sm:w-auto cursor-pointer px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 border-2 border-gray-400 bg-transparent text-gray-500 hover:border-pink-400 hover:text-pink-600';
+            var inactiveClass = 'hero-tab-btn w-full sm:w-auto cursor-pointer px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 border-2 border-gray-600 bg-transparent text-gray-400 hover:border-pink-400 hover:text-pink-300';
 
             tabs.forEach(function(t) {
                 var isActive = t === tab;
@@ -3615,6 +3780,28 @@
         document.addEventListener('DOMContentLoaded', function() {
             setHeroTab('solo');
         });
+    </script>
+    <script>
+        // Scroll-triggered reveal animations (Phase 5A)
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            var revealObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
+                revealObserver.observe(el);
+            });
+        } else {
+            // Immediately show all reveal elements for reduced-motion users
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
+                el.classList.add('visible');
+            });
+        }
     </script>
 </body>
 </html>

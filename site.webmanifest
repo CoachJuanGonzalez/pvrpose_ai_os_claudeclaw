@@ -1,0 +1,22 @@
+{
+    "name": "PVRPOSE EA — The AI Executive Assistant That Runs Your Business",
+    "short_name": "PVRPOSE EA",
+    "description": "Your AI executive assistant. Built in 6 weeks. Runs from your phone. Reclaim 10-20 hours/week.",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#6d28d9",
+    "background_color": "#0a0a0f",
+    "display": "standalone",
+    "start_url": "/",
+    "orientation": "portrait-primary"
+}

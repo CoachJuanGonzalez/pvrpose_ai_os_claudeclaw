@@ -419,24 +419,25 @@
             }
         }
 
-        /* Pioneer urgency top bar */
+        /* Pioneer urgency top bar -- fixed height so CSS bar stacking is reliable */
         .pioneer-bar {
             background: linear-gradient(135deg, #6d28d9 0%, #ec4899 100%);
             color: white;
             text-align: center;
-            padding: 10px 16px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1002;
-            min-height: 42px;
-            height: auto; /* auto so it can grow if text wraps on very small screens */
+            height: 40px;
+            overflow: hidden; /* prevent wrapping that breaks nav stacking */
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 0 16px;
+            white-space: nowrap;
         }
         .pioneer-bar a {
             color: #fbcfe8;
@@ -461,28 +462,22 @@
         /* Navigation */
         .main-nav {
             position: fixed;
-            top: 42px; /* JS overrides this dynamically via positionFixedBars() */
+            top: 40px; /* matches .pioneer-bar height exactly */
             left: 0;
             right: 0;
-            z-index: 1001; /* above french bar(999), below pioneer bar(1002) */
-            background: rgba(10, 10, 15, 0.95); /* slightly more opaque for better logo contrast */
-            -webkit-backdrop-filter: blur(12px);
-            -moz-backdrop-filter: blur(12px);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            /* Only transition box-shadow and border -- NOT top (causes flash/jump) */
-            transition: box-shadow 0.3s ease, border-bottom-color 0.3s ease;
+            z-index: 1001;
+            background: #0a0a0f; /* SOLID -- no transparency, logo always visible on any device */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: box-shadow 0.3s ease;
         }
 
         .nav-logo {
-            height: 48px;
+            height: 44px;
             width: auto;
-            /* Crush to black then invert to pure white -- saturate(0) ensures no color survives */
+            display: block !important;
+            /* Force pure white on ALL browsers including iOS Safari */
             -webkit-filter: brightness(0) saturate(0) invert(1) !important;
             filter: brightness(0) saturate(0) invert(1) !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            display: block !important;
         }
 
         .nav-link {
@@ -493,116 +488,93 @@
             color: #ec4899;
         }
 
-        /* Add padding to body to account for all 3 fixed bars */
+        /* =============================================
+           BAR STACKING -- CSS-ONLY, NO JS DEPENDENCY
+           Pioneer: 40px fixed
+           Nav: 64px fixed (logo 44px + 10px padding top + 10px bottom)
+           French: follows at pioneer+nav = 104px
+           Body padding-top = 104px + french height (~34px) = 138px
+           ============================================= */
         body {
-            padding-top: 160px; /* pioneer(42) + nav(80) + french(38) -- JS recalculates */
+            padding-top: 138px;
+        }
+        .main-nav {
+            top: 40px; /* exactly pioneer bar height */
+        }
+        #french-bar {
+            top: 104px; /* pioneer(40) + nav(64) */
         }
 
-        /* ---- RESPONSIVE FIXES ---- */
-
-        /* Mobile (≤767px) */
+        /* ---- MOBILE (≤767px) ---- */
         @media (max-width: 767px) {
             body {
-                padding-top: 130px; /* JS recalculates -- this is a safe fallback */
+                padding-top: 128px; /* pioneer(40) + nav(54) + french(34) */
             }
             .pioneer-bar {
                 font-size: 11px;
-                padding: 6px 10px;
-                height: auto;
-                min-height: 34px;
+                height: 40px; /* keep same so nav top:40px still works */
+                padding: 0 10px;
             }
             .main-nav {
-                top: 34px; /* CSS fallback -- JS overrides */
+                top: 40px;
             }
             .main-nav .max-w-7xl {
-                padding-left: 12px;
-                padding-right: 12px;
-                padding-top: 10px;
-                padding-bottom: 10px;
-            }
-            #french-bar {
-                top: 100px; /* CSS fallback -- JS overrides */
-                font-size: 11px;
-                padding: 5px 10px;
-                line-height: 1.3;
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+                padding-top: 7px !important;
+                padding-bottom: 7px !important;
             }
             .nav-logo {
-                height: 36px;
+                height: 34px !important;
                 -webkit-filter: brightness(0) saturate(0) invert(1) !important;
                 filter: brightness(0) saturate(0) invert(1) !important;
             }
-            /* Section padding: tighter on mobile */
+            #french-bar {
+                top: 94px; /* pioneer(40) + nav(54) */
+                font-size: 11px !important;
+                padding: 4px 10px !important;
+                line-height: 1.3 !important;
+            }
+            /* Tighter section padding */
             .py-20 { padding-top: 48px !important; padding-bottom: 48px !important; }
             .py-24 { padding-top: 56px !important; padding-bottom: 56px !important; }
             .py-32 { padding-top: 64px !important; padding-bottom: 64px !important; }
             .mb-16 { margin-bottom: 32px !important; }
-            .mb-12 { margin-bottom: 24px !important; }
-            /* Heading sizes: prevent overflow on narrow screens */
+            /* Headings */
             .text-4xl { font-size: 1.75rem !important; line-height: 1.15 !important; }
             .text-5xl { font-size: 2rem !important; line-height: 1.15 !important; }
             .text-6xl { font-size: 2.25rem !important; line-height: 1.1 !important; }
             .text-7xl { font-size: 2.5rem !important; line-height: 1.05 !important; }
-            /* FAQ cards */
-            .glass-dark.p-8 { padding: 16px !important; }
-            /* DIY comparison cards */
-            .rounded-3xl.p-8 { padding: 16px !important; }
-            /* General card padding reduction */
-            .p-8 { padding: 16px; }
-            .p-10 { padding: 20px; }
-            .p-12 { padding: 24px; }
-            /* Fix px-6 sections to px-4 on mobile */
-            .px-6 { padding-left: 16px; padding-right: 16px; }
-            .px-8 { padding-left: 16px; padding-right: 16px; }
-            /* Timeline: tighter gap */
-            .flex.gap-6.items-start { gap: 12px; }
-            /* FAQ button pr */
-            .faq-question { padding-right: 0; }
-            .faq-question h3 { padding-right: 36px; font-size: 1rem !important; line-height: 1.4 !important; }
-        }
-
-        /* All sections: reduce large top/bottom padding on mobile */
-        @media (max-width: 767px) {
-            /* Section paragraphs: readable size */
-            .text-xl { font-size: 1rem !important; }
-            .text-2xl { font-size: 1.125rem !important; }
             .text-3xl { font-size: 1.5rem !important; }
-            /* Ensure dark section cards are readable */
-            .section-dark .rounded-3xl { border-radius: 16px; }
-            /* Star canvas: ensure no extra space */
-            #hero-section canvas { max-width: 100% !important; }
-            /* Hide long French bar text properly */
-            #french-bar span.hidden { display: none !important; }
-            /* Reduce hero mb-12 gap before CTAs */
-            .mb-12 { margin-bottom: 20px; }
-            /* Section headings */
-            section h2.text-4xl,
-            section h2.text-5xl,
-            section h2.text-6xl {
-                font-size: 1.75rem !important;
-                line-height: 1.2 !important;
-            }
+            .text-2xl { font-size: 1.125rem !important; }
+            .text-xl  { font-size: 1rem !important; }
+            /* Cards */
+            .p-8  { padding: 16px !important; }
+            .p-10 { padding: 20px !important; }
+            .p-12 { padding: 24px !important; }
+            .px-6 { padding-left: 16px !important; padding-right: 16px !important; }
+            .px-8 { padding-left: 16px !important; padding-right: 16px !important; }
         }
 
-        /* Tablet (768px – 1023px) */
+        /* ---- TABLET (768px – 1023px) ---- */
         @media (min-width: 768px) and (max-width: 1023px) {
             body {
-                padding-top: 150px;
+                padding-top: 142px; /* pioneer(40) + nav(68) + french(34) */
             }
             .main-nav {
-                top: 42px;
+                top: 40px;
             }
             #french-bar {
-                top: 118px; /* CSS fallback -- JS overrides */
+                top: 108px; /* pioneer(40) + nav(68) */
             }
             .nav-logo {
-                height: 44px;
+                height: 40px !important;
                 -webkit-filter: brightness(0) saturate(0) invert(1) !important;
                 filter: brightness(0) saturate(0) invert(1) !important;
             }
             .text-5xl { font-size: 2.5rem !important; }
             .text-6xl { font-size: 3rem !important; }
             .text-7xl { font-size: 3.5rem !important; }
-            .py-20 { padding-top: 60px !important; padding-bottom: 60px !important; }
         }
 
         /* =============================================
@@ -767,7 +739,7 @@
             color: #d1d5db !important;
         }
 
-        /* Ambient particle glow for dark hero */
+        /* Ambient particle glow for dark hero -- fully contained, no overflow escape */
         .gradient-hero-dark {
             position: relative;
             overflow: hidden;
@@ -776,14 +748,11 @@
         .gradient-hero-dark::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            inset: 0; /* top:0 right:0 bottom:0 left:0 -- NEVER escapes container */
             background:
-                radial-gradient(ellipse at 20% 30%, rgba(109, 40, 217, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 60%);
+                radial-gradient(ellipse at 20% 30%, rgba(109, 40, 217, 0.18) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 70%, rgba(236, 72, 153, 0.12) 0%, transparent 55%),
+                radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 65%);
             pointer-events: none;
             z-index: 0;
             animation: ambientPulse 8s ease-in-out infinite alternate;
@@ -793,8 +762,8 @@
             z-index: 1;
         }
         @keyframes ambientPulse {
-            0% { opacity: 0.6; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.05); }
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
         }
         @keyframes floatOrb {
             0% { transform: translateY(0) scale(1); }
@@ -4077,34 +4046,24 @@
         })();
     </script>
     <script>
-        // Dynamic stacking: pioneer bar → nav → french bar → content
+        // Bar stacking -- CSS handles defaults, JS refines after fonts/images load
         function positionFixedBars() {
             var pioneerBar = document.querySelector('.pioneer-bar');
             var mainNav = document.querySelector('.main-nav');
             var frenchBar = document.getElementById('french-bar');
             if (!pioneerBar || !mainNav || !frenchBar) return;
-
-            var pioneerH = pioneerBar.offsetHeight;
-            var navH = mainNav.offsetHeight;
-            var frenchH = frenchBar.offsetHeight;
-
-            // Stack: pioneer at top=0, nav directly below, french bar directly below nav
-            mainNav.style.top = pioneerH + 'px';
-            frenchBar.style.top = (pioneerH + navH) + 'px';
-
-            // Body padding = total height of all 3 fixed bars
-            document.body.style.paddingTop = (pioneerH + navH + frenchH) + 'px';
+            var pH = pioneerBar.offsetHeight;
+            var nH = mainNav.offsetHeight;
+            var fH = frenchBar.offsetHeight;
+            mainNav.style.top = pH + 'px';
+            frenchBar.style.top = (pH + nH) + 'px';
+            document.body.style.paddingTop = (pH + nH + fH) + 'px';
         }
-
-        // Run immediately on script eval (bars are already in DOM at this point)
-        positionFixedBars();
-        // Re-run on DOMContentLoaded, load, and resize for accuracy
-        document.addEventListener('DOMContentLoaded', positionFixedBars);
+        // Only run after full page load so offsetHeight values are accurate
         window.addEventListener('load', positionFixedBars);
         window.addEventListener('resize', function() {
-            // Debounce resize
-            clearTimeout(window._barResizeTimer);
-            window._barResizeTimer = setTimeout(positionFixedBars, 100);
+            clearTimeout(window._barT);
+            window._barT = setTimeout(positionFixedBars, 150);
         });
     </script>
     <script>

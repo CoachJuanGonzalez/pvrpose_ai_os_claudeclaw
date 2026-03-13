@@ -3849,33 +3849,48 @@
         });
     </script>
     <script>
-        // Star particles for dark hero
+        // Star particles for dark hero -- fully responsive (mobile/tablet/desktop)
         (function() {
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
             var canvas = document.getElementById('hero-stars');
             if (!canvas) return;
             var ctx = canvas.getContext('2d');
             var stars = [];
-            var W, H;
+            var W, H, dpr, animId;
 
             function resize() {
+                // Always use viewport width -- never exceed it (fixes mobile overflow)
+                dpr = Math.min(window.devicePixelRatio || 1, 2); // cap at 2x for perf
+                W = Math.min(window.innerWidth, document.documentElement.clientWidth);
                 var section = document.getElementById('hero-section');
-                W = canvas.width = section ? section.offsetWidth : window.innerWidth;
-                H = canvas.height = section ? section.offsetHeight : window.innerHeight;
+                H = section ? section.offsetHeight : window.innerHeight;
+                // Set canvas logical size = viewport, physical size = dpr scaled
+                canvas.style.width = W + 'px';
+                canvas.style.height = H + 'px';
+                canvas.width = Math.floor(W * dpr);
+                canvas.height = Math.floor(H * dpr);
+                ctx.scale(dpr, dpr);
             }
 
             function initStars() {
                 stars = [];
-                var count = Math.floor((W * H) / 8000); // density
+                // More stars on larger screens, fewer on mobile (but never less than 40)
+                var area = W * H;
+                var density = W < 480 ? 5000 : W < 768 ? 6000 : 8000;
+                var count = Math.max(40, Math.floor(area / density));
                 for (var i = 0; i < count; i++) {
+                    // Slightly larger stars on high-dpr screens (retina mobile)
+                    var maxR = dpr > 1 ? 1.4 : 1.2;
                     stars.push({
                         x: Math.random() * W,
                         y: Math.random() * H,
-                        r: Math.random() * 1.2 + 0.2,
-                        alpha: Math.random() * 0.6 + 0.2,
-                        speed: Math.random() * 0.3 + 0.05,
-                        twinkleSpeed: Math.random() * 0.02 + 0.005,
-                        twinkleDir: Math.random() > 0.5 ? 1 : -1
+                        r: Math.random() * maxR + 0.3,
+                        alpha: Math.random() * 0.65 + 0.15,
+                        speed: Math.random() * 0.25 + 0.04,
+                        twinkleSpeed: Math.random() * 0.018 + 0.004,
+                        twinkleDir: Math.random() > 0.5 ? 1 : -1,
+                        // Occasional slightly brighter pink/purple tinted star
+                        tinted: Math.random() > 0.85
                     });
                 }
             }
@@ -3889,16 +3904,36 @@
                     if (s.y < -2) { s.y = H + 2; s.x = Math.random() * W; }
                     ctx.beginPath();
                     ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-                    ctx.fillStyle = 'rgba(255,255,255,' + s.alpha + ')';
+                    if (s.tinted) {
+                        // Subtle purple/pink tint on some stars
+                        ctx.fillStyle = 'rgba(200,160,255,' + s.alpha + ')';
+                    } else {
+                        ctx.fillStyle = 'rgba(255,255,255,' + s.alpha + ')';
+                    }
                     ctx.fill();
                 });
-                requestAnimationFrame(draw);
+                animId = requestAnimationFrame(draw);
             }
 
-            window.addEventListener('resize', function() { resize(); initStars(); });
-            resize();
-            initStars();
-            draw();
+            var resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                cancelAnimationFrame(animId);
+                resizeTimer = setTimeout(function() {
+                    resize();
+                    initStars();
+                    draw();
+                }, 150);
+            });
+
+            // Wait for DOM + fonts to settle before measuring section height
+            if (document.readyState === 'complete') {
+                resize(); initStars(); draw();
+            } else {
+                window.addEventListener('load', function() {
+                    resize(); initStars(); draw();
+                });
+            }
         })();
     </script>
     <script>

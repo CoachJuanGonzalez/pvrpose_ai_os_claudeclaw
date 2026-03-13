@@ -11,15 +11,20 @@
  *   SLACK_ALLOWED_USER_IDS — comma-separated Slack user IDs (e.g. U0AKUKQN139)
  */
 
+import fs from 'fs';
+import path from 'path';
+import crypto from 'crypto';
 import { App, LogLevel } from '@slack/bolt';
 
 import { runAgent, AgentProgressEvent } from './agent.js';
+import { extractFileMarkers } from './bot.js';
 import { AGENT_ID, agentDefaultModel, agentSystemPrompt } from './config.js';
 import { getSession, setSession } from './db.js';
 import { logger } from './logger.js';
 import { buildMemoryContext, saveConversationTurn } from './memory.js';
 import { readEnvFile } from './env.js';
 import { emitChatEvent, setProcessing } from './state.js';
+import { transcribeAudio, UPLOADS_DIR } from './voice.js';
 
 // ── Config ──────────────────────────────────────────────────────────
 
@@ -114,22 +119,68 @@ export async function startSlackBot(): Promise<void> {
 
   // ── Message handler ─────────────────────────────────────────────
 
-  slackApp.message(async ({ message, say, client }) => {
-    // Only handle regular user messages (not bot messages, edits, etc.)
-    if (message.subtype) return;
-    if (!('user' in message) || !('text' in message)) return;
+  slackApp.event('message', async ({ event, say }) => {
+    const message = event as unknown as Record<string, unknown>;
 
-    const userId = message.user!;
-    const text = message.text || '';
-    const channelId = message.channel;
+    logger.info({ messageEvent: JSON.stringify(message).slice(0, 500) }, 'Slack raw event received');
+
+    // Allow regular messages and file_share (voice messages), skip everything else
+    const subtype = message.subtype as string | undefined;
+    if (subtype && subtype !== 'file_share') {
+      logger.info({ subtype }, 'Slack message skipped (subtype)');
+      return;
+    }
+
+    const userId = (message.user as string) || '';
+    let text = (message.text as string) || '';
+    const channelId = (message.channel as string) || '';
 
     // Ignore our own messages
-    if (userId === botUserId) return;
+    if (!userId || userId === botUserId) return;
 
     // Security gate
     if (!isAuthorisedSlackUser(userId)) {
       logger.warn({ userId }, 'Rejected Slack message from unauthorised user');
       return;
+    }
+
+    // Handle voice/audio files -- download and transcribe
+    const files = message.files as Array<Record<string, unknown>> | undefined;
+    if (files && files.length > 0) {
+      const audioFile = files.find((f) => {
+        const mime = (f.mimetype as string) || '';
+        return mime.startsWith('audio/');
+      });
+      if (audioFile) {
+        const downloadUrl = (audioFile.url_private_download || audioFile.url_private) as string;
+        if (downloadUrl) {
+          try {
+            logger.info({ fileName: audioFile.name }, 'Downloading Slack voice message');
+            const resp = await fetch(downloadUrl, {
+              headers: { Authorization: `Bearer ${SLACK_BOT_TOKEN}` },
+            });
+            if (!resp.ok) throw new Error(`Download failed: ${resp.status}`);
+            const buf = Buffer.from(await resp.arrayBuffer());
+            const ext = path.extname((audioFile.name as string) || '.m4a') || '.m4a';
+            const localPath = path.join(UPLOADS_DIR, `slack_${Date.now()}_${crypto.randomBytes(4).toString('hex')}${ext}`);
+            fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+            fs.writeFileSync(localPath, buf);
+            const transcription = await transcribeAudio(localPath);
+            fs.unlinkSync(localPath);
+            if (transcription) {
+              text = `[Voice transcribed]: ${transcription}`;
+              logger.info({ transcription: transcription.slice(0, 100) }, 'Slack voice transcribed');
+            } else {
+              await say("Couldn't transcribe the voice message. Try again or send text.");
+              return;
+            }
+          } catch (err) {
+            logger.error({ err }, 'Slack voice transcription failed');
+            await say("Couldn't process the voice message. Try sending text instead.");
+            return;
+          }
+        }
+      }
     }
 
     // Skip empty messages
@@ -195,10 +246,35 @@ export async function startSlackBot(): Promise<void> {
       // Emit to SSE
       emitChatEvent({ type: 'assistant_message', chatId, content: rawResponse, source: 'slack' });
 
-      // Send response (split if long)
-      const responseParts = splitSlackMessage(rawResponse);
-      for (const part of responseParts) {
-        await say(part);
+      // Extract file markers ([SEND_FILE:...], [SEND_PHOTO:...])
+      const { text: responseText, files: fileMarkers } = extractFileMarkers(rawResponse);
+
+      // Upload any attached files to Slack
+      for (const file of fileMarkers) {
+        try {
+          if (!fs.existsSync(file.filePath)) {
+            await say(`Could not send file: ${file.filePath} (not found)`);
+            continue;
+          }
+          await slackApp!.client.filesUploadV2({
+            token: SLACK_BOT_TOKEN,
+            channel_id: channelId,
+            file: fs.readFileSync(file.filePath),
+            filename: path.basename(file.filePath),
+            initial_comment: file.caption || undefined,
+          });
+        } catch (fileErr) {
+          logger.error({ err: fileErr, filePath: file.filePath }, 'Failed to upload file to Slack');
+          await say(`Failed to send file: ${path.basename(file.filePath)}`);
+        }
+      }
+
+      // Send text response (split if long)
+      if (responseText) {
+        const responseParts = splitSlackMessage(responseText);
+        for (const part of responseParts) {
+          await say(part);
+        }
       }
 
       setProcessing(chatId, false);

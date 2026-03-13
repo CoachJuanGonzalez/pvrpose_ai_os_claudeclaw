@@ -117,8 +117,9 @@ async function main() {
   }
 
   // Chat ID
-  if (env.ALLOWED_CHAT_ID) {
-    ok(`Chat ID: ${env.ALLOWED_CHAT_ID}`);
+  const chatIds = env.ALLOWED_CHAT_IDS || env.ALLOWED_CHAT_ID;
+  if (chatIds) {
+    ok(`Chat ID: ${chatIds}`);
   } else {
     warn('Chat ID: not set');
   }

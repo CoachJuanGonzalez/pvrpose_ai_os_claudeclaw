@@ -2489,79 +2489,120 @@
     </section>
 
     <!-- ABOUT FOUNDER -->
-    <section class="py-20 px-6 bg-white" id="about">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center hero-headline">
-                About the Founder
+    <section class="py-20 px-6 section-dark section-fade-in-dark section-fade-out-dark relative" id="about">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- Section label -->
+            <div class="text-center mb-4 reveal">
+                <span class="text-xs font-bold tracking-widest uppercase text-pink-400">The Person Behind The System</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-center hero-headline reveal">
+                Meet Coach Juan
             </h2>
-            <p class="text-xl text-gray-600 text-center mb-20 max-w-3xl mx-auto">
-                15+ years leading tech transformations. Now building AI with more soul
+            <p class="text-lg md:text-xl text-gray-400 text-center mb-14 max-w-2xl mx-auto reveal">
+                15+ years in enterprise tech. Now building AI that actually works for humans.
             </p>
 
-            <div class="glass p-10 md:p-16 rounded-3xl shadow-2xl">
-                <div class="flex flex-col md:flex-row gap-8 items-start">
-                    <div class="flex-shrink-0">
-                        <!-- Photo frame with gradient border -->
-                        <div class="relative p-1 rounded-3xl bg-gradient-to-br from-pink-500 via-purple-600 to-pink-500 shadow-xl hover-glow">
-                            <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-3xl overflow-hidden bg-white">
-                                <img src="/JuanGonzalez.jpg"
-                                     alt="Coach Juan Gonzalez - Founder of PVRPOSE AI"
-                                     class="w-full h-full object-cover object-center"
-                                     style="object-position: 50% 30%;"
-                                     loading="lazy" />
+            <!-- Main card -->
+            <div class="relative rounded-3xl overflow-hidden reveal-scale" style="background: linear-gradient(135deg, rgba(109,40,217,0.12) 0%, rgba(10,10,15,0.95) 40%, rgba(236,72,153,0.08) 100%); border: 1px solid rgba(255,255,255,0.1);">
+
+                <!-- Top accent line -->
+                <div style="height:3px;background:linear-gradient(90deg,#6d28d9,#ec4899,#6d28d9);"></div>
+
+                <div class="p-6 md:p-12 lg:p-16">
+                    <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+
+                        <!-- Left: Photo + credentials -->
+                        <div class="flex-shrink-0 flex flex-col items-center lg:items-start gap-6 w-full lg:w-auto">
+                            <!-- Photo with glow border -->
+                            <div class="relative mx-auto lg:mx-0">
+                                <div class="absolute inset-0 rounded-3xl blur-2xl opacity-60" style="background:linear-gradient(135deg,rgba(109,40,217,0.6),rgba(236,72,153,0.4));transform:scale(1.05);"></div>
+                                <div class="relative p-[3px] rounded-3xl shadow-glow-purple" style="background:linear-gradient(135deg,#6d28d9,#ec4899,#8b5cf6);">
+                                    <div class="w-52 h-52 md:w-64 md:h-64 rounded-3xl overflow-hidden" style="background:#0a0a0f;">
+                                        <img src="/JuanGonzalez.jpg"
+                                             alt="Coach Juan Gonzalez - Founder of PVRPOSE AI"
+                                             class="w-full h-full object-cover"
+                                             style="object-position:50% 30%;"
+                                             loading="lazy" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Award badge -->
+                            <a href="https://www.linkedin.com/in/agilejuangonzalez/overlay/1738383056539/single-media-viewer/?profileId=ACoAAArkV_oBYdpmmqNLufO4RDoXW4zYVt5soX4"
+                               target="_blank" rel="noopener noreferrer"
+                               class="w-full lg:w-64 flex items-center gap-3 px-4 py-3 rounded-2xl hover-lift"
+                               style="background:linear-gradient(135deg,rgba(251,191,36,0.15),rgba(251,191,36,0.05));border:1px solid rgba(251,191,36,0.3);">
+                                <span class="text-2xl flex-shrink-0">🏆</span>
+                                <div>
+                                    <p class="text-yellow-400 font-bold text-xs leading-tight">2024 Mindvalley AI Award</p>
+                                    <p class="text-gray-400 text-xs leading-tight">Best Use of AI in Technology</p>
+                                </div>
+                            </a>
+
+                            <!-- Quick stats -->
+                            <div class="w-full lg:w-64 grid grid-cols-2 gap-3">
+                                <div class="text-center p-3 rounded-2xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);">
+                                    <p class="text-2xl font-bold text-white">15+</p>
+                                    <p class="text-gray-400 text-xs mt-1">Years in Tech</p>
+                                </div>
+                                <div class="text-center p-3 rounded-2xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);">
+                                    <p class="text-2xl font-bold text-white">130+</p>
+                                    <p class="text-gray-400 text-xs mt-1">Teams Coached</p>
+                                </div>
+                                <div class="text-center p-3 rounded-2xl col-span-2" style="background:rgba(236,72,153,0.08);border:1px solid rgba(236,72,153,0.2);">
+                                    <p class="text-lg font-bold gradient-accent bg-clip-text text-transparent">Montreal, Quebec 🇨🇦</p>
+                                    <p class="text-gray-400 text-xs mt-1">CASL · PIPEDA · Loi 25</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 gradient-accent bg-clip-text text-transparent">Coach Juan Gonzalez</h3>
-                        <p class="text-lg font-semibold text-gray-500 mb-8">AI Performance Strategist | PVRPOSE AI</p>
 
-                        <p class="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
-                            Coach Juan spent 15+ years leading tech transformations at companies like Ericsson and Ubisoft, then walked away as a solo-entrepreneur to build something with more soul at PVRPOSE AI.
-                        </p>
+                        <!-- Right: Bio + framework -->
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-1 gradient-accent bg-clip-text text-transparent">Coach Juan Gonzalez</h3>
+                            <p class="text-pink-400 font-semibold text-base mb-8 tracking-wide">AI Performance Strategist · Founder, PVRPOSE AI</p>
 
-                        <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-                            <a href="https://www.linkedin.com/in/agilejuangonzalez/overlay/1738383056539/single-media-viewer/?profileId=ACoAAArkV_oBYdpmmqNLufO4RDoXW4zYVt5soX4" target="_blank" rel="noopener noreferrer" class="underline text-gray-700 hover:text-black">Winner of the 2024 Mindvalley AI Award for Best Use of AI in Technology</a>, Coach Juan brings a unique combination of enterprise tech leadership, startup leadership experience, and human-centered design to every project.
-                        </p>
+                            <!-- Quote block -->
+                            <div class="mb-8 pl-5" style="border-left:3px solid #ec4899;">
+                                <p class="text-lg md:text-xl text-gray-200 italic leading-relaxed">
+                                    "I spent 15 years transforming how enterprises operate. I watched founders drown in admin while their real genius sat unused. PVRPOSE EA is the system I wish I'd had."
+                                </p>
+                            </div>
 
-                        <div class="border-t-2 border-gray-300 pt-6">
-                            <p class="font-semibold mb-4 text-lg">Background:</p>
-                            <ul class="space-y-2 text-gray-700">
-                                <li class="flex items-start">
-                                    <span class="mr-3 mt-1">•</span>
-                                    <span>15+ years leading tech transformations (Ericsson, Ubisoft IT)</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-3 mt-1">•</span>
-                                    <span>130+ Agile teams coached through scaled transformations</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-3 mt-1">•</span>
-                                    <span>Startup leadership & AI implementation expert (2.5+ years hands-on)</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-3 mt-1">•</span>
-                                    <span>2024 Mindvalley AI Award Winner</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-3 mt-1">•</span>
-                                    <span>Based in Quebec, Canada</span>
-                                </li>
-                            </ul>
-                            <div class="mt-8 pt-6 border-t-2 border-gray-300">
-                                <p class="font-semibold mb-4 text-lg">The Framework Behind Every Build:</p>
-                                <div class="grid grid-cols-3 gap-2 sm:gap-4">
-                                    <div class="text-center p-2 sm:p-4 bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl">
-                                        <p class="text-base sm:text-xl md:text-2xl font-bold gradient-accent bg-clip-text text-transparent mb-1">Strategy</p>
-                                        <p class="text-[10px] sm:text-xs text-gray-600 leading-tight">Business problem first. Technology second.</p>
+                            <p class="text-base md:text-lg text-gray-300 mb-5 leading-relaxed">
+                                Coach Juan led tech transformations at <strong class="text-white">Ericsson</strong> and <strong class="text-white">Ubisoft</strong>, coached 130+ agile teams through scaled change, then walked away from corporate to build AI systems with more soul.
+                            </p>
+
+                            <p class="text-base md:text-lg text-gray-300 mb-10 leading-relaxed">
+                                His edge: he's not a developer who learned business. He's a strategist who learned to build -- and every PVRPOSE EA system is built the same way he'd run an enterprise transformation. Strategy first. Systems second. Humans always.
+                            </p>
+
+                            <!-- Credential pills -->
+                            <div class="flex flex-wrap gap-2 mb-10">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold text-purple-300" style="background:rgba(109,40,217,0.2);border:1px solid rgba(109,40,217,0.4);">Ericsson</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold text-purple-300" style="background:rgba(109,40,217,0.2);border:1px solid rgba(109,40,217,0.4);">Ubisoft IT</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold text-pink-300" style="background:rgba(236,72,153,0.15);border:1px solid rgba(236,72,153,0.3);">🏆 Mindvalley 2024</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold text-gray-300" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);">Agile Coach · SAFe · Scrum</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold text-gray-300" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);">Claude · GPT-4o · n8n</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold text-gray-300" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);">CASL · PIPEDA Compliant</span>
+                            </div>
+
+                            <!-- The 3-pillar framework -->
+                            <div class="border-t border-white/10 pt-8">
+                                <p class="text-xs font-bold tracking-widest uppercase text-gray-500 mb-5">The Framework Behind Every Build</p>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                    <div class="p-4 rounded-2xl reveal-delay-1" style="background:rgba(109,40,217,0.12);border:1px solid rgba(109,40,217,0.25);">
+                                        <p class="text-lg font-bold gradient-accent bg-clip-text text-transparent mb-2">Strategy</p>
+                                        <p class="text-sm text-gray-400 leading-snug">Business problem first. Technology is never the starting point.</p>
                                     </div>
-                                    <div class="text-center p-2 sm:p-4 bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl">
-                                        <p class="text-base sm:text-xl md:text-2xl font-bold gradient-accent bg-clip-text text-transparent mb-1">Systems</p>
-                                        <p class="text-[10px] sm:text-xs text-gray-600 leading-tight">Real running infrastructure. Not advice.</p>
+                                    <div class="p-4 rounded-2xl reveal-delay-2" style="background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.25);">
+                                        <p class="text-lg font-bold gradient-accent bg-clip-text text-transparent mb-2">Systems</p>
+                                        <p class="text-sm text-gray-400 leading-snug">Real running infrastructure. Not a deck. Not advice.</p>
                                     </div>
-                                    <div class="text-center p-2 sm:p-4 bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl">
-                                        <p class="text-base sm:text-xl md:text-2xl font-bold gradient-accent bg-clip-text text-transparent mb-1">Humans</p>
-                                        <p class="text-[10px] sm:text-xs text-gray-600 leading-tight">Adoption, behavior change, people outcomes.</p>
+                                    <div class="p-4 rounded-2xl reveal-delay-3" style="background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.25);">
+                                        <p class="text-lg font-bold gradient-accent bg-clip-text text-transparent mb-2">Humans</p>
+                                        <p class="text-sm text-gray-400 leading-snug">Adoption, behavior change, people outcomes. Always.</p>
                                     </div>
                                 </div>
                             </div>
@@ -2569,6 +2610,17 @@
                     </div>
                 </div>
             </div>
+
+            <!-- LinkedIn CTA -->
+            <div class="text-center mt-10 reveal">
+                <a href="https://www.linkedin.com/in/agilejuangonzalez/" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-3 px-6 py-3 rounded-full font-semibold text-sm transition hover-lift btn-sweep"
+                   style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:#fff;">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    Connect on LinkedIn
+                </a>
+            </div>
+
         </div>
     </section>
 

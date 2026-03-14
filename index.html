@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v4-pvrpose-ea-tiers -->
+<!-- v5-pvrpose-ea-tiers-qa-fixes -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1679,6 +1679,11 @@
         </div>
     </section>
 
+    <!-- Testimonial Disclaimer -->
+    <div class="bg-gray-50 border-t border-gray-200 py-4 px-6 text-center">
+        <p class="text-xs text-gray-500 max-w-3xl mx-auto">Testimonials reflect individual client experiences and documented outcomes from 2024–2026 engagements. Time savings, revenue projections, and results are estimates based on comparable client implementations. Individual outcomes vary based on business model, scope, and implementation completeness.</p>
+    </div>
+
     <script>
         function setupVideo(thumbId, iframeId, embedUrl) {
             const thumb = document.getElementById(thumbId);
@@ -2002,7 +2007,8 @@
     <!-- URGENCY TRIGGER (before Services) -->
     <section class="py-8 px-6 bg-gradient-to-r from-pink-600 to-deep-blue">
         <div class="max-w-5xl mx-auto text-center text-white">
-            <p class="text-lg sm:text-2xl md:text-3xl font-bold mb-2 leading-snug">⚡ Pioneer Launch: 3 Spots Total — 1 Free Build + 2 Audits at $2,500 CAD. Filling Now.</p>
+            <p class="text-sm sm:text-xl md:text-3xl font-bold mb-1 leading-tight">⚡ Pioneer Launch: 3 Spots Filling Now</p>
+            <p class="text-xs sm:text-base md:text-xl font-semibold leading-tight opacity-95">1 Free Build + 2 Audits at $2,500 CAD — Once filled, standard pricing applies.</p>
             <p class="text-sm sm:text-lg md:text-xl opacity-90">Once filled, standard pricing applies. PVRPOSE EA from $15K · EA Amplify from $18K · EA Scale from $25K.</p>
         </div>
     </section>
@@ -2640,7 +2646,7 @@
             <div class="space-y-6">
                 <!-- FAQ 1 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(1)">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ(1)">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             Should I try DIY automation first before hiring you?
                         </h3>
@@ -2672,7 +2678,7 @@
 
                 <!-- FAQ 2 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(2)">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ(2)">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             How is this different from hiring a VA or admin assistant?
                         </h3>
@@ -2729,7 +2735,7 @@
 
                 <!-- FAQ 3 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(3)">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ(3)">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             What if my business changes after implementation?
                         </h3>
@@ -2767,7 +2773,7 @@
 
                 <!-- FAQ 4 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(4)">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ(4)">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             How do I know this will actually work for MY business?
                         </h3>
@@ -2803,7 +2809,7 @@
 
                 <!-- FAQ 5 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(5)">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ(5)">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             Why does this cost $15K–$40K when I can use ChatGPT for $20/month?
                         </h3>
@@ -2838,7 +2844,7 @@
 
                 <!-- FAQ 6 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(6)">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ(6)">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             What's your refund policy or satisfaction guarantee?
                         </h3>
@@ -2873,7 +2879,7 @@
 
                 <!-- FAQ 7 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(7)">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ(7)">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             Why are you offering pioneer spots instead of just selling at full price?
                         </h3>
@@ -2896,7 +2902,7 @@
 
                 <!-- FAQ 8 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(8)">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ(8)">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             Can I really manage my business AI from my phone?
                         </h3>
@@ -2928,7 +2934,7 @@
 
                 <!-- FAQ 9 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(9)">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ(9)">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             What makes PVRPOSE AI OS different from every other AI tool out there?
                         </h3>
@@ -2951,7 +2957,7 @@
 
                 <!-- FAQ 10 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(10)">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ(10)">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             Where does my business data go? Is this CASL/PIPEDA compliant?
                         </h3>
@@ -2980,7 +2986,7 @@
 
                 <!-- FAQ 11 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(11)">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ(11)">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             You already use n8n, Zapier, or Make.com — why would you need PVRPOSE AI OS?
                         </h3>
@@ -3012,7 +3018,7 @@
 
                 <!-- FAQ 12 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ(12)">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ(12)">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             What does the first week actually look like? What do I have to do?
                         </h3>
@@ -3032,7 +3038,7 @@
 
                 <!-- FAQ EA-1 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ('ea1')">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ('ea1')">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             Does this replace my EA?
                         </h3>
@@ -3047,7 +3053,7 @@
 
                 <!-- FAQ EA-2 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ('ea2')">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ('ea2')">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             My EA isn't technical. Will they be able to use this?
                         </h3>
@@ -3062,7 +3068,7 @@
 
                 <!-- FAQ EA-3 -->
                 <div class="glass-dark p-4 md:p-8 rounded-2xl hover-lift">
-                    <button class="faq-question w-full text-left flex justify-between items-start" onclick="toggleFAQ('ea3')">
+                    <button class="faq-question w-full text-left flex justify-between items-start" aria-expanded="false" onclick="toggleFAQ('ea3')">
                         <h3 class="text-base md:text-xl font-bold text-gray-900 pr-4 md:pr-8">
                             How long until we see ROI?
                         </h3>
@@ -3095,14 +3101,17 @@
             requestAnimationFrame(function() {
                 const answer = document.getElementById(`faq-answer-${num}`);
                 const icon = document.getElementById(`faq-icon-${num}`);
+                const button = document.querySelector(`button[onclick="toggleFAQ(${JSON.stringify(num)})"]`);
 
                 // Toggle visibility
                 if (answer.classList.contains('hidden')) {
                     answer.classList.remove('hidden');
                     icon.classList.add('rotate-180');
+                    if (button) button.setAttribute('aria-expanded', 'true');
                 } else {
                     answer.classList.add('hidden');
                     icon.classList.remove('rotate-180');
+                    if (button) button.setAttribute('aria-expanded', 'false');
                 }
             });
         }
@@ -3460,6 +3469,12 @@
                        maxlength="254"
                        class="w-full px-4 py-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base">
 
+                <label class="flex items-start gap-2 text-xs text-gray-600 cursor-pointer">
+                    <input type="checkbox" id="exitMarketingConsent" name="marketing_consent" checked
+                           class="mt-1 rounded border-gray-300 text-pink-600 focus:ring-pink-500" />
+                    <span>I consent to receive emails and updates from PVRPOSE AI. Unsubscribe anytime. (CASL-compliant)</span>
+                </label>
+
                 <button type="submit" class="w-full btn-primary text-white px-6 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition">
                     Send Me The Checklist →
                 </button>
@@ -3646,7 +3661,7 @@
             let email = emailInput.value.trim().toLowerCase();
 
             // Validate first name
-            if (!firstName || firstName.length < 2) {
+            if (!firstName || firstName.length < 1) {
                 alert('Please enter your first name.');
                 firstNameInput.focus();
                 return;
@@ -3703,7 +3718,7 @@
                         document: '5 Signs Your Business Is Ready for AI Automation - Quick Reference',
                         html_checklist: 'https://pvrpose.ai/5-signs-ai-readiness-checklist.html',
                         consent: {
-                            marketing: true,
+                            marketing: document.getElementById('exitMarketingConsent') ? document.getElementById('exitMarketingConsent').checked : true,
                             timestamp: new Date().toISOString(),
                             jurisdiction: 'CA' // Canadian compliance
                         }

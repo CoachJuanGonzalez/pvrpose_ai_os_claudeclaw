@@ -2,9 +2,39 @@
 ## Build Once. Demo. Replicate for Clients.
 
 **Author:** Juan Gonzalez, PVRPOSE AI -- Montreal
-**Version:** v3.1 | March 2026
+**Version:** v3.2 | March 2026
 **Status:** Internal SOP -- Not for distribution
 **Source of truth for:** system architecture, capability inventory, business cases, build SOP, pricing, compliance
+
+---
+
+## Brand Architecture (LOCKED -- 2026-03-14)
+
+> This is the philosophical foundation of PVRPOSE AI. Never drift from it.
+
+| Pillar | Question | What it means |
+|--------|----------|---------------|
+| **PVRPOSE** | Why am I here? | Mission -- carried by the brand name itself. The deepest question. |
+| **Voice** | Who am I? | Identity -- how the founder shows up, their tone, their authentic self |
+| **Vision** | Where am I going? | Direction -- the path forward, the future they're building toward |
+| **Vibe** | What must I do? | Action -- the energy and execution that follows clarity |
+
+**The insight:** Most AI companies lead with features. PVRPOSE AI leads with identity. The brand name carries the heaviest philosophical lift -- purpose/mission -- so the three product pillars answer the operational questions that follow once purpose is clear.
+
+**North Star tagline:** Own Your Voice. Vision. Vibe.
+
+**How this maps to the product:**
+- Every PVRPOSE EA build clears operational noise so the founder has time, clarity, and energy to answer all four questions.
+- Voice is expressed through custom system prompts and brand tone configuration.
+- Vision is expressed through the AI Readiness Audit and prioritized workflow roadmap.
+- Vibe is expressed through consistent, brand-native client experience at scale.
+- PVRPOSE -- the why -- is what drives the founder to build the business in the first place. The AI OS protects it.
+
+**Usage rules:**
+- In product/conversion contexts: use "Own Your Voice. Vision. Vibe."
+- In brand/identity contexts (About, bio, positioning): use the full four-pillar framework with questions
+- Never use "Why am I here?" for Vision -- that belongs to PVRPOSE itself
+- Never position this as AGI or superintelligence -- PVRPOSE AI OS is an agentic AI system
 
 ---
 

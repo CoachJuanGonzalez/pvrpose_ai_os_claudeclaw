@@ -1,10 +1,39 @@
 # PVRPOSE AI OS — EA Superpowers SOP
 ## The Complete Guide to Building, Deploying, and Selling the EA Copilot Configuration
 
-**Version:** v1.2 | March 2026
+**Version:** v1.3 | March 2026
 **Status:** Internal SOP — Not for distribution
 **Author:** Juan Gonzalez, PVRPOSE AI — Montreal
-**Parent Document:** PVRPOSE_AI_OS_BLUEPRINT_SOP.md v3.0 (supersedes nothing — this is an additive configuration layer)
+**Parent Document:** PVRPOSE_AI_OS_BLUEPRINT_SOP.md v3.2 (supersedes nothing — this is an additive configuration layer)
+
+---
+
+## Brand Architecture (LOCKED -- 2026-03-14)
+
+> This is the philosophical foundation of PVRPOSE AI. Never drift from it.
+
+| Pillar | Question | What it means |
+|--------|----------|---------------|
+| **PVRPOSE** | Why am I here? | Mission -- carried by the brand name itself. The deepest question. |
+| **Voice** | Who am I? | Identity -- how the founder shows up, their tone, their authentic self |
+| **Vision** | Where am I going? | Direction -- the path forward, the future they're building toward |
+| **Vibe** | What must I do? | Action -- the energy and execution that follows clarity |
+
+**The insight:** Most AI companies lead with features. PVRPOSE AI leads with identity. The brand name carries the heaviest philosophical lift -- purpose/mission -- so the three product pillars answer the operational questions that follow once purpose is clear.
+
+**North Star tagline:** Own Your Voice. Vision. Vibe.
+
+**How this maps to EA Amplify (this SOP's focus):**
+- The EA gets AI superpowers while the founder's Voice, Vision, and Vibe are preserved end-to-end.
+- Every EA-generated output must sound like the founder -- not the EA, not a generic AI.
+- The EA uses Vision (the founder's roadmap and priorities) to triage and act correctly.
+- The Vibe -- the founder's brand energy -- is what clients feel even when the EA handles the touchpoint.
+
+**Usage rules:**
+- In product/conversion contexts: use "Own Your Voice. Vision. Vibe."
+- In brand/identity contexts (About, bio, positioning): use the full four-pillar framework with questions
+- Never use "Why am I here?" for Vision -- that belongs to PVRPOSE itself
+- Never position this as AGI or superintelligence -- PVRPOSE AI OS is an agentic AI system
 
 ---
 
